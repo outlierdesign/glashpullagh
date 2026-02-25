@@ -1,4 +1,8 @@
-import { storyblokInit, apiPlugin } from "@storyblok/react/rsc";
+import {
+  storyblokInit,
+  apiPlugin,
+  getStoryblokApi as getApi,
+} from "@storyblok/react/rsc";
 
 import { HeroBlok } from "@/components/storyblok/HeroBlok";
 import { BentoGridBlok } from "@/components/storyblok/BentoGridBlok";
@@ -28,8 +32,15 @@ const components = {
   footer: FooterBlok,
 };
 
-export const getStoryblokApi = storyblokInit({
+// Initialize Storyblok — must be called before getStoryblokApi()
+storyblokInit({
   accessToken: process.env.NEXT_PUBLIC_STORYBLOK_TOKEN,
   use: [apiPlugin],
   components,
+  apiOptions: {
+    region: "eu",
+  },
 });
+
+// Re-export the SDK's getStoryblokApi which returns the initialized API instance
+export { getApi as getStoryblokApi };
