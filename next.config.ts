@@ -5,7 +5,11 @@ const nextConfig: NextConfig = {
     remotePatterns: [
       {
         protocol: "https",
-        hostname: "cdn.sanity.io",
+        hostname: "a.storyblok.com",
+      },
+      {
+        protocol: "https",
+        hostname: "a2.storyblok.com",
       },
     ],
   },

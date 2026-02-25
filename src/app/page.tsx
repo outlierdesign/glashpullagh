@@ -1,3 +1,5 @@
+import { getStoryblokApi } from "@/lib/storyblok";
+import { StoryblokStory } from "@storyblok/react/rsc";
 import { Navigation } from "@/components/Navigation";
 import { Hero } from "@/components/Hero";
 import { BentoGrid } from "@/components/BentoGrid";
@@ -16,9 +18,30 @@ import { pageData } from "@/lib/data";
 
 export const revalidate = 60;
 
-export default function Home() {
-  // In production, this would fetch from Sanity CMS
-  // For now, use static fallback data
+async function fetchStoryblokData() {
+  try {
+    const storyblokApi = getStoryblokApi();
+    if (!storyblokApi) return null;
+
+    const { data } = await storyblokApi.get("cdn/stories/home", {
+      version: "draft",
+    });
+
+    return data?.story || null;
+  } catch {
+    return null;
+  }
+}
+
+export default async function Home() {
+  const story = await fetchStoryblokData();
+
+  // If Storyblok is connected and has content, render via Storyblok
+  if (story) {
+    return <StoryblokStory story={story} />;
+  }
+
+  // Fallback: render with static data when no CMS is connected
   const data = pageData;
 
   return (
