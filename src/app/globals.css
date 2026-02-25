@@ -1,0 +1,73 @@
+@import "tailwindcss";
+
+@theme {
+  --color-bg-deep: #050604;
+  --color-bg-dark: #0a0b08;
+  --color-bg-card: #0f110d;
+  --color-bg-elevated: #141713;
+  --color-bg-surface: #1a1d18;
+
+  --color-gold: #c4903d;
+  --color-gold-light: #d4a85c;
+  --color-gold-bright: #e5be7a;
+
+  --color-green-sage: #6b7b5e;
+  --color-green-light: #96a888;
+  --color-green-deep: #1a2e1c;
+
+  --color-cream: #e8e2d6;
+  --color-cream-dim: #c4bfb4;
+  --color-stone: #706c64;
+  --color-text-dim: #6b6860;
+
+  --color-water: #4a6b82;
+  --color-water-light: #7a9db5;
+
+  --font-display: 'Playfair Display';
+  --font-body: 'Lora';
+  --font-ui: 'Inter';
+}
+
+@keyframes grainMove {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: 256px 256px;
+  }
+}
+
+@keyframes scrollPulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+body {
+  @apply bg-bg-deep text-cream font-body overflow-x-hidden antialiased;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* Smooth scrollbar styling */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: theme(colors.bg-dark);
+}
+
+::-webkit-scrollbar-thumb {
+  background: theme(colors.gold);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: theme(colors.gold-light);
+}
