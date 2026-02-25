@@ -10,3 +10,4 @@ export { MonitoringBlok } from "./MonitoringBlok";
 export { VideoSectionBlok } from "./VideoSectionBlok";
 export { GalleryBlok } from "./GalleryBlok";
 export { FooterBlok } from "./FooterBlok";
+export { InteractiveViewerBlok } from "./InteractiveViewerBlok";

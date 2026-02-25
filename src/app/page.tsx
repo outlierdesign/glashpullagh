@@ -6,6 +6,7 @@ import { BentoGrid } from "@/components/BentoGrid";
 import { StatsBanner } from "@/components/StatsBanner";
 import { ParallaxBreak } from "@/components/ParallaxBreak";
 import { AboutSite } from "@/components/AboutSite";
+import { InteractiveViewer } from "@/components/InteractiveViewer";
 import { TopoMap } from "@/components/TopoMap";
 import { RestorationGrid } from "@/components/RestorationGrid";
 import { Monitoring } from "@/components/Monitoring";
@@ -66,6 +67,13 @@ export default async function Home() {
         <StatsBanner stats={data.stats} />
         <ParallaxBreak data={data.quote1} id="quote1" />
         <AboutSite data={data.about} />
+        <InteractiveViewer
+          data={{
+            heading: "Explore the Landscape",
+            description: "Navigate the Glashapullagh restoration site in 3D. Place markers to explore key areas of peatland recovery and ecological monitoring.",
+            embedUrl: "https://point-and-place-ar.lovable.app",
+          }}
+        />
         <TopoMap pois={data.mapPOIs} />
         <RestorationGrid data={data.restoration} />
         <Monitoring data={data.monitoring} />

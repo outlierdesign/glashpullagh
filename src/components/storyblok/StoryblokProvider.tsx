@@ -13,6 +13,7 @@ import { MonitoringBlok } from "@/components/storyblok/MonitoringBlok";
 import { VideoSectionBlok } from "@/components/storyblok/VideoSectionBlok";
 import { GalleryBlok } from "@/components/storyblok/GalleryBlok";
 import { FooterBlok } from "@/components/storyblok/FooterBlok";
+import { InteractiveViewerBlok } from "@/components/storyblok/InteractiveViewerBlok";
 import { PageBlok } from "@/components/storyblok/PageBlok";
 
 const components = {
@@ -28,6 +29,7 @@ const components = {
   video_section: VideoSectionBlok,
   gallery: GalleryBlok,
   footer: FooterBlok,
+  interactive_viewer: InteractiveViewerBlok,
 };
 
 storyblokInit({
