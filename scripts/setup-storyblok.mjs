@@ -29,6 +29,8 @@ const headers = {
   "Authorization": PAT,
 };
 
+const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
+
 async function api(method, path, body) {
   const url = `${API_BASE}/spaces/${SPACE_ID}${path}`;
   const opts = { method, headers };
@@ -48,17 +50,24 @@ async function api(method, path, body) {
 
 // ─── Helper to create a component ────────────────────────────────────────
 async function createComponent(comp) {
-  try {
-    const result = await api("POST", "/components", { component: comp });
-    console.log(`  ✅ Created component: ${comp.name}`);
-    return result.component;
-  } catch (e) {
-    // If component already exists, skip
-    if (e.message.includes("422")) {
-      console.log(`  ⏭️  Component "${comp.name}" already exists, skipping`);
-      return null;
+  await sleep(250); // Rate limit: max 6 req/s
+  for (let attempt = 0; attempt < 3; attempt++) {
+    try {
+      const result = await api("POST", "/components", { component: comp });
+      console.log(`  ✅ Created component: ${comp.name}`);
+      return result.component;
+    } catch (e) {
+      if (e.message.includes("422")) {
+        console.log(`  ⏭️  Component "${comp.name}" already exists, skipping`);
+        return null;
+      }
+      if (e.message.includes("429")) {
+        console.log(`  ⏳ Rate limited, waiting 2s...`);
+        await sleep(2000);
+        continue;
+      }
+      throw e;
     }
-    throw e;
   }
 }
 
@@ -559,6 +568,7 @@ async function createHomeStory() {
     ],
   };
 
+  await sleep(1000); // Extra pause before story creation
   try {
     const result = await api("POST", "/stories", {
       story: {
