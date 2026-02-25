@@ -21,14 +21,24 @@ export const revalidate = 60;
 async function fetchStoryblokData() {
   try {
     const storyblokApi = getStoryblokApi();
-    if (!storyblokApi) return null;
+    if (!storyblokApi) {
+      console.log("[Storyblok] No API instance — token missing?");
+      return null;
+    }
 
     const { data } = await storyblokApi.get("cdn/stories/home", {
       version: "draft",
     });
 
+    if (data?.story) {
+      console.log("[Storyblok] Fetched home story successfully");
+    } else {
+      console.log("[Storyblok] API returned no story");
+    }
+
     return data?.story || null;
-  } catch {
+  } catch (err: unknown) {
+    console.error("[Storyblok] Fetch error:", err instanceof Error ? err.message : err);
     return null;
   }
 }
