@@ -36,6 +36,9 @@ storyblokInit({
   accessToken: process.env.NEXT_PUBLIC_STORYBLOK_TOKEN,
   use: [apiPlugin],
   components,
+  apiOptions: {
+    region: "eu",
+  },
 });
 
 export default function StoryblokProvider({
