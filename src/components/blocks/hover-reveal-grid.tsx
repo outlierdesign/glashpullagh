@@ -21,8 +21,7 @@ interface HoverRevealGridProps {
 
 const defaultCards: HoverRevealCard[] = [
   {
-    image:
-      "https://images.unsplash.com/photo-1500382017468-9049fed747ef?q=80&w=1280&auto=format&fit=crop",
+    image: "/images/site/landscape-figure.jpg",
     title: "Peatland Ecology",
     tags: [
       { label: "Carbon Storage" },
@@ -33,8 +32,7 @@ const defaultCards: HoverRevealCard[] = [
       "Peatlands store twice as much carbon as all the world's forests combined, making their preservation critical to climate stability.",
   },
   {
-    image:
-      "https://images.unsplash.com/photo-1446329813274-7c9036bd9a1f?q=80&w=1280&auto=format&fit=crop",
+    image: "/images/site/plank-dam.jpg",
     title: "Restoration Methods",
     tags: [
       { label: "Drain Blocking" },
@@ -45,8 +43,7 @@ const defaultCards: HoverRevealCard[] = [
       "Strategic interventions rewet degraded bog, allowing natural processes to resume peat formation and ecological recovery.",
   },
   {
-    image:
-      "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?q=80&w=1280&auto=format&fit=crop",
+    image: "/images/site/dusk-silhouette.jpg",
     title: "Community Impact",
     tags: [
       { label: "Education" },

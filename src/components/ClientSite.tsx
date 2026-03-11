@@ -4,6 +4,7 @@ import { useEffect, useRef, useState } from 'react';
 import { Gallery4 } from '@/components/blocks/gallery4';
 import { HoverRevealGrid } from '@/components/blocks/hover-reveal-grid';
 import ScrollExpandMedia from '@/components/blocks/scroll-expansion-hero';
+import { PartnersSection } from '@/components/blocks/partners-section';
 
 interface ClientSiteProps {
   content: Record<string, any>;
@@ -441,8 +442,8 @@ export default function ClientSite({ content }: ClientSiteProps) {
       {/* SCROLL EXPANSION HERO — TOP OF PAGE */}
       <ScrollExpandMedia
         mediaType="image"
-        mediaSrc="https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?q=80&w=1920&auto=format&fit=crop"
-        bgImageSrc="https://images.unsplash.com/photo-1506744038136-46273834b3fb?q=80&w=1920&auto=format&fit=crop"
+        mediaSrc="/images/site/hero-media.jpg"
+        bgImageSrc="/images/site/hero-bg.jpg"
         title="Restoring Nature"
         date="Glashpullagh Peatlands"
         scrollToExpand="Scroll to explore"
@@ -726,6 +727,9 @@ export default function ClientSite({ content }: ClientSiteProps) {
       <div style={{ background: 'var(--bg-dark)' }}>
         <HoverRevealGrid />
       </div>
+
+      {/* PARTNERS & FUNDERS */}
+      <PartnersSection />
 
       {/* FOOTER */}
       <footer className="footer">

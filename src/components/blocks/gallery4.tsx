@@ -28,20 +28,18 @@ interface Gallery4Props {
 const defaultItems: GalleryItem[] = [
   {
     id: 1,
-    title: "Blanket Bog Restoration",
+    title: "Drain Blocking",
     description:
-      "Active restoration of degraded blanket bog through drain blocking and revegetation across the Glashpullagh uplands.",
-    image:
-      "https://images.unsplash.com/photo-1501854140801-50d01698950b?q=80&w=1280&auto=format&fit=crop",
+      "Workers installing wooden dam structures in drainage channels to raise the water table and rewet degraded peatland.",
+    image: "/images/site/dam-workers.jpg",
     category: "Restoration",
   },
   {
     id: 2,
-    title: "Sphagnum Moss Recovery",
+    title: "Sphagnum Recovery",
     description:
       "Monitoring the return of keystone sphagnum moss species — essential for peat formation and carbon sequestration.",
-    image:
-      "https://images.unsplash.com/photo-1518173946687-a2cfb21de55f?q=80&w=1280&auto=format&fit=crop",
+    image: "/images/site/bog-walker.jpg",
     category: "Ecology",
   },
   {
@@ -49,35 +47,31 @@ const defaultItems: GalleryItem[] = [
     title: "Water Table Management",
     description:
       "Raising water levels through strategic dam placement to rewet drained peatland and halt carbon loss.",
-    image:
-      "https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?q=80&w=1280&auto=format&fit=crop",
+    image: "/images/site/peat-pool.jpg",
     category: "Hydrology",
   },
   {
     id: 4,
-    title: "Carbon Flux Monitoring",
+    title: "Field Monitoring",
     description:
-      "Continuous measurement of greenhouse gas emissions to quantify the climate benefits of peatland restoration.",
-    image:
-      "https://images.unsplash.com/photo-1441974231531-c6227db76b6e?q=80&w=1280&auto=format&fit=crop",
+      "Continuous measurement and monitoring across the site to track the progress of peatland restoration.",
+    image: "/images/site/monitoring-post.jpg",
     category: "Science",
   },
   {
     id: 5,
-    title: "Biodiversity Surveys",
+    title: "Plank Dam Construction",
     description:
-      "Documenting the return of native plant and animal species as the ecosystem recovers its natural function.",
-    image:
-      "https://images.unsplash.com/photo-1472214103451-9374bd1c798e?q=80&w=1280&auto=format&fit=crop",
-    category: "Wildlife",
+      "Wooden plank dams installed across drainage channels block water flow and encourage natural peat recovery.",
+    image: "/images/site/plank-dam.jpg",
+    category: "Engineering",
   },
   {
     id: 6,
     title: "Community Engagement",
     description:
-      "Local workshops and educational walks connecting people with the landscape and its restoration journey.",
-    image:
-      "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?q=80&w=1280&auto=format&fit=crop",
+      "Local teams and volunteers working together across the landscape to restore and protect this ancient ecosystem.",
+    image: "/images/site/carrying-equipment.jpg",
     category: "Community",
   },
 ]
