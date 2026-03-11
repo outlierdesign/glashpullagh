@@ -1,3 +1,7 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 /* DESIGN TOKENS */
 :root {
   --bg-deep: #050604;
@@ -36,6 +40,34 @@
   --radius-sm: 4px;
   --radius-md: 8px;
   --radius-lg: 12px;
+
+  /* shadcn CSS variables — mapped to Glashpullagh dark palette */
+  --background: 80 14% 3%;
+  --foreground: 40 18% 87%;
+  --card: 80 14% 5%;
+  --card-foreground: 40 18% 87%;
+  --popover: 80 14% 5%;
+  --popover-foreground: 40 18% 87%;
+  --primary: 36 52% 50%;
+  --primary-foreground: 80 14% 3%;
+  --secondary: 100 14% 17%;
+  --secondary-foreground: 40 18% 87%;
+  --muted: 80 10% 12%;
+  --muted-foreground: 36 6% 60%;
+  --accent: 100 14% 17%;
+  --accent-foreground: 40 18% 87%;
+  --destructive: 0 84% 60%;
+  --destructive-foreground: 0 0% 100%;
+  --border: 80 8% 15%;
+  --input: 80 8% 15%;
+  --ring: 36 52% 50%;
+  --radius: 0.5rem;
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
 }
 
 /* RESET */

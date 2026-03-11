@@ -1,6 +1,9 @@
 'use client';
 
 import { useEffect, useRef, useState } from 'react';
+import { Gallery4 } from '@/components/blocks/gallery4';
+import { HoverRevealGrid } from '@/components/blocks/hover-reveal-grid';
+import ScrollExpandMedia from '@/components/blocks/scroll-expansion-hero';
 
 interface ClientSiteProps {
   content: Record<string, any>;
@@ -435,6 +438,38 @@ export default function ClientSite({ content }: ClientSiteProps) {
 
   return (
     <>
+      {/* SCROLL EXPANSION HERO — TOP OF PAGE */}
+      <ScrollExpandMedia
+        mediaType="image"
+        mediaSrc="https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?q=80&w=1920&auto=format&fit=crop"
+        bgImageSrc="https://images.unsplash.com/photo-1506744038136-46273834b3fb?q=80&w=1920&auto=format&fit=crop"
+        title="Restoring Nature"
+        date="Glashpullagh Peatlands"
+        scrollToExpand="Scroll to explore"
+        textBlend
+      >
+        <div className="max-w-4xl mx-auto">
+          <h2
+            className="text-3xl font-bold mb-6"
+            style={{ fontFamily: 'var(--font-display)', color: 'var(--gold)' }}
+          >
+            A Living Landscape
+          </h2>
+          <p
+            className="text-lg mb-8 leading-relaxed"
+            style={{ fontFamily: 'var(--font-body)', color: 'var(--cream)' }}
+          >
+            The Glashpullagh peatlands represent one of Ireland&apos;s most significant ecological restoration projects. Through careful rewetting, drain blocking, and community engagement, we are working to restore this ancient landscape to its natural function — storing carbon, filtering water, and supporting biodiversity for generations to come.
+          </p>
+          <p
+            className="text-lg leading-relaxed"
+            style={{ fontFamily: 'var(--font-body)', color: 'var(--cream-dim)' }}
+          >
+            Every hectare of restored peatland captures an estimated 0.7 tonnes of CO₂ per year. With over 200 hectares under active management, the Glashpullagh project is making a measurable contribution to Ireland&apos;s climate goals while preserving a landscape of deep cultural and ecological significance.
+          </p>
+        </div>
+      </ScrollExpandMedia>
+
       {/* HERO SECTION */}
       <section className="hero">
         <canvas ref={heroCanvasRef} className="hero-canvas" />
@@ -729,6 +764,16 @@ export default function ClientSite({ content }: ClientSiteProps) {
           </div>
         </section>
       )}
+
+      {/* SECTION: GALLERY CAROUSEL */}
+      <div style={{ background: 'var(--bg-deep)' }}>
+        <Gallery4 />
+      </div>
+
+      {/* SECTION: HOVER REVEAL GRID */}
+      <div style={{ background: 'var(--bg-dark)' }}>
+        <HoverRevealGrid />
+      </div>
 
       {/* FOOTER */}
       <footer className="footer">
