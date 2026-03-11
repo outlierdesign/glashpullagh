@@ -33,8 +33,8 @@
   --text-primary: #E8E2D6;
   --text-secondary: #A09B91;
   --text-dim: #6B6860;
-  --font-display: 'Playfair Display', Georgia, serif;
-  --font-body: 'Lora', Georgia, serif;
+  --font-display: 'DM Serif Display', Georgia, serif;
+  --font-body: 'DM Sans', -apple-system, sans-serif;
   --font-ui: 'Inter', -apple-system, sans-serif;
   --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
   --radius-sm: 4px;
@@ -76,18 +76,19 @@ html { font-size: 16px; -webkit-font-smoothing: antialiased; background: var(--b
 html.lenis, html.lenis body { height: auto; }
 .lenis.lenis-smooth { scroll-behavior: auto !important; }
 .lenis.lenis-stopped { overflow: hidden; }
-body { font-family: var(--font-body); color: var(--text-primary); background: var(--bg-deep); line-height: 1.7; overflow-x: hidden; }
+body { font-family: var(--font-body); color: var(--text-primary); background: var(--bg-deep); line-height: 1.65; overflow-x: hidden; font-weight: 400; }
 img { max-width: 100%; height: auto; display: block; }
 a { color: inherit; text-decoration: none; }
 ::selection { background: var(--gold); color: var(--bg-deep); }
 
 /* TYPOGRAPHY */
-h1, h2, h3, h4 { font-family: var(--font-display); font-weight: 400; line-height: 1.1; letter-spacing: -0.02em; color: var(--gold-light); }
+h1, h2, h3, h4 { font-family: var(--font-display); font-weight: 400; line-height: 1.1; letter-spacing: -0.01em; color: var(--gold-light); }
 h1 { font-size: clamp(3rem, 7vw, 6.5rem); }
 h2 { font-size: clamp(2rem, 4vw, 3.5rem); }
 h3 { font-size: clamp(1.3rem, 2.5vw, 1.8rem); }
+p, li, td { font-family: var(--font-body); font-weight: 400; }
 .label { font-family: var(--font-ui); font-size: 0.7rem; font-weight: 500; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); }
-.lead { font-size: 1.15rem; color: var(--cream-dim); max-width: 50ch; }
+.lead { font-size: 1.15rem; color: var(--cream-dim); max-width: 50ch; font-weight: 300; }
 
 /* LAYOUT */
 .container { max-width: 1200px; margin: 0 auto; padding: 0 2rem; }

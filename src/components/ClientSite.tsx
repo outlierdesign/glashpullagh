@@ -661,29 +661,6 @@ export default function ClientSite({ content }: ClientSiteProps) {
         </section>
       )}
 
-      {/* MONITORING SECTION */}
-      {content.monitoring && (
-        <section className="monitoring-section">
-          <div className="container">
-            <div className="monitoring-container">
-              <div className="monitoring-header">
-                <p className="label">{content.monitoring.label || 'Science'}</p>
-                <h2>{content.monitoring.title || 'Monitoring & Research'}</h2>
-                <div className="divider-line divider-line-center" />
-              </div>
-              <div className="monitoring-grid">
-                {content.monitoring.items?.map((item: any, idx: number) => (
-                  <div key={idx} className="monitoring-card">
-                    <div className="monitoring-icon">{item.icon || '📊'}</div>
-                    <h3>{item.title}</h3>
-                    <p>{item.description}</p>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
-        </section>
-      )}
 
       {/* VIDEO GRID SECTION */}
       {content.videos && (
@@ -739,31 +716,6 @@ export default function ClientSite({ content }: ClientSiteProps) {
         </section>
       )}
 
-      {/* GALLERY SECTION */}
-      {content.gallery && (
-        <section className="gallery-section">
-          <div className="container">
-            <div className="gallery-header">
-              <p className="label">{content.gallery.label || 'Gallery'}</p>
-              <h2>{content.gallery.title || 'Photo Gallery'}</h2>
-              <div className="divider-line divider-line-center" />
-            </div>
-            <div className="gallery-grid">
-              {content.gallery.items?.map((item: any, idx: number) => (
-                <div
-                  key={idx}
-                  className="gallery-item"
-                  onClick={() => openLightbox(item.image)}
-                >
-                  <img src={item.image} alt={item.title} className="gallery-image" />
-                  <div className="gallery-overlay" />
-                  <h4 className="gallery-title">{item.title}</h4>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
-      )}
 
       {/* SECTION: GALLERY CAROUSEL */}
       <div style={{ background: 'var(--bg-deep)' }}>
