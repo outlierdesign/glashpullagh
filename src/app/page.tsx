@@ -1,88 +1,10 @@
-import { getStoryblokApi } from "@/lib/storyblok";
-import { StoryblokStory } from "@storyblok/react/rsc";
-import { Navigation } from "@/components/Navigation";
-import { Hero } from "@/components/Hero";
-import { BentoGrid } from "@/components/BentoGrid";
-import { StatsBanner } from "@/components/StatsBanner";
-import { ParallaxBreak } from "@/components/ParallaxBreak";
-import { AboutSite } from "@/components/AboutSite";
-import { InteractiveViewer } from "@/components/InteractiveViewer";
-import { TopoMap } from "@/components/TopoMap";
-import { RestorationGrid } from "@/components/RestorationGrid";
-import { Monitoring } from "@/components/Monitoring";
-import { VideoSection } from "@/components/VideoSection";
-import { Gallery } from "@/components/Gallery";
-import { Footer } from "@/components/Footer";
-import { GrainOverlay } from "@/components/shared/GrainOverlay";
-import { ProgressBar } from "@/components/shared/ProgressBar";
-import { pageData } from "@/lib/data";
+import { readFileSync } from 'fs';
+import path from 'path';
+import ClientSite from '@/components/ClientSite';
 
-export const revalidate = 60;
+export default function HomePage() {
+  const contentPath = path.join(process.cwd(), 'src', 'data', 'content.json');
+  const content = JSON.parse(readFileSync(contentPath, 'utf-8'));
 
-async function fetchStoryblokData() {
-  try {
-    const storyblokApi = getStoryblokApi();
-    if (!storyblokApi) {
-      console.log("[Storyblok] No API instance — token missing?");
-      return null;
-    }
-
-    const { data } = await storyblokApi.get("cdn/stories/home", {
-      version: "draft",
-    });
-
-    if (data?.story) {
-      console.log("[Storyblok] Fetched home story successfully");
-    } else {
-      console.log("[Storyblok] API returned no story");
-    }
-
-    return data?.story || null;
-  } catch (err: unknown) {
-    console.error("[Storyblok] Fetch error:", err instanceof Error ? err.message : err);
-    return null;
-  }
-}
-
-export default async function Home() {
-  const story = await fetchStoryblokData();
-
-  // If Storyblok is connected and has content, render via Storyblok
-  if (story) {
-    return <StoryblokStory story={story} />;
-  }
-
-  // Fallback: render with static data when no CMS is connected
-  const data = pageData;
-
-  return (
-    <>
-      <Navigation />
-      <ProgressBar />
-      <GrainOverlay />
-
-      <main>
-        <Hero data={data.hero} />
-        <BentoGrid items={data.story} />
-        <StatsBanner stats={data.stats} />
-        <ParallaxBreak data={data.quote1} id="quote1" />
-        <AboutSite data={data.about} />
-        <InteractiveViewer
-          data={{
-            heading: "Explore the Landscape",
-            description: "Navigate the Glashapullagh restoration site in 3D. Place markers to explore key areas of peatland recovery and ecological monitoring.",
-            embedUrl: "https://point-and-place-ar.lovable.app",
-          }}
-        />
-        <TopoMap pois={data.mapPOIs} />
-        <RestorationGrid data={data.restoration} />
-        <Monitoring data={data.monitoring} />
-        <VideoSection data={data.video} />
-        <ParallaxBreak data={data.quote2} id="quote2" />
-        <Gallery images={data.gallery} />
-      </main>
-
-      <Footer data={data.footer} />
-    </>
-  );
+  return <ClientSite content={content} />;
 }

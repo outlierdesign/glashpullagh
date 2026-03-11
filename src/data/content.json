@@ -1,0 +1,257 @@
+{
+  "hero": {
+    "title": "Glashapullagh",
+    "subtitle": "A working peatland restoration landscape in West Limerick. Explore the science, craft, and long-term stewardship of bogland recovery."
+  },
+  "bento": {
+    "label": "Overview",
+    "title": "What We Do",
+    "items": [
+      {
+        "title": "Restoration",
+        "description": "Active rewetting and ecological engineering of degraded peatland to restore hydrological function and biodiversity."
+      },
+      {
+        "title": "Science",
+        "description": "Rigorous monitoring of peat accumulation, water tables, vegetation dynamics, and carbon sequestration over time."
+      },
+      {
+        "title": "Stewardship",
+        "description": "Long-term land management integrating traditional knowledge with contemporary ecological science."
+      },
+      {
+        "title": "Community",
+        "description": "Engagement and education programs connecting local stakeholders to peatland conservation and restoration."
+      }
+    ]
+  },
+  "beforeAfter": {
+    "title": "Transformation Over Time",
+    "beforeImage": "https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=800&h=600&fit=crop",
+    "afterImage": "https://images.unsplash.com/photo-1469022563149-aa64dbd37dae?w=800&h=600&fit=crop"
+  },
+  "stats": {
+    "items": [
+      {
+        "value": "287",
+        "label": "Hectares Restored"
+      },
+      {
+        "value": "15+",
+        "label": "Years Monitoring"
+      },
+      {
+        "value": "2,847",
+        "label": "Tonnes CO₂ Sequestered"
+      },
+      {
+        "value": "98%",
+        "label": "Water Table Rise"
+      }
+    ]
+  },
+  "parallaxBreaks": [
+    {
+      "title": "Understanding Peatlands",
+      "text": "Peatlands cover only 3% of Earth's land surface, yet they store twice as much carbon as all forests combined. These fragile ecosystems are critical for climate regulation and biodiversity."
+    },
+    {
+      "title": "The Challenge",
+      "text": "Centuries of drainage, peat extraction, and agricultural use have degraded 90% of Western European peatlands. Restoration requires patient, adaptive management and long-term commitment."
+    }
+  ],
+  "about": {
+    "label": "About",
+    "title": "The Glashapullagh Project",
+    "image": "https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=600&h=400&fit=crop",
+    "paragraphs": [
+      "Glashapullagh is a working peatland restoration landscape in West Limerick, Ireland. Spanning 287 hectares of formerly drained and degraded raised and blanket bog, the site represents a long-term commitment to ecological restoration and sustainable land stewardship.",
+      "Since 2009, we have conducted extensive hydrological rewetting, vegetation management, and scientific monitoring. Our approach combines traditional ecological knowledge with contemporary restoration science, demonstrating how degraded peatlands can be returned to ecological health and carbon functionality.",
+      "The project serves as both a living laboratory and a model for large-scale peatland restoration across the Atlantic Boglands region. We work collaboratively with researchers, policymakers, landowners, and local communities to advance understanding of bog restoration and climate mitigation."
+    ]
+  },
+  "topoMap": {
+    "label": "Location",
+    "title": "Topographical Overview",
+    "description": "Interactive map of the Glashapullagh restoration site in West Limerick"
+  },
+  "restoration": {
+    "label": "Methods",
+    "title": "Restoration Techniques",
+    "items": [
+      {
+        "title": "Rewetting",
+        "description": "Strategic blocking of drainage channels and installation of weirs to raise water tables and restore hydrological connectivity.",
+        "image": "https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=400&h=300&fit=crop"
+      },
+      {
+        "title": "Vegetation Management",
+        "description": "Targeted removal of invasive species and encouragement of native Sphagnum mosses and ericaceous plants.",
+        "image": "https://images.unsplash.com/photo-1469022563149-aa64dbd37dae?w=400&h=300&fit=crop"
+      },
+      {
+        "title": "Habitat Creation",
+        "description": "Installation of water bodies and microtopography to increase habitat diversity and support specialized peatland fauna.",
+        "image": "https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=400&h=300&fit=crop"
+      }
+    ]
+  },
+  "monitoring": {
+    "label": "Science",
+    "title": "Monitoring & Research",
+    "items": [
+      {
+        "icon": "📏",
+        "title": "Peat Accumulation",
+        "description": "Annual measurement of new peat formation using marked horizons and soil cores."
+      },
+      {
+        "icon": "💧",
+        "title": "Water Dynamics",
+        "description": "Continuous monitoring of water tables, pH, and nutrient cycling across the site."
+      },
+      {
+        "icon": "🌱",
+        "title": "Vegetation Survey",
+        "description": "Regular quadrat surveys tracking plant community composition and cover changes."
+      },
+      {
+        "icon": "🦅",
+        "title": "Fauna Monitoring",
+        "description": "Bird surveys, invertebrate assessments, and rare species tracking programs."
+      },
+      {
+        "icon": "🌍",
+        "title": "Carbon Flux",
+        "description": "Chamber measurements of CO₂ and methane emissions and sequestration rates."
+      },
+      {
+        "icon": "📊",
+        "title": "Long-term Data",
+        "description": "15+ year dataset providing unprecedented insights into bog recovery timescales."
+      }
+    ]
+  },
+  "videos": {
+    "label": "Media",
+    "title": "Video Documentation",
+    "items": [
+      {
+        "title": "Introduction to Glashapullagh",
+        "description": "An overview of the project, landscape, and restoration vision.",
+        "thumbnail": "https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=400&h=225&fit=crop",
+        "url": "https://www.youtube.com/embed/dQw4w9WgXcQ"
+      },
+      {
+        "title": "Rewetting the Bog",
+        "description": "Documentary on the hydrological restoration process and water management.",
+        "thumbnail": "https://images.unsplash.com/photo-1469022563149-aa64dbd37dae?w=400&h=225&fit=crop",
+        "url": "https://www.youtube.com/embed/dQw4w9WgXcQ"
+      },
+      {
+        "title": "Life Returns",
+        "description": "Following the recovery of plant and animal communities over a decade.",
+        "thumbnail": "https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=400&h=225&fit=crop",
+        "url": "https://www.youtube.com/embed/dQw4w9WgXcQ"
+      },
+      {
+        "title": "Monitoring for Impact",
+        "description": "Science in action: the research methods driving adaptive management.",
+        "thumbnail": "https://images.unsplash.com/photo-1469022563149-aa64dbd37dae?w=400&h=225&fit=crop",
+        "url": "https://www.youtube.com/embed/dQw4w9WgXcQ"
+      },
+      {
+        "title": "Climate Benefits",
+        "description": "How peatland restoration contributes to carbon sequestration and climate mitigation.",
+        "thumbnail": "https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=400&h=225&fit=crop",
+        "url": "https://www.youtube.com/embed/dQw4w9WgXcQ"
+      },
+      {
+        "title": "Community Engagement",
+        "description": "Local partnerships and educational programs connecting people to the landscape.",
+        "thumbnail": "https://images.unsplash.com/photo-1469022563149-aa64dbd37dae?w=400&h=225&fit=crop",
+        "url": "https://www.youtube.com/embed/dQw4w9WgXcQ"
+      }
+    ]
+  },
+  "documentary": {
+    "label": "Featured",
+    "title": "The Long Rewetting",
+    "description": "A feature-length documentary on the science and stewardship of bog restoration.",
+    "url": "https://www.youtube.com/embed/dQw4w9WgXcQ"
+  },
+  "gallery": {
+    "label": "Gallery",
+    "title": "Photo Essay",
+    "items": [
+      {
+        "title": "Rewetted Channels",
+        "image": "https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=400&h=400&fit=crop"
+      },
+      {
+        "title": "Sphagnum Mosses",
+        "image": "https://images.unsplash.com/photo-1469022563149-aa64dbd37dae?w=400&h=400&fit=crop"
+      },
+      {
+        "title": "Water Clarity",
+        "image": "https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=400&h=400&fit=crop"
+      },
+      {
+        "title": "Golden Hour",
+        "image": "https://images.unsplash.com/photo-1469022563149-aa64dbd37dae?w=400&h=400&fit=crop"
+      },
+      {
+        "title": "Flora Detail",
+        "image": "https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=400&h=400&fit=crop"
+      },
+      {
+        "title": "Landscape View",
+        "image": "https://images.unsplash.com/photo-1469022563149-aa64dbd37dae?w=400&h=400&fit=crop"
+      },
+      {
+        "title": "Seasonal Change",
+        "image": "https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=400&h=400&fit=crop"
+      },
+      {
+        "title": "Wetland Systems",
+        "image": "https://images.unsplash.com/photo-1469022563149-aa64dbd37dae?w=400&h=400&fit=crop"
+      },
+      {
+        "title": "Restoration in Progress",
+        "image": "https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=400&h=400&fit=crop"
+      }
+    ]
+  },
+  "footer": {
+    "sections": [
+      {
+        "title": "Project",
+        "links": [
+          { "text": "About", "url": "#about" },
+          { "text": "Methods", "url": "#restoration" },
+          { "text": "Research", "url": "#monitoring" },
+          { "text": "Gallery", "url": "#gallery" }
+        ]
+      },
+      {
+        "title": "Resources",
+        "links": [
+          { "text": "Publications", "url": "#" },
+          { "text": "Data", "url": "#" },
+          { "text": "Documentation", "url": "#" },
+          { "text": "Contact", "url": "#" }
+        ]
+      },
+      {
+        "title": "Connect",
+        "links": [
+          { "text": "Twitter", "url": "#" },
+          { "text": "Instagram", "url": "#" },
+          { "text": "Newsletter", "url": "#" },
+          { "text": "Partnerships", "url": "#" }
+        ]
+      }
+    ],
+    "copyright": "© 2026 Glashapullagh. All rights reserved."
+  }
+}
