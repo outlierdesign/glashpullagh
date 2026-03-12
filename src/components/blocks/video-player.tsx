@@ -1,0 +1,60 @@
+'use client';
+
+interface VideoPlayerProps {
+  vimeoUrl?: string;
+  title?: string;
+}
+
+export function VideoPlayer({ vimeoUrl, title }: VideoPlayerProps) {
+  if (!vimeoUrl) {
+    return (
+      <div
+        style={{
+          borderRadius: '12px',
+          overflow: 'hidden',
+          aspectRatio: '16/9',
+          background: 'rgba(255,255,255,0.05)',
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          border: '1px solid rgba(196,144,61,0.2)',
+        }}
+      >
+        <p style={{ color: 'rgba(255,255,255,0.4)', fontFamily: 'DM Sans, sans-serif', fontSize: '1rem' }}>
+          Video coming soon
+        </p>
+      </div>
+    );
+  }
+
+  const match = vimeoUrl.match(/vimeo\.com\/(?:video\/)?([0-9]+)/);
+  const vimeoId = match ? match[1] : vimeoUrl;
+
+  return (
+    <div
+      style={{
+        borderRadius: '12px',
+        overflow: 'hidden',
+        aspectRatio: '16/9',
+        position: 'relative',
+        background: '#000',
+      }}
+    >
+      <iframe
+        src={`https://player.vimeo.com/video/${vimeoId}?controls=1&byline=0&portrait=0&title=0&transparent=0`}
+        style={{
+          position: 'absolute',
+          top: 0,
+          left: 0,
+          width: '100%',
+          height: '100%',
+          border: 'none',
+        }}
+        allow="autoplay; fullscreen; picture-in-picture"
+        allowFullScreen
+        title={title || 'Restoration video'}
+        loading="lazy"
+      />
+    </div>
+  );
+}
