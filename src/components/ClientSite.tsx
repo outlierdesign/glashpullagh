@@ -456,19 +456,19 @@ export default function ClientSite({ content }: ClientSiteProps) {
             className="text-3xl font-bold mb-6"
             style={{ fontFamily: 'var(--font-display)', color: 'var(--gold)' }}
           >
-            A Living Landscape
+            Reversing Decades of Drainage
           </h2>
           <p
             className="text-lg mb-8 leading-relaxed"
             style={{ fontFamily: 'var(--font-body)', color: 'var(--cream)' }}
           >
-            The Glashpullagh peatlands represent one of Ireland&apos;s most significant ecological restoration projects. Through careful rewetting, drain blocking, and community engagement, we are working to restore this ancient landscape to its natural function — storing carbon, filtering water, and supporting biodiversity for generations to come.
+            The Glashapullagh site is a cutover blanket bog in West Limerick that had been historically drained, leading to severe peat compaction, the spread of scrub and rushes, and significant peat loss. A comprehensive Restoration Action Plan was developed using extensive drone and ground surveys, approved by the National Parks and Wildlife Service.
           </p>
           <p
             className="text-lg leading-relaxed"
             style={{ fontFamily: 'var(--font-body)', color: 'var(--cream-dim)' }}
           >
-            Every hectare of restored peatland captures an estimated 0.7 tonnes of CO₂ per year. With over 200 hectares under active management, the Glashpullagh project is making a measurable contribution to Ireland&apos;s climate goals while preserving a landscape of deep cultural and ecological significance.
+            Restoration works included reprofiling peat banks, installing dams, removing conifers, and stabilising bare peat. The site is now on a path to recovery — rewetting is slowing carbon loss, habitats are improving for wildlife, and peat-forming plants are returning. Recovery takes time, but at Glashapullagh, it has begun.
           </p>
         </div>
       </ScrollExpandMedia>
@@ -664,6 +664,100 @@ export default function ClientSite({ content }: ClientSiteProps) {
         </section>
       )}
 
+      {/* DAMMING METHODS SECTION */}
+      {content.monitoring && (
+        <section id="techniques" style={{ background: 'var(--bg-deep)', padding: '6rem 0' }}>
+          <div className="container">
+            <div style={{ textAlign: 'center', marginBottom: '4rem' }}>
+              <p className="label">{content.monitoring.label || 'Techniques'}</p>
+              <h2 style={{ fontFamily: 'var(--font-display)', color: 'var(--cream)', fontSize: '2.5rem', margin: '0.5rem 0 1rem' }}>{content.monitoring.title || 'Damming Methods'}</h2>
+              <div className="divider-line divider-line-center" />
+            </div>
+            <div style={{
+              display: 'grid',
+              gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))',
+              gap: '2rem',
+              maxWidth: '1200px',
+              margin: '0 auto',
+            }}>
+              {content.monitoring.items?.map((item: any, idx: number) => (
+                <div key={idx} style={{
+                  background: 'rgba(255,255,255,0.03)',
+                  border: '1px solid rgba(196,144,61,0.15)',
+                  borderRadius: '12px',
+                  padding: '2rem',
+                  transition: 'border-color 0.3s ease, transform 0.3s ease',
+                }}>
+                  <div style={{ fontSize: '2.5rem', marginBottom: '1rem' }}>{item.icon}</div>
+                  <h3 style={{
+                    fontFamily: 'var(--font-display)',
+                    color: 'var(--gold)',
+                    fontSize: '1.25rem',
+                    marginBottom: '0.75rem',
+                  }}>{item.title}</h3>
+                  <p style={{
+                    fontFamily: 'var(--font-body)',
+                    color: 'var(--cream-dim)',
+                    fontSize: '0.95rem',
+                    lineHeight: '1.7',
+                  }}>{item.description}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
+
+      {/* TURBARY RIGHTS SECTION */}
+      {content.turbaryRights && (
+        <section id="turbary" style={{ background: 'var(--bg-dark)', padding: '6rem 0' }}>
+          <div className="container">
+            <div style={{ textAlign: 'center', marginBottom: '2rem' }}>
+              <p className="label">{content.turbaryRights.label || 'Context'}</p>
+              <h2 style={{ fontFamily: 'var(--font-display)', color: 'var(--cream)', fontSize: '2.5rem', margin: '0.5rem 0 1rem' }}>{content.turbaryRights.title}</h2>
+              <div className="divider-line divider-line-center" />
+            </div>
+            <p style={{
+              fontFamily: 'var(--font-body)',
+              color: 'var(--cream-dim)',
+              fontSize: '1.1rem',
+              lineHeight: '1.8',
+              maxWidth: '800px',
+              margin: '0 auto 3rem',
+              textAlign: 'center',
+            }}>{content.turbaryRights.intro}</p>
+            <div style={{
+              display: 'grid',
+              gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
+              gap: '2rem',
+              maxWidth: '1100px',
+              margin: '0 auto',
+            }}>
+              {content.turbaryRights.items?.map((item: any, idx: number) => (
+                <div key={idx} style={{
+                  background: 'rgba(255,255,255,0.02)',
+                  border: '1px solid rgba(196,144,61,0.12)',
+                  borderRadius: '12px',
+                  padding: '2rem',
+                }}>
+                  <h3 style={{
+                    fontFamily: 'var(--font-display)',
+                    color: 'var(--gold)',
+                    fontSize: '1.15rem',
+                    marginBottom: '0.75rem',
+                  }}>{item.title}</h3>
+                  <p style={{
+                    fontFamily: 'var(--font-body)',
+                    color: 'var(--cream-dim)',
+                    fontSize: '0.95rem',
+                    lineHeight: '1.7',
+                  }}>{item.text}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
 
       {/* VIDEO GRID SECTION */}
       {content.videos && (
