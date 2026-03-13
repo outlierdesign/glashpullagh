@@ -449,7 +449,7 @@ export default function ClientSite({ content }: ClientSiteProps) {
       </section>
 
       {/* BENTO GRID SECTION */}
-      <section className="bento-section">
+      <section className="bento-section texture-overlay">
         <div className="container">
           <div className="bento-header">
             <p className="label">{content.bento?.label || 'Overview'}</p>
@@ -468,7 +468,7 @@ export default function ClientSite({ content }: ClientSiteProps) {
       </section>
 
       {/* BEFORE/AFTER SECTION — Aerial Survey Comparison */}
-      <section style={{ background: 'var(--bg-deep)', padding: '6rem 0' }}>
+      <section className="texture-overlay" style={{ background: 'var(--bg-deep)', padding: '6rem 0' }}>
         <div className="container" style={{ maxWidth: '1100px', margin: '0 auto', padding: '0 1.5rem' }}>
           <div style={{ textAlign: 'center', marginBottom: '3rem' }}>
             <p className="label">Aerial Survey</p>
@@ -495,7 +495,7 @@ export default function ClientSite({ content }: ClientSiteProps) {
 
       {/* STATS SECTION */}
       {content.stats && (
-        <section className="stats-section">
+        <section className="stats-section texture-overlay">
           <div className="container">
             <div className="stats-grid">
               {content.stats.items?.map((stat: any, idx: number) => (
@@ -520,7 +520,7 @@ export default function ClientSite({ content }: ClientSiteProps) {
       )}
 
       {/* ABOUT SITE SECTION */}
-      <section className="about-site-section" id="about">
+      <section className="about-site-section texture-overlay" id="about">
         <div className="container">
           <div className="about-site-container">
             <div className="about-site-content">
@@ -592,7 +592,7 @@ export default function ClientSite({ content }: ClientSiteProps) {
 
       {/* RESTORATION GRID SECTION */}
       {content.restoration && (
-        <section className="restoration-section">
+        <section className="restoration-section texture-overlay">
           <div className="container">
             <div className="restoration-header">
               <p className="label">{content.restoration.label || 'Process'}</p>
@@ -626,7 +626,7 @@ export default function ClientSite({ content }: ClientSiteProps) {
 
       {/* DAMMING METHODS SECTION */}
       {content.monitoring && (
-        <section id="techniques" style={{ background: 'var(--bg-deep)', padding: '6rem 0' }}>
+        <section id="techniques" className="texture-overlay texture-dense" style={{ background: 'var(--bg-deep)', padding: '6rem 0' }}>
           <div className="container">
             <div style={{ textAlign: 'center', marginBottom: '4rem' }}>
               <p className="label">{content.monitoring.label || 'Techniques'}</p>
@@ -670,7 +670,7 @@ export default function ClientSite({ content }: ClientSiteProps) {
 
       {/* VIDEO GRID SECTION */}
       {content.videos && (
-        <section className="video-section">
+        <section className="video-section texture-overlay">
           <div className="container">
             <div className="video-header">
               <p className="label">{content.videos.label || 'Media'}</p>
@@ -701,7 +701,7 @@ export default function ClientSite({ content }: ClientSiteProps) {
 
       {/* DOCUMENTARY SECTION */}
       {content.documentary && (
-        <section className="documentary-section">
+        <section className="documentary-section texture-overlay">
           <div className="container">
             <div className="documentary-container">
               <div className="documentary-header">
