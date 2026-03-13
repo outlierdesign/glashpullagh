@@ -53,7 +53,7 @@ export function BentoGallery({ images, heading = 'Gallery', eyebrow = 'Visual Jo
   return (
     <section
       style={{
-        background: '#050604',
+        background: '#0E0B09',
         padding: 'clamp(4rem, 8vw, 8rem) 0',
       }}
     >
@@ -63,12 +63,12 @@ export function BentoGallery({ images, heading = 'Gallery', eyebrow = 'Visual Jo
             {eyebrow && (
               <p
                 style={{
-                  color: '#C4903D',
+                  color: '#B8864A',
                   fontSize: '0.75rem',
                   letterSpacing: '0.15em',
                   textTransform: 'uppercase',
                   marginBottom: '1rem',
-                  fontFamily: 'DM Sans, sans-serif',
+                  fontFamily: 'Proza Libre, sans-serif',
                 }}
               >
                 {eyebrow}
@@ -77,7 +77,7 @@ export function BentoGallery({ images, heading = 'Gallery', eyebrow = 'Visual Jo
             {heading && (
               <h2
                 style={{
-                  fontFamily: 'DM Serif Display, serif',
+                  fontFamily: 'Cormorant Garamond, serif',
                   fontSize: 'clamp(2rem, 4vw, 3rem)',
                   fontWeight: 400,
                   color: '#F5F0E8',
@@ -156,7 +156,7 @@ export function BentoGallery({ images, heading = 'Gallery', eyebrow = 'Visual Jo
                     style={{
                       color: '#fff',
                       fontSize: 'clamp(0.7rem, 1vw, 0.875rem)',
-                      fontFamily: 'DM Sans, sans-serif',
+                      fontFamily: 'Proza Libre, sans-serif',
                       fontWeight: 500,
                       margin: 0,
                     }}
@@ -234,7 +234,7 @@ export function BentoGallery({ images, heading = 'Gallery', eyebrow = 'Visual Jo
           </button>
 
           {/* Counter */}
-          <div style={{ position: 'absolute', top: '1.5rem', left: '1.5rem', color: 'rgba(255,255,255,0.5)', fontSize: '0.875rem', zIndex: 10, fontFamily: 'DM Sans, sans-serif' }}>
+          <div style={{ position: 'absolute', top: '1.5rem', left: '1.5rem', color: 'rgba(255,255,255,0.5)', fontSize: '0.875rem', zIndex: 10, fontFamily: 'Proza Libre, sans-serif' }}>
             {lightboxIndex + 1} / {images.length}
           </div>
 
@@ -310,7 +310,7 @@ export function BentoGallery({ images, heading = 'Gallery', eyebrow = 'Visual Jo
 
           {/* Caption */}
           {images[lightboxIndex].caption && (
-            <p style={{ position: 'absolute', bottom: '1.5rem', left: '50%', transform: 'translateX(-50%)', fontSize: '0.875rem', color: 'rgba(255,255,255,0.7)', textAlign: 'center', maxWidth: '30rem', fontFamily: 'DM Sans, sans-serif' }}>
+            <p style={{ position: 'absolute', bottom: '1.5rem', left: '50%', transform: 'translateX(-50%)', fontSize: '0.875rem', color: 'rgba(255,255,255,0.7)', textAlign: 'center', maxWidth: '30rem', fontFamily: 'Proza Libre, sans-serif' }}>
               {images[lightboxIndex].caption}
             </p>
           )}

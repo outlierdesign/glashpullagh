@@ -45,16 +45,16 @@ export default function AdminLogin() {
           display: flex;
           align-items: center;
           justify-content: center;
-          background: #050604;
+          background: #0E0B09;
           font-family: 'Inter', -apple-system, sans-serif;
-          color: #E8E2D6;
+          color: #E4DDD2;
         }
         .login-card {
           width: 100%;
           max-width: 420px;
           padding: 3rem 2.5rem;
-          background: #0F110D;
-          border: 1px solid rgba(196,144,61,0.12);
+          background: #1C1714;
+          border: 1px solid rgba(184,134,74,0.12);
           border-radius: 12px;
         }
         .login-logo {
@@ -65,7 +65,7 @@ export default function AdminLogin() {
           font-family: 'Playfair Display', Georgia, serif;
           font-size: 1.5rem;
           font-weight: 400;
-          color: #D4A85C;
+          color: #CDA06A;
           letter-spacing: -0.02em;
         }
         .login-logo p {
@@ -78,7 +78,7 @@ export default function AdminLogin() {
         .login-divider {
           width: 48px;
           height: 1px;
-          background: rgba(196,144,61,0.25);
+          background: rgba(184,134,74,0.25);
           margin: 0 auto 2rem;
         }
         .form-group {
@@ -97,16 +97,16 @@ export default function AdminLogin() {
           width: 100%;
           padding: 0.75rem 1rem;
           background: #141713;
-          border: 1px solid rgba(196,144,61,0.1);
+          border: 1px solid rgba(184,134,74,0.1);
           border-radius: 8px;
-          color: #E8E2D6;
+          color: #E4DDD2;
           font-family: inherit;
           font-size: 0.9rem;
           outline: none;
           transition: border-color 0.2s;
         }
         .form-input:focus {
-          border-color: rgba(196,144,61,0.4);
+          border-color: rgba(184,134,74,0.4);
         }
         .form-input::placeholder {
           color: #4A4840;
@@ -123,10 +123,10 @@ export default function AdminLogin() {
         .login-btn {
           width: 100%;
           padding: 0.85rem;
-          background: #C4903D;
+          background: #B8864A;
           border: none;
           border-radius: 8px;
-          color: #050604;
+          color: #0E0B09;
           font-family: inherit;
           font-size: 0.82rem;
           font-weight: 600;
@@ -135,7 +135,7 @@ export default function AdminLogin() {
           cursor: pointer;
           transition: background 0.2s, transform 0.1s;
         }
-        .login-btn:hover { background: #D4A85C; }
+        .login-btn:hover { background: #CDA06A; }
         .login-btn:active { transform: scale(0.98); }
         .login-btn:disabled { opacity: 0.5; cursor: not-allowed; }
       `}</style>

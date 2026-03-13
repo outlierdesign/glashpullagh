@@ -109,7 +109,7 @@ export default function AdminDashboard() {
 
   if (loading) {
     return (
-      <div style={{ minHeight: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center', background: '#050604', color: '#C4903D', fontFamily: 'Inter, sans-serif' }}>
+      <div style={{ minHeight: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center', background: '#0E0B09', color: '#B8864A', fontFamily: 'Proza Libre, sans-serif' }}>
         Loading...
       </div>
     );
@@ -120,17 +120,17 @@ export default function AdminDashboard() {
       <style>{`
         .admin-dashboard {
           min-height: 100vh;
-          background: #050604;
+          background: #0E0B09;
           font-family: 'Inter', -apple-system, sans-serif;
-          color: #E8E2D6;
+          color: #E4DDD2;
           display: grid;
           grid-template-columns: 300px 1fr;
         }
 
         /* ---- SIDEBAR ---- */
         .admin-sidebar {
-          background: #0A0B08;
-          border-right: 1px solid rgba(196,144,61,0.08);
+          background: #151110;
+          border-right: 1px solid rgba(184,134,74,0.08);
           display: flex;
           flex-direction: column;
           height: 100vh;
@@ -140,12 +140,12 @@ export default function AdminDashboard() {
         }
         .sidebar-header {
           padding: 1.5rem;
-          border-bottom: 1px solid rgba(196,144,61,0.08);
+          border-bottom: 1px solid rgba(184,134,74,0.08);
         }
         .sidebar-brand {
           font-family: 'Playfair Display', Georgia, serif;
           font-size: 1.1rem;
-          color: #D4A85C;
+          color: #CDA06A;
           font-weight: 400;
         }
         .sidebar-sub {
@@ -175,13 +175,13 @@ export default function AdminDashboard() {
           transition: all 0.15s;
         }
         .sidebar-section-btn:hover {
-          background: rgba(196,144,61,0.04);
-          color: #E8E2D6;
+          background: rgba(184,134,74,0.04);
+          color: #E4DDD2;
         }
         .sidebar-section-btn.active {
-          background: rgba(196,144,61,0.08);
-          color: #D4A85C;
-          border-right: 2px solid #C4903D;
+          background: rgba(184,134,74,0.08);
+          color: #CDA06A;
+          border-right: 2px solid #B8864A;
         }
         .sidebar-section-icon {
           width: 24px;
@@ -194,7 +194,7 @@ export default function AdminDashboard() {
         }
         .sidebar-footer {
           padding: 1rem 1.5rem;
-          border-top: 1px solid rgba(196,144,61,0.08);
+          border-top: 1px solid rgba(184,134,74,0.08);
           display: flex;
           align-items: center;
           justify-content: space-between;
@@ -205,7 +205,7 @@ export default function AdminDashboard() {
         }
         .sidebar-logout {
           background: transparent;
-          border: 1px solid rgba(196,144,61,0.15);
+          border: 1px solid rgba(184,134,74,0.15);
           color: #A09B91;
           font-family: inherit;
           font-size: 0.7rem;
@@ -215,8 +215,8 @@ export default function AdminDashboard() {
           transition: all 0.15s;
         }
         .sidebar-logout:hover {
-          border-color: rgba(196,144,61,0.3);
-          color: #E8E2D6;
+          border-color: rgba(184,134,74,0.3);
+          color: #E4DDD2;
         }
 
         /* ---- MAIN CONTENT ---- */
@@ -231,7 +231,7 @@ export default function AdminDashboard() {
           font-family: 'Playfair Display', Georgia, serif;
           font-size: 1.8rem;
           font-weight: 400;
-          color: #D4A85C;
+          color: #CDA06A;
           margin-bottom: 0.5rem;
         }
         .admin-welcome p {
@@ -246,12 +246,12 @@ export default function AdminDashboard() {
           justify-content: space-between;
           margin-bottom: 2rem;
           padding-bottom: 1rem;
-          border-bottom: 1px solid rgba(196,144,61,0.08);
+          border-bottom: 1px solid rgba(184,134,74,0.08);
         }
         .editor-title {
           font-family: 'Playfair Display', Georgia, serif;
           font-size: 1.4rem;
-          color: #D4A85C;
+          color: #CDA06A;
           font-weight: 400;
         }
         .editor-actions {
@@ -261,10 +261,10 @@ export default function AdminDashboard() {
         }
         .btn-save {
           padding: 0.6rem 1.5rem;
-          background: #C4903D;
+          background: #B8864A;
           border: none;
           border-radius: 8px;
-          color: #050604;
+          color: #0E0B09;
           font-family: inherit;
           font-size: 0.78rem;
           font-weight: 600;
@@ -273,13 +273,13 @@ export default function AdminDashboard() {
           cursor: pointer;
           transition: all 0.15s;
         }
-        .btn-save:hover { background: #D4A85C; }
+        .btn-save:hover { background: #CDA06A; }
         .btn-save:disabled { opacity: 0.5; cursor: not-allowed; }
         .btn-save.saved { background: #3A5238; color: #96A888; }
         .btn-back {
           padding: 0.6rem 1.2rem;
           background: transparent;
-          border: 1px solid rgba(196,144,61,0.15);
+          border: 1px solid rgba(184,134,74,0.15);
           border-radius: 8px;
           color: #A09B91;
           font-family: inherit;
@@ -288,8 +288,8 @@ export default function AdminDashboard() {
           transition: all 0.15s;
         }
         .btn-back:hover {
-          border-color: rgba(196,144,61,0.3);
-          color: #E8E2D6;
+          border-color: rgba(184,134,74,0.3);
+          color: #E4DDD2;
         }
 
         /* ---- FIELD GROUPS ---- */
@@ -308,17 +308,17 @@ export default function AdminDashboard() {
         .field-input {
           width: 100%;
           padding: 0.65rem 0.9rem;
-          background: #0F110D;
-          border: 1px solid rgba(196,144,61,0.1);
+          background: #1C1714;
+          border: 1px solid rgba(184,134,74,0.1);
           border-radius: 8px;
-          color: #E8E2D6;
+          color: #E4DDD2;
           font-family: inherit;
           font-size: 0.85rem;
           outline: none;
           transition: border-color 0.2s;
         }
         .field-input:focus {
-          border-color: rgba(196,144,61,0.35);
+          border-color: rgba(184,134,74,0.35);
         }
         .field-textarea {
           min-height: 100px;
@@ -331,8 +331,8 @@ export default function AdminDashboard() {
           gap: 1rem;
         }
         .card-editor {
-          background: #0A0B08;
-          border: 1px solid rgba(196,144,61,0.06);
+          background: #151110;
+          border: 1px solid rgba(184,134,74,0.06);
           border-radius: 10px;
           padding: 1.25rem;
           margin-bottom: 1rem;
@@ -343,7 +343,7 @@ export default function AdminDashboard() {
           gap: 0.5rem;
           margin-bottom: 1rem;
           font-size: 0.82rem;
-          color: #C4903D;
+          color: #B8864A;
           font-weight: 500;
         }
         .card-num {
@@ -352,11 +352,11 @@ export default function AdminDashboard() {
           display: flex;
           align-items: center;
           justify-content: center;
-          background: rgba(196,144,61,0.1);
+          background: rgba(184,134,74,0.1);
           border-radius: 6px;
           font-size: 0.7rem;
           font-weight: 600;
-          color: #C4903D;
+          color: #B8864A;
         }
 
         /* ---- OVERVIEW GRID ---- */
@@ -366,16 +366,16 @@ export default function AdminDashboard() {
           gap: 1rem;
         }
         .overview-card {
-          background: #0A0B08;
-          border: 1px solid rgba(196,144,61,0.06);
+          background: #151110;
+          border: 1px solid rgba(184,134,74,0.06);
           border-radius: 10px;
           padding: 1.25rem;
           cursor: pointer;
           transition: all 0.2s;
         }
         .overview-card:hover {
-          border-color: rgba(196,144,61,0.2);
-          background: #0F110D;
+          border-color: rgba(184,134,74,0.2);
+          background: #1C1714;
         }
         .overview-card-icon {
           font-size: 1.2rem;
@@ -385,7 +385,7 @@ export default function AdminDashboard() {
         .overview-card-label {
           font-size: 0.9rem;
           font-weight: 500;
-          color: #D4A85C;
+          color: #CDA06A;
           margin-bottom: 0.25rem;
         }
         .overview-card-desc {
@@ -400,8 +400,8 @@ export default function AdminDashboard() {
           gap: 0.5rem;
           margin-top: 2rem;
           padding: 0.5rem 1rem;
-          background: rgba(196,144,61,0.06);
-          border: 1px solid rgba(196,144,61,0.1);
+          background: rgba(184,134,74,0.06);
+          border: 1px solid rgba(184,134,74,0.1);
           border-radius: 8px;
           font-size: 0.78rem;
           color: #A09B91;
@@ -409,8 +409,8 @@ export default function AdminDashboard() {
           transition: all 0.15s;
         }
         .view-site-link:hover {
-          border-color: rgba(196,144,61,0.25);
-          color: #D4A85C;
+          border-color: rgba(184,134,74,0.25);
+          color: #CDA06A;
         }
 
         @media (max-width: 768px) {

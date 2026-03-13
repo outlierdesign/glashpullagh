@@ -17,10 +17,10 @@ export function VideoPlayer({ vimeoUrl, title }: VideoPlayerProps) {
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'center',
-          border: '1px solid rgba(196,144,61,0.2)',
+          border: '1px solid rgba(184,134,74,0.2)',
         }}
       >
-        <p style={{ color: 'rgba(255,255,255,0.4)', fontFamily: 'DM Sans, sans-serif', fontSize: '1rem' }}>
+        <p style={{ color: 'rgba(255,255,255,0.4)', fontFamily: 'Proza Libre, sans-serif', fontSize: '1rem' }}>
           Video coming soon
         </p>
       </div>

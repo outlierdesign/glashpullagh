@@ -148,7 +148,7 @@ export function Gallery4({
                       <div
                         className="absolute top-3 left-3 px-3 py-1 rounded-full text-xs font-medium"
                         style={{
-                          background: "rgba(196,144,61,0.85)",
+                          background: "rgba(184,134,74,0.85)",
                           color: "var(--bg-deep)",
                           fontFamily: "var(--font-ui)",
                         }}

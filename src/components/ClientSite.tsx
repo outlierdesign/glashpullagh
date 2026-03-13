@@ -477,7 +477,7 @@ export default function ClientSite({ content }: ClientSiteProps) {
             </h2>
             <div className="divider-line divider-line-center" />
           </div>
-          <div style={{ borderRadius: '12px', overflow: 'hidden', border: '1px solid rgba(196,144,61,0.15)', aspectRatio: '16 / 9' }}>
+          <div style={{ borderRadius: '12px', overflow: 'hidden', border: '1px solid rgba(184,134,74,0.15)', aspectRatio: '16 / 9' }}>
             <ImageComparisonSlider
               leftImage="/images/site/orthophoto-before.jpg"
               rightImage="/images/site/orthophoto-after.jpg"
@@ -643,7 +643,7 @@ export default function ClientSite({ content }: ClientSiteProps) {
               {content.monitoring.items?.map((item: any, idx: number) => (
                 <div key={idx} style={{
                   background: 'rgba(255,255,255,0.03)',
-                  border: '1px solid rgba(196,144,61,0.15)',
+                  border: '1px solid rgba(184,134,74,0.15)',
                   borderRadius: '12px',
                   padding: '2rem',
                   transition: 'border-color 0.3s ease, transform 0.3s ease',

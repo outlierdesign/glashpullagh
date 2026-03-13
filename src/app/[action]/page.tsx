@@ -22,17 +22,17 @@ export default function RestorationActionPage({ params }: { params: { action: st
   if (!action) notFound();
 
   return (
-    <main style={{ minHeight: '100vh', background: '#050604', color: '#E8E0D0', fontFamily: 'DM Sans, sans-serif' }}>
+    <main style={{ minHeight: '100vh', background: '#0E0B09', color: '#E4DDD2', fontFamily: 'Proza Libre, sans-serif' }}>
       <div style={{ maxWidth: '800px', margin: '0 auto', padding: '3rem 1.5rem' }}>
-        <Link href='/' style={{ color: '#C4903D', textDecoration: 'none', fontSize: '0.875rem', letterSpacing: '0.05em', display: 'inline-block', marginBottom: '2rem' }}>
+        <Link href='/' style={{ color: '#B8864A', textDecoration: 'none', fontSize: '0.875rem', letterSpacing: '0.05em', display: 'inline-block', marginBottom: '2rem' }}>
           Back to Glashapullagh
         </Link>
 
-        <p style={{ color: '#C4903D', fontSize: '0.75rem', letterSpacing: '0.15em', textTransform: 'uppercase' as const, marginBottom: '0.75rem' }}>
+        <p style={{ color: '#B8864A', fontSize: '0.75rem', letterSpacing: '0.15em', textTransform: 'uppercase' as const, marginBottom: '0.75rem' }}>
           {action.subtitle}
         </p>
 
-        <h1 style={{ fontFamily: 'DM Serif Display, serif', fontSize: 'clamp(2rem, 5vw, 3.5rem)', fontWeight: 400, lineHeight: 1.1, marginBottom: '2rem', color: '#F5F0E8' }}>
+        <h1 style={{ fontFamily: 'Cormorant Garamond, serif', fontSize: 'clamp(2rem, 5vw, 3.5rem)', fontWeight: 400, lineHeight: 1.1, marginBottom: '2rem', color: '#F5F0E8' }}>
           {action.title}
         </h1>
 
@@ -44,7 +44,7 @@ export default function RestorationActionPage({ params }: { params: { action: st
           <p>{action.description}</p>
         </div>
 
-        <div style={{ borderTop: '1px solid rgba(196,144,61,0.2)', paddingTop: '2rem', display: 'flex', alignItems: 'center', gap: '1.5rem', flexWrap: 'wrap' as const, justifyContent: 'center', opacity: 0.7 }}>
+        <div style={{ borderTop: '1px solid rgba(184,134,74,0.2)', paddingTop: '2rem', display: 'flex', alignItems: 'center', gap: '1.5rem', flexWrap: 'wrap' as const, justifyContent: 'center', opacity: 0.7 }}>
           <Image src='/images/partners/eu-life.png' alt='EU LIFE' width={65} height={47} />
           <Image src='/images/partners/natura-2000.png' alt='Natura 2000' width={55} height={37} />
           <Image src='/images/partners/npws.png' alt='NPWS' width={30} height={47} />

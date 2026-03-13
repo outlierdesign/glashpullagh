@@ -126,7 +126,7 @@ export const ImageComparisonSlider = React.forwardRef<
           {/* Divider Line */}
           <div
             className="absolute inset-y-0 w-[2px]"
-            style={{ background: "var(--gold, #C4903D)", opacity: 0.8 }}
+            style={{ background: "var(--gold, #B8864A)", opacity: 0.8 }}
           />
 
           {/* Handle */}
@@ -138,9 +138,9 @@ export const ImageComparisonSlider = React.forwardRef<
               isDragging && "scale-110"
             )}
             style={{
-              background: "rgba(196, 144, 61, 0.85)",
+              background: "rgba(184, 134, 74, 0.85)",
               boxShadow: isDragging
-                ? "0 0 20px rgba(196, 144, 61, 0.4)"
+                ? "0 0 20px rgba(184, 134, 74, 0.4)"
                 : "0 4px 12px rgba(0, 0, 0, 0.3)",
             }}
             role="slider"
@@ -150,7 +150,7 @@ export const ImageComparisonSlider = React.forwardRef<
             aria-orientation="horizontal"
             aria-label="Image comparison slider"
           >
-            <div className="flex items-center" style={{ color: "#050604" }}>
+            <div className="flex items-center" style={{ color: "#0E0B09" }}>
               <ChevronLeft className="h-5 w-5" />
               <ChevronRight className="h-5 w-5" />
             </div>
