@@ -37,7 +37,7 @@ export default function RestorationActionPage({ params }: { params: { action: st
         </h1>
 
         <div style={{ marginBottom: '2.5rem' }}>
-          <VideoPlayer title={action.title} />
+          <VideoPlayer vimeoUrl={(action as any).vimeoUrl} title={action.title} />
         </div>
 
         <div style={{ fontSize: '1.0625rem', lineHeight: 1.75, color: 'rgba(232,224,208,0.85)', marginBottom: '3rem' }}>

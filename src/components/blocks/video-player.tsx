@@ -27,8 +27,16 @@ export function VideoPlayer({ vimeoUrl, title }: VideoPlayerProps) {
     );
   }
 
-  const match = vimeoUrl.match(/vimeo\.com\/(?:video\/)?([0-9]+)/);
+  // Extract video ID and optional privacy hash from Vimeo URL
+  // Handles: vimeo.com/1234567890/abc123hash and vimeo.com/1234567890
+  const match = vimeoUrl.match(/vimeo\.com\/(?:video\/)?([0-9]+)(?:\/([a-zA-Z0-9]+))?/);
   const vimeoId = match ? match[1] : vimeoUrl;
+  const privacyHash = match ? match[2] : null;
+
+  let embedSrc = `https://player.vimeo.com/video/${vimeoId}?controls=1&byline=0&portrait=0&title=0&transparent=0`;
+  if (privacyHash) {
+    embedSrc += `&h=${privacyHash}`;
+  }
 
   return (
     <div
@@ -41,7 +49,7 @@ export function VideoPlayer({ vimeoUrl, title }: VideoPlayerProps) {
       }}
     >
       <iframe
-        src={`https://player.vimeo.com/video/${vimeoId}?controls=1&byline=0&portrait=0&title=0&transparent=0`}
+        src={embedSrc}
         style={{
           position: 'absolute',
           top: 0,
