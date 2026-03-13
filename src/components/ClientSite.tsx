@@ -5,6 +5,7 @@ import { Gallery4 } from '@/components/blocks/gallery4';
 import { HoverRevealGrid } from '@/components/blocks/hover-reveal-grid';
 import ScrollExpandMedia from '@/components/blocks/scroll-expansion-hero';
 import { PartnersSection } from '@/components/blocks/partners-section';
+import { BentoGallery } from '@/components/blocks/bento-gallery';
 import { ZoomParallax } from '@/components/ui/zoom-parallax';
 
 interface ClientSiteProps {
@@ -741,6 +742,26 @@ export default function ClientSite({ content }: ClientSiteProps) {
       <div style={{ background: 'var(--bg-dark)' }}>
         <HoverRevealGrid />
       </div>
+
+      {/* SECTION: BENTO GALLERY */}
+      <BentoGallery
+        heading="Glashapullagh in Pictures"
+        eyebrow="Visual Journey"
+        images={[
+          { src: '/images/site/Glashapullagh Restoration West Limerick1.jpg', alt: 'Aerial view of Glashapullagh peatland', caption: 'The vast blanket bog of Glashapullagh' },
+          { src: '/images/site/dam-workers.jpg', alt: 'Workers installing a peat dam on the bog', caption: 'Installing peat dams to rewet the bog' },
+          { src: '/images/site/peat-pool.jpg', alt: 'Still pool of water on restored peatland', caption: 'Rewetted peat pools supporting new life' },
+          { src: '/images/site/Glashapullagh Restoration West Limerick5.jpg', alt: 'Restoration work across the peatland landscape', caption: 'Restoration in progress across the site' },
+          { src: '/images/site/carrying-equipment.jpg', alt: 'Team carrying restoration equipment across the bog', caption: 'Carrying materials to remote restoration sites' },
+          { src: '/images/site/Glashapullagh Restoration West Limerick11.jpg', alt: 'Close-up of peatland vegetation and mosses', caption: 'Sphagnum mosses returning to restored areas' },
+          { src: '/images/site/plank-dam.jpg', alt: 'Timber plank dam blocking a drainage channel', caption: 'Timber dams blocking old drainage channels' },
+          { src: '/images/site/landscape-figure.jpg', alt: 'Lone figure surveying the peatland landscape', caption: 'Surveying the scale of the restoration' },
+          { src: '/images/site/Glashapullagh Restoration West Limerick15.jpg', alt: 'Peatland restoration site at golden hour', caption: 'Golden light over the restored bogland' },
+          { src: '/images/site/bog-walker.jpg', alt: 'Walker crossing the blanket bog', caption: 'Navigating the terrain of the active bog' },
+          { src: '/images/site/monitoring-post.jpg', alt: 'Environmental monitoring station on the bog', caption: 'Monitoring water levels and habitat recovery' },
+          { src: '/images/site/dusk-silhouette.jpg', alt: 'Silhouette of workers at dusk on the peatland', caption: 'End of a day on the bog' },
+        ]}
+      />
 
       {/* PARTNERS & FUNDERS */}
       <PartnersSection />
