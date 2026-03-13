@@ -708,57 +708,6 @@ export default function ClientSite({ content }: ClientSiteProps) {
         </section>
       )}
 
-      {/* TURBARY RIGHTS SECTION */}
-      {content.turbaryRights && (
-        <section id="turbary" style={{ background: 'var(--bg-dark)', padding: '6rem 0' }}>
-          <div className="container">
-            <div style={{ textAlign: 'center', marginBottom: '2rem' }}>
-              <p className="label">{content.turbaryRights.label || 'Context'}</p>
-              <h2 style={{ fontFamily: 'var(--font-display)', color: 'var(--cream)', fontSize: '2.5rem', margin: '0.5rem 0 1rem' }}>{content.turbaryRights.title}</h2>
-              <div className="divider-line divider-line-center" />
-            </div>
-            <p style={{
-              fontFamily: 'var(--font-body)',
-              color: 'var(--cream-dim)',
-              fontSize: '1.1rem',
-              lineHeight: '1.8',
-              maxWidth: '800px',
-              margin: '0 auto 3rem',
-              textAlign: 'center',
-            }}>{content.turbaryRights.intro}</p>
-            <div style={{
-              display: 'grid',
-              gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
-              gap: '2rem',
-              maxWidth: '1100px',
-              margin: '0 auto',
-            }}>
-              {content.turbaryRights.items?.map((item: any, idx: number) => (
-                <div key={idx} style={{
-                  background: 'rgba(255,255,255,0.02)',
-                  border: '1px solid rgba(196,144,61,0.12)',
-                  borderRadius: '12px',
-                  padding: '2rem',
-                }}>
-                  <h3 style={{
-                    fontFamily: 'var(--font-display)',
-                    color: 'var(--gold)',
-                    fontSize: '1.15rem',
-                    marginBottom: '0.75rem',
-                  }}>{item.title}</h3>
-                  <p style={{
-                    fontFamily: 'var(--font-body)',
-                    color: 'var(--cream-dim)',
-                    fontSize: '0.95rem',
-                    lineHeight: '1.7',
-                  }}>{item.text}</p>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
-      )}
-
       {/* VIDEO GRID SECTION */}
       {content.videos && (
         <section className="video-section">

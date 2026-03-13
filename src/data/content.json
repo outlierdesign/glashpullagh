@@ -86,7 +86,7 @@
       },
       {
         "title": "Peat Stabilisation & Reprofiling",
-        "description": "Historic turf cutting left behind steep peat banks (hags) that rapidly dry out, crack, and release carbon. Steep faces were graded into gentle slopes to reduce air exposure and improve water retention. On highly exposed bare peat, biodegradable jute netting was secured with wooden pins to shield the surface, prevent erosion, and create optimal conditions for moss establishment.",
+        "description": "Decades of peat extraction left behind steep, exposed peat banks (hags) that rapidly dry out, crack, and release carbon. Steep faces were graded into gentle slopes to reduce air exposure and improve water retention. On highly exposed bare peat, biodegradable jute netting was secured with wooden pins to shield the surface, prevent erosion, and create optimal conditions for moss establishment.",
         "image": "/images/site/Glashapullagh Restoration West Limerick8.jpg"
       },
       {
@@ -96,7 +96,7 @@
       },
       {
         "title": "Site Logistics & Waste Management",
-        "description": "All operations were strictly planned to respect the fragile ground. Materials were stored close to the site and transported carefully to minimise surface damage. Legacy waste — including dumped turf-gathering plastic bags, tyres, pallets, and water tanks — was responsibly removed to protect wildlife and safeguard water quality.",
+        "description": "All operations were strictly planned to respect the fragile ground. Materials were stored close to the site and transported carefully to minimise surface damage. Legacy waste — including dumped plastic bags, tyres, pallets, and water tanks — was responsibly removed to protect wildlife and safeguard water quality.",
         "image": "/images/site/carrying-equipment.jpg"
       }
     ]
@@ -134,29 +134,6 @@
         "icon": "🌱",
         "title": "Geotextiles",
         "description": "Biodegradable jute netting laid on exposed bare peat and secured with wooden pins. Shields peat from heavy rain, prevents erosion, and retains surface moisture for moss establishment."
-      }
-    ]
-  },
-  "turbaryRights": {
-    "label": "Context",
-    "title": "Turbary Rights & Peatland Restoration",
-    "intro": "Turbary rights — the customary and historical rights to cut turf on an area of bogland — complicate peatland restoration in Ireland by deeply intertwining environmental goals with cultural identity, economic survival, and historical land ownership.",
-    "items": [
-      {
-        "title": "Cultural & Historical Significance",
-        "text": "The practice of bringing home the turf is a ritualised labour central to rural Irish identity, symbolising self-sufficiency and a traditional way of life. Because these rights often stem from the historical resettlement of confiscated lands, any state interference is highly emotive and deeply influenced by Ireland's post-colonial history."
-      },
-      {
-        "title": "Economic & Fuel Security",
-        "text": "Turbary rights provide critical fuel security for heating rural homes. Many local turf contractors rely on peat extraction for their livelihood, selling turf within the community. Restricting these rights raises concerns over lost income, access to affordable energy, and depreciation of land values."
-      },
-      {
-        "title": "Conservation Tensions",
-        "text": "When the government designated certain bogs as protected Special Areas of Conservation (SACs) and introduced bans on cutting, turf cutters felt their property rights were being unfairly dismissed by a science-first approach that disrespected their local knowledge."
-      },
-      {
-        "title": "Community Resistance",
-        "text": "The conflict between state conservation mandates and local turbary rights has resulted in severe, organised resistance. Many turf cutters have strongly opposed compensation or relocation schemes, reflecting the deep emotional and cultural attachment to the right to cut turf."
       }
     ]
   },
