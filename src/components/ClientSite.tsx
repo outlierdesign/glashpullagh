@@ -7,6 +7,7 @@ import ScrollExpandMedia from '@/components/blocks/scroll-expansion-hero';
 import { PartnersSection } from '@/components/blocks/partners-section';
 import { BentoGallery } from '@/components/blocks/bento-gallery';
 import { ZoomParallax } from '@/components/ui/zoom-parallax';
+import { ImageComparisonSlider } from '@/components/ui/image-comparison-slider';
 
 interface ClientSiteProps {
   content: Record<string, any>;
@@ -41,7 +42,7 @@ const loadScript = (src: string): Promise<void> => {
 
 export default function ClientSite({ content }: ClientSiteProps) {
   const heroCanvasRef = useRef<HTMLCanvasElement>(null);
-  const beforeAfterRef = useRef<HTMLDivElement>(null);
+
   const [lightboxOpen, setLightboxOpen] = useState(false);
   const [lightboxSrc, setLightboxSrc] = useState('');
   const lenis = useRef<LenisType | null>(null);
@@ -208,43 +209,6 @@ export default function ClientSite({ content }: ClientSiteProps) {
     };
 
     animate();
-  };
-
-  // Before/After slider functionality
-  const initBeforeAfter = () => {
-    if (!beforeAfterRef.current) return;
-
-    const wrapper = beforeAfterRef.current;
-    const afterImage = wrapper.querySelector('.after-image') as HTMLImageElement;
-    const handle = wrapper.querySelector('.before-after-handle') as HTMLDivElement;
-
-    if (!afterImage || !handle) return;
-
-    const updatePosition = (e: MouseEvent | TouchEvent) => {
-      const rect = wrapper.getBoundingClientRect();
-      const x = (e instanceof TouchEvent ? e.touches[0].clientX : e.clientX) - rect.left;
-      const percent = Math.max(0, Math.min(x / rect.width, 1));
-
-      afterImage.style.clipPath = `inset(0 ${(1 - percent) * 100}% 0 0)`;
-      handle.style.left = `${percent * 100}%`;
-    };
-
-    const onMouseDown = () => {
-      document.addEventListener('mousemove', updatePosition);
-      document.addEventListener('mouseup', () => {
-        document.removeEventListener('mousemove', updatePosition);
-      });
-    };
-
-    const onTouchStart = () => {
-      document.addEventListener('touchmove', updatePosition);
-      document.addEventListener('touchend', () => {
-        document.removeEventListener('touchmove', updatePosition);
-      });
-    };
-
-    handle.addEventListener('mousedown', onMouseDown);
-    handle.addEventListener('touchstart', onTouchStart);
   };
 
   // GSAP animations initialization
@@ -419,7 +383,6 @@ export default function ClientSite({ content }: ClientSiteProps) {
         await loadScript('https://unpkg.com/lenis@1.1.13/dist/lenis.min.js');
 
         initWaterRipple();
-        initBeforeAfter();
         initAnimations();
         initLenis();
       } catch (error) {
@@ -504,34 +467,31 @@ export default function ClientSite({ content }: ClientSiteProps) {
         </div>
       </section>
 
-      {/* BEFORE/AFTER SECTION */}
-      {content.beforeAfter && (
-        <section className="before-after-section">
-          <div className="container">
-            <div className="before-after-container">
-              <h2>{content.beforeAfter.title}</h2>
-              <div className="divider-line" />
-              <div className="before-after-wrapper" ref={beforeAfterRef}>
-                <div className="before-after-comparison">
-                  <img
-                    src={content.beforeAfter.beforeImage}
-                    alt="Before"
-                    className="before-image"
-                  />
-                  <img
-                    src={content.beforeAfter.afterImage}
-                    alt="After"
-                    className="after-image"
-                  />
-                  <div className="before-after-handle" />
-                  <span className="before-label">Before</span>
-                  <span className="after-label">After</span>
-                </div>
-              </div>
-            </div>
+      {/* BEFORE/AFTER SECTION — Aerial Survey Comparison */}
+      <section style={{ background: 'var(--bg-deep)', padding: '6rem 0' }}>
+        <div className="container" style={{ maxWidth: '1100px', margin: '0 auto', padding: '0 1.5rem' }}>
+          <div style={{ textAlign: 'center', marginBottom: '3rem' }}>
+            <p className="label">Aerial Survey</p>
+            <h2 style={{ fontFamily: 'var(--font-display)', color: 'var(--cream)', fontSize: '2.5rem', margin: '0.5rem 0 1rem' }}>
+              Landscape Transformation
+            </h2>
+            <div className="divider-line divider-line-center" />
           </div>
-        </section>
-      )}
+          <div style={{ borderRadius: '12px', overflow: 'hidden', border: '1px solid rgba(196,144,61,0.15)', aspectRatio: '16 / 9' }}>
+            <ImageComparisonSlider
+              leftImage="/images/site/orthophoto-before.jpg"
+              rightImage="/images/site/orthophoto-after.jpg"
+              altLeft="Glashapullagh aerial survey — before restoration"
+              altRight="Glashapullagh aerial survey — after restoration"
+              initialPosition={50}
+            />
+          </div>
+          <div style={{ display: 'flex', justifyContent: 'space-between', marginTop: '1rem', padding: '0 0.25rem' }}>
+            <span style={{ fontFamily: 'var(--font-body)', color: 'var(--gold)', fontSize: '0.85rem', letterSpacing: '0.05em', textTransform: 'uppercase' }}>Before</span>
+            <span style={{ fontFamily: 'var(--font-body)', color: 'var(--gold)', fontSize: '0.85rem', letterSpacing: '0.05em', textTransform: 'uppercase' }}>After</span>
+          </div>
+        </div>
+      </section>
 
       {/* STATS SECTION */}
       {content.stats && (
