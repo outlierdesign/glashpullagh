@@ -125,7 +125,7 @@ export function transformHomepageContent(story: any) {
       items: (c.video_items || []).map((item: any) => ({
         title: item.title,
         description: item.description,
-        thumbnail: item.thumbnail?.filename || '',
+        thumbnail: item.thumbnail?.filename || item.thumbnail || '',
         url: item.url || '',
       })),
     },
