@@ -408,10 +408,10 @@ export default function ClientSite({ content }: ClientSiteProps) {
       {/* SCROLL EXPANSION HERO — TOP OF PAGE */}
       <ScrollExpandMedia
         mediaType="video"
-        mediaSrc="https://vimeo.com/1170727891/e60603a2b1"
-        bgImageSrc="/images/site/hero-bg.jpg"
-        title="Restoring Nature"
-        date="Glashpullagh Peatlands"
+        mediaSrc={content.scrollHero?.videoUrl || "https://vimeo.com/1170727891/e60603a2b1"}
+        bgImageSrc={content.scrollHero?.bgImage || "/images/site/hero-bg.jpg"}
+        title={content.scrollHero?.title || "Restoring Nature"}
+        date={content.scrollHero?.date || "Glashpullagh Peatlands"}
         scrollToExpand="Scroll to explore"
         textBlend
       >
@@ -420,19 +420,19 @@ export default function ClientSite({ content }: ClientSiteProps) {
             className="text-3xl font-bold mb-6"
             style={{ fontFamily: 'var(--font-display)', color: 'var(--gold)' }}
           >
-            Reversing Decades of Drainage
+            {content.scrollHero?.heading || "Reversing Decades of Drainage"}
           </h2>
           <p
             className="text-lg mb-8 leading-relaxed"
             style={{ fontFamily: 'var(--font-body)', color: 'var(--cream)' }}
           >
-            The Glashapullagh site is a cutover blanket bog in West Limerick that had been historically drained, leading to severe peat compaction, the spread of scrub and rushes, and significant peat loss. A comprehensive Restoration Action Plan was developed using extensive drone and ground surveys, approved by the National Parks and Wildlife Service.
+            {content.scrollHero?.paragraph1 || "The Glashapullagh site is a cutover blanket bog in West Limerick that had been historically drained, leading to severe peat compaction, the spread of scrub and rushes, and significant peat loss. A comprehensive Restoration Action Plan was developed using extensive drone and ground surveys, approved by the National Parks and Wildlife Service."}
           </p>
           <p
             className="text-lg leading-relaxed"
             style={{ fontFamily: 'var(--font-body)', color: 'var(--cream-dim)' }}
           >
-            Restoration works included reprofiling peat banks, installing dams, removing conifers, and stabilising bare peat. The site is now on a path to recovery — rewetting is slowing carbon loss, habitats are improving for wildlife, and peat-forming plants are returning. Recovery takes time, but at Glashapullagh, it has begun.
+            {content.scrollHero?.paragraph2 || "Restoration works included reprofiling peat banks, installing dams, removing conifers, and stabilising bare peat. The site is now on a path to recovery — rewetting is slowing carbon loss, habitats are improving for wildlife, and peat-forming plants are returning. Recovery takes time, but at Glashapullagh, it has begun."}
           </p>
         </div>
       </ScrollExpandMedia>
@@ -546,6 +546,7 @@ export default function ClientSite({ content }: ClientSiteProps) {
         <InteractiveMap
           label={content.topoMap.label || 'Location'}
           title={content.topoMap.title || 'Site Map'}
+          cmsMapImage={content.topoMap.mapImage || null}
         />
       )}
 

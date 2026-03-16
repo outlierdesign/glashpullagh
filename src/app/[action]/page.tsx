@@ -1,15 +1,36 @@
 import { notFound } from 'next/navigation';
-import actions from '@/data/restoration-actions.json';
+import localActions from '@/data/restoration-actions.json';
 import { VideoPlayer } from '@/components/blocks/video-player';
 import Image from 'next/image';
 import Link from 'next/link';
+import { fetchStory, fetchStories, transformRestorationAction } from '@/lib/storyblok';
 
-export function generateStaticParams() {
-  return actions.map((a: any) => ({ action: a.slug }));
+export const revalidate = 60; // ISR: revalidate every 60 seconds
+
+export async function generateStaticParams() {
+  // Try Storyblok first for the list of slugs
+  const stories = await fetchStories('restoration-actions/');
+  if (stories.length > 0) {
+    return stories.map((s: any) => ({ action: s.slug }));
+  }
+  // Fallback to local JSON
+  return localActions.map((a: any) => ({ action: a.slug }));
 }
 
-export function generateMetadata({ params }: { params: { action: string } }) {
-  const action = actions.find((a: any) => a.slug === params.action);
+export async function generateMetadata({ params }: { params: { action: string } }) {
+  // Try Storyblok
+  const story = await fetchStory(`restoration-actions/${params.action}`);
+  if (story?.content) {
+    const action = transformRestorationAction(story);
+    if (action) {
+      return {
+        title: action.title + ' — Glashapullagh Peatland Restoration',
+        description: action.description.slice(0, 160),
+      };
+    }
+  }
+  // Fallback to local JSON
+  const action = localActions.find((a: any) => a.slug === params.action);
   if (!action) return {};
   return {
     title: action.title + ' — Glashapullagh Peatland Restoration',
@@ -17,8 +38,20 @@ export function generateMetadata({ params }: { params: { action: string } }) {
   };
 }
 
-export default function RestorationActionPage({ params }: { params: { action: string } }) {
-  const action = actions.find((a: any) => a.slug === params.action);
+export default async function RestorationActionPage({ params }: { params: { action: string } }) {
+  let action: any = null;
+
+  // Try Storyblok first
+  const story = await fetchStory(`restoration-actions/${params.action}`);
+  if (story?.content) {
+    action = transformRestorationAction(story);
+  }
+
+  // Fallback to local JSON
+  if (!action) {
+    action = localActions.find((a: any) => a.slug === params.action);
+  }
+
   if (!action) notFound();
 
   return (
@@ -37,7 +70,7 @@ export default function RestorationActionPage({ params }: { params: { action: st
         </h1>
 
         <div style={{ marginBottom: '2.5rem' }}>
-          <VideoPlayer vimeoUrl={(action as any).vimeoUrl} title={action.title} />
+          <VideoPlayer vimeoUrl={action.vimeoUrl} title={action.title} />
         </div>
 
         <div style={{ fontSize: '1.0625rem', lineHeight: 1.75, color: 'rgba(232,224,208,0.85)', marginBottom: '3rem' }}>

@@ -28,6 +28,7 @@ interface MapMarker {
 interface InteractiveMapProps {
   label?: string;
   title?: string;
+  cmsMapImage?: string | null; // Image URL from Storyblok CMS (takes priority over local upload)
 }
 
 const STORAGE_KEY = 'glashpullagh-map-markers';
@@ -70,7 +71,7 @@ async function loadImageFromDB(key: string): Promise<string | null> {
   });
 }
 
-export default function InteractiveMap({ label = 'Location', title = 'Site Map' }: InteractiveMapProps) {
+export default function InteractiveMap({ label = 'Location', title = 'Site Map', cmsMapImage = null }: InteractiveMapProps) {
   const mapRef = useRef<HTMLDivElement>(null);
   const fileInputRef = useRef<HTMLInputElement>(null);
 
@@ -90,12 +91,16 @@ export default function InteractiveMap({ label = 'Location', title = 'Site Map' 
     } catch (e) {}
   }, []);
 
-  // Load saved image from IndexedDB
+  // Load map image: prefer CMS image, then IndexedDB local upload
   useEffect(() => {
-    loadImageFromDB('map-image')
-      .then((img) => { if (img) setMapImage(img); })
-      .catch(() => {});
-  }, []);
+    if (cmsMapImage) {
+      setMapImage(cmsMapImage);
+    } else {
+      loadImageFromDB('map-image')
+        .then((img) => { if (img) setMapImage(img); })
+        .catch(() => {});
+    }
+  }, [cmsMapImage]);
 
   // Save markers when they change
   useEffect(() => {
