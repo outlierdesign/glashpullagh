@@ -757,11 +757,23 @@ export default function ClientSite({ content }: ClientSiteProps) {
           <button className="lightbox-close" onClick={closeLightbox}>
             ✕
           </button>
-          {lightboxSrc.includes('youtube.com') || lightboxSrc.includes('vimeo.com') ? (
+          {lightboxSrc.includes('youtube.com') || lightboxSrc.includes('vimeo.com') || lightboxSrc.includes('player.vimeo.com') ? (
             <iframe
               className="lightbox-iframe"
-              src={lightboxSrc}
+              src={(() => {
+                // Convert vimeo.com/ID/HASH → player.vimeo.com embed URL
+                if (lightboxSrc.includes('vimeo.com') && !lightboxSrc.includes('player.vimeo.com')) {
+                  const match = lightboxSrc.match(/vimeo\.com\/(\d+)(?:\/([a-zA-Z0-9]+))?/);
+                  if (match) {
+                    const id = match[1];
+                    const hash = match[2];
+                    return `https://player.vimeo.com/video/${id}${hash ? `?h=${hash}` : ''}`;
+                  }
+                }
+                return lightboxSrc;
+              })()}
               title="Video"
+              allow="autoplay; fullscreen; picture-in-picture"
               allowFullScreen
             />
           ) : (

@@ -142,48 +142,78 @@
     "title": "Video Documentation",
     "items": [
       {
-        "title": "Introduction to Glashapullagh",
-        "description": "An overview of the project, landscape, and restoration vision.",
-        "thumbnail": "https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=400&h=225&fit=crop",
-        "url": "https://www.youtube.com/embed/dQw4w9WgXcQ"
+        "title": "Overview",
+        "description": "An overview of the project, landscape, and restoration vision for Glashapullagh.",
+        "thumbnail": "/images/site/hero-media.jpg",
+        "url": "https://vimeo.com/1170727891/e60603a2b1"
       },
       {
-        "title": "Rewetting the Bog",
-        "description": "Documentary on the hydrological restoration process and water management.",
-        "thumbnail": "https://images.unsplash.com/photo-1469022563149-aa64dbd37dae?w=400&h=225&fit=crop",
-        "url": "https://www.youtube.com/embed/dQw4w9WgXcQ"
+        "title": "Timber Dams",
+        "description": "Installing untreated larch plank dams in shallow drains to slow water flow and re-wet the bog.",
+        "thumbnail": "/images/site/plank-dam.jpg",
+        "url": "https://vimeo.com/1170368764/129cdce8ec"
       },
       {
-        "title": "Life Returns",
-        "description": "Following the recovery of plant and animal communities over a decade.",
-        "thumbnail": "https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=400&h=225&fit=crop",
-        "url": "https://www.youtube.com/embed/dQw4w9WgXcQ"
+        "title": "Peat Plugs",
+        "description": "Packing native peat into deep drains to block drainage and raise the water table.",
+        "thumbnail": "/images/site/peat-pool.jpg",
+        "url": "https://vimeo.com/1169964237/ae918a24fd"
       },
       {
-        "title": "Monitoring for Impact",
-        "description": "Science in action: the research methods driving adaptive management.",
-        "thumbnail": "https://images.unsplash.com/photo-1469022563149-aa64dbd37dae?w=400&h=225&fit=crop",
-        "url": "https://www.youtube.com/embed/dQw4w9WgXcQ"
+        "title": "Composite Wood-Peat Dams",
+        "description": "Heavy larch planks reinforced with timber posts for wide or deep drains on sloping ground.",
+        "thumbnail": "/images/site/dam-workers.jpg",
+        "url": "https://vimeo.com/1169899899/3c5e185cbb"
       },
       {
-        "title": "Climate Benefits",
-        "description": "How peatland restoration contributes to carbon sequestration and climate mitigation.",
-        "thumbnail": "https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=400&h=225&fit=crop",
-        "url": "https://www.youtube.com/embed/dQw4w9WgXcQ"
+        "title": "Stone Dams",
+        "description": "Non-calcareous stone placed where little peat remains, protecting the bog's water chemistry.",
+        "thumbnail": "/images/site/Glashapullagh Restoration West Limerick5.jpg",
+        "url": "https://vimeo.com/1169865947/1d83f1c9b4"
       },
       {
-        "title": "Community Engagement",
-        "description": "Local partnerships and educational programmes connecting people to the landscape.",
-        "thumbnail": "https://images.unsplash.com/photo-1469022563149-aa64dbd37dae?w=400&h=225&fit=crop",
-        "url": "https://www.youtube.com/embed/dQw4w9WgXcQ"
+        "title": "Coir Logs",
+        "description": "Biodegradable coconut husk rolls blocking gullies and small drains to raise the water table.",
+        "thumbnail": "/images/site/monitoring-post.jpg",
+        "url": "https://vimeo.com/1169561924/c41853e77e"
+      },
+      {
+        "title": "Geotextiles",
+        "description": "Biodegradable jute netting protecting exposed bare peat and accelerating moss establishment.",
+        "thumbnail": "/images/site/Glashapullagh Restoration West Limerick8.jpg",
+        "url": "https://vimeo.com/1168476185"
+      },
+      {
+        "title": "Removing Conifers",
+        "description": "Hand-removing self-sown Sitka spruce to restore open, wet conditions and protect wildlife.",
+        "thumbnail": "/images/site/Glashapullagh Restoration West Limerick4.jpg",
+        "url": "https://vimeo.com/1169595066/5d1192a3eb"
+      },
+      {
+        "title": "Reprofiling Peat Banks",
+        "description": "Grading steep hags into gentle slopes to reduce air exposure and stabilise vulnerable peat.",
+        "thumbnail": "/images/site/landscape-figure.jpg",
+        "url": "https://vimeo.com/1169631012/5dcf4df130"
+      },
+      {
+        "title": "Waste Management",
+        "description": "Identifying, sorting, and responsibly removing legacy waste to protect wildlife and water quality.",
+        "thumbnail": "/images/site/carrying-equipment.jpg",
+        "url": "https://vimeo.com/1169848533/91223827cc"
+      },
+      {
+        "title": "Logistics and Safety",
+        "description": "Planning materials, safe working practices, and emergency procedures on fragile bogland.",
+        "thumbnail": "/images/site/carrying-equipment.jpg",
+        "url": "https://vimeo.com/1170272267"
       }
     ]
   },
   "documentary": {
     "label": "Featured",
-    "title": "The Long Rewetting",
-    "description": "A feature-length documentary on the science and stewardship of bog restoration.",
-    "url": "https://www.youtube.com/embed/dQw4w9WgXcQ"
+    "title": "Project Overview",
+    "description": "A comprehensive overview of the Glashapullagh peatland restoration project.",
+    "url": "https://player.vimeo.com/video/1170727891?h=e60603a2b1"
   },
   "gallery": {
     "label": "Gallery",
