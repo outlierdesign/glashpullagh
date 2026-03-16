@@ -149,6 +149,44 @@ const ScrollExpandMedia = ({
                     }}
                   />
                 </div>
+              ) : mediaSrc.includes('vimeo.com') ? (
+                <div className="relative w-full h-full pointer-events-none">
+                  <iframe
+                    width="100%"
+                    height="100%"
+                    src={(() => {
+                      // Convert vimeo.com/ID/HASH to player.vimeo.com embed URL
+                      const match = mediaSrc.match(/vimeo\.com\/(\d+)(?:\/([a-zA-Z0-9]+))?/);
+                      if (!match) return mediaSrc;
+                      const id = match[1];
+                      const hash = match[2];
+                      return `https://player.vimeo.com/video/${id}${hash ? `?h=${hash}&` : '?'}autoplay=1&muted=1&loop=1&background=1&quality=1080p`;
+                    })()}
+                    className="w-full h-full"
+                    style={{
+                      borderRadius: `${borderRadius}px`,
+                      border: 'none',
+                      width: '100%',
+                      height: '100%',
+                      position: 'absolute',
+                      top: 0,
+                      left: 0,
+                    }}
+                    allow="autoplay; fullscreen; picture-in-picture"
+                    allowFullScreen
+                  />
+                  <div
+                    className="absolute inset-0 z-10"
+                    style={{ pointerEvents: 'none' }}
+                  />
+                  <div
+                    className="absolute inset-0 bg-black/30"
+                    style={{
+                      opacity: overlayOpacity,
+                      borderRadius: `${borderRadius}px`,
+                    }}
+                  />
+                </div>
               ) : (
                 <div className="relative w-full h-full pointer-events-none">
                   <video

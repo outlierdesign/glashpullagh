@@ -8,6 +8,7 @@ import { PartnersSection } from '@/components/blocks/partners-section';
 import { BentoGallery } from '@/components/blocks/bento-gallery';
 import { ZoomParallax } from '@/components/ui/zoom-parallax';
 import { ImageComparisonSlider } from '@/components/ui/image-comparison-slider';
+import InteractiveMap from '@/components/blocks/interactive-map';
 
 interface ClientSiteProps {
   content: Record<string, any>;
@@ -406,8 +407,8 @@ export default function ClientSite({ content }: ClientSiteProps) {
     <>
       {/* SCROLL EXPANSION HERO — TOP OF PAGE */}
       <ScrollExpandMedia
-        mediaType="image"
-        mediaSrc="/images/site/hero-media.jpg"
+        mediaType="video"
+        mediaSrc="https://vimeo.com/1170727891/e60603a2b1"
         bgImageSrc="/images/site/hero-bg.jpg"
         title="Restoring Nature"
         date="Glashpullagh Peatlands"
@@ -540,54 +541,12 @@ export default function ClientSite({ content }: ClientSiteProps) {
         </div>
       </section>
 
-      {/* TOPO MAP SECTION */}
+      {/* INTERACTIVE MAP SECTION */}
       {content.topoMap && (
-        <section className="topo-map-section">
-          <div className="container">
-            <div className="topo-map-container">
-              <div className="topo-map-header">
-                <p className="label">{content.topoMap.label || 'Map'}</p>
-                <h2>{content.topoMap.title || 'Topographical Map'}</h2>
-                <div className="divider-line divider-line-center" />
-              </div>
-              <div className="topo-map-wrapper">
-                <svg className="topo-map-svg" viewBox="0 0 800 600" xmlns="http://www.w3.org/2000/svg">
-                  {/* Base map background */}
-                  <defs>
-                    <linearGradient id="terrainGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                      <stop offset="0%" style={{ stopColor: 'var(--green-deep)', stopOpacity: 1 }} />
-                      <stop offset="100%" style={{ stopColor: 'var(--bg-card)', stopOpacity: 1 }} />
-                    </linearGradient>
-                  </defs>
-                  <rect width="800" height="600" fill="var(--bg-card)" />
-                  <path d="M50,300 Q200,200 400,300 T800,300 L800,600 L0,600 Z" fill="url(#terrainGradient)" opacity="0.7" />
-                  {/* Contour lines */}
-                  <path d="M100,250 Q200,240 300,250 Q400,260 500,250" stroke="var(--gold-dim)" strokeWidth="2" fill="none" opacity="0.5" />
-                  <path d="M80,350 Q250,340 450,350 Q600,360 750,350" stroke="var(--gold-dim)" strokeWidth="2" fill="none" opacity="0.5" />
-                  {/* Markers */}
-                  <circle cx="400" cy="300" r="8" fill="var(--gold)" />
-                  <text x="420" y="310" fill="var(--gold)" fontSize="14" fontFamily="var(--font-ui)">
-                    Main Site
-                  </text>
-                </svg>
-              </div>
-              <div className="topo-map-legend">
-                <div className="legend-item">
-                  <div className="legend-color" style={{ background: 'var(--green-deep)' }} />
-                  <span>Elevated</span>
-                </div>
-                <div className="legend-item">
-                  <div className="legend-color" style={{ background: 'var(--water)' }} />
-                  <span>Water</span>
-                </div>
-                <div className="legend-item">
-                  <div className="legend-color" style={{ background: 'var(--gold-dim)' }} />
-                  <span>Contours</span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
+        <InteractiveMap
+          label={content.topoMap.label || 'Location'}
+          title={content.topoMap.title || 'Site Map'}
+        />
       )}
 
       {/* RESTORATION GRID SECTION */}
@@ -648,7 +607,6 @@ export default function ClientSite({ content }: ClientSiteProps) {
                   padding: '2rem',
                   transition: 'border-color 0.3s ease, transform 0.3s ease',
                 }}>
-                  <div style={{ fontSize: '2.5rem', marginBottom: '1rem' }}>{item.icon}</div>
                   <h3 style={{
                     fontFamily: 'var(--font-display)',
                     color: 'var(--gold)',
