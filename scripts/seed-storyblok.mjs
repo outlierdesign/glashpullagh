@@ -50,10 +50,12 @@ async function api(method, path, body) {
 }
 
 async function getSpaceId() {
+  // Allow override via env var, otherwise find "Glashapullagh" space
+  if (process.env.STORYBLOK_SPACE_ID) return Number(process.env.STORYBLOK_SPACE_ID);
   const { spaces } = await api('GET', '/spaces');
   if (!spaces || spaces.length === 0) throw new Error('No spaces found');
-  // Use first space (or you can filter by name)
-  return spaces[0].id;
+  const target = spaces.find(s => s.name.toLowerCase().includes('glashapullagh'));
+  return target ? target.id : spaces[0].id;
 }
 
 // ── Component Schemas ───────────────────────────
