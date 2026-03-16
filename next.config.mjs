@@ -9,6 +9,12 @@ const nextConfig = {
   experimental: {
     serverActions: { bodySizeLimit: '10mb' }
   },
+  async rewrites() {
+    return [
+      // Storyblok Visual Editor hits /home (the story slug) — serve the homepage
+      { source: '/home', destination: '/' },
+    ];
+  },
   async headers() {
     return [
       {
