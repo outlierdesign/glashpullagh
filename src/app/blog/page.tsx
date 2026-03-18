@@ -4,7 +4,7 @@ import path from 'path';
 import Link from 'next/link';
 
 export const metadata: Metadata = {
-  title: 'Blog Diaries — Glashapullagh',
+  title: 'Bog Diaries — Glashapullagh',
   description: 'Stories from the recovering bog. Follow the seasons at Glashapullagh as the peatland heals, wildlife returns, and the landscape transforms.',
 };
 
@@ -67,7 +67,7 @@ export default function BlogPage() {
             fontWeight: 400,
             marginBottom: '1rem',
           }}>
-            Blog Diaries
+            Bog Diaries
           </h1>
           <p style={{
             fontFamily: 'var(--font-body)',

@@ -38,7 +38,7 @@ export async function generateMetadata({ params }: { params: { slug: string } })
   const post = posts.find((p) => p.slug === params.slug);
   if (!post) return { title: 'Post Not Found' };
   return {
-    title: `${post.title} — Blog Diaries — Glashapullagh`,
+    title: `${post.title} — Bog Diaries — Glashapullagh`,
     description: post.excerpt,
   };
 }
@@ -263,7 +263,7 @@ export default function BlogPostPage({ params }: { params: { slug: string } }) {
               letterSpacing: '0.12em',
             }}
           >
-            ← All Blog Diaries
+            ← All Bog Diaries
           </Link>
         </div>
       </article>

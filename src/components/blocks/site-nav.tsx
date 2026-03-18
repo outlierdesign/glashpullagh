@@ -18,7 +18,7 @@ export function SiteNav() {
     { label: 'About', href: '/#about' },
     { label: 'Restoration', href: '/#restoration' },
     { label: 'Techniques', href: '/#techniques' },
-    { label: 'Blog Diaries', href: '/blog' },
+    { label: 'Bog Diaries', href: '/blog' },
   ];
 
   return (
