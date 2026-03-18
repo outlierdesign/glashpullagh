@@ -9,6 +9,7 @@ import { BentoGallery } from '@/components/blocks/bento-gallery';
 import { ZoomParallax } from '@/components/ui/zoom-parallax';
 import { ImageComparisonSlider } from '@/components/ui/image-comparison-slider';
 import InteractiveMap from '@/components/blocks/interactive-map';
+import { TabbedRestoration } from '@/components/blocks/tabbed-restoration';
 
 interface ClientSiteProps {
   content: Record<string, any>;
@@ -550,28 +551,13 @@ export default function ClientSite({ content }: ClientSiteProps) {
         />
       )}
 
-      {/* RESTORATION GRID SECTION */}
+      {/* RESTORATION TABBED SECTION */}
       {content.restoration && (
-        <section className="restoration-section texture-overlay">
-          <div className="container">
-            <div className="restoration-header">
-              <p className="label">{content.restoration.label || 'Process'}</p>
-              <h2>{content.restoration.title || 'Restoration Methods'}</h2>
-              <div className="divider-line divider-line-center" />
-            </div>
-            <div className="restoration-grid">
-              {content.restoration.items?.map((item: any, idx: number) => (
-                <div key={idx} className="restoration-card">
-                  {item.image && <img src={item.image} alt={item.title} className="restoration-image" />}
-                  <div className="restoration-content">
-                    <h3>{item.title}</h3>
-                    <p>{item.description}</p>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
+        <TabbedRestoration
+          label={content.restoration.label}
+          title={content.restoration.title}
+          items={content.restoration.items}
+        />
       )}
 
       {/* PARALLAX BREAK 2 */}
