@@ -8,28 +8,28 @@
     "title": "What We Do",
     "items": [
       {
-        "title": "Drain Blocking",
-        "description": "Slow the flow of water, create pools where Sphagnum can get started, let water soak into the peat rather than flow out of the bog."
+        "title": "Slow Carbon Loss",
+        "description": "Preventing the oxidation of dry peat by raising water tables, slowing carbon loss to the atmosphere and ultimately turning a degraded bog back into a carbon store."
       },
       {
-        "title": "Sphagnum Recovery",
-        "description": "There is no bog without Sphagnum moss, there is no Sphagnum Moss without a bog. Some Sphagnum plants survived on this site, raising the water table will give them a chance to expand."
+        "title": "Improve Habitats",
+        "description": "Protecting and enhancing habitats for ground-nesting birds including Snipe, and Hen Harrier by restoring the vegetation of the bog and removing self-sown conifers that facilitate predators."
       },
       {
-        "title": "Water Table Management",
-        "description": "Rewetting is not flooding; the goal is to bring the water table nearer to the surface and to keep the peat wet."
+        "title": "Restore Peat-Forming Plants",
+        "description": "Encouraging the return of Sphagnum mosses and native bog vegetation by raising the local water table and stabilising exposed peat surfaces. This is the only way to secure the bogs future."
       },
       {
-        "title": "Monitoring",
-        "description": "The site will look a bit messy for a while, but it will settle down quickly. Growing vegetation will bring it back to life. We will use acoustic monitors, trail cameras and human observers to record what species of birds and bats use the site over the next few years."
+        "title": "Rewet the Landscape",
+        "description": "Blocking historic drainage channels using timber dams, peat plugs, composite dams, stone dams, and coir logs to restore the bog's natural hydrology. There is no bog without water, by retaining water on the bog for longer we restore the site but also slow the runoff into rivers after intense rainfall reducing erosion and flood risks."
       },
       {
-        "title": "Timber Dam Construction",
-        "description": "Timber dams are easily installed by hand, simple structures that slow the flow of water, preventing erosion, encouraging water to soak in and recharge the peat. The timber will decay into the bog but it will last long enough for Sphagnum and other plants to take its place."
+        "title": "Thinking Ahead",
+        "description": "Glashapullagh is a small site, but it does serve to demonstrate the positives that restoration delivers. The restoration of a blanket bog does not mean flooding, but it does mean managing the bog for the future. Restoring its hydrology, securing the remaining peat and helping bring back the natural bog vegetation that will in time create new peat."
       },
       {
-        "title": "Community Engagement",
-        "description": "Telling the story of Glashapullagh as it recovers is a big part of what we want to achieve here. By using short films and digital models of the site, large numbers of people can see what was done here and see how plants and animals are responding without disturbing a sensitive site."
+        "title": "Tell the Story of a Recovering Bog",
+        "description": "While the site looked a bit messy in the first few months after the works were completed, we did not have to wait long for signs of life coming back. Frogs spawning in the pools, wintering snipe feeding in the soft mud. By the summer vegetation will start to cover the bare peat, and insects will colonise the pools. We will monitor these changes, film them and tell you the story of how life returns."
       }
     ]
   },
@@ -41,7 +41,7 @@
   "stats": {
     "items": [
       {
-        "value": ">40",
+        "value": ">140",
         "label": "Composite, peat, timber, stone dams"
       },
       {
