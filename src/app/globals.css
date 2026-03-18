@@ -236,6 +236,14 @@ p, li, td { font-family: var(--font-body); font-weight: 400; }
   position: relative;
   overflow: hidden;
 }
+.bento-card-content { position: relative; z-index: 2; }
+.bento-card-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(14,11,9,0.88) 0%, rgba(14,11,9,0.5) 50%, rgba(14,11,9,0.25) 100%);
+  z-index: 1;
+}
+.bento-card-has-image { min-height: 280px; display: flex; align-items: flex-end; }
 .bento-card::before {
   content: '';
   position: absolute;
@@ -244,6 +252,7 @@ p, li, td { font-family: var(--font-body); font-weight: 400; }
   opacity: 0;
   transition: opacity 0.4s var(--ease-out-expo);
   pointer-events: none;
+  z-index: 3;
 }
 .bento-card:hover {
   border-color: var(--gold-light);

@@ -460,9 +460,14 @@ export default function ClientSite({ content }: ClientSiteProps) {
           </div>
           <div className="bento-grid">
             {content.bento?.items?.map((item: any, idx: number) => (
-              <div key={idx} className="bento-card">
-                <h3>{item.title}</h3>
-                <p>{item.description}</p>
+              <div key={idx} className={`bento-card${item.image ? ' bento-card-has-image' : ''}`}
+                style={item.image ? { backgroundImage: `url(${item.image})`, backgroundSize: 'cover', backgroundPosition: 'center' } : undefined}
+              >
+                {item.image && <div className="bento-card-overlay" />}
+                <div className="bento-card-content">
+                  <h3>{item.title}</h3>
+                  <p>{item.description}</p>
+                </div>
               </div>
             ))}
           </div>
