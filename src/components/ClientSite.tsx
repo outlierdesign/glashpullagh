@@ -451,7 +451,7 @@ export default function ClientSite({ content }: ClientSiteProps) {
       </section>
 
       {/* BENTO GRID SECTION */}
-      <section className="bento-section texture-overlay">
+      <section className="bento-section texture-overlay tex-felt">
         <div className="container">
           <div className="bento-header">
             <p className="label">{content.bento?.label || 'Overview'}</p>
@@ -497,7 +497,7 @@ export default function ClientSite({ content }: ClientSiteProps) {
 
       {/* STATS SECTION */}
       {content.stats && (
-        <section className="stats-section texture-overlay">
+        <section className="stats-section texture-overlay tex-speckled">
           <div className="container">
             <div className="stats-grid">
               {content.stats.items?.map((stat: any, idx: number) => (
@@ -522,7 +522,7 @@ export default function ClientSite({ content }: ClientSiteProps) {
       )}
 
       {/* ABOUT SITE SECTION */}
-      <section className="about-site-section texture-overlay" id="about">
+      <section className="about-site-section texture-overlay tex-brushed" id="about">
         <div className="container">
           <div className="about-site-container">
             <div className="about-site-content">
@@ -572,7 +572,7 @@ export default function ClientSite({ content }: ClientSiteProps) {
 
       {/* DAMMING METHODS SECTION */}
       {content.monitoring && (
-        <section id="techniques" className="texture-overlay texture-dense" style={{ background: 'var(--bg-deep)', padding: '6rem 0' }}>
+        <section id="techniques" className="texture-overlay tex-concrete" style={{ background: 'var(--bg-deep)', padding: '6rem 0' }}>
           <div className="container">
             <div style={{ textAlign: 'center', marginBottom: '4rem' }}>
               <p className="label">{content.monitoring.label || 'Techniques'}</p>
@@ -615,9 +615,9 @@ export default function ClientSite({ content }: ClientSiteProps) {
 
       {/* WHY LARCH SECTION */}
       {content.whyLarch && (
-        <section className="texture-overlay" style={{
+        <section style={{
           padding: '5rem 2rem',
-          background: 'var(--bg-section)',
+          background: 'var(--bg-card)',
         }}>
           <div className="container" style={{ maxWidth: '900px', margin: '0 auto' }}>
             <div style={{ textAlign: 'center', marginBottom: '3rem' }}>
@@ -676,7 +676,7 @@ export default function ClientSite({ content }: ClientSiteProps) {
 
       {/* VIDEO GRID SECTION */}
       {content.videos && (
-        <section className="video-section texture-overlay">
+        <section className="video-section texture-overlay tex-denim">
           <div className="container">
             <div className="video-header">
               <p className="label">{content.videos.label || 'Media'}</p>
@@ -707,7 +707,7 @@ export default function ClientSite({ content }: ClientSiteProps) {
 
       {/* DOCUMENTARY SECTION */}
       {content.documentary && (
-        <section className="documentary-section texture-overlay">
+        <section className="documentary-section texture-overlay tex-tweed">
           <div className="container">
             <div className="documentary-container">
               <div className="documentary-header">

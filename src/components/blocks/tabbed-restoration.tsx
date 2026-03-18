@@ -24,7 +24,7 @@ export function TabbedRestoration({ label, title, items }: TabbedRestorationProp
   return (
     <section
       id="restoration"
-      className="texture-overlay"
+      className="texture-overlay tex-woven"
       style={{ background: 'var(--bg-section)', padding: '6rem 0' }}
     >
       <div style={{ maxWidth: '1400px', margin: '0 auto', padding: '0 2rem' }}>
