@@ -10,6 +10,7 @@ import { ZoomParallax } from '@/components/ui/zoom-parallax';
 import { ImageComparisonSlider } from '@/components/ui/image-comparison-slider';
 import InteractiveMap from '@/components/blocks/interactive-map';
 import { TabbedRestoration } from '@/components/blocks/tabbed-restoration';
+import HoverRevealCards from '@/components/ui/cards';
 
 interface ClientSiteProps {
   content: Record<string, any>;
@@ -565,54 +566,56 @@ export default function ClientSite({ content }: ClientSiteProps) {
         />
       )}
 
-      {/* PARALLAX BREAK 2 */}
+      {/* PARALLAX BREAK 2 — Recovery Takes Time */}
       {content.parallaxBreaks?.[1] && (
-        <section className="parallax-break">
-          <div className="parallax-content">
+        <section style={{
+          position: 'relative',
+          height: '70vh',
+          minHeight: '450px',
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          overflow: 'hidden',
+        }}>
+          <div style={{
+            position: 'absolute',
+            inset: '-20% 0',
+            backgroundImage: 'url(/images/site/Glashapullagh Restoration West Limerick1.jpg)',
+            backgroundSize: 'cover',
+            backgroundPosition: 'center',
+            backgroundAttachment: 'fixed',
+          }} />
+          <div style={{
+            position: 'absolute',
+            inset: 0,
+            background: 'linear-gradient(135deg, rgba(26,46,28,0.78) 0%, rgba(14,11,9,0.7) 100%)',
+          }} />
+          <div className="parallax-content" style={{ position: 'relative', zIndex: 2 }}>
             <h2>{content.parallaxBreaks[1].title}</h2>
             <p>{content.parallaxBreaks[1].text}</p>
           </div>
         </section>
       )}
 
-      {/* DAMMING METHODS SECTION */}
+      {/* SLOWING THE FLOW OF WATER — Hover Reveal Cards */}
       {content.monitoring && (
         <section id="techniques" className="texture-overlay tex-concrete" style={{ background: 'var(--bg-deep)', padding: '6rem 0' }}>
-          <div className="container">
-            <div style={{ textAlign: 'center', marginBottom: '4rem' }}>
+          <div style={{ maxWidth: '1400px', margin: '0 auto', padding: '0 2rem' }}>
+            <div style={{ textAlign: 'center', marginBottom: '3rem' }}>
               <p className="label">{content.monitoring.label || 'Techniques'}</p>
-              <h2 style={{ fontFamily: 'var(--font-display)', color: 'var(--cream)', fontSize: '2.5rem', margin: '0.5rem 0 1rem' }}>{content.monitoring.title || 'Damming Methods'}</h2>
+              <h2 style={{ fontFamily: 'var(--font-display)', color: 'var(--cream)', fontSize: 'clamp(1.75rem, 4vw, 2.5rem)', margin: '0.5rem 0 1rem' }}>{content.monitoring.title || 'Slowing The Flow Of Water'}</h2>
               <div className="divider-line divider-line-center" />
             </div>
-            <div style={{
-              display: 'grid',
-              gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))',
-              gap: '2rem',
-              maxWidth: '1200px',
-              margin: '0 auto',
-            }}>
-              {content.monitoring.items?.map((item: any, idx: number) => (
-                <div key={idx} style={{
-                  background: 'rgba(255,255,255,0.03)',
-                  border: '1px solid rgba(184,134,74,0.15)',
-                  borderRadius: '12px',
-                  padding: '2rem',
-                  transition: 'border-color 0.3s ease, transform 0.3s ease',
-                }}>
-                  <h3 style={{
-                    fontFamily: 'var(--font-display)',
-                    color: 'var(--gold)',
-                    fontSize: '1.25rem',
-                    marginBottom: '0.75rem',
-                  }}>{item.title}</h3>
-                  <p style={{
-                    fontFamily: 'var(--font-body)',
-                    color: 'var(--cream-dim)',
-                    fontSize: '0.95rem',
-                    lineHeight: '1.7',
-                  }}>{item.description}</p>
-                </div>
-              ))}
+            <div style={{ display: 'flex', justifyContent: 'center' }}>
+              <HoverRevealCards
+                items={content.monitoring.items?.map((item: any, idx: number) => ({
+                  id: idx,
+                  title: item.title,
+                  subtitle: item.description?.split('.')[0] || '',
+                  imageUrl: item.image || '/images/site/peat-pool.jpg',
+                })) || []}
+                className="md:grid-cols-5"
+              />
             </div>
           </div>
         </section>
