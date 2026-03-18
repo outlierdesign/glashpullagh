@@ -119,6 +119,15 @@ export function transformHomepageContent(story: any) {
         description: item.description,
       })),
     },
+    whyLarch: c.why_larch_title ? {
+      label: c.why_larch_label || 'Materials',
+      title: c.why_larch_title || 'Why Larch',
+      paragraphs: (c.why_larch_text || '').split('\n\n').filter(Boolean),
+      images: [
+        { src: '/images/site/larch-tree.jpg', alt: 'A Larch tree' },
+        { src: '/images/site/lake-boat.jpg', alt: 'A traditional lake boat' },
+      ],
+    } : undefined,
     videos: {
       label: c.videos_label || 'Media',
       title: c.videos_title || 'Video Documentation',
