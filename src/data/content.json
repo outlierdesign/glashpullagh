@@ -111,23 +111,11 @@
   },
   "monitoring": {
     "label": "Techniques",
-    "title": "Damming Methods",
+    "title": "Slowing The Flow Of Water",
     "items": [
       {
-        "title": "Timber Dams",
-        "description": "Used in shallow drains where there is still a thick layer of peat at the base of the drain. Untreated larch planks embedded deeply into shallow drains, with a small notch to direct water safely. Notch controls the depth of the pool, preventing water from flowing around or over the dam. Place a stone or timber \"shoe\" beneath the notch to break the fall of water and limit erosion. Longer lasting than Coir logs, useful where machinery access is not possible or where only a small number of dams are required. Expected to last 8–10 years while vegetation fills the drains naturally."
-      },
-      {
-        "title": "Peat Plugs",
-        "description": "Native peat dug from nearby borrow pits, packed firmly into large deep drains and topped with original surface vegetation. Used where a thick peat layer remains at the base."
-      },
-      {
-        "title": "Composite Peat/Timber Dams",
-        "description": "Heavy Larch planks keyed into the bank and reinforced with Larch piling and backed with one or more peat plugs. This sturdy frame provides extra stability where a peat dam could fail."
-      },
-      {
         "title": "Stone Dams",
-        "description": "Stone dams to slow the flow of water where the drain is down to the mineral layer. Helps prevent erosion and encourages sediment to accumulate and plants to establish."
+        "description": "Stone dams are used where the drain has eroded down to the mineral layer. They slow the flow of water preventing further erosion and widening of the drain. On this site round stones were used as the slope is shallow and water velocities are low. Where peak flows are stronger, key the dam into the banks and use angular stones that will lock together."
       },
       {
         "title": "Coir Logs",
@@ -136,6 +124,14 @@
       {
         "title": "Geotextiles",
         "description": "Biodegradable jute netting laid on exposed bare peat and secured with wooden pins. Shields peat from heavy rain, prevents erosion, stabilises the surface, and retains surface moisture helping mosses and plants to establish. Can be used with a mulch of straw or Heather brash."
+      },
+      {
+        "title": "Composite Peat/Timber Dams",
+        "description": "Used where there is a risk of timber dams failing due to high water pressure during peak flows. Heavy larch planks keyed into the banks of the drain and reinforced with timber piles driven deep into the drain base. A peat plug is placed upslope from the frame, a second plug can also be applied on the downslope side. The timber framework provides the strength and stability; the compacted peat provides the seal holding the water back. Used on drains up to 2.5m with gentle gradients, anything larger or where peak flows are potentially very strong seek engineering advice."
+      },
+      {
+        "title": "Timber Dams",
+        "description": "Used in shallow drains where there is still a thick layer of peat at the base of the drain. Untreated larch planks embedded deeply into shallow drains, with a small notch to direct water safely. Notch controls the depth of the pool, preventing water from flowing around or over the dam. Place a stone or timber \"shoe\" beneath the notch to break the fall of water and limit erosion. Longer lasting than Coir logs, useful where machinery access is not possible or where only a small number of dams are required. Expected to last 8–10 years while vegetation fills the drains naturally."
       }
     ]
   },

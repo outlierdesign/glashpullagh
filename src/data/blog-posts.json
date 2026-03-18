@@ -1,0 +1,47 @@
+[
+  {
+    "slug": "first-signs-of-recovery",
+    "title": "First Signs of Recovery",
+    "date": "2026-03-15",
+    "season": "Spring",
+    "excerpt": "Just weeks after the restoration works were completed, the first signs of life are returning to Glashapullagh. Pools are forming behind the dams, frogs have begun spawning, and wintering snipe are feeding in the soft mud.",
+    "body": [
+      "Just weeks after the restoration works were completed, the first signs of life are returning to Glashapullagh. Pools are forming behind the dams, frogs have begun spawning, and wintering snipe are feeding in the soft mud.",
+      "The site still looks a bit messy — bare peat, fresh timber, and churned ground are everywhere. But beneath the surface, things are changing. Water is being held in the drains for the first time in decades. The peat is beginning to soak it up like a sponge.",
+      "We installed acoustic monitors and trail cameras this week to begin recording what species are using the site. Over the coming months we expect to see insects colonising the pools, vegetation creeping across the bare peat, and with luck, breeding birds returning.",
+      "Recovery takes time, but at Glashapullagh, it has begun."
+    ],
+    "image": "/images/site/peat-pool.jpg",
+    "tags": ["recovery", "wildlife", "spring"]
+  },
+  {
+    "slug": "the-dams-are-working",
+    "title": "The Dams Are Working",
+    "date": "2026-02-20",
+    "season": "Winter",
+    "excerpt": "After weeks of heavy rain, the timber dams and peat plugs are doing exactly what they were designed to do — holding water on the bog, creating pools, and raising the water table across the site.",
+    "body": [
+      "After weeks of heavy rain, the timber dams and peat plugs are doing exactly what they were designed to do — holding water on the bog, creating pools, and raising the water table across the site.",
+      "The composite dams on the steeper ground are handling the pressure well. Water is flowing gently over the notches rather than cutting around the sides. The stone dams in the deeper mineral sections are trapping sediment already.",
+      "What we're seeing is the bog beginning to function again as a hydrological system. Water that would have drained off within hours is now being held for days. The peat is rewetting — not flooding, but absorbing water the way healthy bog peat should.",
+      "We'll continue monitoring water levels through the spring to track how the water table responds as the weather warms."
+    ],
+    "image": "/images/site/plank-dam.jpg",
+    "tags": ["dams", "hydrology", "winter"]
+  },
+  {
+    "slug": "works-completed",
+    "title": "Restoration Works Completed",
+    "date": "2026-01-28",
+    "season": "Winter",
+    "excerpt": "The physical restoration works at Glashapullagh are now complete. Over 140 dams installed, 800 metres of peat bank reprofiled, and 800 square metres of bare peat protected with geotextiles across 7 hectares of blanket bog.",
+    "body": [
+      "The physical restoration works at Glashapullagh are now complete. Over 140 dams installed, 800 metres of peat bank reprofiled, and 800 square metres of bare peat protected with geotextiles across 7 hectares of blanket bog.",
+      "The team worked through challenging winter conditions to get the dams in place before the spring growing season. Every drain on the site has been addressed — timber dams in the shallow ones, peat plugs in the deep channels, composite dams on the slopes, and stone dams where the peat was too thin.",
+      "Self-sown conifers have been removed, legacy waste cleared, and the worst of the exposed peat banks graded into gentler slopes. The site is now ready to begin healing.",
+      "This is not the end of the work — it's the beginning of the monitoring phase. We will track how the bog responds over the coming years, filming the changes and sharing the story of Glashapullagh's recovery."
+    ],
+    "image": "/images/site/dam-workers.jpg",
+    "tags": ["milestone", "restoration", "winter"]
+  }
+]
