@@ -8,28 +8,28 @@
     "title": "What We Do",
     "items": [
       {
-        "title": "Slow Carbon Loss",
-        "description": "Preventing the oxidation of dry peat by raising water tables, slowing carbon loss to the atmosphere and ultimately turning a degraded bog back into a carbon store."
+        "title": "Drain Blocking",
+        "description": "Slow the flow of water, create pools where Sphagnum can get started, let water soak into the peat rather than flow out of the bog."
       },
       {
-        "title": "Improve Habitats",
-        "description": "Protecting and enhancing habitats for ground-nesting birds including Snipe, and Hen Harrier by restoring the vegetation of the bog and removing self-sown conifers that facilitate predators."
+        "title": "Sphagnum Recovery",
+        "description": "There is no bog without Sphagnum moss, there is no Sphagnum Moss without a bog. Some Sphagnum plants survived on this site, raising the water table will give them a chance to expand."
       },
       {
-        "title": "Restore Peat-Forming Plants",
-        "description": "Encouraging the return of Sphagnum mosses and native bog vegetation by raising the local water table and stabilising exposed peat surfaces. This is the only way to secure the bogs future."
+        "title": "Water Table Management",
+        "description": "Rewetting is not flooding; the goal is to bring the water table nearer to the surface and to keep the peat wet."
       },
       {
-        "title": "Rewet the Landscape",
-        "description": "Blocking historic drainage channels using timber dams, peat plugs, composite dams, stone dams, and coir logs to restore the bog's natural hydrology. There is no bog without water, by retaining water on the bog for longer we restore the site but also slow the runoff into rivers after intense rainfall reducing erosion and flood risks."
+        "title": "Monitoring",
+        "description": "The site will look a bit messy for a while, but it will settle down quickly. Growing vegetation will bring it back to life. We will use acoustic monitors, trail cameras and human observers to record what species of birds and bats use the site over the next few years."
       },
       {
-        "title": "Thinking Ahead",
-        "description": "Glashapullagh is a small site, but it does serve to demonstrate the positives that restoration delivers. The restoration of a blanket bog does not mean flooding, but it does mean managing the bog for the future. Restoring its hydrology, securing the remaining peat and helping bring back the natural bog vegetation that will in time create new peat."
+        "title": "Timber Dam Construction",
+        "description": "Timber dams are easily installed by hand, simple structures that slow the flow of water, preventing erosion, encouraging water to soak in and recharge the peat. The timber will decay into the bog but it will last long enough for Sphagnum and other plants to take its place."
       },
       {
-        "title": "Tell the Story of a Recovering Bog",
-        "description": "While the site looked a bit messy in the first few months after the works were completed, we did not have to wait long for signs of life coming back. Frogs spawning in the pools, wintering snipe feeding in the soft mud. By the summer vegetation will start to cover the bare peat, and insects will colonise the pools. We will monitor these changes, film them and tell you the story of how life returns."
+        "title": "Community Engagement",
+        "description": "Telling the story of Glashapullagh as it recovers is a big part of what we want to achieve here. By using short films and digital models of the site, large numbers of people can see what was done here and see how plants and animals are responding without disturbing a sensitive site."
       }
     ]
   },
@@ -41,20 +41,20 @@
   "stats": {
     "items": [
       {
-        "value": "287",
-        "label": "Hectares Restored"
+        "value": ">40",
+        "label": "Composite, peat, timber, stone dams"
       },
       {
-        "value": "5",
-        "label": "Dam Types Deployed"
+        "value": "800m",
+        "label": "Peat bank reprofiled"
       },
       {
-        "value": "NPWS",
-        "label": "Approved & Monitored"
+        "value": "800m²",
+        "label": "of bare peat protected with geotextiles"
       },
       {
-        "value": "8–10yr",
-        "label": "Dam Lifespan"
+        "value": "7",
+        "label": "Hectares of bog restored"
       }
     ]
   },
@@ -65,7 +65,7 @@
     },
     {
       "title": "Recovery Takes Time",
-      "text": "But at Glashapullagh, it has begun. Rewetting is slowing carbon loss, habitats are improving for wildlife, and peat-forming plants are returning. The bog is healing — drain by drain, dam by dam, season by season."
+      "text": "But at Glashapullagh, it has begun. Water is being held on the site for longer, the peat is not flooding, it is rewetting, like a sponge it is soaking up water and expanding. The bog is healing — its hydrology is recovering, the loss of Carbon is slowing, frogs are spawning, Snipe are coming here to feed. Soon, the pools will support swarms of insects, Meadow Pipits and perhaps Snipe will start to breed, and the Hen Harrier will hunt here again. As the years pass the rushes will diminish, Sphagnum will spread and in time new peat will begin to form."
     }
   ],
   "about": {
@@ -123,11 +123,11 @@
       },
       {
         "title": "Composite Peat/Timber Dams",
-        "description": "Used where there is a risk of timber dams failing due to high water pressure during peak flows. Heavy larch planks keyed into the banks of the drain and reinforced with timber piles driven deep into the drain base. A peat plug is placed upslope from the frame, a second plug can also be applied on the downslope side. The timber framework provides the strength and stability; the compacted peat provides the seal holding the water back. Used on drains up to 2.5m with gentle gradients, anything larger or where peak flows are potentially very strong seek engineering advice."
+        "description": "Heavy Larch planks keyed into the bank and reinforced with Larch piling and backed with one or more peat plugs. This sturdy frame provides extra stability where a peat dam could fail."
       },
       {
         "title": "Stone Dams",
-        "description": "Stone dams are used where the drain has eroded down to the mineral layer. They slow the flow of water preventing further erosion and widening of the drain. On this site round stones were used as the slope is shallow and water velocities are low. Where peak flows are stronger, key the dam into the banks and use angular stones that will lock together."
+        "description": "Stone dams to slow the flow of water where the drain is down to the mineral layer. Helps prevent erosion and encourages sediment to accumulate and plants to establish."
       },
       {
         "title": "Coir Logs",
@@ -137,6 +137,19 @@
         "title": "Geotextiles",
         "description": "Biodegradable jute netting laid on exposed bare peat and secured with wooden pins. Shields peat from heavy rain, prevents erosion, stabilises the surface, and retains surface moisture helping mosses and plants to establish. Can be used with a mulch of straw or Heather brash."
       }
+    ]
+  },
+  "whyLarch": {
+    "label": "Materials",
+    "title": "Why Larch",
+    "paragraphs": [
+      "Larch is a fast-growing conifer; it is grown in Ireland (24,000 ha in 2021) so availability is good and there are less transport issues than coir. Untreated Larch timber has natural resins that allow the wood to resist decay. Most other woods are either too expensive Oak or decay too quickly White Deal. Using treated timbers introduces toxic long-lasting chemicals to the bog which we would prefer not to do.",
+      "If Larch planks are embedded in the peat as in a composite peat/timber dam they will last for decades. If they are exposed to the air as with a timber dam and subject to wet/dry cycles they will not last as long. They will still last longer than coir and long enough for the pools behind them to fill in and revegetate. By the time the Larch planks break down, they should no longer be needed.",
+      "Larch was traditionally used for the hulls of lake boats used for angling on our lakes."
+    ],
+    "images": [
+      { "src": "/images/site/larch-tree.jpg", "alt": "A Larch tree" },
+      { "src": "/images/site/lake-boat.jpg", "alt": "A traditional lake boat" }
     ]
   },
   "videos": {

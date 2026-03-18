@@ -627,6 +627,67 @@ export default function ClientSite({ content }: ClientSiteProps) {
         </section>
       )}
 
+      {/* WHY LARCH SECTION */}
+      {content.whyLarch && (
+        <section className="texture-overlay" style={{
+          padding: '5rem 2rem',
+          background: 'var(--bg-section)',
+        }}>
+          <div className="container" style={{ maxWidth: '900px', margin: '0 auto' }}>
+            <div style={{ textAlign: 'center', marginBottom: '3rem' }}>
+              <p className="label">{content.whyLarch.label || 'Materials'}</p>
+              <h2 style={{
+                fontFamily: 'var(--font-display)',
+                color: 'var(--cream)',
+                fontSize: 'clamp(1.75rem, 4vw, 2.5rem)',
+                marginBottom: '1rem',
+              }}>{content.whyLarch.title || 'Why Larch'}</h2>
+              <div className="divider-line divider-line-center" />
+            </div>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
+              {content.whyLarch.paragraphs?.map((para: string, idx: number) => (
+                <p key={idx} style={{
+                  fontFamily: 'var(--font-body)',
+                  color: 'var(--cream-dim)',
+                  fontSize: '1.05rem',
+                  lineHeight: '1.8',
+                }}>{para}</p>
+              ))}
+            </div>
+            {content.whyLarch.images && content.whyLarch.images.length > 0 && (
+              <div style={{
+                display: 'grid',
+                gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
+                gap: '1.5rem',
+                marginTop: '2.5rem',
+              }}>
+                {content.whyLarch.images.map((img: any, idx: number) => (
+                  <div key={idx} style={{
+                    borderRadius: '12px',
+                    overflow: 'hidden',
+                    border: '1px solid rgba(184,134,74,0.15)',
+                  }}>
+                    <img
+                      src={img.src}
+                      alt={img.alt}
+                      style={{ width: '100%', height: '250px', objectFit: 'cover' }}
+                      onError={(e) => { (e.target as HTMLImageElement).style.display = 'none'; }}
+                    />
+                    <p style={{
+                      fontFamily: 'var(--font-body)',
+                      color: 'var(--text-secondary)',
+                      fontSize: '0.85rem',
+                      padding: '0.75rem 1rem',
+                      textAlign: 'center',
+                    }}>{img.alt}</p>
+                  </div>
+                ))}
+              </div>
+            )}
+          </div>
+        </section>
+      )}
+
       {/* VIDEO GRID SECTION */}
       {content.videos && (
         <section className="video-section texture-overlay">

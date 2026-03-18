@@ -39,7 +39,7 @@ const defaultPartners: Partner[] = [
 
 export function PartnersSection({
   title = 'Our Partners & Funders',
-  subtitle = 'This restoration project is made possible through the support of our partners and EU funding programmes.',
+  subtitle = 'The restoration of the bog at Glashapullagh is first and foremost the achievement of the farmer, it was his vision and desire to restore the bog that made this possible. The work was carried as a training and capacity building initiative by the staff of ACRES Munster South Connacht with the support of their colleagues from ACRES Breifne and ACRES Leinster and was funded by Wild Atlantic Nature. ACRES Co-operation teams are fully funded by the Dept. of Agriculture, Food and the Marine as part of Irelands CAP Strategic Plan.',
   partners = defaultPartners,
 }: PartnersSectionProps) {
   return (
