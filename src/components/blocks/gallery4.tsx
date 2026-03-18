@@ -39,7 +39,7 @@ const defaultItems: GalleryItem[] = [
     title: "Sphagnum Recovery",
     description:
       "Monitoring the return of keystone sphagnum moss species — essential for peat formation and carbon sequestration.",
-    image: "/images/site/bog-walker.jpg",
+    image: "/images/site/sphagnum-closeup.jpg",
     category: "Ecology",
   },
   {
