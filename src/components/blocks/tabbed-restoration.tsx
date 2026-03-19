@@ -33,7 +33,7 @@ export function TabbedRestoration({ label, title, items }: TabbedRestorationProp
           <p
             style={{
               fontFamily: 'var(--font-ui)',
-              color: 'var(--gold-dim)',
+              color: 'var(--green-sage)',
               fontSize: '0.75rem',
               fontWeight: 600,
               letterSpacing: '0.15em',
@@ -46,7 +46,7 @@ export function TabbedRestoration({ label, title, items }: TabbedRestorationProp
           <h2
             style={{
               fontFamily: 'var(--font-display)',
-              color: 'var(--cream)',
+              color: 'var(--charcoal)',
               fontSize: 'clamp(1.75rem, 4vw, 2.5rem)',
               marginBottom: '1rem',
             }}
@@ -77,12 +77,12 @@ export function TabbedRestoration({ label, title, items }: TabbedRestorationProp
                 padding: '0.65rem 1.25rem',
                 borderRadius: '8px',
                 border: activeTab === idx
-                  ? '1px solid var(--gold)'
-                  : '1px solid rgba(184,134,74,0.2)',
+                  ? '1px solid var(--teal)'
+                  : '1px solid var(--border-color)',
                 background: activeTab === idx
-                  ? 'rgba(184,134,74,0.15)'
-                  : 'rgba(255,255,255,0.03)',
-                color: activeTab === idx ? 'var(--gold)' : 'var(--cream-dim)',
+                  ? 'rgba(61,107,107,0.1)'
+                  : 'var(--bg-card)',
+                color: activeTab === idx ? 'var(--teal)' : 'var(--text-secondary)',
                 cursor: 'pointer',
                 transition: 'all 0.3s ease',
                 whiteSpace: 'nowrap',
@@ -116,7 +116,7 @@ export function TabbedRestoration({ label, title, items }: TabbedRestorationProp
             <h3
               style={{
                 fontFamily: 'var(--font-display)',
-                color: 'var(--gold)',
+                color: 'var(--charcoal)',
                 fontSize: 'clamp(1.3rem, 2.5vw, 1.75rem)',
                 marginBottom: '1.25rem',
                 lineHeight: 1.3,
@@ -127,7 +127,7 @@ export function TabbedRestoration({ label, title, items }: TabbedRestorationProp
             <p
               style={{
                 fontFamily: 'var(--font-body)',
-                color: 'var(--cream-dim)',
+                color: 'var(--text-secondary)',
                 fontSize: '1.05rem',
                 lineHeight: 1.85,
               }}
@@ -141,7 +141,7 @@ export function TabbedRestoration({ label, title, items }: TabbedRestorationProp
             style={{
               borderRadius: '16px',
               overflow: 'hidden',
-              border: '1px solid rgba(184,134,74,0.15)',
+              border: '1px solid var(--border-color)',
               position: 'relative',
               minHeight: '350px',
             }}
@@ -163,7 +163,7 @@ export function TabbedRestoration({ label, title, items }: TabbedRestorationProp
                 style={{
                   width: '100%',
                   height: '100%',
-                  background: 'rgba(184,134,74,0.08)',
+                  background: 'var(--cream-dim)',
                   display: 'flex',
                   alignItems: 'center',
                   justifyContent: 'center',
