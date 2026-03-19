@@ -439,7 +439,7 @@ export default function ClientSite({ content }: ClientSiteProps) {
         </div>
       </ScrollExpandMedia>
 
-      {/* HERO SECTION */}
+      {/* 1. HERO SECTION */}
       <section className="hero">
         <canvas ref={heroCanvasRef} className="hero-canvas" />
         <div className="hero-content">
@@ -451,7 +451,30 @@ export default function ClientSite({ content }: ClientSiteProps) {
         </div>
       </section>
 
-      {/* BENTO GRID SECTION */}
+      {/* 2. OVERVIEW VIDEO */}
+      {content.documentary && (
+        <section className="documentary-section texture-overlay tex-tweed">
+          <div className="container">
+            <div className="documentary-container">
+              <div className="documentary-header">
+                <p className="label">{content.documentary.label || 'Featured'}</p>
+                <h2>{content.documentary.title || 'Full Documentary'}</h2>
+                <div className="divider-line divider-line-center" />
+              </div>
+              <div className="documentary-wrapper">
+                <iframe
+                  className="documentary-iframe"
+                  src={content.documentary.url}
+                  title="Documentary"
+                  allowFullScreen
+                />
+              </div>
+            </div>
+          </div>
+        </section>
+      )}
+
+      {/* 3. BENTO GRID */}
       <section className="bento-section texture-overlay tex-felt">
         <div className="container">
           <div className="bento-header">
@@ -475,7 +498,12 @@ export default function ClientSite({ content }: ClientSiteProps) {
         </div>
       </section>
 
-      {/* BEFORE/AFTER SECTION — Aerial Survey Comparison */}
+      {/* 4. GALLERY CAROUSEL */}
+      <div style={{ background: 'var(--bg-deep)' }}>
+        <Gallery4 />
+      </div>
+
+      {/* 5. BEFORE/AFTER — Aerial Survey */}
       <section className="texture-overlay" style={{ background: 'var(--bg-deep)', padding: '6rem 0' }}>
         <div className="container" style={{ maxWidth: '1100px', margin: '0 auto', padding: '0 1.5rem' }}>
           <div style={{ textAlign: 'center', marginBottom: '3rem' }}>
@@ -501,7 +529,7 @@ export default function ClientSite({ content }: ClientSiteProps) {
         </div>
       </section>
 
-      {/* STATS SECTION */}
+      {/* 6. STATS */}
       {content.stats && (
         <section className="stats-section texture-overlay tex-speckled">
           <div className="container">
@@ -517,7 +545,7 @@ export default function ClientSite({ content }: ClientSiteProps) {
         </section>
       )}
 
-      {/* PARALLAX BREAK 1 */}
+      {/* 7. PARALLAX BREAK 1 */}
       {content.parallaxBreaks?.[0] && (
         <section className="parallax-break">
           <div className="parallax-content">
@@ -527,7 +555,7 @@ export default function ClientSite({ content }: ClientSiteProps) {
         </section>
       )}
 
-      {/* ABOUT SITE SECTION */}
+      {/* 8. ABOUT */}
       <section className="about-site-section texture-overlay tex-brushed" id="about">
         <div className="container">
           <div className="about-site-container">
@@ -548,30 +576,7 @@ export default function ClientSite({ content }: ClientSiteProps) {
         </div>
       </section>
 
-      {/* DOCUMENTARY / OVERVIEW VIDEO SECTION */}
-      {content.documentary && (
-        <section className="documentary-section texture-overlay tex-tweed">
-          <div className="container">
-            <div className="documentary-container">
-              <div className="documentary-header">
-                <p className="label">{content.documentary.label || 'Featured'}</p>
-                <h2>{content.documentary.title || 'Full Documentary'}</h2>
-                <div className="divider-line divider-line-center" />
-              </div>
-              <div className="documentary-wrapper">
-                <iframe
-                  className="documentary-iframe"
-                  src={content.documentary.url}
-                  title="Documentary"
-                  allowFullScreen
-                />
-              </div>
-            </div>
-          </div>
-        </section>
-      )}
-
-      {/* INTERACTIVE MAP SECTION */}
+      {/* 9. INTERACTIVE MAP */}
       {content.topoMap && (
         <InteractiveMap
           label={content.topoMap.label || 'Location'}
@@ -580,7 +585,38 @@ export default function ClientSite({ content }: ClientSiteProps) {
         />
       )}
 
-      {/* RESTORATION TABBED SECTION */}
+      {/* 10. VIDEO DOCUMENTATION */}
+      {content.videos && (
+        <section className="video-section texture-overlay tex-denim">
+          <div className="container">
+            <div className="video-header">
+              <p className="label">{content.videos.label || 'Media'}</p>
+              <h2>{content.videos.title || 'Video Content'}</h2>
+              <div className="divider-line divider-line-center" />
+            </div>
+            <div className="video-grid">
+              {content.videos.items?.map((video: any, idx: number) => (
+                <div
+                  key={idx}
+                  className="video-card"
+                  onClick={() => openLightbox(video.url)}
+                >
+                  <div className="video-thumbnail">
+                    <img src={video.thumbnail} alt={video.title} />
+                    <div className="video-play-icon" />
+                  </div>
+                  <div className="video-content">
+                    <h3>{video.title}</h3>
+                    <p>{video.description}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
+
+      {/* 11. RESTORATION TABS */}
       {content.restoration && (
         <TabbedRestoration
           label={content.restoration.label}
@@ -589,7 +625,7 @@ export default function ClientSite({ content }: ClientSiteProps) {
         />
       )}
 
-      {/* PARALLAX BREAK 2 — Recovery Takes Time */}
+      {/* 12. PARALLAX BREAK 2 — Recovery Takes Time */}
       {content.parallaxBreaks?.[1] && (
         <section style={{
           position: 'relative',
@@ -620,7 +656,7 @@ export default function ClientSite({ content }: ClientSiteProps) {
         </section>
       )}
 
-      {/* SLOWING THE FLOW OF WATER — Hover Reveal Cards */}
+      {/* 13. SLOWING THE FLOW OF WATER */}
       {content.monitoring && (
         <section id="techniques" className="texture-overlay tex-concrete" style={{ background: 'var(--bg-deep)', padding: '6rem 0' }}>
           <div style={{ maxWidth: '1400px', margin: '0 auto', padding: '0 2rem' }}>
@@ -644,7 +680,7 @@ export default function ClientSite({ content }: ClientSiteProps) {
         </section>
       )}
 
-      {/* WHY LARCH SECTION */}
+      {/* 14. WHY LARCH */}
       {content.whyLarch && (
         <section style={{
           padding: '5rem 2rem',
@@ -704,42 +740,6 @@ export default function ClientSite({ content }: ClientSiteProps) {
           </div>
         </section>
       )}
-
-      {/* VIDEO GRID SECTION */}
-      {content.videos && (
-        <section className="video-section texture-overlay tex-denim">
-          <div className="container">
-            <div className="video-header">
-              <p className="label">{content.videos.label || 'Media'}</p>
-              <h2>{content.videos.title || 'Video Content'}</h2>
-              <div className="divider-line divider-line-center" />
-            </div>
-            <div className="video-grid">
-              {content.videos.items?.map((video: any, idx: number) => (
-                <div
-                  key={idx}
-                  className="video-card"
-                  onClick={() => openLightbox(video.url)}
-                >
-                  <div className="video-thumbnail">
-                    <img src={video.thumbnail} alt={video.title} />
-                    <div className="video-play-icon" />
-                  </div>
-                  <div className="video-content">
-                    <h3>{video.title}</h3>
-                    <p>{video.description}</p>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
-      )}
-
-      {/* SECTION: GALLERY CAROUSEL */}
-      <div style={{ background: 'var(--bg-deep)' }}>
-        <Gallery4 />
-      </div>
 
       {/* SECTION: ZOOM PARALLAX */}
       <ZoomParallax
