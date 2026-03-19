@@ -255,9 +255,10 @@ p, li, td { font-family: var(--font-body); font-weight: 400; }
   z-index: 3;
 }
 .bento-card:hover {
-  border-color: var(--gold-light);
+  border-color: var(--green-mid);
   background: var(--bg-elevated);
   transform: translateY(-4px);
+  box-shadow: 0 8px 30px rgba(59,78,52,0.2);
 }
 .bento-card:hover::before {
   opacity: 1;
@@ -436,8 +437,9 @@ p, li, td { font-family: var(--font-body); font-weight: 400; }
   transition: all 0.4s var(--ease-out-expo);
 }
 .restoration-card:hover {
-  border-color: var(--gold-light);
+  border-color: var(--green-mid);
   transform: translateY(-4px);
+  box-shadow: 0 8px 30px rgba(59,78,52,0.2);
 }
 .restoration-image {
   width: 100%;
@@ -485,8 +487,8 @@ p, li, td { font-family: var(--font-body); font-weight: 400; }
   transition: all 0.4s var(--ease-out-expo);
 }
 .monitoring-card:hover {
-  border-color: var(--gold-light);
-  box-shadow: 0 10px 40px rgba(184,134,74,0.1);
+  border-color: var(--green-mid);
+  box-shadow: 0 10px 40px rgba(59,78,52,0.2);
 }
 .monitoring-icon {
   width: 60px;
@@ -531,8 +533,9 @@ p, li, td { font-family: var(--font-body); font-weight: 400; }
   transition: all 0.4s var(--ease-out-expo);
 }
 .video-card:hover {
-  border-color: var(--gold-light);
+  border-color: var(--green-mid);
   transform: translateY(-4px);
+  box-shadow: 0 8px 30px rgba(59,78,52,0.2);
 }
 .video-thumbnail {
   position: relative;
@@ -690,8 +693,9 @@ p, li, td { font-family: var(--font-body); font-weight: 400; }
   transition: all 0.4s var(--ease-out-expo);
 }
 .gallery-item:hover {
-  border-color: var(--gold-light);
+  border-color: var(--green-mid);
   transform: scale(1.02);
+  box-shadow: 0 8px 30px rgba(59,78,52,0.2);
 }
 .gallery-image {
   width: 100%;
