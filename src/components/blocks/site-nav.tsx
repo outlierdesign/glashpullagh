@@ -30,9 +30,9 @@ export function SiteNav() {
         right: 0,
         zIndex: 900,
         padding: scrolled ? '0.6rem 2rem' : '1rem 2rem',
-        background: scrolled ? 'rgba(14,11,9,0.92)' : 'transparent',
+        background: scrolled ? 'rgba(245,240,232,0.95)' : 'transparent',
         backdropFilter: scrolled ? 'blur(12px)' : 'none',
-        borderBottom: scrolled ? '1px solid rgba(184,134,74,0.12)' : '1px solid transparent',
+        borderBottom: scrolled ? '1px solid rgba(44,44,42,0.12)' : '1px solid transparent',
         transition: 'all 0.4s ease',
         display: 'flex',
         alignItems: 'center',
@@ -44,8 +44,8 @@ export function SiteNav() {
         style={{
           fontFamily: 'var(--font-display)',
           fontSize: '1.3rem',
-          fontWeight: 600,
-          color: 'var(--cream)',
+          fontWeight: 300,
+          color: 'var(--charcoal)',
           textDecoration: 'none',
           letterSpacing: '0.02em',
         }}
@@ -70,14 +70,14 @@ export function SiteNav() {
               fontFamily: 'var(--font-ui)',
               fontSize: '0.8rem',
               fontWeight: 500,
-              color: 'var(--cream-dim)',
+              color: 'var(--stone)',
               textDecoration: 'none',
               textTransform: 'uppercase',
               letterSpacing: '0.12em',
               transition: 'color 0.3s ease',
             }}
-            onMouseEnter={(e) => (e.currentTarget.style.color = 'var(--gold)')}
-            onMouseLeave={(e) => (e.currentTarget.style.color = 'var(--cream-dim)')}
+            onMouseEnter={(e) => (e.currentTarget.style.color = 'var(--teal)')}
+            onMouseLeave={(e) => (e.currentTarget.style.color = 'var(--stone)')}
           >
             {link.label}
           </Link>
@@ -100,14 +100,14 @@ export function SiteNav() {
         <div style={{
           width: '24px',
           height: '2px',
-          background: 'var(--cream)',
+          background: 'var(--charcoal)',
           transition: 'all 0.3s ease',
           transform: menuOpen ? 'rotate(45deg) translateY(8px)' : 'none',
         }} />
         <div style={{
           width: '24px',
           height: '2px',
-          background: 'var(--cream)',
+          background: 'var(--charcoal)',
           margin: '6px 0',
           transition: 'all 0.3s ease',
           opacity: menuOpen ? 0 : 1,
@@ -115,7 +115,7 @@ export function SiteNav() {
         <div style={{
           width: '24px',
           height: '2px',
-          background: 'var(--cream)',
+          background: 'var(--charcoal)',
           transition: 'all 0.3s ease',
           transform: menuOpen ? 'rotate(-45deg) translateY(-8px)' : 'none',
         }} />
@@ -130,9 +130,9 @@ export function SiteNav() {
             top: '100%',
             left: 0,
             right: 0,
-            background: 'rgba(14,11,9,0.96)',
+            background: 'rgba(245,240,232,0.98)',
             backdropFilter: 'blur(16px)',
-            borderBottom: '1px solid rgba(184,134,74,0.15)',
+            borderBottom: '1px solid rgba(44,44,42,0.12)',
             padding: '1.5rem 2rem',
             display: 'flex',
             flexDirection: 'column',
@@ -148,7 +148,7 @@ export function SiteNav() {
                 fontFamily: 'var(--font-ui)',
                 fontSize: '0.85rem',
                 fontWeight: 500,
-                color: 'var(--cream-dim)',
+                color: 'var(--stone)',
                 textDecoration: 'none',
                 textTransform: 'uppercase',
                 letterSpacing: '0.12em',
