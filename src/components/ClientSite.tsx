@@ -445,34 +445,17 @@ export default function ClientSite({ content }: ClientSiteProps) {
         <div className="hero-content">
           <h1>{content.hero?.title || 'Glashapullagh'}</h1>
           <p className="lead">{content.hero?.subtitle || 'Peatland restoration in West Limerick'}</p>
-          <button className="hero-cta" onClick={() => document.getElementById('about')?.scrollIntoView({ behavior: 'smooth' })}>
+          <button className="hero-cta" onClick={() => {
+            if (content.documentary?.url) {
+              openLightbox(content.documentary.url);
+            } else {
+              openLightbox('https://vimeo.com/1170727891/e60603a2b1');
+            }
+          }}>
             Explore the Project
           </button>
         </div>
       </section>
-
-      {/* 2. OVERVIEW VIDEO */}
-      {content.documentary && (
-        <section className="documentary-section texture-overlay tex-tweed wash-peat">
-          <div className="container">
-            <div className="documentary-container">
-              <div className="documentary-header">
-                <p className="label">{content.documentary.label || 'Featured'}</p>
-                <h2>{content.documentary.title || 'Full Documentary'}</h2>
-                <div className="divider-line divider-line-center" />
-              </div>
-              <div className="documentary-wrapper">
-                <iframe
-                  className="documentary-iframe"
-                  src={content.documentary.url}
-                  title="Documentary"
-                  allowFullScreen
-                />
-              </div>
-            </div>
-          </div>
-        </section>
-      )}
 
       {/* 3. BENTO GRID */}
       <section className="bento-section texture-overlay tex-felt wash-green">
