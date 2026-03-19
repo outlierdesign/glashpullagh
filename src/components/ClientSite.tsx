@@ -453,7 +453,7 @@ export default function ClientSite({ content }: ClientSiteProps) {
 
       {/* 2. OVERVIEW VIDEO */}
       {content.documentary && (
-        <section className="documentary-section texture-overlay tex-tweed">
+        <section className="documentary-section texture-overlay tex-tweed wash-peat">
           <div className="container">
             <div className="documentary-container">
               <div className="documentary-header">
@@ -475,7 +475,7 @@ export default function ClientSite({ content }: ClientSiteProps) {
       )}
 
       {/* 3. BENTO GRID */}
-      <section className="bento-section texture-overlay tex-felt">
+      <section className="bento-section texture-overlay tex-felt wash-green">
         <div className="container">
           <div className="bento-header">
             <p className="label">{content.bento?.label || 'Overview'}</p>
@@ -504,7 +504,7 @@ export default function ClientSite({ content }: ClientSiteProps) {
       </div>
 
       {/* 5. BEFORE/AFTER — Aerial Survey */}
-      <section className="texture-overlay" style={{ background: 'var(--bg-deep)', padding: '6rem 0' }}>
+      <section className="texture-overlay tex-speckled wash-amber" style={{ background: 'var(--bg-deep)', padding: '6rem 0' }}>
         <div className="container" style={{ maxWidth: '1100px', margin: '0 auto', padding: '0 1.5rem' }}>
           <div style={{ textAlign: 'center', marginBottom: '3rem' }}>
             <p className="label">Aerial Survey</p>
@@ -531,7 +531,7 @@ export default function ClientSite({ content }: ClientSiteProps) {
 
       {/* 6. STATS */}
       {content.stats && (
-        <section className="stats-section texture-overlay tex-speckled">
+        <section className="stats-section texture-overlay tex-speckled wash-moss">
           <div className="container">
             <div className="stats-grid">
               {content.stats.items?.map((stat: any, idx: number) => (
@@ -556,7 +556,7 @@ export default function ClientSite({ content }: ClientSiteProps) {
       )}
 
       {/* 8. ABOUT */}
-      <section className="about-site-section texture-overlay tex-brushed" id="about">
+      <section className="about-site-section texture-overlay tex-brushed wash-heather" id="about">
         <div className="container">
           <div className="about-site-container">
             <div className="about-site-content">
@@ -587,7 +587,7 @@ export default function ClientSite({ content }: ClientSiteProps) {
 
       {/* 10. VIDEO DOCUMENTATION */}
       {content.videos && (
-        <section className="video-section texture-overlay tex-denim">
+        <section className="video-section texture-overlay tex-denim wash-water">
           <div className="container">
             <div className="video-header">
               <p className="label">{content.videos.label || 'Media'}</p>
@@ -658,7 +658,7 @@ export default function ClientSite({ content }: ClientSiteProps) {
 
       {/* 13. SLOWING THE FLOW OF WATER */}
       {content.monitoring && (
-        <section id="techniques" className="texture-overlay tex-concrete" style={{ background: 'var(--bg-deep)', padding: '6rem 0' }}>
+        <section id="techniques" className="texture-overlay tex-concrete wash-deep" style={{ background: 'var(--bg-deep)', padding: '6rem 0' }}>
           <div style={{ maxWidth: '1400px', margin: '0 auto', padding: '0 2rem' }}>
             <div style={{ textAlign: 'center', marginBottom: '3rem' }}>
               <p className="label">{content.monitoring.label || 'Techniques'}</p>

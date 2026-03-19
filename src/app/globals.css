@@ -86,10 +86,14 @@
   }
 }
 
-/* TEXTURE BACKGROUND SYSTEM — real image textures as repeating patterns */
+/* ═══════════════════════════════════════════════════════════
+   TEXTURE + COLOUR OVERLAY SYSTEM
+   Two pseudo-elements: ::before = texture tile, ::after = colour wash
+   ═══════════════════════════════════════════════════════════ */
 .texture-overlay {
   position: relative;
 }
+/* Texture tile layer */
 .texture-overlay::before {
   content: '';
   position: absolute;
@@ -98,30 +102,43 @@
   z-index: 0;
   background-image: url('/images/textures/felt.png');
   background-repeat: repeat;
-  background-size: 256px 256px;
-  opacity: 0.35;
-  mix-blend-mode: soft-light;
+  background-size: 300px 300px;
+  opacity: 0.18;
+  mix-blend-mode: overlay;
+}
+/* Colour wash layer — adds depth and habitat colour variation */
+.texture-overlay::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  background: transparent;
+  mix-blend-mode: multiply;
+  opacity: 0.5;
 }
 .texture-overlay > * {
   position: relative;
   z-index: 1;
 }
 
-/* Named texture variants */
-.tex-concrete::before { background-image: url('/images/textures/concrete.png'); opacity: 0.3; }
-.tex-felt::before { background-image: url('/images/textures/felt.png'); opacity: 0.4; }
-.tex-brushed::before { background-image: url('/images/textures/brushed.png'); opacity: 0.35; }
-.tex-woven::before { background-image: url('/images/textures/woven.png'); opacity: 0.35; }
-.tex-denim::before { background-image: url('/images/textures/denim.png'); opacity: 0.3; }
-.tex-speckled::before { background-image: url('/images/textures/speckled.png'); opacity: 0.4; }
-.tex-tweed::before { background-image: url('/images/textures/tweed.png'); opacity: 0.35; }
+/* ── Texture variants ── */
+.tex-felt::before     { background-image: url('/images/textures/felt.png');     background-size: 300px; opacity: 0.2; }
+.tex-concrete::before { background-image: url('/images/textures/concrete.png'); background-size: 250px; opacity: 0.15; }
+.tex-brushed::before  { background-image: url('/images/textures/brushed.png');  background-size: 350px; opacity: 0.12; }
+.tex-woven::before    { background-image: url('/images/textures/woven.png');    background-size: 260px; opacity: 0.18; }
+.tex-denim::before    { background-image: url('/images/textures/denim.png');    background-size: 200px; opacity: 0.15; }
+.tex-speckled::before { background-image: url('/images/textures/speckled.png'); background-size: 280px; opacity: 0.14; }
+.tex-tweed::before    { background-image: url('/images/textures/tweed.png');    background-size: 320px; opacity: 0.12; }
 
-/* Dense variant — higher opacity for feature sections */
-.texture-dense::before {
-  background-image: url('/images/textures/concrete.png');
-  opacity: 0.4;
-  mix-blend-mode: soft-light;
-}
+/* ── Colour wash variants — peatland habitat tones ── */
+.wash-peat::after    { background: linear-gradient(160deg, rgba(28,23,20,0.6) 0%, rgba(42,36,32,0.3) 100%); }
+.wash-green::after   { background: linear-gradient(160deg, rgba(26,37,24,0.5) 0%, rgba(59,78,52,0.2) 100%); }
+.wash-heather::after { background: linear-gradient(160deg, rgba(107,80,96,0.3) 0%, rgba(60,42,52,0.15) 100%); }
+.wash-water::after   { background: linear-gradient(160deg, rgba(74,98,114,0.25) 0%, rgba(40,60,72,0.12) 100%); }
+.wash-moss::after    { background: linear-gradient(160deg, rgba(59,78,52,0.35) 0%, rgba(26,37,24,0.2) 50%, rgba(107,80,96,0.1) 100%); }
+.wash-amber::after   { background: linear-gradient(160deg, rgba(184,134,74,0.08) 0%, rgba(42,36,32,0.3) 100%); }
+.wash-deep::after    { background: linear-gradient(160deg, rgba(14,11,9,0.7) 0%, rgba(28,23,20,0.4) 100%); }
 
 /* RESET */
 *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
@@ -276,9 +293,9 @@ p, li, td { font-family: var(--font-body); font-weight: 400; }
 /* STATS SECTION */
 .stats-section {
   padding: 4rem 0;
-  background: var(--bg-dark);
-  border-top: 1px solid var(--gold-dim);
-  border-bottom: 1px solid var(--gold-dim);
+  background: var(--green-deep);
+  border-top: 1px solid rgba(59,78,52,0.3);
+  border-bottom: 1px solid rgba(59,78,52,0.3);
 }
 .stats-grid {
   display: grid;
@@ -334,7 +351,7 @@ p, li, td { font-family: var(--font-body); font-weight: 400; }
 /* ABOUT SITE SECTION */
 .about-site-section {
   padding: 6rem 0;
-  background: var(--bg-dark);
+  background: #1A151A; /* heather-dark base */
 }
 .about-site-container {
   display: grid;
@@ -512,7 +529,7 @@ p, li, td { font-family: var(--font-body); font-weight: 400; }
 /* VIDEO SECTION */
 .video-section {
   padding: 6rem 0;
-  background: var(--bg-dark);
+  background: #111518; /* water-dark base */
 }
 .video-header {
   text-align: center;

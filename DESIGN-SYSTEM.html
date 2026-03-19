@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Glashapullagh Design System</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,500&family=Proza+Libre:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg-deep: #0E0B09;
+  --bg-dark: #151110;
+  --bg-card: #1C1714;
+  --bg-elevated: #231D19;
+  --bg-surface: #2A2420;
+  --bg-surface-light: #342D28;
+  --gold: #B8864A;
+  --gold-light: #CDA06A;
+  --gold-bright: #DEB882;
+  --gold-dim: rgba(184,134,74,0.25);
+  --gold-glow: rgba(184,134,74,0.08);
+  --green-deep: #1A2518;
+  --green-dark: #243020;
+  --green-mid: #3B4E34;
+  --green-sage: #5E7054;
+  --green-light: #889A7C;
+  --heather: #6B5060;
+  --heather-light: #8A6E80;
+  --cream: #EAE4DA;
+  --cream-dim: #CCC5BA;
+  --stone: #6D655C;
+  --text-primary: #EAE4DA;
+  --text-secondary: #B0A99E;
+  --text-dim: #7D756B;
+  --water: #4A6272;
+  --water-light: #7294A8;
+  --font-display: 'Cormorant Garamond', Georgia, serif;
+  --font-body: 'Proza Libre', -apple-system, sans-serif;
+  --font-ui: 'Proza Libre', -apple-system, sans-serif;
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+  --radius-xl: 16px;
+  --radius-full: 9999px;
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: var(--font-body); background: var(--bg-deep); color: var(--text-primary); line-height: 1.65; }
+a { color: var(--gold); text-decoration: none; }
+::selection { background: var(--gold); color: var(--bg-deep); }
+
+.ds-container { max-width: 1200px; margin: 0 auto; padding: 0 2rem; }
+.ds-section { padding: 4rem 0; border-bottom: 1px solid var(--gold-dim); }
+.ds-section-title { font-family: var(--font-display); color: var(--gold-light); font-size: 2rem; margin-bottom: 0.5rem; }
+.ds-section-sub { color: var(--text-secondary); font-size: 0.95rem; margin-bottom: 2.5rem; }
+.ds-grid { display: grid; gap: 1.5rem; }
+.ds-grid-2 { grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); }
+.ds-grid-3 { grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); }
+.ds-grid-4 { grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); }
+.ds-grid-6 { grid-template-columns: repeat(auto-fit, minmax(100px, 1fr)); }
+.ds-label { font-family: var(--font-ui); font-size: 0.65rem; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; color: var(--gold); margin-bottom: 0.5rem; }
+.ds-code { font-family: monospace; font-size: 0.75rem; color: var(--cream-dim); background: var(--bg-card); padding: 0.15rem 0.4rem; border-radius: var(--radius-sm); }
+.ds-note { font-size: 0.85rem; color: var(--text-dim); margin-top: 0.25rem; }
+
+/* Header */
+.ds-header { padding: 4rem 0 3rem; text-align: center; border-bottom: 1px solid var(--gold-dim); }
+.ds-header h1 { font-family: var(--font-display); font-size: clamp(2.5rem, 5vw, 4rem); color: var(--cream); font-weight: 400; margin-bottom: 0.75rem; }
+.ds-header p { color: var(--text-secondary); max-width: 600px; margin: 0 auto; font-size: 1.05rem; }
+.ds-badge { display: inline-block; font-family: var(--font-ui); font-size: 0.65rem; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; color: var(--gold); background: rgba(184,134,74,0.12); padding: 0.3rem 0.75rem; border-radius: var(--radius-sm); margin-bottom: 1rem; }
+
+/* Nav */
+.ds-nav { position: sticky; top: 0; z-index: 100; background: rgba(14,11,9,0.95); backdrop-filter: blur(12px); border-bottom: 1px solid var(--gold-dim); padding: 0.75rem 0; }
+.ds-nav-inner { display: flex; gap: 2rem; overflow-x: auto; padding: 0 2rem; }
+.ds-nav a { font-family: var(--font-ui); font-size: 0.75rem; font-weight: 500; color: var(--cream-dim); text-transform: uppercase; letter-spacing: 0.1em; white-space: nowrap; padding: 0.25rem 0; border-bottom: 2px solid transparent; transition: all 0.3s; }
+.ds-nav a:hover { color: var(--gold); border-color: var(--gold); }
+
+/* Swatch */
+.ds-swatch { border-radius: var(--radius-md); overflow: hidden; border: 1px solid var(--gold-dim); }
+.ds-swatch-color { height: 80px; }
+.ds-swatch-info { padding: 0.75rem; background: var(--bg-card); }
+.ds-swatch-name { font-family: var(--font-ui); font-size: 0.8rem; font-weight: 600; color: var(--cream); }
+.ds-swatch-value { font-family: monospace; font-size: 0.7rem; color: var(--text-dim); }
+
+/* Button demo */
+.ds-btn-row { display: flex; gap: 1rem; flex-wrap: wrap; align-items: center; margin-bottom: 1.5rem; }
+.btn { display: inline-flex; align-items: center; gap: 0.5rem; font-family: var(--font-ui); font-weight: 500; font-size: 0.9rem; letter-spacing: 0.03em; cursor: pointer; border: none; transition: all 0.3s var(--ease-out-expo); text-decoration: none; }
+.btn-primary { background: var(--gold); color: var(--bg-deep); padding: 0.875rem 1.75rem; border-radius: var(--radius-md); }
+.btn-primary:hover { background: var(--gold-bright); transform: translateY(-2px); }
+.btn-secondary { background: transparent; color: var(--gold); padding: 0.875rem 1.75rem; border-radius: var(--radius-md); border: 1px solid var(--gold); }
+.btn-secondary:hover { background: rgba(184,134,74,0.1); border-color: var(--gold-light); }
+.btn-ghost { background: transparent; color: var(--cream-dim); padding: 0.75rem 1.25rem; border-radius: var(--radius-md); }
+.btn-ghost:hover { color: var(--gold); background: rgba(184,134,74,0.06); }
+.btn-pill { border-radius: var(--radius-full); }
+.btn-sm { padding: 0.5rem 1rem; font-size: 0.8rem; }
+.btn-lg { padding: 1rem 2.25rem; font-size: 1rem; }
+.btn-icon { width: 44px; height: 44px; padding: 0; justify-content: center; border-radius: 50%; }
+.btn:disabled, .btn[disabled] { opacity: 0.4; cursor: not-allowed; transform: none !important; }
+
+/* Radius demo */
+.ds-radius-demo { width: 80px; height: 80px; background: var(--bg-surface); border: 1px solid var(--gold-dim); display: flex; align-items: center; justify-content: center; font-family: monospace; font-size: 0.7rem; color: var(--text-dim); }
+
+/* Card demo */
+.ds-card { background: var(--bg-card); border: 1px solid var(--gold-dim); border-radius: var(--radius-lg); padding: 2rem; transition: all 0.4s var(--ease-out-expo); }
+.ds-card:hover { border-color: var(--gold-light); transform: translateY(-4px); }
+.ds-card h3 { font-family: var(--font-display); color: var(--gold-light); font-size: 1.25rem; margin-bottom: 0.5rem; }
+.ds-card p { color: var(--text-secondary); font-size: 0.9rem; }
+
+/* Section style demo */
+.ds-section-demo { padding: 2rem; border-radius: var(--radius-lg); border: 1px solid var(--gold-dim); margin-bottom: 1rem; }
+.ds-section-demo h4 { font-family: var(--font-display); font-size: 1.1rem; color: var(--gold-light); margin-bottom: 0.25rem; }
+.ds-section-demo p { font-size: 0.85rem; color: var(--text-dim); }
+
+/* Type scale */
+.ds-type-row { display: flex; align-items: baseline; gap: 1.5rem; padding: 1rem 0; border-bottom: 1px solid rgba(184,134,74,0.08); }
+.ds-type-meta { min-width: 120px; font-family: monospace; font-size: 0.7rem; color: var(--text-dim); }
+</style>
+</head>
+<body>
+
+<div class="ds-container">
+
+<!-- HEADER -->
+<div class="ds-header">
+  <div class="ds-badge">Design System v1.0</div>
+  <h1>Glashapullagh</h1>
+  <p>Design system for the Glashapullagh peatland restoration website. Tokens, components, patterns, and usage guidelines.</p>
+</div>
+
+<!-- NAV -->
+<nav class="ds-nav">
+  <div class="ds-nav-inner">
+    <a href="#colours">Colours</a>
+    <a href="#typography">Typography</a>
+    <a href="#spacing">Spacing & Radius</a>
+    <a href="#buttons">Buttons</a>
+    <a href="#cards">Cards</a>
+    <a href="#sections">Section Styles</a>
+    <a href="#textures">Textures</a>
+    <a href="#navigation">Navigation</a>
+    <a href="#patterns">Patterns</a>
+  </div>
+</nav>
+
+<!-- COLOURS -->
+<div class="ds-section" id="colours">
+  <h2 class="ds-section-title">Colour Palette</h2>
+  <p class="ds-section-sub">Extracted from drone orthophotos and the peatland landscape. Dark peat-brown backgrounds, warm bog-amber accents.</p>
+
+  <div class="ds-label">Backgrounds (darkest → lightest)</div>
+  <div class="ds-grid ds-grid-6" style="margin-bottom:2rem">
+    <div class="ds-swatch"><div class="ds-swatch-color" style="background:#0E0B09"></div><div class="ds-swatch-info"><div class="ds-swatch-name">Deep</div><div class="ds-swatch-value">--bg-deep<br>#0E0B09</div></div></div>
+    <div class="ds-swatch"><div class="ds-swatch-color" style="background:#151110"></div><div class="ds-swatch-info"><div class="ds-swatch-name">Dark</div><div class="ds-swatch-value">--bg-dark<br>#151110</div></div></div>
+    <div class="ds-swatch"><div class="ds-swatch-color" style="background:#1C1714"></div><div class="ds-swatch-info"><div class="ds-swatch-name">Card</div><div class="ds-swatch-value">--bg-card<br>#1C1714</div></div></div>
+    <div class="ds-swatch"><div class="ds-swatch-color" style="background:#231D19"></div><div class="ds-swatch-info"><div class="ds-swatch-name">Elevated</div><div class="ds-swatch-value">--bg-elevated<br>#231D19</div></div></div>
+    <div class="ds-swatch"><div class="ds-swatch-color" style="background:#2A2420"></div><div class="ds-swatch-info"><div class="ds-swatch-name">Surface</div><div class="ds-swatch-value">--bg-surface<br>#2A2420</div></div></div>
+    <div class="ds-swatch"><div class="ds-swatch-color" style="background:#342D28"></div><div class="ds-swatch-info"><div class="ds-swatch-name">Surface Light</div><div class="ds-swatch-value">--bg-surface-light<br>#342D28</div></div></div>
+  </div>
+
+  <div class="ds-label">Accent — Bog Amber</div>
+  <div class="ds-grid ds-grid-4" style="margin-bottom:2rem">
+    <div class="ds-swatch"><div class="ds-swatch-color" style="background:#B8864A"></div><div class="ds-swatch-info"><div class="ds-swatch-name">Gold</div><div class="ds-swatch-value">--gold<br>#B8864A</div></div></div>
+    <div class="ds-swatch"><div class="ds-swatch-color" style="background:#CDA06A"></div><div class="ds-swatch-info"><div class="ds-swatch-name">Gold Light</div><div class="ds-swatch-value">--gold-light<br>#CDA06A</div></div></div>
+    <div class="ds-swatch"><div class="ds-swatch-color" style="background:#DEB882"></div><div class="ds-swatch-info"><div class="ds-swatch-name">Gold Bright</div><div class="ds-swatch-value">--gold-bright<br>#DEB882</div></div></div>
+    <div class="ds-swatch"><div class="ds-swatch-color" style="background:rgba(184,134,74,0.25);border:1px dashed rgba(184,134,74,0.4)"></div><div class="ds-swatch-info"><div class="ds-swatch-name">Gold Dim</div><div class="ds-swatch-value">--gold-dim<br>rgba(184,134,74,0.25)</div></div></div>
+  </div>
+
+  <div class="ds-label">Secondary — Greens & Heather</div>
+  <div class="ds-grid ds-grid-6" style="margin-bottom:2rem">
+    <div class="ds-swatch"><div class="ds-swatch-color" style="background:#1A2518"></div><div class="ds-swatch-info"><div class="ds-swatch-name">Green Deep</div><div class="ds-swatch-value">#1A2518</div></div></div>
+    <div class="ds-swatch"><div class="ds-swatch-color" style="background:#3B4E34"></div><div class="ds-swatch-info"><div class="ds-swatch-name">Green Mid</div><div class="ds-swatch-value">#3B4E34</div></div></div>
+    <div class="ds-swatch"><div class="ds-swatch-color" style="background:#889A7C"></div><div class="ds-swatch-info"><div class="ds-swatch-name">Green Light</div><div class="ds-swatch-value">#889A7C</div></div></div>
+    <div class="ds-swatch"><div class="ds-swatch-color" style="background:#6B5060"></div><div class="ds-swatch-info"><div class="ds-swatch-name">Heather</div><div class="ds-swatch-value">#6B5060</div></div></div>
+    <div class="ds-swatch"><div class="ds-swatch-color" style="background:#4A6272"></div><div class="ds-swatch-info"><div class="ds-swatch-name">Water</div><div class="ds-swatch-value">#4A6272</div></div></div>
+    <div class="ds-swatch"><div class="ds-swatch-color" style="background:#7294A8"></div><div class="ds-swatch-info"><div class="ds-swatch-name">Water Light</div><div class="ds-swatch-value">#7294A8</div></div></div>
+  </div>
+
+  <div class="ds-label">Text & Neutrals</div>
+  <div class="ds-grid ds-grid-6">
+    <div class="ds-swatch"><div class="ds-swatch-color" style="background:#EAE4DA"></div><div class="ds-swatch-info"><div class="ds-swatch-name">Cream</div><div class="ds-swatch-value">--cream<br>Primary text</div></div></div>
+    <div class="ds-swatch"><div class="ds-swatch-color" style="background:#CCC5BA"></div><div class="ds-swatch-info"><div class="ds-swatch-name">Cream Dim</div><div class="ds-swatch-value">--cream-dim<br>Body text</div></div></div>
+    <div class="ds-swatch"><div class="ds-swatch-color" style="background:#B0A99E"></div><div class="ds-swatch-info"><div class="ds-swatch-name">Secondary</div><div class="ds-swatch-value">--text-secondary<br>Descriptions</div></div></div>
+    <div class="ds-swatch"><div class="ds-swatch-color" style="background:#7D756B"></div><div class="ds-swatch-info"><div class="ds-swatch-name">Dim</div><div class="ds-swatch-value">--text-dim<br>Captions</div></div></div>
+    <div class="ds-swatch"><div class="ds-swatch-color" style="background:#6D655C"></div><div class="ds-swatch-info"><div class="ds-swatch-name">Stone</div><div class="ds-swatch-value">--stone<br>Borders</div></div></div>
+    <div class="ds-swatch"><div class="ds-swatch-color" style="background:#4A443C"></div><div class="ds-swatch-info"><div class="ds-swatch-name">Stone Dark</div><div class="ds-swatch-value">--stone-dark<br>Dividers</div></div></div>
+  </div>
+</div>
+
+<!-- TYPOGRAPHY -->
+<div class="ds-section" id="typography">
+  <h2 class="ds-section-title">Typography</h2>
+  <p class="ds-section-sub">Cormorant Garamond for display, Proza Libre for body and UI. Fluid sizing with clamp().</p>
+
+  <div class="ds-type-row">
+    <div class="ds-type-meta">H1 Display<br>clamp(3rem, 7vw, 6.5rem)</div>
+    <div style="font-family:var(--font-display);font-size:clamp(2rem,4vw,4rem);color:var(--gold-light);font-weight:500;line-height:1.1">Glashapullagh</div>
+  </div>
+  <div class="ds-type-row">
+    <div class="ds-type-meta">H2 Section<br>clamp(2rem, 4vw, 3.5rem)</div>
+    <div style="font-family:var(--font-display);font-size:clamp(1.5rem,3vw,2.5rem);color:var(--gold-light);font-weight:500;line-height:1.1">Slowing The Flow Of Water</div>
+  </div>
+  <div class="ds-type-row">
+    <div class="ds-type-meta">H3 Card<br>clamp(1.3rem, 2.5vw, 1.8rem)</div>
+    <div style="font-family:var(--font-display);font-size:1.4rem;color:var(--gold-light);font-weight:500">Timber Dams</div>
+  </div>
+  <div class="ds-type-row">
+    <div class="ds-type-meta">Label<br>0.7rem / uppercase</div>
+    <div style="font-family:var(--font-ui);font-size:0.7rem;font-weight:500;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold)">Techniques</div>
+  </div>
+  <div class="ds-type-row">
+    <div class="ds-type-meta">Body<br>1rem / 1.65</div>
+    <div style="font-family:var(--font-body);font-size:1rem;color:var(--text-secondary);max-width:600px;line-height:1.65">Blocking historic drainage channels using timber dams, peat plugs, composite dams, stone dams, and coir logs to restore the bog's natural hydrology.</div>
+  </div>
+  <div class="ds-type-row">
+    <div class="ds-type-meta">Lead<br>1.15rem / 300</div>
+    <div style="font-family:var(--font-body);font-size:1.15rem;color:var(--cream-dim);font-weight:300;max-width:600px">Blanket bog restoration in West Limerick.</div>
+  </div>
+  <div class="ds-type-row">
+    <div class="ds-type-meta">Caption<br>0.85rem</div>
+    <div style="font-family:var(--font-body);font-size:0.85rem;color:var(--text-dim)">15 March 2026 &middot; Spring</div>
+  </div>
+</div>
+
+<!-- SPACING & RADIUS -->
+<div class="ds-section" id="spacing">
+  <h2 class="ds-section-title">Spacing & Border Radius</h2>
+  <p class="ds-section-sub">Consistent radii across all components. Section padding follows a 4rem/6rem rhythm.</p>
+
+  <div class="ds-label">Border Radius Tokens</div>
+  <div style="display:flex;gap:2rem;flex-wrap:wrap;margin-bottom:2rem">
+    <div style="text-align:center"><div class="ds-radius-demo" style="border-radius:4px">4px</div><div class="ds-note">--radius-sm</div></div>
+    <div style="text-align:center"><div class="ds-radius-demo" style="border-radius:8px">8px</div><div class="ds-note">--radius-md</div></div>
+    <div style="text-align:center"><div class="ds-radius-demo" style="border-radius:12px">12px</div><div class="ds-note">--radius-lg</div></div>
+    <div style="text-align:center"><div class="ds-radius-demo" style="border-radius:16px">16px</div><div class="ds-note">--radius-xl</div></div>
+    <div style="text-align:center"><div class="ds-radius-demo" style="border-radius:9999px">full</div><div class="ds-note">--radius-full</div></div>
+  </div>
+
+  <div class="ds-label">Section Padding</div>
+  <div class="ds-grid ds-grid-3">
+    <div class="ds-card"><h3>Standard</h3><p>padding: 6rem 0<br><span class="ds-code">Bento, About, Video, Restoration</span></p></div>
+    <div class="ds-card"><h3>Compact</h3><p>padding: 4rem 0<br><span class="ds-code">Stats, Footer</span></p></div>
+    <div class="ds-card"><h3>Generous</h3><p>padding: 5rem 2rem<br><span class="ds-code">Why Larch, Blog</span></p></div>
+  </div>
+</div>
+
+<!-- BUTTONS -->
+<div class="ds-section" id="buttons">
+  <h2 class="ds-section-title">Buttons</h2>
+  <p class="ds-section-sub">Three variants with size and shape modifiers. Primary for actions, secondary for alternatives, ghost for subtle links.</p>
+
+  <div class="ds-label">Variants</div>
+  <div class="ds-btn-row">
+    <button class="btn btn-primary">Primary</button>
+    <button class="btn btn-secondary">Secondary</button>
+    <button class="btn btn-ghost">Ghost</button>
+  </div>
+
+  <div class="ds-label">Sizes</div>
+  <div class="ds-btn-row">
+    <button class="btn btn-primary btn-sm">Small</button>
+    <button class="btn btn-primary">Default</button>
+    <button class="btn btn-primary btn-lg">Large</button>
+  </div>
+
+  <div class="ds-label">Shapes</div>
+  <div class="ds-btn-row">
+    <button class="btn btn-primary">Square (8px)</button>
+    <button class="btn btn-primary btn-pill">Pill</button>
+    <button class="btn btn-primary btn-icon">&#9654;</button>
+  </div>
+
+  <div class="ds-label">States</div>
+  <div class="ds-btn-row">
+    <button class="btn btn-primary">Default</button>
+    <button class="btn btn-primary" style="background:var(--gold-bright)">Hover</button>
+    <button class="btn btn-primary" disabled>Disabled</button>
+  </div>
+
+  <div class="ds-label" style="margin-top:1.5rem">Usage Rules</div>
+  <div class="ds-grid ds-grid-2">
+    <div class="ds-card" style="border-color:var(--green-mid)"><h3 style="color:var(--green-light)">Do</h3><p>One primary button per section. Use secondary for alternative actions. Ghost for nav links and back navigation.</p></div>
+    <div class="ds-card" style="border-color:var(--heather)"><h3 style="color:var(--heather-light)">Don't</h3><p>Multiple primary buttons competing. Ghost buttons for important CTAs. Buttons without sufficient contrast on image backgrounds.</p></div>
+  </div>
+</div>
+
+<!-- CARDS -->
+<div class="ds-section" id="cards">
+  <h2 class="ds-section-title">Cards</h2>
+  <p class="ds-section-sub">Four card variants for different content types across the site.</p>
+
+  <div class="ds-label">Standard Card</div>
+  <div class="ds-grid ds-grid-3" style="margin-bottom:2rem">
+    <div class="ds-card"><h3>Timber Dams</h3><p>Used in shallow drains with a thick peat layer. Untreated larch planks with a notch to direct water.</p></div>
+    <div class="ds-card"><h3>Stone Dams</h3><p>Where the drain has eroded to the mineral layer. Slows flow and prevents widening.</p></div>
+    <div class="ds-card"><h3>Coir Logs</h3><p>Biodegradable coconut husk rolls for blocking gullies and small drains.</p></div>
+  </div>
+
+  <div class="ds-label">Image Card (Blog / Gallery)</div>
+  <div class="ds-grid ds-grid-3" style="margin-bottom:2rem">
+    <div style="border-radius:var(--radius-xl);overflow:hidden;border:1px solid var(--gold-dim);height:280px;position:relative;background:#1A2518">
+      <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(14,11,9,0.9) 0%,rgba(14,11,9,0.3) 60%,transparent 100%)"></div>
+      <div style="position:absolute;top:1rem;left:1rem;font-family:var(--font-ui);font-size:0.65rem;font-weight:600;letter-spacing:0.15em;text-transform:uppercase;color:var(--gold);background:rgba(14,11,9,0.7);padding:0.3rem 0.75rem;border-radius:4px">Spring</div>
+      <div style="position:absolute;bottom:0;left:0;padding:1.5rem">
+        <div style="font-size:0.7rem;color:var(--gold-dim);margin-bottom:0.25rem">15 March 2026</div>
+        <div style="font-family:var(--font-display);font-size:1.15rem;color:var(--cream)">First Signs of Recovery</div>
+      </div>
+    </div>
+    <div style="border-radius:var(--radius-xl);overflow:hidden;border:1px solid var(--gold-dim);height:280px;position:relative;background:#243020">
+      <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(14,11,9,0.9) 0%,rgba(14,11,9,0.3) 60%,transparent 100%)"></div>
+      <div style="position:absolute;top:1rem;left:1rem;font-family:var(--font-ui);font-size:0.65rem;font-weight:600;letter-spacing:0.15em;text-transform:uppercase;color:var(--gold);background:rgba(14,11,9,0.7);padding:0.3rem 0.75rem;border-radius:4px">Winter</div>
+      <div style="position:absolute;bottom:0;left:0;padding:1.5rem">
+        <div style="font-size:0.7rem;color:var(--gold-dim);margin-bottom:0.25rem">20 February 2026</div>
+        <div style="font-family:var(--font-display);font-size:1.15rem;color:var(--cream)">The Dams Are Working</div>
+      </div>
+    </div>
+    <div style="border-radius:var(--radius-xl);overflow:hidden;border:1px solid var(--gold-dim);height:280px;position:relative;background:#2A2420">
+      <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(14,11,9,0.9) 0%,rgba(14,11,9,0.3) 60%,transparent 100%)"></div>
+      <div style="position:absolute;top:1rem;left:1rem;font-family:var(--font-ui);font-size:0.65rem;font-weight:600;letter-spacing:0.15em;text-transform:uppercase;color:var(--gold);background:rgba(14,11,9,0.7);padding:0.3rem 0.75rem;border-radius:4px">Winter</div>
+      <div style="position:absolute;bottom:0;left:0;padding:1.5rem">
+        <div style="font-size:0.7rem;color:var(--gold-dim);margin-bottom:0.25rem">28 January 2026</div>
+        <div style="font-family:var(--font-display);font-size:1.15rem;color:var(--cream)">Works Completed</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="ds-label">Tab Button</div>
+  <div style="display:flex;gap:0.5rem;flex-wrap:wrap;margin-bottom:2rem">
+    <button style="font-family:var(--font-ui);font-size:0.85rem;font-weight:700;padding:0.65rem 1.25rem;border-radius:8px;border:1px solid var(--gold);background:rgba(184,134,74,0.15);color:var(--gold);cursor:pointer">Active Tab</button>
+    <button style="font-family:var(--font-ui);font-size:0.85rem;font-weight:500;padding:0.65rem 1.25rem;border-radius:8px;border:1px solid rgba(184,134,74,0.2);background:rgba(255,255,255,0.03);color:var(--cream-dim);cursor:pointer">Inactive Tab</button>
+    <button style="font-family:var(--font-ui);font-size:0.85rem;font-weight:500;padding:0.65rem 1.25rem;border-radius:8px;border:1px solid rgba(184,134,74,0.2);background:rgba(255,255,255,0.03);color:var(--cream-dim);cursor:pointer">Another Tab</button>
+  </div>
+
+  <div class="ds-label">Tag / Badge</div>
+  <div style="display:flex;gap:0.5rem;flex-wrap:wrap">
+    <span style="font-family:var(--font-ui);font-size:0.7rem;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;color:var(--gold-dim);background:rgba(184,134,74,0.08);border:1px solid rgba(184,134,74,0.15);padding:0.3rem 0.75rem;border-radius:4px">recovery</span>
+    <span style="font-family:var(--font-ui);font-size:0.7rem;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;color:var(--gold-dim);background:rgba(184,134,74,0.08);border:1px solid rgba(184,134,74,0.15);padding:0.3rem 0.75rem;border-radius:4px">wildlife</span>
+    <span style="font-family:var(--font-ui);font-size:0.7rem;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;color:var(--gold-dim);background:rgba(184,134,74,0.08);border:1px solid rgba(184,134,74,0.15);padding:0.3rem 0.75rem;border-radius:4px">spring</span>
+    <span style="font-family:var(--font-ui);font-size:0.65rem;font-weight:600;letter-spacing:0.15em;text-transform:uppercase;color:var(--gold);background:rgba(184,134,74,0.85);color:var(--bg-deep);padding:0.3rem 0.75rem;border-radius:9999px">Ecology</span>
+  </div>
+</div>
+
+<!-- SECTION STYLES -->
+<div class="ds-section" id="sections">
+  <h2 class="ds-section-title">Section Styles</h2>
+  <p class="ds-section-sub">Sections alternate between solid backgrounds, textured overlays, and photo parallax to create visual rhythm.</p>
+
+  <div class="ds-label">Background Pattern</div>
+  <div class="ds-section-demo" style="background:var(--bg-deep)"><h4>Solid Deep</h4><p>--bg-deep #0E0B09 — Map, Before/After, Slowing The Flow</p></div>
+  <div class="ds-section-demo" style="background:var(--bg-dark)"><h4>Solid Dark</h4><p>--bg-dark #151110 — Bento, About, Video Documentation, Stats</p></div>
+  <div class="ds-section-demo" style="background:var(--bg-card)"><h4>Solid Card</h4><p>--bg-card #1C1714 — Why Larch, Partners, Footer</p></div>
+  <div class="ds-section-demo" style="background:linear-gradient(135deg,#1A2518 0%,#0E0B09 100%)"><h4>Green Gradient</h4><p>Parallax Break 1 — green-deep to bg-deep</p></div>
+  <div class="ds-section-demo" style="background:linear-gradient(135deg,rgba(26,46,28,0.78) 0%,rgba(14,11,9,0.7) 100%)"><h4>Photo + Green Overlay</h4><p>Parallax Break 2 — landscape photo with 78% green overlay</p></div>
+
+  <div class="ds-label" style="margin-top:2rem">Section Header Pattern</div>
+  <div style="text-align:center;padding:2rem;background:var(--bg-card);border-radius:var(--radius-lg);border:1px solid var(--gold-dim)">
+    <div style="font-family:var(--font-ui);font-size:0.7rem;font-weight:500;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold);margin-bottom:0.75rem">Label</div>
+    <div style="font-family:var(--font-display);font-size:2rem;color:var(--cream);margin-bottom:1rem">Section Title</div>
+    <div style="width:48px;height:1px;background:var(--gold-dim);margin:0 auto"></div>
+  </div>
+</div>
+
+<!-- TEXTURES -->
+<div class="ds-section" id="textures">
+  <h2 class="ds-section-title">Texture Overlays</h2>
+  <p class="ds-section-sub">Seven tileable textures applied as soft-light blends at 30-40% opacity. Each section uses a different texture for variety.</p>
+
+  <div class="ds-grid ds-grid-4">
+    <div class="ds-swatch"><div class="ds-swatch-color" style="background:url('/images/textures/felt.png') repeat;background-size:128px"></div><div class="ds-swatch-info"><div class="ds-swatch-name">Felt</div><div class="ds-swatch-value">tex-felt<br>Bento section</div></div></div>
+    <div class="ds-swatch"><div class="ds-swatch-color" style="background:url('/images/textures/speckled.png') repeat;background-size:128px"></div><div class="ds-swatch-info"><div class="ds-swatch-name">Speckled</div><div class="ds-swatch-value">tex-speckled<br>Stats section</div></div></div>
+    <div class="ds-swatch"><div class="ds-swatch-color" style="background:url('/images/textures/brushed.png') repeat;background-size:128px"></div><div class="ds-swatch-info"><div class="ds-swatch-name">Brushed</div><div class="ds-swatch-value">tex-brushed<br>About section</div></div></div>
+    <div class="ds-swatch"><div class="ds-swatch-color" style="background:url('/images/textures/woven.png') repeat;background-size:128px"></div><div class="ds-swatch-info"><div class="ds-swatch-name">Woven</div><div class="ds-swatch-value">tex-woven<br>Restoration tabs</div></div></div>
+    <div class="ds-swatch"><div class="ds-swatch-color" style="background:url('/images/textures/concrete.png') repeat;background-size:128px"></div><div class="ds-swatch-info"><div class="ds-swatch-name">Concrete</div><div class="ds-swatch-value">tex-concrete<br>Damming section</div></div></div>
+    <div class="ds-swatch"><div class="ds-swatch-color" style="background:url('/images/textures/denim.png') repeat;background-size:128px"></div><div class="ds-swatch-info"><div class="ds-swatch-name">Denim</div><div class="ds-swatch-value">tex-denim<br>Video section</div></div></div>
+    <div class="ds-swatch"><div class="ds-swatch-color" style="background:url('/images/textures/tweed.png') repeat;background-size:128px"></div><div class="ds-swatch-info"><div class="ds-swatch-name">Tweed</div><div class="ds-swatch-value">tex-tweed<br>Documentary</div></div></div>
+  </div>
+</div>
+
+<!-- NAVIGATION -->
+<div class="ds-section" id="navigation">
+  <h2 class="ds-section-title">Navigation</h2>
+  <p class="ds-section-sub">Fixed top bar. Transparent at scroll top, frosted glass on scroll. Responsive hamburger on mobile.</p>
+
+  <div class="ds-grid ds-grid-2">
+    <div class="ds-card">
+      <h3>Desktop Nav</h3>
+      <p>Links: Home, About, Restoration, Techniques, Bog Diaries<br><br>
+      Font: var(--font-ui), 0.8rem, uppercase, 0.12em tracking<br>
+      Default: --cream-dim<br>
+      Hover: --gold<br>
+      Background (scrolled): rgba(14,11,9,0.92) + blur(12px)<br>
+      Border (scrolled): 1px solid rgba(184,134,74,0.12)</p>
+    </div>
+    <div class="ds-card">
+      <h3>Mobile Nav</h3>
+      <p>Hamburger: 3 lines, 24px wide, 2px thick, --cream<br>
+      Animated: cross rotation on open<br>
+      Menu: full-width dropdown, rgba(14,11,9,0.96) + blur(16px)<br>
+      Links: 0.85rem, stacked vertically, 1.25rem gap</p>
+    </div>
+  </div>
+</div>
+
+<!-- PATTERNS -->
+<div class="ds-section" id="patterns">
+  <h2 class="ds-section-title">Layout Patterns</h2>
+  <p class="ds-section-sub">Reusable layout patterns used across the site.</p>
+
+  <div class="ds-grid ds-grid-2">
+    <div class="ds-card"><h3>Split Content</h3><p>Text left (50%), image right (50%). Used in: Restoration Tabs, About section. Stacks vertically on mobile.</p></div>
+    <div class="ds-card"><h3>Bento Grid</h3><p>auto-fit, minmax(300px, 1fr). Cards with optional background images. Gold border on hover with lift.</p></div>
+    <div class="ds-card"><h3>Video Grid</h3><p>auto-fit, minmax(320px, 1fr). Thumbnail with play icon overlay. Title and description below.</p></div>
+    <div class="ds-card"><h3>Hover Reveal Cards</h3><p>Group hover: siblings blur + shrink. Active card: scale up + clear. Used for Slowing The Flow section.</p></div>
+    <div class="ds-card"><h3>Carousel</h3><p>Embla carousel with dot pagination. 3 cards visible on desktop, 1 on mobile. Category badge top-left.</p></div>
+    <div class="ds-card"><h3>Parallax Break</h3><p>60-70vh height. Fixed background-attachment or photo + gradient overlay. Centered text content.</p></div>
+  </div>
+
+  <div class="ds-label" style="margin-top:2rem">Interaction Standards</div>
+  <div class="ds-grid ds-grid-3">
+    <div class="ds-card"><h3>Hover Lift</h3><p>translateY(-4px) + border-color to --gold-light. Duration: 0.4s ease-out-expo.</p></div>
+    <div class="ds-card"><h3>Hover Scale</h3><p>scale(1.02) for gallery items. scale(1.04) for blog card backgrounds. Duration: 0.5s.</p></div>
+    <div class="ds-card"><h3>Fade In</h3><p>Opacity 0→1 with translateY(10px→0). Gallery titles, tooltips. Duration: 0.4s.</p></div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<div style="padding:3rem 0;text-align:center;color:var(--text-dim);font-size:0.85rem">
+  <p>Glashapullagh Design System v1.0 — March 2026</p>
+</div>
+
+</div>
+</body>
+</html>
