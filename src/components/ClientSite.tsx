@@ -2,11 +2,9 @@
 
 import { useEffect, useRef, useState } from 'react';
 import { Gallery4 } from '@/components/blocks/gallery4';
-import { HoverRevealGrid } from '@/components/blocks/hover-reveal-grid';
 import ScrollExpandMedia from '@/components/blocks/scroll-expansion-hero';
 import { PartnersSection } from '@/components/blocks/partners-section';
 import { BentoGallery } from '@/components/blocks/bento-gallery';
-import { ZoomParallax } from '@/components/ui/zoom-parallax';
 import { ImageComparisonSlider } from '@/components/ui/image-comparison-slider';
 import InteractiveMap from '@/components/blocks/interactive-map';
 import { TabbedRestoration } from '@/components/blocks/tabbed-restoration';
@@ -439,7 +437,9 @@ export default function ClientSite({ content }: ClientSiteProps) {
         </div>
       </ScrollExpandMedia>
 
-      {/* 1. HERO SECTION */}
+      {/* ═══ CHAPTER 1: THE VISION ═══ */}
+
+      {/* 1. HERO */}
       <section className="hero">
         <canvas ref={heroCanvasRef} className="hero-canvas" />
         <div className="hero-content">
@@ -451,30 +451,7 @@ export default function ClientSite({ content }: ClientSiteProps) {
         </div>
       </section>
 
-      {/* 2. OVERVIEW VIDEO */}
-      {content.documentary && (
-        <section className="documentary-section texture-overlay tex-tweed wash-peat">
-          <div className="container">
-            <div className="documentary-container">
-              <div className="documentary-header">
-                <p className="label">{content.documentary.label || 'Featured'}</p>
-                <h2>{content.documentary.title || 'Full Documentary'}</h2>
-                <div className="divider-line divider-line-center" />
-              </div>
-              <div className="documentary-wrapper">
-                <iframe
-                  className="documentary-iframe"
-                  src={content.documentary.url}
-                  title="Documentary"
-                  allowFullScreen
-                />
-              </div>
-            </div>
-          </div>
-        </section>
-      )}
-
-      {/* 3. BENTO GRID */}
+      {/* 2. WHAT WE DO (Bento) */}
       <section className="bento-section texture-overlay tex-felt wash-green">
         <div className="container">
           <div className="bento-header">
@@ -498,38 +475,7 @@ export default function ClientSite({ content }: ClientSiteProps) {
         </div>
       </section>
 
-      {/* 4. GALLERY CAROUSEL */}
-      <div style={{ background: 'var(--bg-deep)' }}>
-        <Gallery4 />
-      </div>
-
-      {/* 5. BEFORE/AFTER — Aerial Survey */}
-      <section className="texture-overlay tex-speckled wash-amber" style={{ background: 'var(--bg-deep)', padding: '6rem 0' }}>
-        <div className="container" style={{ maxWidth: '1100px', margin: '0 auto', padding: '0 1.5rem' }}>
-          <div style={{ textAlign: 'center', marginBottom: '3rem' }}>
-            <p className="label">Aerial Survey</p>
-            <h2 style={{ fontFamily: 'var(--font-display)', color: 'var(--cream)', fontSize: '2.5rem', margin: '0.5rem 0 1rem' }}>
-              Landscape Transformation
-            </h2>
-            <div className="divider-line divider-line-center" />
-          </div>
-          <div style={{ borderRadius: '12px', overflow: 'hidden', border: '1px solid rgba(184,134,74,0.15)', aspectRatio: '16 / 9' }}>
-            <ImageComparisonSlider
-              leftImage="/images/site/orthophoto-before.jpg"
-              rightImage="/images/site/orthophoto-after.jpg"
-              altLeft="Glashapullagh aerial survey — before restoration"
-              altRight="Glashapullagh aerial survey — after restoration"
-              initialPosition={50}
-            />
-          </div>
-          <div style={{ display: 'flex', justifyContent: 'space-between', marginTop: '1rem', padding: '0 0.25rem' }}>
-            <span style={{ fontFamily: 'var(--font-body)', color: 'var(--gold)', fontSize: '0.85rem', letterSpacing: '0.05em', textTransform: 'uppercase' }}>Before</span>
-            <span style={{ fontFamily: 'var(--font-body)', color: 'var(--gold)', fontSize: '0.85rem', letterSpacing: '0.05em', textTransform: 'uppercase' }}>After</span>
-          </div>
-        </div>
-      </section>
-
-      {/* 6. STATS */}
+      {/* 3. STATS */}
       {content.stats && (
         <section className="stats-section texture-overlay tex-speckled wash-moss">
           <div className="container">
@@ -545,7 +491,7 @@ export default function ClientSite({ content }: ClientSiteProps) {
         </section>
       )}
 
-      {/* 7. PARALLAX BREAK 1 */}
+      {/* 4. PARALLAX BREAK 1: A Landscape in Recovery */}
       {content.parallaxBreaks?.[0] && (
         <section className="parallax-break">
           <div className="parallax-content">
@@ -555,7 +501,9 @@ export default function ClientSite({ content }: ClientSiteProps) {
         </section>
       )}
 
-      {/* 8. ABOUT */}
+      {/* ═══ CHAPTER 2: THE STORY ═══ */}
+
+      {/* 5. ABOUT */}
       <section className="about-site-section texture-overlay tex-brushed wash-heather" id="about">
         <div className="container">
           <div className="about-site-container">
@@ -576,47 +524,37 @@ export default function ClientSite({ content }: ClientSiteProps) {
         </div>
       </section>
 
-      {/* 9. INTERACTIVE MAP */}
-      {content.topoMap && (
-        <InteractiveMap
-          label={content.topoMap.label || 'Location'}
-          title={content.topoMap.title || 'Site Map'}
-          cmsMapImage={content.topoMap.mapImage || null}
-        />
-      )}
-
-      {/* 10. VIDEO DOCUMENTATION */}
-      {content.videos && (
-        <section className="video-section texture-overlay tex-denim wash-water">
+      {/* 6. OVERVIEW VIDEO */}
+      {content.documentary && (
+        <section className="documentary-section texture-overlay tex-tweed wash-peat">
           <div className="container">
-            <div className="video-header">
-              <p className="label">{content.videos.label || 'Media'}</p>
-              <h2>{content.videos.title || 'Video Content'}</h2>
-              <div className="divider-line divider-line-center" />
-            </div>
-            <div className="video-grid">
-              {content.videos.items?.map((video: any, idx: number) => (
-                <div
-                  key={idx}
-                  className="video-card"
-                  onClick={() => openLightbox(video.url)}
-                >
-                  <div className="video-thumbnail">
-                    <img src={video.thumbnail} alt={video.title} />
-                    <div className="video-play-icon" />
-                  </div>
-                  <div className="video-content">
-                    <h3>{video.title}</h3>
-                    <p>{video.description}</p>
-                  </div>
-                </div>
-              ))}
+            <div className="documentary-container">
+              <div className="documentary-header">
+                <p className="label">{content.documentary.label || 'Featured'}</p>
+                <h2>{content.documentary.title || 'Full Documentary'}</h2>
+                <div className="divider-line divider-line-center" />
+              </div>
+              <div className="documentary-wrapper">
+                <iframe
+                  className="documentary-iframe"
+                  src={content.documentary.url}
+                  title="Documentary"
+                  allowFullScreen
+                />
+              </div>
             </div>
           </div>
         </section>
       )}
 
-      {/* 11. RESTORATION TABS */}
+      {/* 7. GALLERY CAROUSEL: Restoration in Focus */}
+      <div style={{ background: 'var(--bg-deep)' }}>
+        <Gallery4 />
+      </div>
+
+      {/* ═══ CHAPTER 3: THE WORK ═══ */}
+
+      {/* 8. RESTORATION TABS */}
       {content.restoration && (
         <TabbedRestoration
           label={content.restoration.label}
@@ -625,38 +563,7 @@ export default function ClientSite({ content }: ClientSiteProps) {
         />
       )}
 
-      {/* 12. PARALLAX BREAK 2 — Recovery Takes Time */}
-      {content.parallaxBreaks?.[1] && (
-        <section style={{
-          position: 'relative',
-          height: '70vh',
-          minHeight: '450px',
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'center',
-          overflow: 'hidden',
-        }}>
-          <div style={{
-            position: 'absolute',
-            inset: '-20% 0',
-            backgroundImage: 'url(/images/site/Glashapullagh Restoration West Limerick1.jpg)',
-            backgroundSize: 'cover',
-            backgroundPosition: 'center',
-            backgroundAttachment: 'fixed',
-          }} />
-          <div style={{
-            position: 'absolute',
-            inset: 0,
-            background: 'linear-gradient(135deg, rgba(26,46,28,0.78) 0%, rgba(14,11,9,0.7) 100%)',
-          }} />
-          <div className="parallax-content" style={{ position: 'relative', zIndex: 2 }}>
-            <h2>{content.parallaxBreaks[1].title}</h2>
-            <p>{content.parallaxBreaks[1].text}</p>
-          </div>
-        </section>
-      )}
-
-      {/* 13. SLOWING THE FLOW OF WATER */}
+      {/* 9. SLOWING THE FLOW OF WATER */}
       {content.monitoring && (
         <section id="techniques" className="texture-overlay tex-concrete wash-deep" style={{ background: 'var(--bg-deep)', padding: '6rem 0' }}>
           <div style={{ maxWidth: '1400px', margin: '0 auto', padding: '0 2rem' }}>
@@ -680,9 +587,9 @@ export default function ClientSite({ content }: ClientSiteProps) {
         </section>
       )}
 
-      {/* 14. WHY LARCH */}
+      {/* 10. WHY LARCH */}
       {content.whyLarch && (
-        <section style={{
+        <section className="texture-overlay tex-woven wash-amber" style={{
           padding: '5rem 2rem',
           background: 'var(--bg-card)',
         }}>
@@ -741,39 +648,129 @@ export default function ClientSite({ content }: ClientSiteProps) {
         </section>
       )}
 
-      {/* SECTION: ZOOM PARALLAX */}
-      <ZoomParallax
-        images={[
-          { src: '/images/site/parallax-walkers.jpg', alt: 'Workers walking across the restored peatland' },
-          { src: '/images/site/parallax-lichen.jpg', alt: 'Macro detail of lichen and moss on peat' },
-          { src: '/images/site/parallax-peat-hag.jpg', alt: 'Peat hag with lone spruce under moody sky' },
-          { src: '/images/site/parallax-dam-site.jpg', alt: 'Two people at dam installation site' },
-          { src: '/images/site/parallax-bog-grass.jpg', alt: 'Soft focus bog grass against moody sky' },
-          { src: '/images/site/parallax-peat-bank.jpg', alt: 'Exposed peat bank close-up' },
-          { src: '/images/site/parallax-bog-trail.jpg', alt: 'Two people walking across the bog' },
-        ]}
-      />
+      {/* 11. BEFORE/AFTER — proof of results */}
+      <section className="texture-overlay tex-speckled wash-amber" style={{ background: 'var(--bg-deep)', padding: '6rem 0' }}>
+        <div className="container" style={{ maxWidth: '1100px', margin: '0 auto', padding: '0 1.5rem' }}>
+          <div style={{ textAlign: 'center', marginBottom: '3rem' }}>
+            <p className="label">Aerial Survey</p>
+            <h2 style={{ fontFamily: 'var(--font-display)', color: 'var(--cream)', fontSize: '2.5rem', margin: '0.5rem 0 1rem' }}>
+              Landscape Transformation
+            </h2>
+            <div className="divider-line divider-line-center" />
+          </div>
+          <div style={{ borderRadius: '12px', overflow: 'hidden', border: '1px solid rgba(184,134,74,0.15)', aspectRatio: '16 / 9' }}>
+            <ImageComparisonSlider
+              leftImage="/images/site/orthophoto-before.jpg"
+              rightImage="/images/site/orthophoto-after.jpg"
+              altLeft="Glashapullagh aerial survey — before restoration"
+              altRight="Glashapullagh aerial survey — after restoration"
+              initialPosition={50}
+            />
+          </div>
+          <div style={{ display: 'flex', justifyContent: 'space-between', marginTop: '1rem', padding: '0 0.25rem' }}>
+            <span style={{ fontFamily: 'var(--font-body)', color: 'var(--gold)', fontSize: '0.85rem', letterSpacing: '0.05em', textTransform: 'uppercase' }}>Before</span>
+            <span style={{ fontFamily: 'var(--font-body)', color: 'var(--gold)', fontSize: '0.85rem', letterSpacing: '0.05em', textTransform: 'uppercase' }}>After</span>
+          </div>
+        </div>
+      </section>
 
-      {/* SECTION: HOVER REVEAL GRID */}
-      <div style={{ background: 'var(--bg-dark)' }}>
-        <HoverRevealGrid />
-      </div>
+      {/* ═══ CHAPTER 4: THE EVIDENCE ═══ */}
 
-      {/* SECTION: BENTO GALLERY */}
+      {/* 12. VIDEO DOCUMENTATION (featured 6) */}
+      {content.videos && (
+        <section className="video-section texture-overlay tex-denim wash-water">
+          <div className="container">
+            <div className="video-header">
+              <p className="label">{content.videos.label || 'Media'}</p>
+              <h2>{content.videos.title || 'Video Documentation'}</h2>
+              <div className="divider-line divider-line-center" />
+            </div>
+            <div className="video-grid">
+              {content.videos.items?.slice(0, 6).map((video: any, idx: number) => (
+                <div
+                  key={idx}
+                  className="video-card"
+                  onClick={() => openLightbox(video.url)}
+                >
+                  <div className="video-thumbnail">
+                    <img src={video.thumbnail} alt={video.title} />
+                    <div className="video-play-icon" />
+                  </div>
+                  <div className="video-content">
+                    <h3>{video.title}</h3>
+                    <p>{video.description}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+            {content.videos.items?.length > 6 && (
+              <div style={{ textAlign: 'center', marginTop: '2.5rem' }}>
+                <button
+                  className="hero-cta"
+                  style={{ background: 'transparent', border: '1px solid var(--gold)', color: 'var(--gold)' }}
+                  onClick={() => {
+                    const section = document.querySelector('.video-grid');
+                    if (section) {
+                      const cards = section.querySelectorAll('.video-card');
+                      cards.forEach(c => (c as HTMLElement).style.display = 'block');
+                    }
+                    (document.querySelector('.view-all-btn') as HTMLElement)?.remove();
+                  }}
+                >
+                  View All {content.videos.items.length} Videos
+                </button>
+              </div>
+            )}
+          </div>
+        </section>
+      )}
+
+      {/* 13. PARALLAX BREAK 2: Recovery Takes Time */}
+      {content.parallaxBreaks?.[1] && (
+        <section style={{
+          position: 'relative',
+          height: '70vh',
+          minHeight: '450px',
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          overflow: 'hidden',
+        }}>
+          <div style={{
+            position: 'absolute',
+            inset: '-20% 0',
+            backgroundImage: 'url(/images/site/Glashapullagh Restoration West Limerick1.jpg)',
+            backgroundSize: 'cover',
+            backgroundPosition: 'center',
+            backgroundAttachment: 'fixed',
+          }} />
+          <div style={{
+            position: 'absolute',
+            inset: 0,
+            background: 'linear-gradient(135deg, rgba(26,46,28,0.78) 0%, rgba(14,11,9,0.7) 100%)',
+          }} />
+          <div className="parallax-content" style={{ position: 'relative', zIndex: 2 }}>
+            <h2>{content.parallaxBreaks[1].title}</h2>
+            <p>{content.parallaxBreaks[1].text}</p>
+          </div>
+        </section>
+      )}
+
+      {/* 14. BENTO GALLERY — consolidated single gallery */}
       <BentoGallery
         heading="Glashapullagh in Pictures"
         eyebrow="Visual Journey"
         images={[
           { src: '/images/site/Glashapullagh Restoration West Limerick1.jpg', alt: 'Aerial view of Glashapullagh peatland', caption: 'The vast blanket bog of Glashapullagh' },
           { src: '/images/site/dam-workers.jpg', alt: 'Workers installing a peat dam on the bog', caption: 'Installing peat dams to rewet the bog' },
+          { src: '/images/site/sphagnum-closeup.jpg', alt: 'Sphagnum moss detail', caption: 'Sphagnum mosses — the keystone species' },
           { src: '/images/site/peat-pool.jpg', alt: 'Still pool of water on restored peatland', caption: 'Rewetted peat pools supporting new life' },
           { src: '/images/site/Glashapullagh Restoration West Limerick5.jpg', alt: 'Restoration work across the peatland landscape', caption: 'Restoration in progress across the site' },
           { src: '/images/site/carrying-equipment.jpg', alt: 'Team carrying restoration equipment across the bog', caption: 'Carrying materials to remote restoration sites' },
-          { src: '/images/site/Glashapullagh Restoration West Limerick12.jpg', alt: 'Close-up of peatland vegetation and mosses', caption: 'Sphagnum mosses returning to restored areas' },
+          { src: '/images/site/sphagnum-wide.jpg', alt: 'Sphagnum growing among bog grasses', caption: 'Sphagnum recovery among native grasses' },
           { src: '/images/site/plank-dam.jpg', alt: 'Timber plank dam blocking a drainage channel', caption: 'Timber dams blocking old drainage channels' },
           { src: '/images/site/landscape-figure.jpg', alt: 'Lone figure surveying the peatland landscape', caption: 'Surveying the scale of the restoration' },
           { src: '/images/site/Glashapullagh Restoration West Limerick16.jpg', alt: 'Peatland restoration site at golden hour', caption: 'Golden light over the restored bogland' },
-          { src: '/images/site/bog-walker.jpg', alt: 'Walker crossing the blanket bog', caption: 'Navigating the terrain of the active bog' },
           { src: '/images/site/monitoring-post.jpg', alt: 'Environmental monitoring station on the bog', caption: 'Monitoring water levels and habitat recovery' },
           { src: '/images/site/dusk-silhouette.jpg', alt: 'Silhouette of workers at dusk on the peatland', caption: 'End of a day on the bog' },
         ]}
