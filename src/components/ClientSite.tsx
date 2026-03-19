@@ -548,6 +548,29 @@ export default function ClientSite({ content }: ClientSiteProps) {
         </div>
       </section>
 
+      {/* DOCUMENTARY / OVERVIEW VIDEO SECTION */}
+      {content.documentary && (
+        <section className="documentary-section texture-overlay tex-tweed">
+          <div className="container">
+            <div className="documentary-container">
+              <div className="documentary-header">
+                <p className="label">{content.documentary.label || 'Featured'}</p>
+                <h2>{content.documentary.title || 'Full Documentary'}</h2>
+                <div className="divider-line divider-line-center" />
+              </div>
+              <div className="documentary-wrapper">
+                <iframe
+                  className="documentary-iframe"
+                  src={content.documentary.url}
+                  title="Documentary"
+                  allowFullScreen
+                />
+              </div>
+            </div>
+          </div>
+        </section>
+      )}
+
       {/* INTERACTIVE MAP SECTION */}
       {content.topoMap && (
         <InteractiveMap
@@ -712,30 +735,6 @@ export default function ClientSite({ content }: ClientSiteProps) {
           </div>
         </section>
       )}
-
-      {/* DOCUMENTARY SECTION */}
-      {content.documentary && (
-        <section className="documentary-section texture-overlay tex-tweed">
-          <div className="container">
-            <div className="documentary-container">
-              <div className="documentary-header">
-                <p className="label">{content.documentary.label || 'Featured'}</p>
-                <h2>{content.documentary.title || 'Full Documentary'}</h2>
-                <div className="divider-line divider-line-center" />
-              </div>
-              <div className="documentary-wrapper">
-                <iframe
-                  className="documentary-iframe"
-                  src={content.documentary.url}
-                  title="Documentary"
-                  allowFullScreen
-                />
-              </div>
-            </div>
-          </div>
-        </section>
-      )}
-
 
       {/* SECTION: GALLERY CAROUSEL */}
       <div style={{ background: 'var(--bg-deep)' }}>
