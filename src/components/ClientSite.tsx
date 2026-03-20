@@ -550,14 +550,30 @@ export default function ClientSite({ content }: ClientSiteProps) {
         </section>
       )}
 
-      {/* 9. INTERACTIVE MAP */}
-      {content.topoMap && (
-        <InteractiveMap
-          label={content.topoMap.label || 'Location'}
-          title={content.topoMap.title || 'Site Map'}
-          cmsMapImage={content.topoMap.mapImage || null}
-        />
-      )}
+      {/* 9. INTERACTIVE SITE */}
+      <section className="interactive-site-section texture-overlay tex-felt wash-green" id="interactive-site">
+        <div className="container">
+          <div className="interactive-site-header">
+            <p className="label">Explore</p>
+            <h2>Interactive Site</h2>
+            <div className="divider-line divider-line-center" />
+            <p className="interactive-site-desc">Explore the Glashapullagh restoration site in 3D. Navigate the landscape, discover restoration techniques, and see the work up close.</p>
+          </div>
+          <div className="interactive-site-embed">
+            <iframe
+              src="https://point-and-place-ar.vercel.app/"
+              title="Interactive Glashapullagh Site"
+              allow="accelerometer; gyroscope; xr-spatial-tracking"
+              allowFullScreen
+            />
+          </div>
+          <div className="interactive-site-footer">
+            <a href="/interactive-site" className="hero-cta" style={{ textDecoration: 'none' }}>
+              Open Full Experience
+            </a>
+          </div>
+        </div>
+      </section>
 
       {/* 10. VIDEO DOCUMENTATION */}
       {content.videos && (

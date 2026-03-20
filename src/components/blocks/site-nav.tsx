@@ -15,9 +15,9 @@ export function SiteNav() {
 
   const links = [
     { label: 'Home', href: '/' },
-    { label: 'About', href: '/#about' },
     { label: 'Restoration', href: '/#restoration' },
     { label: 'Techniques', href: '/#techniques' },
+    { label: 'Interactive Site', href: '/interactive-site' },
     { label: 'Bog Diaries', href: '/blog' },
   ];
 
