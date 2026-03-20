@@ -945,17 +945,18 @@ p, li, td { font-family: var(--font-body); font-weight: 300; color: var(--text-s
   }
   /* Interactive site mobile */
   .interactive-site-section {
-    padding: 3rem 0;
+    padding: 2rem 0;
   }
   .interactive-site-section .interactive-site-header {
     padding: 0 1rem;
-    margin-bottom: 1.5rem;
+    margin-bottom: 1rem;
   }
   .interactive-site-desc {
     font-size: 14px;
   }
   .interactive-site-embed {
-    aspect-ratio: 4 / 3;
+    aspect-ratio: auto;
+    height: 75vh;
   }
   .interactive-site-section .interactive-site-footer {
     padding: 0 1rem;
