@@ -550,27 +550,6 @@ export default function ClientSite({ content }: ClientSiteProps) {
         </section>
       )}
 
-      {/* 8. ABOUT */}
-      <section className="about-site-section texture-overlay tex-brushed wash-heather" id="about">
-        <div className="container">
-          <div className="about-site-container">
-            <div className="about-site-content">
-              <p className="label">{content.about?.label || 'About'}</p>
-              <h2>{content.about?.title || 'The Site'}</h2>
-              <div className="divider-line" />
-              {content.about?.paragraphs?.map((para: string, idx: number) => (
-                <p key={idx}>{para}</p>
-              ))}
-            </div>
-            {content.about?.image && (
-              <div className="about-site-image">
-                <img src={content.about.image} alt="About the site" />
-              </div>
-            )}
-          </div>
-        </div>
-      </section>
-
       {/* 9. INTERACTIVE MAP */}
       {content.topoMap && (
         <InteractiveMap
