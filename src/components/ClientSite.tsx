@@ -452,7 +452,11 @@ export default function ClientSite({ content }: ClientSiteProps) {
         <canvas ref={heroCanvasRef} className="hero-canvas" />
         <div className="hero-content">
           <h1>{content.hero?.title || 'Glashapullagh'}</h1>
-          <p className="lead">{content.hero?.subtitle || 'Peatland restoration in West Limerick'}</p>
+          <div className="hero-paragraphs">
+            <p>{content.hero?.paragraph1 || ''}</p>
+            <p>{content.hero?.paragraph2 || ''}</p>
+            <p>{content.hero?.paragraph3 || ''}</p>
+          </div>
           <button className="hero-cta" onClick={() => {
             if (content.documentary?.url) {
               openLightbox(content.documentary.url);
@@ -460,7 +464,7 @@ export default function ClientSite({ content }: ClientSiteProps) {
               openLightbox('https://vimeo.com/1170727891/e60603a2b1');
             }
           }}>
-            Explore the Project
+            {content.hero?.ctaText || 'About the Project | Video'}
           </button>
         </div>
       </section>

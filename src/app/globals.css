@@ -220,6 +220,21 @@ p, li, td { font-family: var(--font-body); font-weight: 300; color: var(--text-s
   font-size: 17px;
   color: var(--cream-dim);
 }
+.hero-paragraphs {
+  text-align: left;
+  max-width: 800px;
+  margin: 0 auto 2rem;
+}
+.hero-paragraphs p {
+  font-size: 16px;
+  line-height: 1.7;
+  color: var(--cream-dim);
+  margin-bottom: 1.2rem;
+  font-family: var(--font-body);
+}
+.hero-paragraphs p:last-child {
+  margin-bottom: 0;
+}
 .hero-canvas {
   position: absolute;
   inset: 0;
