@@ -431,11 +431,19 @@ export default function ClientSite({ content }: ClientSiteProps) {
             {content.scrollHero?.paragraph1 || "The Glashapullagh site is a cutover blanket bog in West Limerick that had been historically drained, leading to severe peat compaction, the spread of scrub and rushes, and significant peat loss. A comprehensive Restoration Action Plan was developed using extensive drone and ground surveys, approved by the National Parks and Wildlife Service."}
           </p>
           <p
-            className="text-lg leading-relaxed"
+            className="text-lg mb-8 leading-relaxed"
             style={{ fontFamily: 'var(--font-body)', color: 'var(--cream-dim)' }}
           >
             {content.scrollHero?.paragraph2 || "Restoration works included reprofiling peat banks, installing dams, removing conifers, and stabilising bare peat. The site is now on a path to recovery — rewetting is slowing carbon loss, habitats are improving for wildlife, and peat-forming plants are returning. Recovery takes time, but at Glashapullagh, it has begun."}
           </p>
+          {content.scrollHero?.paragraph3 && (
+            <p
+              className="text-lg leading-relaxed"
+              style={{ fontFamily: 'var(--font-body)', color: 'var(--cream-dim)' }}
+            >
+              {content.scrollHero.paragraph3}
+            </p>
+          )}
         </div>
       </ScrollExpandMedia>
 

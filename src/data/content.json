@@ -1,4 +1,14 @@
 {
+  "scrollHero": {
+    "videoUrl": "https://vimeo.com/1170727891/e60603a2b1",
+    "bgImage": "/images/site/hero-bg.jpg",
+    "title": "Restoring Nature",
+    "date": "Glashapullagh Peatlands",
+    "heading": "The Glashapullagh Project",
+    "paragraph1": "The Glashapullagh site is a drained and cutover blanket bog in West Limerick. This has led to severe peat compaction, the loss of peat and the spread of rushes. To reverse this degradation, a comprehensive Restoration Action Plan was developed involving drone and ground surveys to map vegetation, peat depth, slope, and drain dimensions.",
+    "paragraph2": "Approved by the National Parks and Wildlife Service (NPWS), the restoration works at Glashapullagh were planned with clear objectives: to slow carbon loss by preventing the oxidation of dry peat; to improve habitats for wildlife particularly for ground-nesting birds; and to encourage the return of Sphagnum mosses, by raising the local water table.",
+    "paragraph3": "The project serves as both a working restoration site and as a model for blanket bog recovery across the Atlantic seaboard. Every technique deployed from timber dams to geotextile to the removal of self-sown conifers has been carefully matched to the site\u2019s specific ecological and hydrological conditions. All of this is available to the visitor to the site but also through digitally through short films and augmented reality tours. We hope the story of this bog will be both resource and an inspiration for all those working on other restoration projects."
+  },
   "hero": {
     "title": "Glashapullagh",
     "subtitle": "Blanket bog restoration in West Limerick. Reversing decades of drainage — rewetting peatland, rebuilding habitats, and securing carbon for generations to come."
