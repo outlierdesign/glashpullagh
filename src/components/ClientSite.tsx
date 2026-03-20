@@ -413,7 +413,7 @@ export default function ClientSite({ content }: ClientSiteProps) {
         mediaSrc={content.scrollHero?.videoUrl || "https://vimeo.com/1170727891/e60603a2b1"}
         bgImageSrc={content.scrollHero?.bgImage || "/images/site/hero-bg.jpg"}
         title={content.scrollHero?.title || "Restoring Nature"}
-        date={content.scrollHero?.date || "Glashpullagh Peatlands"}
+        date={content.scrollHero?.date || "Glashapullagh Peatlands"}
         scrollToExpand="Scroll to explore"
         textBlend
       >
@@ -491,7 +491,7 @@ export default function ClientSite({ content }: ClientSiteProps) {
         <div className="container" style={{ maxWidth: '1100px', margin: '0 auto', padding: '0 1.5rem' }}>
           <div style={{ textAlign: 'center', marginBottom: '3rem' }}>
             <p className="label">Aerial Survey</p>
-            <h2 style={{ fontFamily: 'var(--font-display)', color: 'var(--charcoal)', fontSize: '2.5rem', margin: '0.5rem 0 1rem' }}>
+            <h2 style={{ fontFamily: 'var(--font-display)', color: 'var(--cream)', fontSize: '2.5rem', margin: '0.5rem 0 1rem' }}>
               Landscape Transformation
             </h2>
             <div className="divider-line divider-line-center" />
@@ -506,8 +506,8 @@ export default function ClientSite({ content }: ClientSiteProps) {
             />
           </div>
           <div style={{ display: 'flex', justifyContent: 'space-between', marginTop: '1rem', padding: '0 0.25rem' }}>
-            <span style={{ fontFamily: 'var(--font-body)', color: 'var(--teal)', fontSize: '0.85rem', letterSpacing: '0.05em', textTransform: 'uppercase' }}>Before</span>
-            <span style={{ fontFamily: 'var(--font-body)', color: 'var(--teal)', fontSize: '0.85rem', letterSpacing: '0.05em', textTransform: 'uppercase' }}>After</span>
+            <span style={{ fontFamily: 'var(--font-body)', color: 'var(--gold)', fontSize: '0.85rem', letterSpacing: '0.05em', textTransform: 'uppercase' }}>Before</span>
+            <span style={{ fontFamily: 'var(--font-body)', color: 'var(--gold)', fontSize: '0.85rem', letterSpacing: '0.05em', textTransform: 'uppercase' }}>After</span>
           </div>
         </div>
       </section>
@@ -645,7 +645,7 @@ export default function ClientSite({ content }: ClientSiteProps) {
           <div style={{ maxWidth: '1400px', margin: '0 auto', padding: '0 2rem' }}>
             <div style={{ textAlign: 'center', marginBottom: '3rem' }}>
               <p className="label">{content.monitoring.label || 'Techniques'}</p>
-              <h2 style={{ fontFamily: 'var(--font-display)', color: 'var(--charcoal)', fontSize: 'clamp(1.75rem, 4vw, 2.5rem)', margin: '0.5rem 0 1rem' }}>{content.monitoring.title || 'Slowing The Flow Of Water'}</h2>
+              <h2 style={{ fontFamily: 'var(--font-display)', color: 'var(--cream)', fontSize: 'clamp(1.75rem, 4vw, 2.5rem)', margin: '0.5rem 0 1rem' }}>{content.monitoring.title || 'Slowing The Flow Of Water'}</h2>
               <div className="divider-line divider-line-center" />
             </div>
             <div style={{ display: 'flex', justifyContent: 'center' }}>
@@ -674,7 +674,7 @@ export default function ClientSite({ content }: ClientSiteProps) {
               <p className="label">{content.whyLarch.label || 'Materials'}</p>
               <h2 style={{
                 fontFamily: 'var(--font-display)',
-                color: 'var(--charcoal)',
+                color: 'var(--cream)',
                 fontSize: 'clamp(1.75rem, 4vw, 2.5rem)',
                 marginBottom: '1rem',
               }}>{content.whyLarch.title || 'Why Larch'}</h2>

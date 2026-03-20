@@ -1,16 +1,12 @@
 {
   "hero": {
     "title": "Glashapullagh",
-    "subtitle": "Blanket bog restoration in West Limerick. Reversing decades of drainage through comprehensive ecological engineering — rewetting peatland, rebuilding habitats, and securing carbon for generations to come."
+    "subtitle": "Blanket bog restoration in West Limerick. Reversing decades of drainage — rewetting peatland, rebuilding habitats, and securing carbon for generations to come."
   },
   "bento": {
     "label": "Objectives",
     "title": "What We Do",
     "items": [
-      {
-        "title": "Slow Carbon Loss",
-        "description": "Preventing the oxidation of dry peat by raising water tables, slowing carbon loss to the atmosphere and ultimately turning a degraded bog back into a carbon store."
-      },
       {
         "title": "Improve Habitats",
         "description": "Protecting and enhancing habitats for ground-nesting birds including Snipe, and Hen Harrier by restoring the vegetation of the bog and removing self-sown conifers that facilitate predators."
@@ -25,12 +21,16 @@
         "description": "Blocking historic drainage channels using timber dams, peat plugs, composite dams, stone dams, and coir logs to restore the bog's natural hydrology. There is no bog without water, by retaining water on the bog for longer we restore the site but also slow the runoff into rivers after intense rainfall reducing erosion and flood risks."
       },
       {
-        "title": "Thinking Ahead",
-        "description": "Glashapullagh is a small site, but it does serve to demonstrate the positives that restoration delivers. The restoration of a blanket bog does not mean flooding, but it does mean managing the bog for the future. Restoring its hydrology, securing the remaining peat and helping bring back the natural bog vegetation that will in time create new peat."
+        "title": "Slow Carbon Loss",
+        "description": "Preventing the oxidation of dry peat by raising water tables, slowing carbon loss to the atmosphere and ultimately turning a degraded bog back into a carbon store."
       },
       {
         "title": "Tell the Story of a Recovering Bog",
-        "description": "While the site looked a bit messy in the first few months after the works were completed, we did not have to wait long for signs of life coming back. Frogs spawning in the pools, wintering snipe feeding in the soft mud. By the summer vegetation will start to cover the bare peat, and insects will colonise the pools. We will monitor these changes, film them and tell you the story of how life returns."
+        "description": "While the site looked a bit messy in the first few months after the works were completed, We don't have to wait long for life to come back. Frogs spawning in the pools, wintering snipe feeding in the soft mud. By the first summer vegetation will start to cover the bare peat, insects will colonise the pools. We will monitor and share news as life returns."
+      },
+      {
+        "title": "Thinking Ahead",
+        "description": "Glashapullagh is a small site, but it does serve to demonstrate the positives that restoration delivers. The restoration of a blanket bog does not mean flooding, but it does mean managing the bog for the future. Restoring its hydrology, securing the remaining peat and helping bring back the natural bog vegetation that will in time create new peat."
       }
     ]
   },
@@ -74,9 +74,9 @@
     "title": "The Glashapullagh Project",
     "image": "/images/site/landscape-figure.jpg",
     "paragraphs": [
-      "The Glashapullagh site is a cutover blanket bog in West Limerick that had been historically drained, leading to severe peat compaction, the spread of scrub and rushes, and significant peat loss. To reverse this degradation, a comprehensive Restoration Action Plan was developed using extensive drone and ground surveys to map vegetation, peat depth, slope, and drain dimensions.",
-      "Approved by the National Parks and Wildlife Service (NPWS), the restoration works at Glashapullagh were initiated with clear objectives: to slow carbon loss to the atmosphere by preventing the oxidation of dry peat; to improve habitats for wildlife, specifically protecting ground-nesting birds; and to encourage the return of peat-forming plants, specifically Sphagnum mosses, by raising the local water table.",
-      "The project serves as both a working restoration site and a model for blanket bog recovery across the Atlantic seaboard. Every technique deployed — from timber dams to geotextile stabilisation — has been carefully matched to the site's specific topographical and geological conditions."
+      "The Glashapullagh site is a drained and cutover blanket bog in West Limerick. This has led to severe peat compaction, the loss of peat and the spread of rushes. To reverse this degradation, a comprehensive Restoration Action Plan was developed involving drone and ground surveys to map vegetation, peat depth, slope, and drain dimensions.",
+      "Approved by the National Parks and Wildlife Service (NPWS), the restoration works at Glashapullagh were planned with clear objectives: to slow carbon loss by preventing the oxidation of dry peat; to improve habitats for wildlife particularly for ground-nesting birds; and to encourage the return of Sphagnum mosses, by raising the local water table.",
+      "The project serves as both a working restoration site and as a model for blanket bog recovery across the Atlantic seaboard. Every technique deployed from timber dams to geotextile to the removal of self-sown conifers has been carefully matched to the site's specific ecological and hydrological conditions. All of this is available to the visitor to the site but also through digitally through short films and augmented reality tours. We hope the story of this bog will be both resource and an inspiration for all those working on other restoration projects."
     ]
   },
   "topoMap": {
@@ -95,12 +95,12 @@
       },
       {
         "title": "Peat Stabilisation & Reprofiling",
-        "description": "Decades of peat extraction left behind steep, exposed peat banks (hags) that rapidly dry out, crack, and release carbon. Steep faces were graded into gentle slopes to reduce air exposure and improve water retention. On highly exposed bare peat, biodegradable jute netting was secured with wooden pins to shield the surface, prevent erosion, and create optimal conditions for moss establishment.",
+        "description": "Decades of peat extraction left behind steep, exposed peat banks (hags) that rapidly dry out, crack, and release carbon. Steep faces were graded into gentle slopes to reduce air exposure and improve water retention. On exposed bare peat, biodegradable jute netting was secured with wooden pins to shield the surface, prevent erosion, and create optimal conditions for moss establishment.",
         "image": "/images/site/Glashapullagh Restoration West Limerick8.jpg"
       },
       {
         "title": "Habitat & Vegetation Management",
-        "description": "Self-sown Sitka spruce from nearby plantations were removed. Conifers draw water from the peat, cast heavy shade that limits Sphagnum growth, and provide perches for predators such as Grey Crows that threaten ground-nesting birds like Curlew, Snipe, and Hen Harrier. Seedlings were pulled by hand, while larger saplings were cut and left to safely decay.",
+        "description": "Self-sown Sitka spruce from nearby plantations were removed. Conifers draw water from the peat, cast shade that limits Sphagnum growth, and provide perches for opportunistic predators like Grey Crows that threaten ground-nesting birds like Curlew, Snipe, and Hen Harrier. Seedlings were pulled by hand, while larger saplings were cut and left to safely decay.",
         "image": "/images/site/sphagnum-wide.jpg"
       },
       {
@@ -121,7 +121,7 @@
       },
       {
         "title": "Coir Logs",
-        "description": "Biodegradable rolls made from coconut husks used to block gullies, dam small drains, and act as bunds in rush-dominated areas to raise the water table and encourage moss growth. Coir logs must be dug into the peat to prevent water from flowing underneath them. Good choice for repairing small gullies and where access for machines is difficult.",
+        "description": "Biodegradable rolls made from coconut husks used to block gullies, dam small drains, and act as bunds in rush-dominated areas. All these help to raise the water table and encourage moss growth. Coir logs must be dug into the peat to prevent water from flowing underneath them. Good choice for repairing small gullies and where access for machines is difficult.",
         "image": "/images/site/monitoring-post.jpg"
       },
       {
@@ -131,7 +131,7 @@
       },
       {
         "title": "Composite Peat/Timber Dams",
-        "description": "Used where there is a risk of timber dams failing due to high water pressure during peak flows. Heavy larch planks keyed into the banks of the drain and reinforced with timber piles driven deep into the drain base. A peat plug is placed upslope from the frame, a second plug can also be applied on the downslope side. The timber framework provides the strength and stability; the compacted peat provides the seal holding the water back. Used on drains up to 2.5m with gentle gradients, anything larger or where peak flows are potentially very strong seek engineering advice.",
+        "description": "Used where there is a risk of timber dams failing due to high water pressure during peak flows. Larch planks keyed into the banks of the drain and reinforced with timber piles driven deep into the drain base. A peat plug is placed upslope from the frame, a second plug can also be applied on the downslope side. The timber framework provides the strength and stability; the compacted peat provides the seal holding the water back. Used on drains up to 2.5m with gentle gradients, anything larger or where peak flows are potentially very strong seek engineering advice.",
         "image": "/images/site/dam-workers.jpg"
       },
       {
@@ -145,8 +145,8 @@
     "label": "Materials",
     "title": "Why Larch",
     "paragraphs": [
-      "Larch is a fast-growing conifer; it is grown in Ireland (24,000 ha in 2021) so availability is good and there are less transport issues than coir. Untreated Larch timber has natural resins that allow the wood to resist decay. Most other woods are either too expensive Oak or decay too quickly White Deal. Using treated timbers introduces toxic long-lasting chemicals to the bog which we would prefer not to do.",
-      "If Larch planks are embedded in the peat as in a composite peat/timber dam they will last for decades. If they are exposed to the air as with a timber dam and subject to wet/dry cycles they will not last as long. They will still last longer than coir and long enough for the pools behind them to fill in and revegetate. By the time the Larch planks break down, they should no longer be needed.",
+      "Larch is a fast-growing deciduous conifer; it is grown in Ireland (24,000 ha in 2021) so availability is good and there are less transport issues than coir. Untreated Larch timber has natural resins that allow the wood to resist decay. Most other woods are either too expensive or having limited availability, such as Oak, or decay like White Deal. Using treated timbers introduces long lasting toxic chemicals to the bog which we would prefer not to do.",
+      "If Larch planks are embedded in the peat as in a composite peat/timber dam they will last for decades. If they are exposed to the air as with a timber dam and subject to wet/dry cycles they will not endure as long. They will still outlast coir and hold long enough for the pools behind them to fill in and revegetate. By the time the Larch planks break down, they should no longer be needed.",
       "Larch was traditionally used for the hulls of lake boats used for angling on our lakes."
     ],
     "images": [
@@ -156,7 +156,7 @@
   },
   "videos": {
     "label": "Media",
-    "title": "Video Documentation",
+    "title": "The Glashapullagh Project",
     "items": [
       {
         "title": "Overview",
@@ -178,7 +178,7 @@
       },
       {
         "title": "Composite Wood-Peat Dams",
-        "description": "Heavy larch planks reinforced with timber posts for wide or deep drains on sloping ground.",
+        "description": "Larch planks reinforced with timber posts for wide or deep drains on sloping ground.",
         "thumbnail": "https://i.vimeocdn.com/video/2128825172-7aaf31003204506660d005d76d781f1fb38d52781307e5e64df976f299dda121-d_640",
         "url": "https://vimeo.com/1169899899/3c5e185cbb"
       },

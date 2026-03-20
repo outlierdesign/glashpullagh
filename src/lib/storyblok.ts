@@ -67,7 +67,7 @@ export function transformHomepageContent(story: any) {
       videoUrl: c.scroll_hero_video_url || '',
       bgImage: c.scroll_hero_bg_image?.filename || '/images/site/hero-bg.jpg',
       title: c.scroll_hero_title || 'Restoring Nature',
-      date: c.scroll_hero_date || 'Glashpullagh Peatlands',
+      date: c.scroll_hero_date || 'Glashapullagh Peatlands',
       heading: c.scroll_hero_heading || '',
       paragraph1: c.scroll_hero_paragraph_1 || '',
       paragraph2: c.scroll_hero_paragraph_2 || '',

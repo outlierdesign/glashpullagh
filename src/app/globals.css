@@ -3,66 +3,67 @@
 @tailwind utilities;
 
 /* ═══════════════════════════════════════════════════════════
-   DESIGN TOKENS — Cream & Sage Peatland Palette
-   Light editorial aesthetic with warm cream backgrounds,
-   sage/teal accents, DM Sans body, Cormorant display.
+   DESIGN TOKENS — Dark Peatland Palette
+   Deep, immersive dark scheme with gradients, gold/dark-green
+   accents. Typography retained: DM Sans body, Cormorant display.
+   White/off-white text for maximum contrast and clarity.
    ═══════════════════════════════════════════════════════════ */
 :root {
-  /* Backgrounds — warm cream editorial */
-  --bg-deep: #F5F0E8;
-  --bg-dark: #EEE9E0;
-  --bg-card: #FFFFFF;
-  --bg-elevated: #FAFAF7;
-  --bg-surface: #F0EBE3;
-  --bg-surface-light: #EEF1EC;
+  /* Backgrounds — dark brown/grey peatland */
+  --bg-deep: #0E0B09;
+  --bg-dark: #1A1511;
+  --bg-card: #1E1914;
+  --bg-elevated: #252019;
+  --bg-surface: #1A1511;
+  --bg-surface-light: #2A2420;
 
-  /* Primary accent — muted bog-gold */
-  --gold: #B59A6A;
-  --gold-light: #9A8264;
-  --gold-bright: #C8AD7E;
-  --gold-dim: rgba(181,154,106,0.2);
-  --gold-glow: rgba(181,154,106,0.06);
+  /* Primary accent — warm bog-gold */
+  --gold: #C8A964;
+  --gold-light: #B8964A;
+  --gold-bright: #DAC080;
+  --gold-dim: rgba(200,169,100,0.25);
+  --gold-glow: rgba(200,169,100,0.1);
 
-  /* Greens — sage and bog-forest */
-  --green-deep: #EEF1EC;
-  --green-dark: #D8DED4;
-  --green-mid: #7A8C72;
-  --green-sage: #7A8C72;
-  --green-light: #96A88E;
-  --green-glow: rgba(122,140,114,0.12);
+  /* Greens — deep bog-forest */
+  --green-deep: #1A2E1C;
+  --green-dark: #243524;
+  --green-mid: #3B4E34;
+  --green-sage: #5A7A52;
+  --green-light: #7A9C6E;
+  --green-glow: rgba(90,122,82,0.15);
 
   /* Teal — Atlantic */
-  --teal: #3D6B6B;
-  --teal-light: #5A8A8A;
-  --teal-dim: rgba(61,107,107,0.15);
+  --teal: #4A8A8A;
+  --teal-light: #6AACAC;
+  --teal-dim: rgba(74,138,138,0.2);
 
   /* Heather — muted purple */
-  --heather: #7A6E8A;
-  --heather-light: #9A8EAA;
-  --heather-dim: rgba(122,110,138,0.12);
+  --heather: #8A7E9A;
+  --heather-light: #A898BA;
+  --heather-dim: rgba(138,126,154,0.15);
 
-  /* Neutrals — charcoal and warm mid tones */
+  /* Neutrals — cream and warm highlights on dark */
   --cream: #F5F0E8;
-  --cream-dim: #E8E2D8;
-  --cream-dark: #D4CEC4;
-  --stone: #9A8C7A;
-  --stone-dark: #6E645A;
+  --cream-dim: #D4CEC4;
+  --cream-dark: #A09888;
+  --stone: #A09888;
+  --stone-dark: #7A6E60;
   --white: #FFFFFF;
-  --charcoal: #2C2C2A;
-  --text-primary: #2C2C2A;
-  --text-secondary: #4A4A46;
-  --text-dim: #9A8C7A;
+  --charcoal: #F5F0E8;
+  --text-primary: #F5F0E8;
+  --text-secondary: #C8C0B4;
+  --text-dim: #8A8278;
 
   /* Water — peat-stained pool */
-  --water: #3D6B6B;
-  --water-light: #5A8A8A;
-  --water-glow: rgba(61,107,107,0.1);
+  --water: #4A8A8A;
+  --water-light: #6AACAC;
+  --water-glow: rgba(74,138,138,0.12);
 
-  /* Borders — subtle */
-  --border-color: rgba(44,44,42,0.12);
-  --border-hover: rgba(61,107,107,0.4);
+  /* Borders — subtle warm on dark */
+  --border-color: rgba(200,169,100,0.12);
+  --border-hover: rgba(200,169,100,0.35);
 
-  /* Typography — DM Sans body, Cormorant display */
+  /* Typography — DM Sans body, Cormorant display (retained) */
   --font-display: 'Cormorant Garamond', Georgia, serif;
   --font-body: 'DM Sans', -apple-system, sans-serif;
   --font-ui: 'DM Sans', -apple-system, sans-serif;
@@ -71,26 +72,26 @@
   --radius-md: 6px;
   --radius-lg: 8px;
 
-  /* shadcn CSS variables */
-  --background: 36 30% 94%;
-  --foreground: 60 3% 17%;
-  --card: 0 0% 100%;
-  --card-foreground: 60 3% 17%;
-  --popover: 0 0% 100%;
-  --popover-foreground: 60 3% 17%;
-  --primary: 34 30% 48%;
-  --primary-foreground: 0 0% 100%;
-  --secondary: 100 12% 91%;
-  --secondary-foreground: 60 3% 17%;
-  --muted: 36 20% 90%;
-  --muted-foreground: 30 12% 54%;
-  --accent: 180 28% 33%;
-  --accent-foreground: 0 0% 100%;
+  /* shadcn CSS variables — dark */
+  --background: 20 15% 5%;
+  --foreground: 36 20% 94%;
+  --card: 20 15% 10%;
+  --card-foreground: 36 20% 94%;
+  --popover: 20 15% 8%;
+  --popover-foreground: 36 20% 94%;
+  --primary: 42 42% 56%;
+  --primary-foreground: 20 15% 5%;
+  --secondary: 120 18% 15%;
+  --secondary-foreground: 36 20% 90%;
+  --muted: 20 12% 14%;
+  --muted-foreground: 30 12% 60%;
+  --accent: 180 28% 42%;
+  --accent-foreground: 36 20% 94%;
   --destructive: 0 84% 60%;
   --destructive-foreground: 0 0% 100%;
-  --border: 60 3% 88%;
-  --input: 60 3% 88%;
-  --ring: 180 28% 33%;
+  --border: 42 20% 16%;
+  --input: 42 20% 16%;
+  --ring: 42 42% 56%;
   --radius: 0.375rem;
 }
 
@@ -145,14 +146,14 @@
 .tex-speckled::before { background-image: url('/images/textures/speckled.png'); background-size: 280px; opacity: 0.14; }
 .tex-tweed::before    { background-image: url('/images/textures/tweed.png');    background-size: 320px; opacity: 0.12; }
 
-/* ── Colour wash variants — light peatland tones ── */
-.wash-peat::after    { background: linear-gradient(160deg, rgba(245,240,232,0.5) 0%, rgba(238,233,224,0.3) 100%); }
-.wash-green::after   { background: linear-gradient(160deg, rgba(122,140,114,0.08) 0%, rgba(238,241,236,0.3) 100%); }
-.wash-heather::after { background: linear-gradient(160deg, rgba(122,110,138,0.06) 0%, rgba(245,240,232,0.3) 100%); }
-.wash-water::after   { background: linear-gradient(160deg, rgba(61,107,107,0.06) 0%, rgba(245,240,232,0.3) 100%); }
-.wash-moss::after    { background: linear-gradient(160deg, rgba(122,140,114,0.1) 0%, rgba(181,154,106,0.04) 100%); }
-.wash-amber::after   { background: linear-gradient(160deg, rgba(181,154,106,0.06) 0%, rgba(245,240,232,0.3) 100%); }
-.wash-deep::after    { background: linear-gradient(160deg, rgba(44,44,42,0.03) 0%, rgba(238,233,224,0.2) 100%); }
+/* ── Colour wash variants — dark peatland tones ── */
+.wash-peat::after    { background: linear-gradient(160deg, rgba(26,21,17,0.6) 0%, rgba(14,11,9,0.4) 100%); }
+.wash-green::after   { background: linear-gradient(160deg, rgba(26,46,28,0.2) 0%, rgba(14,11,9,0.3) 100%); }
+.wash-heather::after { background: linear-gradient(160deg, rgba(138,126,154,0.08) 0%, rgba(14,11,9,0.3) 100%); }
+.wash-water::after   { background: linear-gradient(160deg, rgba(74,138,138,0.08) 0%, rgba(14,11,9,0.3) 100%); }
+.wash-moss::after    { background: linear-gradient(160deg, rgba(90,122,82,0.12) 0%, rgba(200,169,100,0.04) 100%); }
+.wash-amber::after   { background: linear-gradient(160deg, rgba(200,169,100,0.08) 0%, rgba(14,11,9,0.3) 100%); }
+.wash-deep::after    { background: linear-gradient(160deg, rgba(0,0,0,0.15) 0%, rgba(26,21,17,0.3) 100%); }
 
 /* RESET */
 *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
@@ -163,21 +164,21 @@ html.lenis, html.lenis body { height: auto; }
 body { font-family: var(--font-body); color: var(--text-primary); background: var(--bg-deep); line-height: 1.7; overflow-x: hidden; font-weight: 300; font-size: 16px; }
 img { max-width: 100%; height: auto; display: block; }
 a { color: inherit; text-decoration: none; }
-::selection { background: var(--teal); color: var(--cream); }
+::selection { background: var(--gold); color: var(--bg-deep); }
 
-/* TYPOGRAPHY — editorial, lightweight */
-h1, h2, h3, h4 { font-family: var(--font-display); font-weight: 300; line-height: 1.15; letter-spacing: -0.01em; color: var(--charcoal); }
+/* TYPOGRAPHY — editorial, lightweight, white/off-white on dark */
+h1, h2, h3, h4 { font-family: var(--font-display); font-weight: 300; line-height: 1.15; letter-spacing: -0.01em; color: var(--cream); }
 h1 { font-size: clamp(2.75rem, 6vw, 4.75rem); }
 h2 { font-size: clamp(1.75rem, 4vw, 2.5rem); }
 h3 { font-size: clamp(1.2rem, 2.5vw, 1.4rem); font-weight: 400; }
 p, li, td { font-family: var(--font-body); font-weight: 300; color: var(--text-secondary); }
-.label { font-family: var(--font-ui); font-size: 11px; font-weight: 400; letter-spacing: 0.18em; text-transform: uppercase; color: var(--green-sage); }
-.lead { font-size: 17px; color: var(--stone); max-width: 520px; font-weight: 300; line-height: 1.65; }
+.label { font-family: var(--font-ui); font-size: 11px; font-weight: 400; letter-spacing: 0.18em; text-transform: uppercase; color: var(--gold); }
+.lead { font-size: 17px; color: var(--cream-dim); max-width: 520px; font-weight: 300; line-height: 1.65; }
 
 /* LAYOUT */
 .container { max-width: 1200px; margin: 0 auto; padding: 0 2rem; }
 .container-wide { max-width: 1400px; margin: 0 auto; padding: 0 2rem; }
-.divider-line { width: 48px; height: 1px; background: var(--border-color); margin: 1rem 0; }
+.divider-line { width: 48px; height: 1px; background: var(--gold-dim); margin: 1rem 0; }
 .divider-line-wide { width: 80px; }
 .divider-line-center { margin-left: auto; margin-right: auto; }
 
@@ -191,7 +192,7 @@ p, li, td { font-family: var(--font-body); font-weight: 300; color: var(--text-s
   display: flex;
   align-items: center;
   justify-content: center;
-  background: var(--cream);
+  background: linear-gradient(180deg, var(--bg-deep) 0%, var(--bg-dark) 100%);
 }
 .hero::before {
   content: '';
@@ -199,7 +200,7 @@ p, li, td { font-family: var(--font-body); font-weight: 300; color: var(--text-s
   top: -120px; right: -120px;
   width: 600px; height: 600px;
   border-radius: 50%;
-  background: radial-gradient(circle, rgba(122,140,114,0.15) 0%, transparent 70%);
+  background: radial-gradient(circle, rgba(200,169,100,0.08) 0%, transparent 70%);
   pointer-events: none;
   z-index: 1;
 }
@@ -212,12 +213,12 @@ p, li, td { font-family: var(--font-body); font-weight: 300; color: var(--text-s
 }
 .hero h1 {
   margin-bottom: 1.5rem;
-  color: var(--charcoal);
+  color: var(--cream);
 }
 .hero .lead {
   margin: 0 auto 2rem;
   font-size: 17px;
-  color: var(--stone);
+  color: var(--cream-dim);
 }
 .hero-canvas {
   position: absolute;
@@ -230,8 +231,8 @@ p, li, td { font-family: var(--font-body); font-weight: 300; color: var(--text-s
   gap: 0.5rem;
   padding: 12px 28px;
   background: transparent;
-  color: var(--teal);
-  border: 1px solid var(--teal);
+  color: var(--gold);
+  border: 1px solid var(--gold);
   border-radius: var(--radius-md);
   font-family: var(--font-ui);
   font-weight: 400;
@@ -243,8 +244,8 @@ p, li, td { font-family: var(--font-body); font-weight: 300; color: var(--text-s
   text-decoration: none;
 }
 .hero-cta:hover {
-  background: var(--teal);
-  color: var(--cream);
+  background: var(--gold);
+  color: var(--bg-deep);
 }
 
 /* BENTO GRID */
@@ -297,13 +298,13 @@ p, li, td { font-family: var(--font-body); font-weight: 300; color: var(--text-s
 }
 .bento-card h3 {
   margin-bottom: 10px;
-  color: var(--charcoal);
+  color: var(--cream);
   font-size: 24px;
   font-weight: 400;
   line-height: 1.2;
 }
 .bento-card p {
-  color: var(--text-secondary);
+  color: var(--cream-dim);
   font-size: 15px;
   line-height: 1.65;
 }
@@ -312,7 +313,7 @@ p, li, td { font-family: var(--font-body); font-weight: 300; color: var(--text-s
 /* STATS SECTION */
 .stats-section {
   padding: 48px 0;
-  background: var(--bg-card);
+  background: linear-gradient(135deg, var(--bg-dark) 0%, var(--bg-elevated) 100%);
   border-top: 1px solid var(--border-color);
   border-bottom: 1px solid var(--border-color);
 }
@@ -326,7 +327,7 @@ p, li, td { font-family: var(--font-body); font-weight: 300; color: var(--text-s
   font-family: var(--font-display);
   font-size: 28px;
   font-weight: 300;
-  color: var(--charcoal);
+  color: var(--gold);
   margin-bottom: 4px;
   line-height: 1;
 }
@@ -334,7 +335,7 @@ p, li, td { font-family: var(--font-body); font-weight: 300; color: var(--text-s
   font-size: 10px;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: var(--green-sage);
+  color: var(--cream-dim);
 }
 
 /* PARALLAX BREAK */
@@ -375,7 +376,7 @@ p, li, td { font-family: var(--font-body); font-weight: 300; color: var(--text-s
 /* ABOUT SITE SECTION */
 .about-site-section {
   padding: 80px 0;
-  background: var(--bg-card);
+  background: linear-gradient(135deg, var(--bg-dark) 0%, var(--bg-card) 100%);
   border-top: 1px solid var(--border-color);
 }
 .about-site-container {
@@ -527,7 +528,7 @@ p, li, td { font-family: var(--font-body); font-weight: 300; color: var(--text-s
   transition: all 0.4s var(--ease-out-expo);
 }
 .monitoring-card:hover {
-  border-color: var(--border-hover);
+  border-color: var(--gold-dim);
   background: var(--bg-surface-light);
 }
 .monitoring-icon {
@@ -578,7 +579,7 @@ p, li, td { font-family: var(--font-body); font-weight: 300; color: var(--text-s
   position: relative;
   width: 100%;
   padding-bottom: 56.25%;
-  background: var(--cream-dim);
+  background: var(--bg-elevated);
   overflow: hidden;
 }
 .video-thumbnail img {
@@ -682,7 +683,7 @@ p, li, td { font-family: var(--font-body); font-weight: 300; color: var(--text-s
 /* DOCUMENTARY SECTION */
 .documentary-section {
   padding: 80px 0;
-  background: var(--bg-card);
+  background: var(--bg-dark);
   border-top: 1px solid var(--border-color);
 }
 .documentary-container {
@@ -753,7 +754,7 @@ p, li, td { font-family: var(--font-body); font-weight: 300; color: var(--text-s
   bottom: 1rem;
   left: 1rem;
   right: 1rem;
-  color: var(--gold-light);
+  color: var(--gold);
   font-size: 1rem;
   opacity: 0;
   transform: translateY(10px);
@@ -766,8 +767,8 @@ p, li, td { font-family: var(--font-body); font-weight: 300; color: var(--text-s
 
 /* FOOTER */
 .footer {
-  background: var(--charcoal);
-  border-top: 1px solid rgba(245,240,232,0.1);
+  background: #080604;
+  border-top: 1px solid rgba(200,169,100,0.1);
   padding: 60px 0 24px;
 }
 .footer-content {

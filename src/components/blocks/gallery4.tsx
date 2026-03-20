@@ -28,6 +28,14 @@ interface Gallery4Props {
 const defaultItems: GalleryItem[] = [
   {
     id: 1,
+    title: "Community Engagement",
+    description:
+      "Local teams and volunteers working together across the landscape to restore and protect this ancient ecosystem.",
+    image: "/images/site/carrying-equipment.jpg",
+    category: "Community",
+  },
+  {
+    id: 2,
     title: "Drain Blocking",
     description:
       "Workers installing wooden dam structures in drainage channels to raise the water table and rewet degraded peatland.",
@@ -35,23 +43,7 @@ const defaultItems: GalleryItem[] = [
     category: "Restoration",
   },
   {
-    id: 2,
-    title: "Sphagnum Recovery",
-    description:
-      "Monitoring the return of keystone sphagnum moss species — essential for peat formation and carbon sequestration.",
-    image: "/images/site/sphagnum-closeup.jpg",
-    category: "Ecology",
-  },
-  {
     id: 3,
-    title: "Water Table Management",
-    description:
-      "Raising water levels through strategic dam placement to rewet drained peatland and halt carbon loss.",
-    image: "/images/site/peat-pool.jpg",
-    category: "Hydrology",
-  },
-  {
-    id: 4,
     title: "Field Monitoring",
     description:
       "Continuous measurement and monitoring across the site to track the progress of peatland restoration.",
@@ -59,7 +51,7 @@ const defaultItems: GalleryItem[] = [
     category: "Science",
   },
   {
-    id: 5,
+    id: 4,
     title: "Plank Dam Construction",
     description:
       "Wooden plank dams installed across drainage channels block water flow and encourage natural peat recovery.",
@@ -67,18 +59,26 @@ const defaultItems: GalleryItem[] = [
     category: "Engineering",
   },
   {
-    id: 6,
-    title: "Community Engagement",
+    id: 5,
+    title: "Sphagnum Recovery",
     description:
-      "Local teams and volunteers working together across the landscape to restore and protect this ancient ecosystem.",
-    image: "/images/site/carrying-equipment.jpg",
-    category: "Community",
+      "Monitoring the return of keystone sphagnum moss species — essential for peat formation and carbon sequestration.",
+    image: "/images/site/sphagnum-closeup.jpg",
+    category: "Ecology",
+  },
+  {
+    id: 6,
+    title: "Water Table Management",
+    description:
+      "Raising water levels through strategic dam placement to rewet drained peatland and halt carbon loss.",
+    image: "/images/site/peat-pool.jpg",
+    category: "Hydrology",
   },
 ]
 
 export function Gallery4({
   title = "Restoration in Focus",
-  subtitle = "Explore the ongoing work to restore and protect the Glashpullagh peatlands — from ecological surveys to community action.",
+  subtitle = "Explore the ongoing work to restore and protect the Glashapullagh peatlands — from ecological surveys to community action.",
   items = defaultItems,
 }: Gallery4Props) {
   const [api, setApi] = useState<CarouselApi>()

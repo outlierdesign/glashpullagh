@@ -33,7 +33,7 @@ export function TabbedRestoration({ label, title, items }: TabbedRestorationProp
           <p
             style={{
               fontFamily: 'var(--font-ui)',
-              color: 'var(--green-sage)',
+              color: 'var(--gold)',
               fontSize: '0.75rem',
               fontWeight: 600,
               letterSpacing: '0.15em',
@@ -46,7 +46,7 @@ export function TabbedRestoration({ label, title, items }: TabbedRestorationProp
           <h2
             style={{
               fontFamily: 'var(--font-display)',
-              color: 'var(--charcoal)',
+              color: 'var(--cream)',
               fontSize: 'clamp(1.75rem, 4vw, 2.5rem)',
               marginBottom: '1rem',
             }}
@@ -77,12 +77,12 @@ export function TabbedRestoration({ label, title, items }: TabbedRestorationProp
                 padding: '0.65rem 1.25rem',
                 borderRadius: '8px',
                 border: activeTab === idx
-                  ? '1px solid var(--teal)'
+                  ? '1px solid var(--gold)'
                   : '1px solid var(--border-color)',
                 background: activeTab === idx
-                  ? 'rgba(61,107,107,0.1)'
+                  ? 'rgba(200,169,100,0.12)'
                   : 'var(--bg-card)',
-                color: activeTab === idx ? 'var(--teal)' : 'var(--text-secondary)',
+                color: activeTab === idx ? 'var(--gold)' : 'var(--cream-dim)',
                 cursor: 'pointer',
                 transition: 'all 0.3s ease',
                 whiteSpace: 'nowrap',
@@ -116,7 +116,7 @@ export function TabbedRestoration({ label, title, items }: TabbedRestorationProp
             <h3
               style={{
                 fontFamily: 'var(--font-display)',
-                color: 'var(--charcoal)',
+                color: 'var(--cream)',
                 fontSize: 'clamp(1.3rem, 2.5vw, 1.75rem)',
                 marginBottom: '1.25rem',
                 lineHeight: 1.3,
@@ -163,7 +163,7 @@ export function TabbedRestoration({ label, title, items }: TabbedRestorationProp
                 style={{
                   width: '100%',
                   height: '100%',
-                  background: 'var(--cream-dim)',
+                  background: 'var(--bg-elevated)',
                   display: 'flex',
                   alignItems: 'center',
                   justifyContent: 'center',
