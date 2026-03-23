@@ -563,7 +563,7 @@ export default function ClientSite({ content }: ClientSiteProps) {
             <iframe
               src="https://point-and-place-ar.vercel.app/"
               title="Interactive Glashapullagh Site"
-              allow="accelerometer; gyroscope; xr-spatial-tracking"
+              allow="accelerometer; gyroscope; xr-spatial-tracking; autoplay; fullscreen"
               allowFullScreen
             />
           </div>
