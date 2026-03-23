@@ -24,8 +24,14 @@ export async function generateMetadata({ params }: { params: { action: string } 
     const action = transformRestorationAction(story);
     if (action) {
       return {
-        title: action.title + ' — Glashapullagh Peatland Restoration',
+        title: action.title + ' — Peatland Restoration',
         description: action.description.slice(0, 160),
+        openGraph: {
+          title: action.title + ' — Glashapullagh Peatland Restoration',
+          description: action.description.slice(0, 160),
+          images: action.image ? [{ url: action.image, alt: action.title }] : undefined,
+        },
+        alternates: { canonical: `https://glashapullagh.ie/${params.action}/` },
       };
     }
   }
@@ -33,8 +39,13 @@ export async function generateMetadata({ params }: { params: { action: string } 
   const action = localActions.find((a: any) => a.slug === params.action);
   if (!action) return {};
   return {
-    title: action.title + ' — Glashapullagh Peatland Restoration',
+    title: action.title + ' — Peatland Restoration',
     description: action.description.slice(0, 160),
+    openGraph: {
+      title: action.title + ' — Glashapullagh Peatland Restoration',
+      description: action.description.slice(0, 160),
+    },
+    alternates: { canonical: `https://glashapullagh.ie/${params.action}/` },
   };
 }
 

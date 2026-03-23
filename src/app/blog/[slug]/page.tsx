@@ -38,8 +38,25 @@ export async function generateMetadata({ params }: { params: { slug: string } })
   const post = posts.find((p) => p.slug === params.slug);
   if (!post) return { title: 'Post Not Found' };
   return {
-    title: `${post.title} — Bog Diaries — Glashapullagh`,
+    title: `${post.title} — Bog Diaries`,
     description: post.excerpt,
+    openGraph: {
+      title: `${post.title} — Bog Diaries — Glashapullagh`,
+      description: post.excerpt,
+      type: 'article',
+      publishedTime: post.date,
+      tags: post.tags,
+      images: post.image ? [{ url: post.image, alt: post.title }] : undefined,
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: post.title,
+      description: post.excerpt,
+      images: post.image ? [post.image] : undefined,
+    },
+    alternates: {
+      canonical: `https://glashapullagh.ie/blog/${post.slug}/`,
+    },
   };
 }
 
