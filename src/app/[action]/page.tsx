@@ -29,7 +29,6 @@ export async function generateMetadata({ params }: { params: { action: string } 
         openGraph: {
           title: action.title + ' — Glashapullagh Peatland Restoration',
           description: action.description.slice(0, 160),
-          images: action.image ? [{ url: action.image, alt: action.title }] : undefined,
         },
         alternates: { canonical: `https://glashapullagh.ie/${params.action}/` },
       };
