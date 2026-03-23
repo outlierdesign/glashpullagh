@@ -8,7 +8,13 @@ export interface User {
   role: 'admin' | 'editor';
 }
 
-const JWT_SECRET = process.env.JWT_SECRET || 'dev-fallback-secret-change-me';
+const JWT_SECRET = process.env.JWT_SECRET;
+if (!JWT_SECRET) {
+  throw new Error(
+    'FATAL: JWT_SECRET environment variable is not set. ' +
+    'Set a cryptographically random string (≥32 chars) in your environment.',
+  );
+}
 const COOKIE_NAME = 'glash_session';
 
 // Parse users from env vars
