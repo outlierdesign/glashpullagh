@@ -13,6 +13,9 @@ const nextConfig = {
     return [
       // Storyblok Visual Editor hits /home (the story slug) — serve the homepage
       { source: '/home', destination: '/' },
+      // Proxy the AR 3D viewer so it's same-origin (fixes auth/storage in iframe)
+      { source: '/viewer', destination: 'https://point-and-place-ar.vercel.app/' },
+      { source: '/viewer/:path*', destination: 'https://point-and-place-ar.vercel.app/:path*' },
     ];
   },
   async headers() {

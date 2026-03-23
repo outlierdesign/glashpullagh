@@ -561,7 +561,7 @@ export default function ClientSite({ content }: ClientSiteProps) {
           </div>
           <div className="interactive-site-embed">
             <iframe
-              src="https://point-and-place-ar.vercel.app/"
+              src="/viewer/"
               title="Interactive Glashapullagh Site"
               allow="accelerometer; gyroscope; xr-spatial-tracking; autoplay; fullscreen"
               allowFullScreen
