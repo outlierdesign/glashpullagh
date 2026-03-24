@@ -2,6 +2,8 @@
 
 import { useEffect, useRef, useState } from 'react';
 import { Gallery4 } from '@/components/blocks/gallery4';
+import PhotoBentoGallery from '@/components/blocks/photo-bento-gallery';
+import ElegantCarousel from '@/components/ui/elegant-carousel';
 import { HoverRevealGrid } from '@/components/blocks/hover-reveal-grid';
 import ScrollExpandMedia from '@/components/blocks/scroll-expansion-hero';
 import { PartnersSection } from '@/components/blocks/partners-section';
@@ -522,10 +524,28 @@ export default function ClientSite({ content }: ClientSiteProps) {
         </div>
       </section>
 
-      {/* 4. GALLERY CAROUSEL */}
-      <div style={{ background: 'var(--bg-deep)' }}>
-        <Gallery4 />
-      </div>
+      {/* 4. RESTORATION IN FOCUS — Elegant Carousel */}
+      <section style={{ background: 'var(--bg-deep)', padding: '5rem 0' }}>
+        <div style={{ textAlign: 'center', marginBottom: '2rem' }}>
+          <p className="label">Restoration in Focus</p>
+          <h2 style={{
+            fontFamily: 'var(--font-display)',
+            color: 'var(--cream)',
+            fontSize: 'clamp(1.75rem, 4vw, 2.5rem)',
+            margin: '0.5rem 0 1rem',
+          }}>Explore the Ongoing Work</h2>
+          <p style={{
+            fontFamily: 'var(--font-body)',
+            color: 'var(--text-muted)',
+            fontSize: '1rem',
+            maxWidth: '600px',
+            margin: '0 auto',
+            lineHeight: '1.6',
+          }}>From ecological surveys to community action — the restoration and protection of the Glashapullagh peatlands.</p>
+          <div className="divider-line divider-line-center" style={{ marginTop: '1.5rem' }} />
+        </div>
+        <ElegantCarousel />
+      </section>
 
       {/* 5. BEFORE/AFTER — Aerial Survey */}
       <section className="texture-overlay tex-speckled wash-amber" style={{ background: 'var(--bg-deep)', padding: '6rem 0' }}>
@@ -604,37 +624,81 @@ export default function ClientSite({ content }: ClientSiteProps) {
         </div>
       </section>
 
-      {/* 10. VIDEO DOCUMENTATION */}
-      {content.videos && (
-        <section className="video-section texture-overlay tex-denim wash-water">
-          <TopographicBackground />
-          <div className="container" style={{ position: 'relative', zIndex: 1 }}>
-            <div className="video-header">
-              <p className="label">{content.videos.label || 'Media'}</p>
-              <h2>{content.videos.title || 'Video Content'}</h2>
-              <div className="divider-line divider-line-center" />
-            </div>
-            <div className="video-grid">
-              {content.videos.items?.map((video: any, idx: number) => (
+      {/* 10. VIDEO DOCUMENTATION — Featured Hero + Bento Grid */}
+      {content.videos && (() => {
+        const videos = content.videos.items || [];
+        const featured = videos[0];
+        const rest = videos.slice(1);
+        // Bento span patterns for visual variety (applied cyclically)
+        const bentoPatterns = [
+          { col: 'span 4', row: 'span 1' },
+          { col: 'span 4', row: 'span 1' },
+          { col: 'span 4', row: 'span 1' },
+          { col: 'span 6', row: 'span 1' },
+          { col: 'span 6', row: 'span 1' },
+          { col: 'span 4', row: 'span 1' },
+          { col: 'span 4', row: 'span 1' },
+          { col: 'span 4', row: 'span 1' },
+          { col: 'span 6', row: 'span 1' },
+          { col: 'span 6', row: 'span 1' },
+        ];
+        return (
+          <section className="video-section texture-overlay tex-denim wash-water">
+            <TopographicBackground />
+            <div className="container" style={{ position: 'relative', zIndex: 1 }}>
+              <div className="video-header">
+                <p className="label">{content.videos.label || 'Media'}</p>
+                <h2>{content.videos.title || 'Video Content'}</h2>
+                <div className="divider-line divider-line-center" />
+              </div>
+
+              {/* Featured hero video */}
+              {featured && (
                 <div
-                  key={idx}
-                  className="video-card"
-                  onClick={() => openLightbox(video.url)}
+                  className="video-featured"
+                  onClick={() => openLightbox(featured.url)}
                 >
-                  <div className="video-thumbnail">
-                    <img src={video.thumbnail} alt={video.title} />
-                    <div className="video-play-icon" />
+                  <div className="video-featured-thumb">
+                    <img src={featured.thumbnail} alt={featured.title} />
+                    <div className="video-featured-overlay">
+                      <div className="video-play-icon video-play-icon-lg" />
+                    </div>
                   </div>
-                  <div className="video-content">
-                    <h3>{video.title}</h3>
-                    <p>{video.description}</p>
+                  <div className="video-featured-info">
+                    <span className="video-featured-badge">Featured</span>
+                    <h3>{featured.title}</h3>
+                    <p>{featured.description}</p>
                   </div>
                 </div>
-              ))}
+              )}
+
+              {/* Bento grid for remaining videos */}
+              <div className="video-bento-grid">
+                {rest.map((video: any, idx: number) => {
+                  const pattern = bentoPatterns[idx % bentoPatterns.length];
+                  return (
+                    <div
+                      key={idx}
+                      className="video-bento-card"
+                      style={{ gridColumn: pattern.col }}
+                      onClick={() => openLightbox(video.url)}
+                    >
+                      <div className="video-thumbnail">
+                        <img src={video.thumbnail} alt={video.title} />
+                        <div className="video-play-icon" />
+                      </div>
+                      <div className="video-content">
+                        <h3>{video.title}</h3>
+                        <p>{video.description}</p>
+                      </div>
+                    </div>
+                  );
+                })}
+              </div>
             </div>
-          </div>
-        </section>
-      )}
+          </section>
+        );
+      })()}
 
       {/* 11. RESTORATION TABS */}
       {content.restoration && (
