@@ -22,7 +22,8 @@
     "items": [
       {
         "title": "Improve Habitats",
-        "description": "Protecting and enhancing habitats for ground-nesting birds including Snipe, and Hen Harrier by restoring the vegetation of the bog and removing self-sown conifers that facilitate predators."
+        "description": "Protecting and enhancing habitats for ground-nesting birds including Snipe, and Hen Harrier by restoring the vegetation of the bog and removing self-sown conifers that facilitate predators.",
+        "image": "/images/site/landscape-figure.jpg"
       },
       {
         "title": "Restore Peat-Forming Plants",
@@ -31,19 +32,23 @@
       },
       {
         "title": "Rewet the Landscape",
-        "description": "Blocking historic drainage channels using timber dams, peat plugs, composite dams, stone dams, and coir logs to restore the bog's natural hydrology. There is no bog without water, by retaining water on the bog for longer we restore the site but also slow the runoff into rivers after intense rainfall reducing erosion and flood risks."
+        "description": "Blocking historic drainage channels using timber dams, peat plugs, composite dams, stone dams, and coir logs to restore the bog's natural hydrology. There is no bog without water, by retaining water on the bog for longer we restore the site but also slow the runoff into rivers after intense rainfall reducing erosion and flood risks.",
+        "image": "/images/site/plank-dam.jpg"
       },
       {
         "title": "Slow Carbon Loss",
-        "description": "Preventing the oxidation of dry peat by raising water tables, slowing carbon loss to the atmosphere and ultimately turning a degraded bog back into a carbon store."
+        "description": "Preventing the oxidation of dry peat by raising water tables, slowing carbon loss to the atmosphere and ultimately turning a degraded bog back into a carbon store.",
+        "image": "/images/site/peat-pool.jpg"
       },
       {
         "title": "Tell the Story of a Recovering Bog",
-        "description": "While the site looked a bit messy in the first few months after the works were completed, We don't have to wait long for life to come back. Frogs spawning in the pools, wintering snipe feeding in the soft mud. By the first summer vegetation will start to cover the bare peat, insects will colonise the pools. We will monitor and share news as life returns."
+        "description": "While the site looked a bit messy in the first few months after the works were completed, We don't have to wait long for life to come back. Frogs spawning in the pools, wintering snipe feeding in the soft mud. By the first summer vegetation will start to cover the bare peat, insects will colonise the pools. We will monitor and share news as life returns.",
+        "image": "/images/site/monitoring-post.jpg"
       },
       {
         "title": "Thinking Ahead",
-        "description": "Glashapullagh is a small site, but it does serve to demonstrate the positives that restoration delivers. The restoration of a blanket bog does not mean flooding, but it does mean managing the bog for the future. Restoring its hydrology, securing the remaining peat and helping bring back the natural bog vegetation that will in time create new peat."
+        "description": "Glashapullagh is a small site, but it does serve to demonstrate the positives that restoration delivers. The restoration of a blanket bog does not mean flooding, but it does mean managing the bog for the future. Restoring its hydrology, securing the remaining peat and helping bring back the natural bog vegetation that will in time create new peat.",
+        "image": "/images/site/sphagnum-wide.jpg"
       }
     ]
   },
