@@ -471,7 +471,7 @@ export default function ClientSite({ content }: ClientSiteProps) {
 
       {/* 3. BENTO GRID — Watery Gradient Cards */}
       <section className="bento-section texture-overlay tex-felt wash-green">
-        <div className="container">
+        <div className="container-wide">
           <div className="bento-header">
             <p className="label">{content.bento?.label || 'Objectives'}</p>
             <h2>{content.bento?.title || 'What We Do'}</h2>
