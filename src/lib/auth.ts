@@ -8,7 +8,7 @@ export interface User {
   role: 'admin' | 'editor';
 }
 
-const JWT_SECRET: string = (() => {
+function getJwtSecret(): string {
   const secret = process.env.JWT_SECRET;
   if (!secret) {
     throw new Error(
@@ -17,7 +17,7 @@ const JWT_SECRET: string = (() => {
     );
   }
   return secret;
-})();
+}
 const COOKIE_NAME = 'glash_session';
 
 // Parse users from env vars
@@ -51,14 +51,14 @@ export async function verifyCredentials(email: string, password: string): Promis
 export function createSessionToken(user: User): string {
   return jwt.sign(
     { email: user.email, name: user.name, role: user.role },
-    JWT_SECRET,
+    getJwtSecret(),
     { expiresIn: '7d' }
   );
 }
 
 export function verifySessionToken(token: string): User | null {
   try {
-    const decoded = jwt.verify(token, JWT_SECRET) as User;
+    const decoded = jwt.verify(token, getJwtSecret()) as User;
     return decoded;
   } catch {
     return null;
