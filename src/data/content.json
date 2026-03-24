@@ -135,27 +135,52 @@
       {
         "title": "Stone Dams",
         "description": "Stone dams are used where the drain has eroded down to the mineral layer. They slow the flow of water preventing further erosion and widening of the drain. On this site round stones were used as the slope is shallow and water velocities are low. Where peak flows are stronger, key the dam into the banks and use angular stones that will lock together.",
-        "image": "/images/site/Glashapullagh Restoration West Limerick5.jpg"
+        "image": "/images/site/Glashapullagh Restoration West Limerick5.jpg",
+        "gallery": [
+          "/images/site/Glashapullagh Restoration West Limerick5.jpg",
+          "/images/site/Glashapullagh Restoration West Limerick6.jpg",
+          "/images/site/Glashapullagh Restoration West Limerick7.jpg"
+        ]
       },
       {
         "title": "Coir Logs",
         "description": "Biodegradable rolls made from coconut husks used to block gullies, dam small drains, and act as bunds in rush-dominated areas. All these help to raise the water table and encourage moss growth. Coir logs must be dug into the peat to prevent water from flowing underneath them. Good choice for repairing small gullies and where access for machines is difficult.",
-        "image": "/images/site/monitoring-post.jpg"
+        "image": "/images/site/monitoring-post.jpg",
+        "gallery": [
+          "/images/site/monitoring-post.jpg",
+          "/images/site/Glashapullagh Restoration West Limerick10.jpg",
+          "/images/site/Glashapullagh Restoration West Limerick12.jpg"
+        ]
       },
       {
         "title": "Geotextiles",
         "description": "Biodegradable jute netting laid on exposed bare peat and secured with wooden pins. Shields peat from heavy rain, prevents erosion, stabilises the surface, and retains surface moisture helping mosses and plants to establish. Can be used with a mulch of straw or Heather brash.",
-        "image": "/images/site/Glashapullagh Restoration West Limerick8.jpg"
+        "image": "/images/site/Glashapullagh Restoration West Limerick8.jpg",
+        "gallery": [
+          "/images/site/Glashapullagh Restoration West Limerick8.jpg",
+          "/images/site/Glashapullagh Restoration West Limerick9.jpg",
+          "/images/site/Glashapullagh Restoration West Limerick13.jpg"
+        ]
       },
       {
         "title": "Composite Peat/Timber Dams",
         "description": "Used where there is a risk of timber dams failing due to high water pressure during peak flows. Larch planks keyed into the banks of the drain and reinforced with timber piles driven deep into the drain base. A peat plug is placed upslope from the frame, a second plug can also be applied on the downslope side. The timber framework provides the strength and stability; the compacted peat provides the seal holding the water back. Used on drains up to 2.5m with gentle gradients, anything larger or where peak flows are potentially very strong seek engineering advice.",
-        "image": "/images/site/dam-workers.jpg"
+        "image": "/images/site/dam-workers.jpg",
+        "gallery": [
+          "/images/site/dam-workers.jpg",
+          "/images/site/Glashapullagh Restoration West Limerick14.jpg",
+          "/images/site/Glashapullagh Restoration West Limerick16.jpg"
+        ]
       },
       {
         "title": "Timber Dams",
         "description": "Used in shallow drains where there is still a thick layer of peat at the base of the drain. Untreated larch planks embedded deeply into shallow drains, with a small notch to direct water safely. Notch controls the depth of the pool, preventing water from flowing around or over the dam. Place a stone or timber \"shoe\" beneath the notch to break the fall of water and limit erosion. Longer lasting than Coir logs, useful where machinery access is not possible or where only a small number of dams are required. Expected to last 8–10 years while vegetation fills the drains naturally.",
-        "image": "/images/site/plank-dam.jpg"
+        "image": "/images/site/plank-dam.jpg",
+        "gallery": [
+          "/images/site/plank-dam.jpg",
+          "/images/site/Glashapullagh Restoration West Limerick17.jpg",
+          "/images/site/Glashapullagh Restoration West Limerick19.jpg"
+        ]
       }
     ]
   },

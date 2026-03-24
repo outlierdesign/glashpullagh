@@ -13,6 +13,10 @@ interface BlogPost {
   body: string[];
   image: string;
   tags: string[];
+  video?: {
+    src: string;
+    title: string;
+  };
 }
 
 function loadPosts(): BlogPost[] {
@@ -147,20 +151,85 @@ export default function BlogPostPage({ params }: { params: { slug: string } }) {
         margin: '0 auto',
         padding: '3rem 2rem 5rem',
       }}>
-        {post.body.map((paragraph, idx) => (
-          <p
-            key={idx}
-            style={{
-              fontFamily: 'var(--font-body)',
-              color: 'var(--cream-dim)',
-              fontSize: '1.1rem',
-              lineHeight: 1.85,
-              marginBottom: '1.5rem',
-            }}
-          >
-            {paragraph}
-          </p>
-        ))}
+        {post.body.map((paragraph, idx) => {
+          // Insert video player after the 2nd paragraph if the post has a video
+          const showVideoAfter = post.video && idx === 1;
+          return (
+            <div key={idx}>
+              <p
+                style={{
+                  fontFamily: 'var(--font-body)',
+                  color: 'var(--cream-dim)',
+                  fontSize: '1.1rem',
+                  lineHeight: 1.85,
+                  marginBottom: '1.5rem',
+                }}
+              >
+                {paragraph}
+              </p>
+              {showVideoAfter && (
+                <div
+                  className="video-embed"
+                  style={{
+                    position: 'relative',
+                    margin: '2.5rem 0',
+                    borderRadius: '12px',
+                    overflow: 'hidden',
+                    border: '1px solid rgba(184,134,74,0.2)',
+                    background: '#0a0908',
+                  }}
+                >
+                  {/* Decorative label */}
+                  <div style={{
+                    display: 'flex',
+                    alignItems: 'center',
+                    gap: '0.6rem',
+                    padding: '0.75rem 1rem',
+                    background: 'rgba(184,134,74,0.06)',
+                    borderBottom: '1px solid rgba(184,134,74,0.12)',
+                  }}>
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                      <polygon points="5 3 19 12 5 21 5 3" />
+                    </svg>
+                    <span style={{
+                      fontFamily: 'var(--font-ui)',
+                      fontSize: '0.7rem',
+                      fontWeight: 600,
+                      letterSpacing: '0.12em',
+                      textTransform: 'uppercase',
+                      color: 'var(--gold)',
+                    }}>
+                      {post.video!.title}
+                    </span>
+                  </div>
+                  {/* Responsive iframe container */}
+                  <div style={{
+                    position: 'relative',
+                    paddingBottom: '56.25%',
+                    height: 0,
+                    overflow: 'hidden',
+                  }}>
+                    <iframe
+                      title={post.video!.title}
+                      src={post.video!.src}
+                      frameBorder="0"
+                      allowFullScreen
+                      allow="autoplay; fullscreen; picture-in-picture; clipboard-write"
+                      style={{
+                        position: 'absolute',
+                        top: 0,
+                        left: 0,
+                        width: '100%',
+                        height: '100%',
+                        border: 'none',
+                      }}
+                    />
+                  </div>
+                </div>
+              )}
+            </div>
+          );
+        })}
 
         {/* Tags */}
         {post.tags && post.tags.length > 0 && (

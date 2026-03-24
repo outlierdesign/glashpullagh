@@ -11,6 +11,8 @@ import { ImageComparisonSlider } from '@/components/ui/image-comparison-slider';
 import InteractiveMap from '@/components/blocks/interactive-map';
 import { TabbedRestoration } from '@/components/blocks/tabbed-restoration';
 import HoverRevealCards from '@/components/ui/cards';
+import DamGalleryCards from '@/components/ui/dam-gallery-cards';
+import TopographicBackground from '@/components/ui/topographic-bg';
 
 interface ClientSiteProps {
   content: Record<string, any>;
@@ -605,7 +607,8 @@ export default function ClientSite({ content }: ClientSiteProps) {
       {/* 10. VIDEO DOCUMENTATION */}
       {content.videos && (
         <section className="video-section texture-overlay tex-denim wash-water">
-          <div className="container">
+          <TopographicBackground />
+          <div className="container" style={{ position: 'relative', zIndex: 1 }}>
             <div className="video-header">
               <p className="label">{content.videos.label || 'Media'}</p>
               <h2>{content.videos.title || 'Video Content'}</h2>
@@ -682,17 +685,7 @@ export default function ClientSite({ content }: ClientSiteProps) {
               <h2 style={{ fontFamily: 'var(--font-display)', color: 'var(--cream)', fontSize: 'clamp(1.75rem, 4vw, 2.5rem)', margin: '0.5rem 0 1rem' }}>{content.monitoring.title || 'Slowing The Flow Of Water'}</h2>
               <div className="divider-line divider-line-center" />
             </div>
-            <div style={{ display: 'flex', justifyContent: 'center' }}>
-              <HoverRevealCards
-                items={content.monitoring.items?.map((item: any, idx: number) => ({
-                  id: idx,
-                  title: item.title,
-                  subtitle: item.description?.split('.')[0] || '',
-                  imageUrl: item.image || '/images/site/peat-pool.jpg',
-                })) || []}
-                className="md:grid-cols-5"
-              />
-            </div>
+            <DamGalleryCards items={content.monitoring.items || []} />
           </div>
         </section>
       )}
