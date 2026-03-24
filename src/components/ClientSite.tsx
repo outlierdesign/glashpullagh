@@ -469,26 +469,53 @@ export default function ClientSite({ content }: ClientSiteProps) {
         </div>
       </section>
 
-      {/* 3. BENTO GRID */}
+      {/* 3. BENTO GRID — Watery Gradient Cards */}
       <section className="bento-section texture-overlay tex-felt wash-green">
         <div className="container">
           <div className="bento-header">
-            <p className="label">{content.bento?.label || 'Overview'}</p>
+            <p className="label">{content.bento?.label || 'Objectives'}</p>
             <h2>{content.bento?.title || 'What We Do'}</h2>
             <div className="divider-line divider-line-center" />
           </div>
           <div className="bento-grid">
-            {content.bento?.items?.map((item: any, idx: number) => (
-              <div key={idx} className={`bento-card${item.image ? ' bento-card-has-image' : ''}`}
-                style={item.image ? { backgroundImage: `url(${item.image})`, backgroundSize: 'cover', backgroundPosition: 'center' } : undefined}
-              >
-                {item.image && <div className="bento-card-overlay" />}
-                <div className="bento-card-content">
-                  <h3>{item.title}</h3>
-                  <p>{item.description}</p>
+            {(content.bento?.items || []).map((item: any, idx: number) => {
+              const cardClasses = [
+                'bento-card--habitats',
+                'bento-card--peat',
+                'bento-card--rewet',
+                'bento-card--carbon',
+                'bento-card--story',
+                'bento-card--ahead',
+              ];
+              const icons = [
+                /* Habitats — bird/droplet */ '<path d="M12 3c-1.5 6-6 7.5-6 12a6 6 0 0 0 12 0c0-4.5-4.5-6-6-12Z"/><path d="M12 21v-6"/><path d="M9.5 17.5 12 15l2.5 2.5"/>',
+                /* Peat plants */ '<path d="M7 20h10"/><path d="M12 20V8"/><path d="M12 8c-2-2-5-2.5-5 1 0 2 3 3 5 1"/><path d="M12 8c2-2 5-2.5 5 1 0 2-3 3-5 1"/><path d="M12 13c-1.5-1.5-4-2-4 .5s2.5 2.5 4 1"/><path d="M12 13c1.5-1.5 4-2 4 .5s-2.5 2.5-4 1"/>',
+                /* Rewet — water */ '<path d="M2 12h4l3-9 4 18 3-9h4"/><path d="M4 18c1-1 2-2 4-2s3 1 4 2 2 2 4 2 3-1 4-2"/>',
+                /* Carbon — clock */ '<circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/><path d="M8.5 3.5 6 2"/><path d="M15.5 3.5 18 2"/>',
+                /* Story — book */ '<path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1 0-5H20"/><path d="M8 7h6"/><path d="M8 11h4"/>',
+                /* Ahead — lightbulb */ '<path d="M12 2a7 7 0 0 1 7 7c0 2.5-1.5 4.5-3 5.5V17a1 1 0 0 1-1 1H9a1 1 0 0 1-1-1v-2.5C6.5 13.5 5 11.5 5 9a7 7 0 0 1 7-7Z"/><path d="M9 21h6"/><path d="M10 17v4"/><path d="M14 17v4"/>',
+              ];
+              return (
+                <div
+                  key={idx}
+                  className={`bento-card ${cardClasses[idx] || ''}`}
+                >
+                  {item.image && (
+                    <div
+                      className="bento-card-image"
+                      style={{ backgroundImage: `url(${item.image})` }}
+                    />
+                  )}
+                  <div className="bento-card-icon">
+                    <svg viewBox="0 0 24 24" dangerouslySetInnerHTML={{ __html: icons[idx] || icons[0] }} />
+                  </div>
+                  <div className="bento-card-content">
+                    <h3>{item.title}</h3>
+                    <p>{item.description}</p>
+                  </div>
                 </div>
-              </div>
-            ))}
+              );
+            })}
           </div>
         </div>
       </section>

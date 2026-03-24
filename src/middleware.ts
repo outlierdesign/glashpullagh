@@ -58,12 +58,12 @@ function cleanupStaleEntries() {
   if (now - lastCleanup < CLEANUP_INTERVAL) return;
   lastCleanup = now;
 
-  for (const [key, entry] of apiRateMap) {
+  apiRateMap.forEach((entry, key) => {
     if (now > entry.reset) apiRateMap.delete(key);
-  }
-  for (const [key, entry] of authRateMap) {
+  });
+  authRateMap.forEach((entry, key) => {
     if (now > entry.reset) authRateMap.delete(key);
-  }
+  });
 }
 
 /* ── Block suspicious path patterns ── */

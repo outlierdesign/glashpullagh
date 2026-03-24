@@ -8,13 +8,16 @@ export interface User {
   role: 'admin' | 'editor';
 }
 
-const JWT_SECRET = process.env.JWT_SECRET;
-if (!JWT_SECRET) {
-  throw new Error(
-    'FATAL: JWT_SECRET environment variable is not set. ' +
-    'Set a cryptographically random string (≥32 chars) in your environment.',
-  );
-}
+const JWT_SECRET: string = (() => {
+  const secret = process.env.JWT_SECRET;
+  if (!secret) {
+    throw new Error(
+      'FATAL: JWT_SECRET environment variable is not set. ' +
+      'Set a cryptographically random string (≥32 chars) in your environment.',
+    );
+  }
+  return secret;
+})();
 const COOKIE_NAME = 'glash_session';
 
 // Parse users from env vars
