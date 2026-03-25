@@ -16,6 +16,8 @@ interface BlogPost {
   video?: {
     src: string;
     title: string;
+    poster?: string;
+    type?: 'native' | 'iframe';
   };
 }
 
@@ -202,29 +204,47 @@ export default function BlogPostPage({ params }: { params: { slug: string } }) {
                       {post.video!.title}
                     </span>
                   </div>
-                  {/* Responsive iframe container */}
-                  <div style={{
-                    position: 'relative',
-                    paddingBottom: '56.25%',
-                    height: 0,
-                    overflow: 'hidden',
-                  }}>
-                    <iframe
-                      title={post.video!.title}
-                      src={post.video!.src}
-                      frameBorder="0"
-                      allowFullScreen
-                      allow="autoplay; fullscreen; picture-in-picture; clipboard-write"
-                      style={{
-                        position: 'absolute',
-                        top: 0,
-                        left: 0,
-                        width: '100%',
-                        height: '100%',
-                        border: 'none',
-                      }}
-                    />
-                  </div>
+                  {/* Video player */}
+                  {post.video!.type === 'native' ? (
+                    <div style={{ position: 'relative' }}>
+                      <video
+                        controls
+                        preload="metadata"
+                        poster={post.video!.poster}
+                        style={{
+                          width: '100%',
+                          display: 'block',
+                          background: '#0a0908',
+                        }}
+                      >
+                        <source src={post.video!.src} type="video/mp4" />
+                        Your browser does not support the video tag.
+                      </video>
+                    </div>
+                  ) : (
+                    <div style={{
+                      position: 'relative',
+                      paddingBottom: '56.25%',
+                      height: 0,
+                      overflow: 'hidden',
+                    }}>
+                      <iframe
+                        title={post.video!.title}
+                        src={post.video!.src}
+                        frameBorder="0"
+                        allowFullScreen
+                        allow="autoplay; fullscreen; picture-in-picture; clipboard-write"
+                        style={{
+                          position: 'absolute',
+                          top: 0,
+                          left: 0,
+                          width: '100%',
+                          height: '100%',
+                          border: 'none',
+                        }}
+                      />
+                    </div>
+                  )}
                 </div>
               )}
             </div>

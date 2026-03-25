@@ -14,8 +14,10 @@
     "image": "/images/site/hero-bg.jpg",
     "tags": ["wildlife", "drone", "survey", "spring"],
     "video": {
-      "src": "https://henharrierprogram.euvideocdn.com/player/index.html?id=69c2accff66e54ec11ecf0d2",
-      "title": "Glashapullagh Thermal Bird Survey"
+      "src": "https://henharrierprogram.euvideocdn.com/videos/69c2accff66e54ec11ecf0d2/1/video/mp4/video-720p.mp4",
+      "poster": "https://henharrierprogram.euvideocdn.com/thumbnails/69c2accff66e54ec11ecf0d2/custom/5cid3423-1080p.jpg",
+      "title": "Glashapullagh Thermal Bird Survey",
+      "type": "native"
     }
   },
   {
