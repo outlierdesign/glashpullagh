@@ -14,6 +14,7 @@ import InteractiveMap from '@/components/blocks/interactive-map';
 import { TabbedRestoration } from '@/components/blocks/tabbed-restoration';
 import HoverRevealCards from '@/components/ui/cards';
 import TechBentoCards from '@/components/ui/tech-bento-cards';
+import CardModal from '@/components/ui/card-modal';
 import TopographicBackground from '@/components/ui/topographic-bg';
 
 interface ClientSiteProps {
@@ -52,6 +53,9 @@ export default function ClientSite({ content }: ClientSiteProps) {
 
   const [lightboxOpen, setLightboxOpen] = useState(false);
   const [lightboxSrc, setLightboxSrc] = useState('');
+  const [cardModal, setCardModal] = useState<{
+    title: string; description: string; image: string; gallery?: string[]; icon?: React.ReactNode; variant?: string;
+  } | null>(null);
   const lenis = useRef<LenisType | null>(null);
 
   // Water ripple effect for hero canvas
@@ -505,6 +509,14 @@ export default function ClientSite({ content }: ClientSiteProps) {
                 <div
                   key={idx}
                   className={`bento-card ${cardClasses[idx] || ''}`}
+                  onClick={() => setCardModal({
+                    title: item.title,
+                    description: item.description,
+                    image: item.image || '',
+                    icon: <svg viewBox="0 0 24 24" dangerouslySetInnerHTML={{ __html: icons[idx] || icons[0] }} />,
+                    variant: 'card-modal--bento',
+                  })}
+                  style={{ cursor: 'pointer' }}
                 >
                   {item.image && (
                     <div
@@ -752,7 +764,16 @@ export default function ClientSite({ content }: ClientSiteProps) {
               <h2 style={{ fontFamily: 'var(--font-display)', color: 'var(--cream)', fontSize: 'clamp(1.75rem, 4vw, 2.5rem)', margin: '0.5rem 0 1rem' }}>{content.monitoring.title || 'Slowing The Flow Of Water'}</h2>
               <div className="divider-line divider-line-center" />
             </div>
-            <TechBentoCards items={content.monitoring.items || []} />
+            <TechBentoCards
+              items={content.monitoring.items || []}
+              onCardClick={(item) => setCardModal({
+                title: item.title,
+                description: item.description,
+                image: item.image,
+                gallery: item.gallery,
+                variant: 'card-modal--tech',
+              })}
+            />
           </div>
         </section>
       )}
@@ -912,6 +933,20 @@ export default function ClientSite({ content }: ClientSiteProps) {
           )}
         </div>
       </div>
+
+      {/* CARD DETAIL MODAL */}
+      {cardModal && (
+        <CardModal
+          isOpen={true}
+          onClose={() => setCardModal(null)}
+          title={cardModal.title}
+          description={cardModal.description}
+          image={cardModal.image}
+          gallery={cardModal.gallery}
+          icon={cardModal.icon}
+          variant={cardModal.variant}
+        />
+      )}
     </>
   );
 }

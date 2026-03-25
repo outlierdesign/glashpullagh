@@ -12,6 +12,7 @@ interface TechItem {
 
 interface TechBentoCardsProps {
   items: TechItem[];
+  onCardClick?: (item: TechItem) => void;
 }
 
 const cardVariants = [
@@ -22,7 +23,7 @@ const cardVariants = [
   'tech-card--timber',
 ];
 
-function TechCard({ item, variant }: { item: TechItem; variant: string }) {
+function TechCard({ item, variant, onCardClick }: { item: TechItem; variant: string; onCardClick?: (item: TechItem) => void }) {
   const images = item.gallery && item.gallery.length > 0 ? item.gallery : [item.image];
   const hasMultiple = images.length > 1;
   const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true });
@@ -51,7 +52,7 @@ function TechCard({ item, variant }: { item: TechItem; variant: string }) {
   }, [emblaApi]);
 
   return (
-    <div className={`tech-card ${variant}`}>
+    <div className={`tech-card ${variant}`} onClick={() => onCardClick?.(item)} style={{ cursor: onCardClick ? 'pointer' : undefined }}>
       <div className="tech-card-image">
         {hasMultiple ? (
           <div className="tech-carousel" ref={emblaRef}>
@@ -105,11 +106,11 @@ function TechCard({ item, variant }: { item: TechItem; variant: string }) {
   );
 }
 
-export default function TechBentoCards({ items }: TechBentoCardsProps) {
+export default function TechBentoCards({ items, onCardClick }: TechBentoCardsProps) {
   return (
     <div className="tech-bento-grid">
       {items.map((item, idx) => (
-        <TechCard key={idx} item={item} variant={cardVariants[idx % cardVariants.length]} />
+        <TechCard key={idx} item={item} variant={cardVariants[idx % cardVariants.length]} onCardClick={onCardClick} />
       ))}
     </div>
   );
