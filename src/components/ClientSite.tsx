@@ -700,7 +700,7 @@ export default function ClientSite({ content }: ClientSiteProps) {
         );
       })()}
 
-      {/* 11. RESTORATION TABS */}
+      {/* 11. RESTORATION TABS — removed from page, retained as template
       {content.restoration && (
         <TabbedRestoration
           label={content.restoration.label}
@@ -708,6 +708,7 @@ export default function ClientSite({ content }: ClientSiteProps) {
           items={content.restoration.items}
         />
       )}
+      */}
 
       {/* 12. PARALLAX BREAK 2 — Recovery Takes Time */}
       {content.parallaxBreaks?.[1] && (
