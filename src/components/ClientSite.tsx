@@ -9,7 +9,7 @@ import ScrollExpandMedia from '@/components/blocks/scroll-expansion-hero';
 import { PartnersSection } from '@/components/blocks/partners-section';
 // BentoGallery removed — replaced by scroll sequence
 import ImageSequenceScroll from '@/components/blocks/image-sequence-scroll';
-import { ZoomParallax } from '@/components/ui/zoom-parallax';
+// ZoomParallax removed — replaced by geotextile scroll sequence
 import { ImageComparisonSlider } from '@/components/ui/image-comparison-slider';
 import InteractiveMap from '@/components/blocks/interactive-map';
 import { TabbedRestoration } from '@/components/blocks/tabbed-restoration';
@@ -840,18 +840,7 @@ export default function ClientSite({ content }: ClientSiteProps) {
         </section>
       )}
 
-      {/* SECTION: ZOOM PARALLAX */}
-      <ZoomParallax
-        images={[
-          { src: '/images/site/parallax-walkers.jpg', alt: 'Workers walking across the restored peatland' },
-          { src: '/images/site/parallax-lichen.jpg', alt: 'Macro detail of lichen and moss on peat' },
-          { src: '/images/site/parallax-peat-hag.jpg', alt: 'Peat hag with lone spruce under moody sky' },
-          { src: '/images/site/parallax-dam-site.jpg', alt: 'Two people at dam installation site' },
-          { src: '/images/site/parallax-bog-grass.jpg', alt: 'Soft focus bog grass against moody sky' },
-          { src: '/images/site/parallax-peat-bank.jpg', alt: 'Exposed peat bank close-up' },
-          { src: '/images/site/parallax-bog-trail.jpg', alt: 'Two people walking across the bog' },
-        ]}
-      />
+      {/* ZOOM PARALLAX — removed, replaced by geotextile scroll sequence */}
 
       {/* SECTION: HOVER REVEAL GRID */}
       <div style={{ background: 'var(--bg-dark)' }}>
