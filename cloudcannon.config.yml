@@ -130,6 +130,13 @@ collections_config:
     disable_add_folder: true
     _enabled_editors:
       - data
+    _inputs:
+      photos:
+        type: array
+        label: Gallery Photos
+        comment: Add, remove, or reorder gallery images
+        options:
+          structures: _structures.photos
 
   # --- Restoration actions (single data file) ---
   restoration_actions:
@@ -315,10 +322,20 @@ _structures:
           value: ''
           label: ''
 
-  # Gallery items
+  # Gallery items (old name kept for backward compat)
   gallery_items:
     values:
       - label: Gallery Image
+        icon: image
+        value:
+          src: ''
+          alt: ''
+          caption: ''
+
+  # Gallery photos (used by gallery.photos array)
+  photos:
+    values:
+      - label: Gallery Photo
         icon: image
         value:
           src: ''

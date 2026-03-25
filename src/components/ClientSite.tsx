@@ -861,7 +861,7 @@ export default function ClientSite({ content }: ClientSiteProps) {
       <BentoGallery
         heading={content.gallery?.title || 'Glashapullagh in Pictures'}
         eyebrow={content.gallery?.label || 'Visual Journey'}
-        images={(content.gallery?.items || []).map((item: any) => ({
+        images={(content.gallery?.photos || content.gallery?.items || []).map((item: any) => ({
           src: item.src || item.image || '',
           alt: item.alt || item.title || '',
           caption: item.caption || item.title || '',
