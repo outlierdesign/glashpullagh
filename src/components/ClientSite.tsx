@@ -541,13 +541,13 @@ export default function ClientSite({ content }: ClientSiteProps) {
       {/* 4. RESTORATION IN FOCUS — Elegant Carousel */}
       <section style={{ background: 'var(--bg-deep)', padding: '5rem 0' }}>
         <div style={{ textAlign: 'center', marginBottom: '2rem' }}>
-          <p className="label">Restoration in Focus</p>
+          <p className="label">{content.restorationInFocus?.label || 'Restoration in Focus'}</p>
           <h2 style={{
             fontFamily: 'var(--font-display)',
             color: 'var(--cream)',
             fontSize: 'clamp(1.75rem, 4vw, 2.5rem)',
             margin: '0.5rem 0 1rem',
-          }}>Explore the Ongoing Work</h2>
+          }}>{content.restorationInFocus?.title || 'Explore the Ongoing Work'}</h2>
           <p style={{
             fontFamily: 'var(--font-body)',
             color: 'var(--text-muted)',
@@ -555,7 +555,7 @@ export default function ClientSite({ content }: ClientSiteProps) {
             maxWidth: '600px',
             margin: '0 auto',
             lineHeight: '1.6',
-          }}>From ecological surveys to community action — the restoration and protection of the Glashapullagh peatlands.</p>
+          }}>{content.restorationInFocus?.description || 'From ecological surveys to community action — the restoration and protection of the Glashapullagh peatlands.'}</p>
           <div className="divider-line divider-line-center" style={{ marginTop: '1.5rem' }} />
         </div>
         <ElegantCarousel />
