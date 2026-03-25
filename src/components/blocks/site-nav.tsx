@@ -376,12 +376,6 @@ export function SiteNav() {
         </div>
       )}
 
-      <style>{`
-        @media (max-width: 768px) {
-          .nav-desktop { display: none !important; }
-          .nav-hamburger { display: block !important; }
-        }
-      `}</style>
     </nav>
   );
 }

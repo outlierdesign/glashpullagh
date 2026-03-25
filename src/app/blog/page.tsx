@@ -179,35 +179,6 @@ export default function BlogPage() {
         </div>
       </div>
 
-      <style>{`
-        .blog-card:hover {
-          border-color: rgba(184,134,74,0.35) !important;
-          transform: translateY(-2px);
-        }
-        .blog-card:hover .blog-card-bg {
-          transform: scale(1.04);
-        }
-        @media (max-width: 900px) {
-          .blog-bento-grid {
-            grid-template-columns: repeat(2, 1fr) !important;
-          }
-          .blog-bento-grid > * {
-            grid-column: span 1 !important;
-            grid-row: span 1 !important;
-          }
-          .blog-bento-grid > *:first-child {
-            grid-column: span 2 !important;
-          }
-        }
-        @media (max-width: 560px) {
-          .blog-bento-grid {
-            grid-template-columns: 1fr !important;
-          }
-          .blog-bento-grid > * {
-            grid-column: span 1 !important;
-          }
-        }
-      `}</style>
     </main>
   );
 }
