@@ -417,6 +417,8 @@ export default function ClientSite({ content }: ClientSiteProps) {
         mediaSrc={content.scrollHero?.videoUrl || "https://vimeo.com/1170727891/e60603a2b1"}
         bgImageSrc={content.scrollHero?.bgImage || "/images/site/hero-bg.jpg"}
         title={content.scrollHero?.title || "Restoring Nature"}
+        titleLine1={content.scrollHero?.titleLine1}
+        titleLine2={content.scrollHero?.titleLine2}
         date={content.scrollHero?.date || "Glashapullagh Peatlands"}
         scrollToExpand="Scroll to explore"
         textBlend

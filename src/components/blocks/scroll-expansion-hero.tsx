@@ -9,6 +9,8 @@ interface ScrollExpandMediaProps {
   posterSrc?: string;
   bgImageSrc: string;
   title?: string;
+  titleLine1?: string;
+  titleLine2?: string;
   date?: string;
   scrollToExpand?: string;
   textBlend?: boolean;
@@ -21,6 +23,8 @@ const ScrollExpandMedia = ({
   posterSrc,
   bgImageSrc,
   title,
+  titleLine1,
+  titleLine2,
   date,
   scrollToExpand,
   textBlend,
@@ -73,8 +77,9 @@ const ScrollExpandMedia = ({
   const textOffsetX = scrollProgress * (isMobile ? 120 : 100);
   const contentOpacity = scrollProgress >= 0.85 ? (scrollProgress - 0.85) / 0.15 : 0;
 
-  const firstWord = title ? title.split(' ')[0] : '';
-  const restOfTitle = title ? title.split(' ').slice(1).join(' ') : '';
+  // Two-line title: use explicit titleLine1/titleLine2 if provided, otherwise split on first word
+  const line1 = titleLine1 || (title ? title.split(' ')[0] : '');
+  const line2 = titleLine2 || (title ? title.split(' ').slice(1).join(' ') : '');
 
   return (
     <div
@@ -255,7 +260,7 @@ const ScrollExpandMedia = ({
               transition: 'none',
             }}
           >
-            {firstWord}
+            {line1}
           </h2>
           <h2
             className="text-4xl md:text-5xl lg:text-7xl font-bold"
@@ -266,7 +271,7 @@ const ScrollExpandMedia = ({
               transition: 'none',
             }}
           >
-            {restOfTitle}
+            {line2}
           </h2>
         </div>
 

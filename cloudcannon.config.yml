@@ -194,6 +194,14 @@ _inputs:
   # Text fields
   title:
     type: text
+  titleLine1:
+    type: text
+    label: Hero Title Line 1
+    comment: First line of the hero title (e.g. "Restoration Takes Time.")
+  titleLine2:
+    type: text
+    label: Hero Title Line 2
+    comment: Second line of the hero title (e.g. "But It Has Begun.")
   label:
     type: text
   subtitle:
