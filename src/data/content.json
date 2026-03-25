@@ -351,7 +351,37 @@
   "restorationInFocus": {
     "label": "Restoration in Focus",
     "title": "Explore the Ongoing Work",
-    "description": "From ecological surveys to community action the restoration and protection of the Glashapullagh peatlands."
+    "description": "From ecological surveys to community action the restoration and protection of the Glashapullagh peatlands.",
+    "slides": [
+      {
+        "title": "Blanket Bog",
+        "subtitle": "Ecological Survey",
+        "description": "Over 130 hectares of Atlantic blanket bog — one of Ireland's rarest habitats. Aerial surveys reveal the vast mosaic of pools, hummocks, and sphagnum carpets that define the Glashapullagh landscape.",
+        "accent": "#7A9E7E",
+        "image": "/images/site/Glashapullagh Restoration West Limerick1.jpg"
+      },
+      {
+        "title": "Rewetting the Bog",
+        "subtitle": "Dam Installation",
+        "description": "Hundreds of peat and timber dams now block the old drainage channels, raising water tables and breathing life back into degraded peatland. Each dam is a step toward a self-sustaining ecosystem.",
+        "accent": "#4A8A8A",
+        "image": "/images/site/dam-workers.jpg"
+      },
+      {
+        "title": "Sphagnum Recovery",
+        "subtitle": "Habitat Regeneration",
+        "description": "The return of sphagnum moss is the truest sign of recovery — these remarkable plants hold up to twenty times their weight in water, rebuilding the living peat that stores carbon for millennia.",
+        "accent": "#6B8F3C",
+        "image": "/images/site/sphagnum-closeup.jpg"
+      },
+      {
+        "title": "Community Action",
+        "subtitle": "People & Place",
+        "description": "Restoration at Glashapullagh is driven by local communities, conservation volunteers, and scientific expertise — a collective effort to protect West Limerick's peatland heritage for future generations.",
+        "accent": "#C8A964",
+        "image": "/images/site/carrying-equipment.jpg"
+      }
+    ]
   },
   "photoGallery": {
     "label": "Gallery",

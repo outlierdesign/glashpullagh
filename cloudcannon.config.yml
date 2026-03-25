@@ -291,6 +291,18 @@ _inputs:
         - Autumn
         - Winter
 
+  # Restoration in Focus slides
+  slides:
+    type: array
+    label: Carousel Slides
+    comment: Slides shown in the Restoration in Focus carousel
+    options:
+      structures: _structures.restoration_slides
+  accent:
+    type: color
+    label: Accent Colour
+    comment: Colour accent for the slide (used for highlights and borders)
+
   # Alt text
   alt:
     type: text
@@ -305,6 +317,18 @@ _inputs:
 # Structures (reusable component templates)
 # ---------------------------------------------------------------------------
 _structures:
+
+  # Restoration in Focus carousel slides
+  restoration_slides:
+    values:
+      - label: Carousel Slide
+        icon: view_carousel
+        value:
+          title: ''
+          subtitle: ''
+          description: ''
+          accent: '#7A9E7E'
+          image: ''
 
   # Bento objective items
   bento_items:

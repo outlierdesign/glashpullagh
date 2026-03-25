@@ -559,7 +559,7 @@ export default function ClientSite({ content }: ClientSiteProps) {
           }}>{content.restorationInFocus?.description || 'From ecological surveys to community action — the restoration and protection of the Glashapullagh peatlands.'}</p>
           <div className="divider-line divider-line-center" style={{ marginTop: '1.5rem' }} />
         </div>
-        <ElegantCarousel />
+        <ElegantCarousel slides={content.restorationInFocus?.slides} />
       </section>
 
       {/* 5. BEFORE/AFTER — Aerial Survey */}

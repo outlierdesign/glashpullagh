@@ -6,17 +6,17 @@ interface SlideData {
   subtitle: string;
   description: string;
   accent: string;
-  imageUrl: string;
+  image: string;
 }
 
-const slides: SlideData[] = [
+const defaultSlides: SlideData[] = [
   {
     title: 'Blanket Bog',
     subtitle: 'Ecological Survey',
     description:
       'Over 130 hectares of Atlantic blanket bog — one of Ireland\'s rarest habitats. Aerial surveys reveal the vast mosaic of pools, hummocks, and sphagnum carpets that define the Glashapullagh landscape.',
     accent: '#7A9E7E',
-    imageUrl: '/images/site/Glashapullagh Restoration West Limerick1.jpg',
+    image: '/images/site/Glashapullagh Restoration West Limerick1.jpg',
   },
   {
     title: 'Rewetting the Bog',
@@ -24,7 +24,7 @@ const slides: SlideData[] = [
     description:
       'Hundreds of peat and timber dams now block the old drainage channels, raising water tables and breathing life back into degraded peatland. Each dam is a step toward a self-sustaining ecosystem.',
     accent: '#4A8A8A',
-    imageUrl: '/images/site/dam-workers.jpg',
+    image: '/images/site/dam-workers.jpg',
   },
   {
     title: 'Sphagnum Recovery',
@@ -32,7 +32,7 @@ const slides: SlideData[] = [
     description:
       'The return of sphagnum moss is the truest sign of recovery — these remarkable plants hold up to twenty times their weight in water, rebuilding the living peat that stores carbon for millennia.',
     accent: '#6B8F3C',
-    imageUrl: '/images/site/sphagnum-closeup.jpg',
+    image: '/images/site/sphagnum-closeup.jpg',
   },
   {
     title: 'Community Action',
@@ -40,11 +40,16 @@ const slides: SlideData[] = [
     description:
       'Restoration at Glashapullagh is driven by local communities, conservation volunteers, and scientific expertise — a collective effort to protect West Limerick\'s peatland heritage for future generations.',
     accent: '#C8A964',
-    imageUrl: '/images/site/carrying-equipment.jpg',
+    image: '/images/site/carrying-equipment.jpg',
   },
 ];
 
-export default function ElegantCarousel() {
+interface ElegantCarouselProps {
+  slides?: SlideData[];
+}
+
+export default function ElegantCarousel({ slides: propSlides }: ElegantCarouselProps) {
+  const slides = propSlides && propSlides.length > 0 ? propSlides : defaultSlides;
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isTransitioning, setIsTransitioning] = useState(false);
   const [direction, setDirection] = useState<'next' | 'prev'>('next');
@@ -178,7 +183,7 @@ export default function ElegantCarousel() {
         <div className="ec-image-container">
           <div className={`ec-image-frame ${isTransitioning ? 'ec-transitioning' : 'ec-visible'}`}>
             <img
-              src={currentSlide.imageUrl}
+              src={currentSlide.image}
               alt={currentSlide.title}
               className="ec-image"
             />
