@@ -859,9 +859,9 @@ export default function ClientSite({ content }: ClientSiteProps) {
 
       {/* SECTION: BENTO GALLERY */}
       <BentoGallery
-        heading={content.gallery?.title || 'Glashapullagh in Pictures'}
-        eyebrow={content.gallery?.label || 'Visual Journey'}
-        images={(content.gallery?.photos || content.gallery?.items || []).map((item: any) => ({
+        heading={content.photoGallery?.title || 'Glashapullagh in Pictures'}
+        eyebrow={content.photoGallery?.label || 'Visual Journey'}
+        images={(content.photoGallery?.photos || content.photoGallery?.items || []).map((item: any) => ({
           src: item.src || item.image || '',
           alt: item.alt || item.title || '',
           caption: item.caption || item.title || '',

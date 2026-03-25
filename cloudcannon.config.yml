@@ -137,6 +137,15 @@ collections_config:
         comment: Add, remove, or reorder gallery images
         options:
           structures: _structures.photos
+    _structures:
+      photos:
+        values:
+          - label: Gallery Photo
+            icon: image
+            value:
+              src: ''
+              alt: ''
+              caption: ''
 
   # --- Restoration actions (single data file) ---
   restoration_actions:
