@@ -6,6 +6,7 @@
 # ---------------------------------------------------------------------------
 source: ''
 paths:
+  static: public
   uploads: public/images/site
   dam_uploads: public/images/site
 

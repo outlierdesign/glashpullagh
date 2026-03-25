@@ -1,13 +1,13 @@
 {
   "scrollHero": {
     "videoUrl": "https://vimeo.com/1170727891/e60603a2b1",
-    "bgImage": "/public/images/site/glashapullagh-peatland-restoration-work-2026-404.webp",
+    "bgImage": "/images/site/glashapullagh-peatland-restoration-work-2026-404.webp",
     "title": "Recovery Takes Time. But It Has Begun.",
     "date": "Glashapullagh Peatlands",
     "heading": "The Glashapullagh Project",
     "paragraph1": "The Glashapullagh site is a drained and cutover blanket bog in West Limerick. This has led to severe peat compaction, the loss of peat and the spread of rushes. To reverse this degradation, a comprehensive Restoration Action Plan was developed involving drone and ground surveys to map vegetation, peat depth, slope, and drain dimensions.",
     "paragraph2": "Approved by the National Parks and Wildlife Service (NPWS), the restoration works at Glashapullagh were planned with clear objectives: to slow carbon loss by preventing the oxidation of dry peat; to improve habitats for wildlife particularly for ground-nesting birds; and to encourage the return of Sphagnum mosses, by raising the local water table.",
-    "paragraph3": "The project serves as both a working restoration site and as a model for blanket bog recovery across the Atlantic seaboard. Every technique deployed from timber dams to geotextile to the removal of self-sown conifers has been carefully matched to the site’s specific ecological and hydrological conditions. All of this is available to the visitor to the site but also through digitally through short films and augmented reality tours. We hope the story of this bog will be both resource and an inspiration for all those working on other restoration projects."
+    "paragraph3": "The project serves as both a working restoration site and as a model for blanket bog recovery across the Atlantic seaboard. Every technique deployed from timber dams to geotextile to the removal of self-sown conifers has been carefully matched to the site\u2019s specific ecological and hydrological conditions. All of this is available to the visitor to the site but also through digitally through short films and augmented reality tours. We hope the story of this bog will be both resource and an inspiration for all those working on other restoration projects."
   },
   "hero": {
     "title": "Glashapullagh",
@@ -68,7 +68,7 @@
         "label": "Peat bank reprofiled"
       },
       {
-        "value": "800m²",
+        "value": "800m\u00b2",
         "label": "of bare peat protected with geotextiles"
       },
       {
@@ -84,7 +84,7 @@
     },
     {
       "title": "Recovery Takes Time",
-      "text": "But at Glashapullagh, it has begun. Water is being held on the site for longer, the peat is not flooding, it is rewetting, like a sponge it is soaking up water and expanding. The bog is healing — its hydrology is recovering, the loss of Carbon is slowing, frogs are spawning, Snipe are coming here to feed. Soon, the pools will support swarms of insects, Meadow Pipits and perhaps Snipe will start to breed, and the Hen Harrier will hunt here again. As the years pass the rushes will diminish, Sphagnum will spread and in time new peat will begin to form."
+      "text": "But at Glashapullagh, it has begun. Water is being held on the site for longer, the peat is not flooding, it is rewetting, like a sponge it is soaking up water and expanding. The bog is healing \u2014 its hydrology is recovering, the loss of Carbon is slowing, frogs are spawning, Snipe are coming here to feed. Soon, the pools will support swarms of insects, Meadow Pipits and perhaps Snipe will start to breed, and the Hen Harrier will hunt here again. As the years pass the rushes will diminish, Sphagnum will spread and in time new peat will begin to form."
     }
   ],
   "about": {
@@ -123,7 +123,7 @@
       },
       {
         "title": "Site Logistics & Waste Management",
-        "description": "All operations were strictly planned to respect the fragile ground. Materials were stored close to the site and transported carefully to minimise surface damage. Legacy waste — including dumped plastic bags, tyres, pallets, and water tanks — was responsibly removed to protect wildlife and safeguard water quality.",
+        "description": "All operations were strictly planned to respect the fragile ground. Materials were stored close to the site and transported carefully to minimise surface damage. Legacy waste \u2014 including dumped plastic bags, tyres, pallets, and water tanks \u2014 was responsibly removed to protect wildlife and safeguard water quality.",
         "image": "/images/site/carrying-equipment.jpg"
       }
     ]
@@ -174,7 +174,7 @@
       },
       {
         "title": "Timber Dams",
-        "description": "Used in shallow drains where there is still a thick layer of peat at the base of the drain. Untreated larch planks embedded deeply into shallow drains, with a small notch to direct water safely. Notch controls the depth of the pool, preventing water from flowing around or over the dam. Place a stone or timber \"shoe\" beneath the notch to break the fall of water and limit erosion. Longer lasting than Coir logs, useful where machinery access is not possible or where only a small number of dams are required. Expected to last 8–10 years while vegetation fills the drains naturally.",
+        "description": "Used in shallow drains where there is still a thick layer of peat at the base of the drain. Untreated larch planks embedded deeply into shallow drains, with a small notch to direct water safely. Notch controls the depth of the pool, preventing water from flowing around or over the dam. Place a stone or timber \"shoe\" beneath the notch to break the fall of water and limit erosion. Longer lasting than Coir logs, useful where machinery access is not possible or where only a small number of dams are required. Expected to last 8\u201310 years while vegetation fills the drains naturally.",
         "image": "/images/site/plank-dam.jpg",
         "gallery": [
           "/images/site/plank-dam.jpg",
@@ -393,6 +393,6 @@
         ]
       }
     ],
-    "copyright": "© 2026 Glashapullagh. All rights reserved."
+    "copyright": "\u00a9 2026 Glashapullagh. All rights reserved."
   }
 }
