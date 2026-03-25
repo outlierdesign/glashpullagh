@@ -2,12 +2,12 @@
 
 import { useEffect, useRef, useState } from 'react';
 import { Gallery4 } from '@/components/blocks/gallery4';
-import PhotoBentoGallery from '@/components/blocks/photo-bento-gallery';
+// PhotoBentoGallery removed — replaced by scroll sequence
 import ElegantCarousel from '@/components/ui/elegant-carousel';
 import { HoverRevealGrid } from '@/components/blocks/hover-reveal-grid';
 import ScrollExpandMedia from '@/components/blocks/scroll-expansion-hero';
 import { PartnersSection } from '@/components/blocks/partners-section';
-import { BentoGallery } from '@/components/blocks/bento-gallery';
+// BentoGallery removed — replaced by scroll sequence
 import ImageSequenceScroll from '@/components/blocks/image-sequence-scroll';
 import { ZoomParallax } from '@/components/ui/zoom-parallax';
 import { ImageComparisonSlider } from '@/components/ui/image-comparison-slider';
@@ -880,16 +880,7 @@ export default function ClientSite({ content }: ClientSiteProps) {
         ]}
       />
 
-      {/* SECTION: BENTO GALLERY */}
-      <BentoGallery
-        heading={content.photoGallery?.title || 'Glashapullagh in Pictures'}
-        eyebrow={content.photoGallery?.label || 'Visual Journey'}
-        images={(content.photoGallery?.photos || content.photoGallery?.items || []).map((item: any) => ({
-          src: item.src || item.image || '',
-          alt: item.alt || item.title || '',
-          caption: item.caption || item.title || '',
-        }))}
-      />
+      {/* BENTO GALLERY — removed, replaced by geotextile scroll sequence above */}
 
       {/* PARTNERS & FUNDERS */}
       <PartnersSection />
