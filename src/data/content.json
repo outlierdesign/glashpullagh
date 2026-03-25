@@ -284,48 +284,68 @@
     "url": "https://player.vimeo.com/video/1176193774?h=c8daae4943"
   },
   "gallery": {
-    "label": "Gallery",
-    "title": "Photo Essay",
+    "label": "Visual Journey",
+    "title": "Glashapullagh in Pictures",
     "items": [
       {
-        "title": "Rewetted Channels",
-        "image": "/images/site/peat-pool.jpg"
+        "src": "/images/site/Glashapullagh Restoration West Limerick1.jpg",
+        "alt": "Aerial view of Glashapullagh peatland",
+        "caption": "The vast blanket bog of Glashapullagh"
       },
       {
-        "title": "Sphagnum Mosses",
-        "image": "/images/site/sphagnum-closeup.jpg"
+        "src": "/images/site/dam-workers.jpg",
+        "alt": "Workers installing a peat dam on the bog",
+        "caption": "Installing peat dams to rewet the bog"
       },
       {
-        "title": "Sphagnum Recovery",
-        "image": "/images/site/sphagnum-wide.jpg"
+        "src": "/images/site/peat-pool.jpg",
+        "alt": "Still pool of water on restored peatland",
+        "caption": "Rewetted peat pools supporting new life"
       },
       {
-        "title": "Dam Installation",
-        "image": "/images/site/dam-workers.jpg"
+        "src": "/images/site/Glashapullagh Restoration West Limerick5.jpg",
+        "alt": "Restoration work across the peatland landscape",
+        "caption": "Restoration in progress across the site"
       },
       {
-        "title": "Golden Hour",
-        "image": "/images/site/Glashapullagh Restoration West Limerick16.jpg"
+        "src": "/images/site/carrying-equipment.jpg",
+        "alt": "Team carrying restoration equipment across the bog",
+        "caption": "Carrying materials to remote restoration sites"
       },
       {
-        "title": "Timber Dams",
-        "image": "/images/site/plank-dam.jpg"
+        "src": "/images/site/Glashapullagh Restoration West Limerick12.jpg",
+        "alt": "Close-up of peatland vegetation and mosses",
+        "caption": "Sphagnum mosses returning to restored areas"
       },
       {
-        "title": "Landscape View",
-        "image": "/images/site/Glashapullagh Restoration West Limerick1.jpg"
+        "src": "/images/site/plank-dam.jpg",
+        "alt": "Timber plank dam blocking a drainage channel",
+        "caption": "Timber dams blocking old drainage channels"
       },
       {
-        "title": "Monitoring",
-        "image": "/images/site/monitoring-post.jpg"
+        "src": "/images/site/landscape-figure.jpg",
+        "alt": "Lone figure surveying the peatland landscape",
+        "caption": "Surveying the scale of the restoration"
       },
       {
-        "title": "Carrying Equipment",
-        "image": "/images/site/carrying-equipment.jpg"
+        "src": "/images/site/Glashapullagh Restoration West Limerick16.jpg",
+        "alt": "Peatland restoration site at golden hour",
+        "caption": "Golden light over the restored bogland"
       },
       {
-        "title": "Dusk on the Bog",
-        "image": "/images/site/dusk-silhouette.jpg"
+        "src": "/images/site/bog-walker.jpg",
+        "alt": "Walker crossing the blanket bog",
+        "caption": "Navigating the terrain of the active bog"
+      },
+      {
+        "src": "/images/site/monitoring-post.jpg",
+        "alt": "Environmental monitoring station on the bog",
+        "caption": "Monitoring water levels and habitat recovery"
+      },
+      {
+        "src": "/images/site/dusk-silhouette.jpg",
+        "alt": "Silhouette of workers at dusk on the peatland",
+        "caption": "End of a day on the bog"
       }
     ]
   },

@@ -286,6 +286,10 @@ _inputs:
     type: text
     label: Alt Text
     comment: Describe the image for accessibility
+  caption:
+    type: text
+    label: Caption
+    comment: Short caption shown on hover and in lightbox
 
 # ---------------------------------------------------------------------------
 # Structures (reusable component templates)
@@ -317,8 +321,9 @@ _structures:
       - label: Gallery Image
         icon: image
         value:
-          title: ''
-          image: ''
+          src: ''
+          alt: ''
+          caption: ''
 
   # Video items
   video_items:
