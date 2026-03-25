@@ -860,8 +860,7 @@ export default function ClientSite({ content }: ClientSiteProps) {
 
       {/* SECTION: SCROLL-DRIVEN IMAGE SEQUENCE — Geotextile Animation */}
       <ImageSequenceScroll
-        frameCount={96}
-        framePath="/sequence/frame_%04d.jpg"
+        videoSrc="/sequence/geotextile.mp4"
         scrollDistance={4}
         eyebrow="Geotextile Restoration"
         overlays={[

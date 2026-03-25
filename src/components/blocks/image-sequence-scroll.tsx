@@ -3,50 +3,49 @@
 import { useEffect, useRef, useState } from 'react';
 
 /* ─────────────────────────────────────────────────────────────
- * ImageSequenceScroll
+ * ImageSequenceScroll  (video-seek implementation)
  *
- * A scroll-driven canvas image sequence animation (Apple-style).
- * Frames are pre-extracted JPEGs served from /public/sequence/.
- * GSAP ScrollTrigger pins the section and scrubs through frames
- * as the user scrolls.
+ * Scroll-driven video animation (Apple-style).
+ * Uses a <video> element and seeks through it based on scroll
+ * progress via GSAP ScrollTrigger. Much more connection-friendly
+ * than loading 96+ individual frame images.
  * ──────────────────────────────────────────────────────────── */
 
 interface TextOverlay {
   text: string;
-  /** When to start showing (0–1 scroll progress) */
   startAt: number;
-  /** When to finish showing (0–1 scroll progress) */
   endAt: number;
-  /** CSS class for positioning / styling */
   className?: string;
 }
 
 interface ImageSequenceScrollProps {
-  /** Total number of frames */
-  frameCount?: number;
-  /** Path pattern — use %d for frame number (padded to 4 digits) */
-  framePath?: string;
+  /** Path to the video file */
+  videoSrc?: string;
   /** How many viewport heights the pinned scroll should last */
   scrollDistance?: number;
   /** Text overlays that fade in/out at specific scroll positions */
   overlays?: TextOverlay[];
   /** Eyebrow label above the section */
   eyebrow?: string;
+  /** Poster image for initial display */
+  poster?: string;
+  /* Legacy props — ignored in video mode */
+  frameCount?: number;
+  framePath?: string;
 }
 
 export default function ImageSequenceScroll({
-  frameCount = 96,
-  framePath = '/sequence/frame_%04d.jpg',
+  videoSrc = '/sequence/geotextile.mp4',
   scrollDistance = 4,
   overlays = [],
   eyebrow,
+  poster,
 }: ImageSequenceScrollProps) {
   const sectionRef = useRef<HTMLDivElement>(null);
-  const canvasRef = useRef<HTMLCanvasElement>(null);
+  const videoRef = useRef<HTMLVideoElement>(null);
   const [prefersReducedMotion, setPrefersReducedMotion] = useState(false);
 
   useEffect(() => {
-    // Check reduced motion preference
     const mq = window.matchMedia('(prefers-reduced-motion: reduce)');
     setPrefersReducedMotion(mq.matches);
     const handler = (e: MediaQueryListEvent) => setPrefersReducedMotion(e.matches);
@@ -57,16 +56,13 @@ export default function ImageSequenceScroll({
   useEffect(() => {
     if (prefersReducedMotion) return;
 
-    const canvas = canvasRef.current;
+    const video = videoRef.current;
     const section = sectionRef.current;
-    if (!canvas || !section) return;
+    if (!video || !section) return;
 
-    const ctx = canvas.getContext('2d');
-    if (!ctx) return;
-
-    // Wait for GSAP to be loaded (it's loaded from CDN in ClientSite)
-    const waitForGsap = () => {
-      return new Promise<void>((resolve) => {
+    // Wait for GSAP to be loaded (CDN in ClientSite)
+    const waitForGsap = (): Promise<void> => {
+      return new Promise((resolve) => {
         const check = () => {
           if (window.gsap && window.ScrollTrigger) {
             resolve();
@@ -78,113 +74,52 @@ export default function ImageSequenceScroll({
       });
     };
 
-    // Build frame URL from pattern
-    const getFrameUrl = (index: number): string => {
-      const num = String(index + 1).padStart(4, '0');
-      return framePath.replace('%04d', num);
-    };
+    let scrollTriggerInstance: any = null;
+    let overlayTriggers: any[] = [];
 
-    // State
-    const images: HTMLImageElement[] = [];
-    const state = { frame: 0 };
-    let tween: any = null;
-
-    // Render current frame to canvas
-    const render = () => {
-      const img = images[state.frame];
-      if (!img || !img.complete || !img.naturalWidth) return;
-
-      // High-DPI support
-      const dpr = window.devicePixelRatio || 1;
-      const rect = canvas.getBoundingClientRect();
-      const displayW = rect.width;
-      const displayH = rect.height;
-
-      // Only resize if needed
-      if (canvas.width !== displayW * dpr || canvas.height !== displayH * dpr) {
-        canvas.width = displayW * dpr;
-        canvas.height = displayH * dpr;
-        ctx.scale(dpr, dpr);
-      }
-
-      ctx.clearRect(0, 0, displayW, displayH);
-
-      // Cover-fit the image
-      const imgRatio = img.naturalWidth / img.naturalHeight;
-      const canvasRatio = displayW / displayH;
-      let drawW: number, drawH: number, drawX: number, drawY: number;
-
-      if (imgRatio > canvasRatio) {
-        // Image is wider — crop sides
-        drawH = displayH;
-        drawW = displayH * imgRatio;
-        drawX = (displayW - drawW) / 2;
-        drawY = 0;
-      } else {
-        // Image is taller — crop top/bottom
-        drawW = displayW;
-        drawH = displayW / imgRatio;
-        drawX = 0;
-        drawY = (displayH - drawH) / 2;
-      }
-
-      ctx.drawImage(img, drawX, drawY, drawW, drawH);
-    };
-
-    // Preload images
-    const preload = (): Promise<void> => {
-      return new Promise((resolve) => {
-        let loaded = 0;
-        for (let i = 0; i < frameCount; i++) {
-          const img = new Image();
-          img.src = getFrameUrl(i);
-          img.onload = () => {
-            loaded++;
-            // Render first frame immediately
-            if (i === 0) render();
-            if (loaded === frameCount) resolve();
-          };
-          img.onerror = () => {
-            loaded++;
-            if (loaded === frameCount) resolve();
-          };
-          images.push(img);
-        }
-      });
-    };
-
-    // Setup GSAP animation
     const setup = async () => {
       await waitForGsap();
-      await preload();
+
+      // Wait for video metadata to load so we know the duration
+      await new Promise<void>((resolve) => {
+        if (video.readyState >= 1) {
+          resolve();
+        } else {
+          video.addEventListener('loadedmetadata', () => resolve(), { once: true });
+        }
+      });
 
       const gsap = window.gsap;
       const ScrollTrigger = window.ScrollTrigger;
       gsap.registerPlugin(ScrollTrigger);
 
-      // Animate frame index based on scroll
-      tween = gsap.to(state, {
-        frame: frameCount - 1,
-        snap: 'frame',
-        ease: 'none',
-        onUpdate: render,
-        scrollTrigger: {
-          trigger: section,
-          start: 'top top',
-          end: `+=${window.innerHeight * scrollDistance}`,
-          scrub: 0.15,
-          pin: true,
-          anticipatePin: 1,
+      const duration = video.duration;
+
+      // Pin section and scrub video on scroll
+      scrollTriggerInstance = ScrollTrigger.create({
+        trigger: section,
+        start: 'top top',
+        end: `+=${window.innerHeight * scrollDistance}`,
+        scrub: true,
+        pin: true,
+        anticipatePin: 1,
+        onUpdate: (self: any) => {
+          const progress = self.progress;
+          const targetTime = progress * duration;
+          // Only seek if difference is significant (avoids jitter)
+          if (Math.abs(video.currentTime - targetTime) > 0.03) {
+            video.currentTime = targetTime;
+          }
         },
       });
 
-      // Animate text overlays based on scroll progress
+      // Animate text overlays
       const overlayEls = section.querySelectorAll('.seq-overlay');
       overlayEls.forEach((el, i) => {
         const overlay = overlays[i];
         if (!overlay) return;
 
-        gsap.fromTo(
+        const trigger = gsap.fromTo(
           el,
           { opacity: 0, y: 30 },
           {
@@ -200,42 +135,31 @@ export default function ImageSequenceScroll({
             },
           }
         );
+        overlayTriggers.push(trigger);
       });
     };
 
     setup();
 
-    // Handle resize
-    const handleResize = () => {
-      render();
-    };
-    window.addEventListener('resize', handleResize);
-
     return () => {
-      window.removeEventListener('resize', handleResize);
-      if (tween) tween.kill();
-      if (window.ScrollTrigger) {
-        window.ScrollTrigger.getAll().forEach((t: any) => {
-          if (t.trigger === section || t.trigger === canvas) {
-            t.kill();
-          }
-        });
-      }
+      if (scrollTriggerInstance) scrollTriggerInstance.kill();
+      overlayTriggers.forEach((t: any) => {
+        if (t && t.scrollTrigger) t.scrollTrigger.kill();
+      });
     };
-  }, [frameCount, framePath, scrollDistance, overlays, prefersReducedMotion]);
+  }, [videoSrc, scrollDistance, overlays, prefersReducedMotion]);
 
-  // Reduced motion fallback — show static middle frame
+  // Reduced motion fallback — show poster or paused video at midpoint
   if (prefersReducedMotion) {
-    const midFrame = Math.floor(frameCount / 2);
-    const num = String(midFrame + 1).padStart(4, '0');
-    const staticSrc = framePath.replace('%04d', num);
-
     return (
       <section className="image-sequence-section image-sequence-section--static">
         <div className="image-sequence-container">
-          <img
-            src={staticSrc}
-            alt="Geotextile restoration animation"
+          <video
+            src={videoSrc}
+            muted
+            playsInline
+            preload="metadata"
+            poster={poster}
             style={{ width: '100%', height: '100vh', objectFit: 'cover' }}
           />
           {overlays.map((overlay, i) => (
@@ -254,9 +178,15 @@ export default function ImageSequenceScroll({
         <div className="seq-eyebrow">{eyebrow}</div>
       )}
       <div className="image-sequence-container">
-        <canvas
-          ref={canvasRef}
+        <video
+          ref={videoRef}
+          src={videoSrc}
+          muted
+          playsInline
+          preload="auto"
+          poster={poster}
           className="image-sequence-canvas"
+          style={{ width: '100%', height: '100%', objectFit: 'cover' }}
         />
         {/* Text overlays */}
         {overlays.map((overlay, i) => (
