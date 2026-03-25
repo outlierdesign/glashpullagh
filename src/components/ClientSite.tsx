@@ -13,7 +13,7 @@ import { ImageComparisonSlider } from '@/components/ui/image-comparison-slider';
 import InteractiveMap from '@/components/blocks/interactive-map';
 import { TabbedRestoration } from '@/components/blocks/tabbed-restoration';
 import HoverRevealCards from '@/components/ui/cards';
-import DamGalleryCards from '@/components/ui/dam-gallery-cards';
+import TechBentoCards from '@/components/ui/tech-bento-cards';
 import TopographicBackground from '@/components/ui/topographic-bg';
 
 interface ClientSiteProps {
@@ -750,7 +750,7 @@ export default function ClientSite({ content }: ClientSiteProps) {
               <h2 style={{ fontFamily: 'var(--font-display)', color: 'var(--cream)', fontSize: 'clamp(1.75rem, 4vw, 2.5rem)', margin: '0.5rem 0 1rem' }}>{content.monitoring.title || 'Slowing The Flow Of Water'}</h2>
               <div className="divider-line divider-line-center" />
             </div>
-            <DamGalleryCards items={content.monitoring.items || []} />
+            <TechBentoCards items={content.monitoring.items || []} />
           </div>
         </section>
       )}

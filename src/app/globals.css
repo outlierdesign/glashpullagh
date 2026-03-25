@@ -1275,143 +1275,255 @@ p, li, td { font-family: var(--font-body); font-weight: 300; color: var(--text-s
 }
 
 /* ========================================
-   DAM GALLERY CARDS
+   TECHNIQUES BENTO — Masonry Image-Top Cards
    ======================================== */
-.dam-gallery-grid {
+.tech-bento-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 1.5rem;
-  max-width: 1400px;
-  margin: 0 auto;
+  grid-template-columns: repeat(12, 1fr);
+  grid-auto-rows: auto;
+  gap: 16px;
 }
+.tech-bento-grid .tech-card:nth-child(1) { grid-column: 1 / 6;  }
+.tech-bento-grid .tech-card:nth-child(2) { grid-column: 6 / 9;  }
+.tech-bento-grid .tech-card:nth-child(3) { grid-column: 9 / 13; }
+.tech-bento-grid .tech-card:nth-child(4) { grid-column: 1 / 5;  }
+.tech-bento-grid .tech-card:nth-child(5) { grid-column: 5 / 13; }
 
-.dam-gallery-card {
+.tech-card {
   background: var(--bg-card);
-  border-radius: var(--radius-lg);
   border: 1px solid var(--border-color);
+  border-radius: var(--radius-lg);
   overflow: hidden;
-  transition: border-color 0.35s ease, transform 0.35s ease, box-shadow 0.35s ease;
+  position: relative;
+  cursor: default;
+  transition: border-color 0.55s cubic-bezier(.23,1,.32,1), transform 0.55s cubic-bezier(.23,1,.32,1), box-shadow 0.55s cubic-bezier(.23,1,.32,1);
 }
-.dam-gallery-card:hover {
-  border-color: rgba(59, 78, 52, 0.5);
+.tech-card:hover {
+  border-color: var(--border-hover);
   transform: translateY(-4px);
-  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.35), 0 0 20px rgba(59, 78, 52, 0.15);
+  box-shadow: 0 16px 48px rgba(0,0,0,0.35);
 }
 
-/* Carousel wrapper */
-.dam-carousel-wrapper {
+/* Image at top */
+.tech-card-image {
   position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
   overflow: hidden;
 }
-.dam-carousel {
-  overflow: hidden;
-}
-.dam-carousel-container {
-  display: flex;
-}
-.dam-carousel-slide {
-  flex: 0 0 100%;
-  min-width: 0;
-  position: relative;
-  aspect-ratio: 16 / 10;
-  overflow: hidden;
-}
-.dam-carousel-slide img {
+.tech-card-image img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: transform 0.6s ease;
+  transition: transform 0.65s cubic-bezier(.23,1,.32,1);
 }
-.dam-gallery-card:hover .dam-carousel-slide img {
-  transform: scale(1.03);
+.tech-card:hover .tech-card-image img {
+  transform: scale(1.06);
 }
 
-/* Carousel navigation buttons */
-.dam-carousel-btn {
+/* Gradient overlay on the image area */
+.tech-card-image::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, var(--bg-card) 0%, rgba(14,11,9,0.3) 40%, rgba(14,11,9,0.05) 100%);
+  z-index: 1;
+  pointer-events: none;
+}
+
+/* Multi-colour hover gradient over image */
+.tech-card-image::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  z-index: 2;
+  pointer-events: none;
+  transition: opacity 0.55s cubic-bezier(.23,1,.32,1);
+}
+.tech-card:hover .tech-card-image::before {
+  opacity: 1;
+}
+
+/* Per-card coloured gradients */
+.tech-card--stone .tech-card-image::before {
+  background:
+    radial-gradient(ellipse 80% 70% at 30% 60%, rgba(138,154,170,0.45) 0%, transparent 65%),
+    radial-gradient(ellipse 60% 50% at 80% 30%, rgba(74,138,138,0.3) 0%, transparent 60%),
+    linear-gradient(160deg, rgba(80,90,100,0.4) 0%, transparent 100%);
+}
+.tech-card--coir .tech-card-image::before {
+  background:
+    radial-gradient(ellipse 70% 60% at 50% 70%, rgba(200,169,100,0.4) 0%, transparent 60%),
+    radial-gradient(ellipse 50% 50% at 20% 20%, rgba(160,120,60,0.25) 0%, transparent 60%),
+    linear-gradient(145deg, rgba(120,90,40,0.3) 0%, transparent 100%);
+}
+.tech-card--geo .tech-card-image::before {
+  background:
+    radial-gradient(ellipse 80% 70% at 70% 50%, rgba(122,156,110,0.45) 0%, transparent 60%),
+    radial-gradient(ellipse 50% 50% at 20% 30%, rgba(90,122,82,0.3) 0%, transparent 60%),
+    linear-gradient(170deg, rgba(26,46,28,0.4) 0%, transparent 100%);
+}
+.tech-card--composite .tech-card-image::before {
+  background:
+    radial-gradient(ellipse 80% 70% at 40% 60%, rgba(74,138,138,0.45) 0%, transparent 60%),
+    radial-gradient(ellipse 50% 50% at 80% 20%, rgba(106,172,172,0.25) 0%, transparent 60%),
+    linear-gradient(155deg, rgba(40,80,80,0.35) 0%, transparent 100%);
+}
+.tech-card--timber .tech-card-image::before {
+  background:
+    radial-gradient(ellipse 70% 60% at 60% 50%, rgba(138,126,154,0.35) 0%, transparent 60%),
+    radial-gradient(ellipse 50% 50% at 20% 70%, rgba(200,169,100,0.25) 0%, transparent 60%),
+    linear-gradient(140deg, rgba(138,126,154,0.2) 0%, transparent 100%);
+}
+
+/* Animated shimmer layer over image */
+.tech-card-shimmer {
+  position: absolute;
+  inset: -50%;
+  width: 200%;
+  height: 200%;
+  opacity: 0;
+  z-index: 3;
+  pointer-events: none;
+  transition: opacity 0.55s cubic-bezier(.23,1,.32,1);
+  background:
+    radial-gradient(ellipse 40% 50% at 20% 50%, rgba(74,138,138,0.2) 0%, transparent 70%),
+    radial-gradient(ellipse 35% 45% at 80% 30%, rgba(90,122,82,0.15) 0%, transparent 70%),
+    radial-gradient(ellipse 30% 40% at 50% 80%, rgba(200,169,100,0.1) 0%, transparent 70%);
+  animation: tech-shimmer 8s ease-in-out infinite;
+}
+.tech-card:hover .tech-card-shimmer {
+  opacity: 1;
+}
+@keyframes tech-shimmer {
+  0%, 100% { transform: translate(0,0) rotate(0deg); }
+  25% { transform: translate(5%,-3%) rotate(1deg); }
+  50% { transform: translate(-3%,5%) rotate(-0.5deg); }
+  75% { transform: translate(3%,2%) rotate(0.5deg); }
+}
+
+/* Gallery carousel inside image area */
+.tech-carousel {
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+}
+.tech-carousel-container {
+  display: flex;
+  height: 100%;
+}
+.tech-carousel-slide {
+  flex: 0 0 100%;
+  min-width: 0;
+  height: 100%;
+}
+.tech-carousel-slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.65s cubic-bezier(.23,1,.32,1);
+}
+.tech-card:hover .tech-carousel-slide img {
+  transform: scale(1.06);
+}
+
+/* Carousel nav buttons */
+.tech-carousel-btn {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  width: 32px;
-  height: 32px;
+  width: 30px;
+  height: 30px;
   border-radius: 50%;
   border: none;
-  background: rgba(14, 11, 9, 0.7);
+  background: rgba(14,11,9,0.65);
   color: var(--cream);
   cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
-  z-index: 3;
-  transition: background 0.3s ease, opacity 0.3s ease;
+  z-index: 5;
   opacity: 0;
+  transition: background 0.3s ease, opacity 0.3s ease;
   backdrop-filter: blur(4px);
 }
-.dam-carousel-wrapper:hover .dam-carousel-btn {
-  opacity: 1;
-}
-.dam-carousel-btn:hover {
-  background: rgba(59, 78, 52, 0.85);
-}
-.dam-carousel-prev {
-  left: 0.6rem;
-}
-.dam-carousel-next {
-  right: 0.6rem;
-}
+.tech-card:hover .tech-carousel-btn { opacity: 1; }
+.tech-carousel-btn:hover { background: rgba(59,78,52,0.85); }
+.tech-carousel-prev { left: 0.5rem; }
+.tech-carousel-next { right: 0.5rem; }
 
 /* Dot indicators */
-.dam-carousel-dots {
+.tech-carousel-dots {
   position: absolute;
-  bottom: 0.75rem;
+  bottom: 0.65rem;
   left: 50%;
   transform: translateX(-50%);
   display: flex;
-  gap: 6px;
-  z-index: 3;
+  gap: 5px;
+  z-index: 5;
 }
-.dam-carousel-dot {
-  width: 6px;
-  height: 6px;
+.tech-carousel-dot {
+  width: 5px;
+  height: 5px;
   border-radius: 50%;
   border: none;
-  background: rgba(245, 240, 232, 0.4);
-  cursor: pointer;
   padding: 0;
+  background: rgba(245,240,232,0.35);
+  cursor: pointer;
   transition: all 0.3s ease;
 }
-.dam-carousel-dot.active {
+.tech-carousel-dot.active {
   background: var(--gold);
-  width: 18px;
+  width: 16px;
   border-radius: 3px;
 }
 
-/* Card text content */
-.dam-card-content {
+/* Card text content below image */
+.tech-card-content {
   padding: 1.25rem 1.5rem 1.5rem;
+  position: relative;
+  z-index: 4;
 }
-.dam-card-title {
+.tech-card h3 {
   font-family: var(--font-display);
-  font-size: 1.25rem;
+  font-size: 1.2rem;
   color: var(--cream);
   font-weight: 500;
-  margin-bottom: 0.6rem;
+  margin-bottom: 0.5rem;
   line-height: 1.3;
+  transition: color 0.55s cubic-bezier(.23,1,.32,1);
 }
-.dam-card-description {
+.tech-card:hover h3 { color: #fff; }
+.tech-card p {
   font-family: var(--font-body);
-  font-size: 0.88rem;
-  color: var(--text-secondary);
+  font-size: 0.86rem;
+  color: var(--cream-dim);
   line-height: 1.7;
+  transition: color 0.55s cubic-bezier(.23,1,.32,1);
   display: -webkit-box;
-  -webkit-line-clamp: 5;
+  -webkit-line-clamp: 4;
   -webkit-box-orient: vertical;
   overflow: hidden;
 }
+.tech-card:hover p { color: var(--cream); }
 
-@media (max-width: 700px) {
-  .dam-gallery-grid {
+/* Responsive */
+@media (max-width: 900px) {
+  .tech-bento-grid {
+    grid-template-columns: repeat(6, 1fr);
+  }
+  .tech-bento-grid .tech-card:nth-child(1) { grid-column: 1 / 4; }
+  .tech-bento-grid .tech-card:nth-child(2) { grid-column: 4 / 7; }
+  .tech-bento-grid .tech-card:nth-child(3) { grid-column: 1 / 4; }
+  .tech-bento-grid .tech-card:nth-child(4) { grid-column: 4 / 7; }
+  .tech-bento-grid .tech-card:nth-child(5) { grid-column: 1 / 7; }
+}
+@media (max-width: 600px) {
+  .tech-bento-grid {
     grid-template-columns: 1fr;
   }
+  .tech-bento-grid .tech-card { grid-column: 1 / -1 !important; }
 }
 
 /* ========================================
