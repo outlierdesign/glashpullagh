@@ -1,38 +1,7 @@
 import { Metadata } from 'next';
-import { readFileSync } from 'fs';
-import path from 'path';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
-
-interface BlogPost {
-  slug: string;
-  title: string;
-  date: string;
-  season: string;
-  excerpt: string;
-  body: string[];
-  image: string;
-  tags: string[];
-  video?: {
-    src: string;
-    title: string;
-    poster?: string;
-    type?: 'native' | 'iframe';
-  };
-}
-
-function loadPosts(): BlogPost[] {
-  const filePath = path.join(process.cwd(), 'src', 'data', 'blog-posts.json');
-  return JSON.parse(readFileSync(filePath, 'utf-8'));
-}
-
-function formatDate(dateStr: string): string {
-  return new Date(dateStr).toLocaleDateString('en-IE', {
-    day: 'numeric',
-    month: 'long',
-    year: 'numeric',
-  });
-}
+import { loadPosts, loadPost, formatDate } from '@/lib/blog';
 
 export async function generateStaticParams() {
   const posts = loadPosts();

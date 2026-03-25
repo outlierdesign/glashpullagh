@@ -1,0 +1,26 @@
+{
+  "slug": "thermal-survey-a-birds-eye-view",
+  "title": "Thermal Survey: A Bird’s Eye View",
+  "date": "2026-03-24",
+  "season": "Spring",
+  "excerpt": "Using our M300 drone, a thermal survey of the Glashapullagh site was flown. The drone is equipped with a thermal camera that can detect the body heat from birds and mammals, revealing hidden wildlife across the bog.",
+  "body": [
+    "Using our M300 drone, a thermal survey of the Glashapullagh site was flown. The drone is equipped with a thermal camera that can detect the body heat from birds and mammals. Flights take place early in the morning when the ground is at its coolest and the temperature difference between the bog surface and a bird or mammal is at its greatest.",
+    "Warm blooded animals show up as a bright spot against the purple background. Once a heat signature is located, the operator stops the drone and hovers in place, then changes over to an RGB (Red, Green, Blue — normal vision to me and you) camera. This camera can magnify the image up to 200 times, allowing the operator to identify the heat signature.",
+    "The short film here shows what the drone operator can see on their controller. In this case a number of Snipe, Reed Buntings and a Pheasant were detected. The Snipe are probably migratory wintering birds. The team will use in situ acoustic monitoring and trail cameras through the Spring to determine if Snipe are present during the breeding season.",
+    "Note: The drone flies at 130m above the ground, so the disturbance to birds is minimal. This technique is used by the Breeding Waders Project for detecting Curlew nests."
+  ],
+  "image": "/images/site/hero-bg.jpg",
+  "tags": [
+    "wildlife",
+    "drone",
+    "survey",
+    "spring"
+  ],
+  "video": {
+    "src": "https://henharrierprogram.euvideocdn.com/videos/69c2accff66e54ec11ecf0d2/1/video/mp4/video-720p.mp4",
+    "poster": "https://henharrierprogram.euvideocdn.com/thumbnails/69c2accff66e54ec11ecf0d2/custom/5cid3423-1080p.jpg",
+    "title": "Glashapullagh Thermal Bird Survey",
+    "type": "native"
+  }
+}

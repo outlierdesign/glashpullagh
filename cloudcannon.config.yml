@@ -1,0 +1,415 @@
+# CloudCannon configuration for Glashapullagh peatland restoration site
+# Edits commit to GitHub → Vercel auto-deploys
+
+# ---------------------------------------------------------------------------
+# Paths
+# ---------------------------------------------------------------------------
+source: ''
+paths:
+  uploads: public/images/site
+  dam_uploads: public/images/site
+
+# ---------------------------------------------------------------------------
+# Collection groups (sidebar navigation)
+# ---------------------------------------------------------------------------
+collection_groups:
+  - heading: Content
+    collections:
+      - blog
+      - homepage
+      - restoration_actions
+  - heading: Settings
+    collections:
+      - site_settings
+
+# ---------------------------------------------------------------------------
+# Collections
+# ---------------------------------------------------------------------------
+collections_config:
+
+  # --- Blog posts (individual JSON files) ---
+  blog:
+    path: src/data/blog
+    name: Blog Posts
+    icon: article
+    output: false
+    glob:
+      - '**/*.json'
+    sort:
+      key: date
+      order: desc
+    create:
+      path: '{slug}.json'
+    _enabled_editors:
+      - data
+    _inputs:
+      slug:
+        type: text
+        label: URL Slug
+        comment: 'Used in the URL: /blog/{slug}'
+      title:
+        type: text
+        label: Title
+      date:
+        type: date
+        label: Publish Date
+      season:
+        type: select
+        label: Season
+        options:
+          values:
+            - Spring
+            - Summer
+            - Autumn
+            - Winter
+      excerpt:
+        type: textarea
+        label: Excerpt
+        comment: Short summary shown on the blog listing page
+      body:
+        type: array
+        label: Body Paragraphs
+        comment: Each item is a paragraph of the blog post
+      image:
+        type: image
+        label: Hero Image
+        comment: Main image shown at top of post and on blog listing
+      tags:
+        type: multiselect
+        label: Tags
+        options:
+          allow_create: true
+          values:
+            - wildlife
+            - drone
+            - survey
+            - spring
+            - recovery
+            - dams
+            - hydrology
+            - winter
+            - restoration
+            - community
+            - monitoring
+            - sphagnum
+            - peat
+      video:
+        type: object
+        label: Video (optional)
+        comment: Embedded video player shown in the blog post
+        options:
+          allow_empty: true
+    _structures:
+      video:
+        values:
+          - label: Native MP4 Video
+            value:
+              src: ''
+              poster: ''
+              title: ''
+              type: native
+          - label: Iframe Embed (Vimeo etc)
+            value:
+              src: ''
+              title: ''
+              type: iframe
+    schemas:
+      default:
+        path: .cloudcannon/schemas/blog-post.json
+
+  # --- Homepage content (single data file) ---
+  homepage:
+    path: src/data
+    name: Homepage
+    icon: home
+    output: false
+    glob:
+      - content.json
+    disable_add: true
+    disable_add_folder: true
+    _enabled_editors:
+      - data
+
+  # --- Restoration actions (single data file) ---
+  restoration_actions:
+    path: src/data
+    name: Restoration Actions
+    icon: construction
+    output: false
+    glob:
+      - restoration-actions.json
+    disable_add: true
+    disable_add_folder: true
+    _enabled_editors:
+      - data
+
+  # --- Site settings ---
+  site_settings:
+    path: src/data
+    name: Site Settings
+    icon: settings
+    output: false
+    glob:
+      - settings.json
+    disable_add: true
+    disable_add_folder: true
+    _enabled_editors:
+      - data
+
+# ---------------------------------------------------------------------------
+# Global input configuration
+# ---------------------------------------------------------------------------
+_inputs:
+
+  # Image fields
+  image:
+    type: image
+    options:
+      paths:
+        uploads: public/images/site
+  beforeImage:
+    type: image
+  afterImage:
+    type: image
+  bgImage:
+    type: image
+  thumbnail:
+    type: image
+  src:
+    type: image
+  poster:
+    type: image
+
+  # URL fields
+  url:
+    type: url
+  videoUrl:
+    type: url
+    label: Video URL
+  vimeoUrl:
+    type: url
+    label: Vimeo URL
+
+  # Text fields
+  title:
+    type: text
+  label:
+    type: text
+  subtitle:
+    type: text
+  heading:
+    type: text
+  copyright:
+    type: text
+
+  # Textarea fields
+  description:
+    type: textarea
+  excerpt:
+    type: textarea
+  text:
+    type: textarea
+  paragraph1:
+    type: textarea
+    label: Paragraph 1
+  paragraph2:
+    type: textarea
+    label: Paragraph 2
+  paragraph3:
+    type: textarea
+    label: Paragraph 3
+  ctaText:
+    type: text
+    label: CTA Button Text
+
+  # Array fields
+  paragraphs:
+    type: array
+    label: Paragraphs
+  body:
+    type: array
+    label: Body Paragraphs
+  tags:
+    type: multiselect
+    options:
+      allow_create: true
+      values:
+        - wildlife
+        - drone
+        - survey
+        - spring
+        - summer
+        - autumn
+        - winter
+        - recovery
+        - dams
+        - hydrology
+        - restoration
+        - community
+        - monitoring
+        - sphagnum
+        - peat
+
+  # Gallery fields
+  gallery:
+    type: array
+    label: Gallery Images
+    comment: Upload or select images for the gallery
+
+  # Value/label stat pairs
+  value:
+    type: text
+    label: Statistic Value
+    comment: 'e.g. >140, 800m, 7'
+
+  # Select fields
+  season:
+    type: select
+    options:
+      values:
+        - Spring
+        - Summer
+        - Autumn
+        - Winter
+
+  # Alt text
+  alt:
+    type: text
+    label: Alt Text
+    comment: Describe the image for accessibility
+
+# ---------------------------------------------------------------------------
+# Structures (reusable component templates)
+# ---------------------------------------------------------------------------
+_structures:
+
+  # Bento objective items
+  bento_items:
+    values:
+      - label: Objective Card
+        icon: dashboard
+        value:
+          title: ''
+          description: ''
+          image: ''
+
+  # Stats items
+  stat_items:
+    values:
+      - label: Statistic
+        icon: bar_chart
+        value:
+          value: ''
+          label: ''
+
+  # Gallery items
+  gallery_items:
+    values:
+      - label: Gallery Image
+        icon: image
+        value:
+          title: ''
+          image: ''
+
+  # Video items
+  video_items:
+    values:
+      - label: Video
+        icon: videocam
+        value:
+          title: ''
+          description: ''
+          thumbnail: ''
+          url: ''
+
+  # Monitoring technique items
+  monitoring_items:
+    values:
+      - label: Dam Technique
+        icon: water_drop
+        value:
+          title: ''
+          description: ''
+          image: ''
+          gallery: []
+
+  # Restoration items
+  restoration_items:
+    values:
+      - label: Restoration Work
+        icon: eco
+        value:
+          title: ''
+          description: ''
+          image: ''
+
+  # Footer sections
+  footer_sections:
+    values:
+      - label: Footer Section
+        icon: menu
+        value:
+          title: ''
+          links: []
+
+  # Footer links
+  footer_links:
+    values:
+      - label: Link
+        icon: link
+        value:
+          text: ''
+          url: ''
+
+  # Why Larch images
+  whylarch_images:
+    values:
+      - label: Image
+        icon: image
+        value:
+          src: ''
+          alt: ''
+
+  # Parallax breaks
+  parallax_breaks:
+    values:
+      - label: Parallax Break
+        icon: landscape
+        value:
+          title: ''
+          text: ''
+
+  # Blog video options
+  blog_video:
+    values:
+      - label: Native MP4 Video
+        value:
+          src: ''
+          poster: ''
+          title: ''
+          type: native
+      - label: Iframe Embed (Vimeo etc)
+        value:
+          src: ''
+          title: ''
+          type: iframe
+
+  # Restoration action
+  restoration_action:
+    values:
+      - label: Restoration Action
+        icon: construction
+        value:
+          slug: ''
+          title: ''
+          subtitle: ''
+          description: ''
+          vimeoUrl: ''
+
+# ---------------------------------------------------------------------------
+# Editor configuration
+# ---------------------------------------------------------------------------
+_editables: {}
+
+# Timezone
+timezone: Europe/Dublin
