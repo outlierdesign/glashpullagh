@@ -8,6 +8,7 @@ import { HoverRevealGrid } from '@/components/blocks/hover-reveal-grid';
 import ScrollExpandMedia from '@/components/blocks/scroll-expansion-hero';
 import { PartnersSection } from '@/components/blocks/partners-section';
 import { BentoGallery } from '@/components/blocks/bento-gallery';
+import ImageSequenceScroll from '@/components/blocks/image-sequence-scroll';
 import { ZoomParallax } from '@/components/ui/zoom-parallax';
 import { ImageComparisonSlider } from '@/components/ui/image-comparison-slider';
 import InteractiveMap from '@/components/blocks/interactive-map';
@@ -856,6 +857,28 @@ export default function ClientSite({ content }: ClientSiteProps) {
       <div style={{ background: 'var(--bg-dark)' }}>
         <HoverRevealGrid />
       </div>
+
+      {/* SECTION: SCROLL-DRIVEN IMAGE SEQUENCE — Geotextile Animation */}
+      <ImageSequenceScroll
+        frameCount={96}
+        framePath="/sequence/frame_%04d.jpg"
+        scrollDistance={4}
+        eyebrow="Geotextile Restoration"
+        overlays={[
+          {
+            text: 'It Has Begun.',
+            startAt: 0.15,
+            endAt: 0.45,
+            className: 'seq-overlay--center',
+          },
+          {
+            text: 'Protecting bare peat with geotextile fabric — stabilising the surface and encouraging natural regrowth.',
+            startAt: 0.55,
+            endAt: 0.85,
+            className: 'seq-overlay--subtitle',
+          },
+        ]}
+      />
 
       {/* SECTION: BENTO GALLERY */}
       <BentoGallery
