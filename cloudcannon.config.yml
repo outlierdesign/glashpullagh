@@ -266,11 +266,13 @@ _inputs:
         - sphagnum
         - peat
 
-  # Gallery fields
+  # Gallery fields (inside technique/monitoring cards — array of image paths)
   gallery:
     type: array
     label: Gallery Images
     comment: Upload or select images for the gallery
+    options:
+      structures: _structures.gallery_image_paths
 
   # Value/label stat pairs
   value:
@@ -341,6 +343,14 @@ _structures:
           src: ''
           alt: ''
           caption: ''
+
+  # Gallery image paths (simple strings used in technique card galleries)
+  gallery_image_paths:
+    values:
+      - label: Gallery Image
+        icon: image
+        type: image
+        value: ''
 
   # Video items
   video_items:
