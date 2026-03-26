@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useLayoutEffect, useRef, useState } from 'react';
 import { Gallery4 } from '@/components/blocks/gallery4';
 // PhotoBentoGallery removed — replaced by scroll sequence
 import ElegantCarousel from '@/components/ui/elegant-carousel';
@@ -58,6 +58,7 @@ export default function ClientSite({ content }: ClientSiteProps) {
     title: string; description: string; image: string; gallery?: string[]; icon?: React.ReactNode; variant?: string;
   } | null>(null);
   const lenis = useRef<LenisType | null>(null);
+  const waterRippleRafId = useRef<number | null>(null);
 
   // Water ripple effect for hero canvas
   const initWaterRipple = () => {
@@ -206,7 +207,7 @@ export default function ClientSite({ content }: ClientSiteProps) {
     const timeUniform = gl.getUniformLocation(program, 'uTime');
     const resolutionUniform = gl.getUniformLocation(program, 'uResolution');
 
-    // Animation loop
+    // Animation loop (tracked via ref for cleanup)
     let startTime = Date.now();
     const animate = () => {
       const elapsed = (Date.now() - startTime) / 1000;
@@ -217,10 +218,10 @@ export default function ClientSite({ content }: ClientSiteProps) {
       gl!.clear(gl!.COLOR_BUFFER_BIT);
       gl!.drawArrays(gl!.TRIANGLE_STRIP, 0, 4);
 
-      requestAnimationFrame(animate);
+      waterRippleRafId.current = requestAnimationFrame(animate);
     };
 
-    animate();
+    waterRippleRafId.current = requestAnimationFrame(animate);
   };
 
   // GSAP animations initialization
@@ -389,6 +390,32 @@ export default function ClientSite({ content }: ClientSiteProps) {
     lenisRafId.current = requestAnimationFrame(raf);
   };
 
+  // ──────────────────────────────────────────────────────────
+  // useLayoutEffect: SYNCHRONOUS cleanup that runs BEFORE React
+  // tries removeChild during unmount.  This is critical because
+  // ScrollTrigger pin: true reparents DOM elements into a
+  // "pin-spacer" wrapper.  If we don't revert that before React
+  // walks the tree, removeChild fails on the moved nodes.
+  // ──────────────────────────────────────────────────────────
+  useLayoutEffect(() => {
+    return () => {
+      // 1. Revert ALL ScrollTrigger instances — this removes pin-spacers
+      //    and restores the original DOM tree so React can unmount cleanly.
+      if (window.ScrollTrigger) {
+        window.ScrollTrigger.getAll().forEach((st: any) => {
+          try { st.revert(); } catch (_) { /* already reverted */ }
+        });
+      }
+      // 2. Kill all active GSAP tweens (restores inline styles)
+      if (window.gsap) {
+        window.gsap.killTweensOf('*');
+      }
+    };
+  }, []);
+
+  // ──────────────────────────────────────────────────────────
+  // useEffect: async setup + non-DOM cleanup (Lenis, rAF loops)
+  // ──────────────────────────────────────────────────────────
   useEffect(() => {
     let cancelled = false;
 
@@ -410,16 +437,17 @@ export default function ClientSite({ content }: ClientSiteProps) {
 
     init();
 
-    // Cleanup: kill GSAP ScrollTriggers, stop Lenis, cancel rAF loop
+    // Non-DOM cleanup (safe to run late in passive effects phase)
     return () => {
       cancelled = true;
 
-      // Kill all GSAP ScrollTrigger instances created by this component
-      if (window.ScrollTrigger) {
-        window.ScrollTrigger.getAll().forEach((st: any) => st.kill());
+      // Cancel WebGL water-ripple rAF loop
+      if (waterRippleRafId.current) {
+        cancelAnimationFrame(waterRippleRafId.current);
+        waterRippleRafId.current = null;
       }
 
-      // Destroy Lenis and cancel its rAF loop
+      // Cancel Lenis rAF loop and destroy instance
       if (lenisRafId.current) {
         cancelAnimationFrame(lenisRafId.current);
         lenisRafId.current = null;

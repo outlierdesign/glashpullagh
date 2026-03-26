@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useLayoutEffect, useRef, useState } from 'react';
 
 /* ─────────────────────────────────────────────────────────────
  * ImageSequenceScroll  (video-seek implementation)
@@ -43,6 +43,8 @@ export default function ImageSequenceScroll({
 }: ImageSequenceScrollProps) {
   const sectionRef = useRef<HTMLDivElement>(null);
   const videoRef = useRef<HTMLVideoElement>(null);
+  const scrollTriggerRef = useRef<any>(null);
+  const overlayTriggersRef = useRef<any[]>([]);
   const [prefersReducedMotion, setPrefersReducedMotion] = useState(false);
 
   useEffect(() => {
@@ -74,9 +76,6 @@ export default function ImageSequenceScroll({
       });
     };
 
-    let scrollTriggerInstance: any = null;
-    let overlayTriggers: any[] = [];
-
     const setup = async () => {
       await waitForGsap();
 
@@ -96,7 +95,7 @@ export default function ImageSequenceScroll({
       const duration = video.duration;
 
       // Pin section and scrub video on scroll
-      scrollTriggerInstance = ScrollTrigger.create({
+      scrollTriggerRef.current = ScrollTrigger.create({
         trigger: section,
         start: 'top top',
         end: `+=${window.innerHeight * scrollDistance}`,
@@ -114,6 +113,7 @@ export default function ImageSequenceScroll({
       });
 
       // Animate text overlays
+      const localOverlayTriggers: any[] = [];
       const overlayEls = section.querySelectorAll('.seq-overlay');
       overlayEls.forEach((el, i) => {
         const overlay = overlays[i];
@@ -135,19 +135,34 @@ export default function ImageSequenceScroll({
             },
           }
         );
-        overlayTriggers.push(trigger);
+        localOverlayTriggers.push(trigger);
       });
+      overlayTriggersRef.current = localOverlayTriggers;
     };
 
     setup();
-
-    return () => {
-      if (scrollTriggerInstance) scrollTriggerInstance.kill();
-      overlayTriggers.forEach((t: any) => {
-        if (t && t.scrollTrigger) t.scrollTrigger.kill();
-      });
-    };
   }, [videoSrc, scrollDistance, overlays, prefersReducedMotion]);
+
+  // ── Synchronous cleanup via useLayoutEffect ──────────────
+  // ScrollTrigger pin: true reparents the section into a
+  // "pin-spacer" div.  We MUST revert that before React tries
+  // removeChild, otherwise the node is no longer where React
+  // expects it → "NotFoundError: removeChild".
+  // useLayoutEffect cleanup fires synchronously during the
+  // commit phase, before React mutates the DOM.
+  // ─────────────────────────────────────────────────────────
+  useLayoutEffect(() => {
+    return () => {
+      if (scrollTriggerRef.current) {
+        try { scrollTriggerRef.current.revert(); } catch (_) {}
+        scrollTriggerRef.current = null;
+      }
+      overlayTriggersRef.current.forEach((t: any) => {
+        try { if (t?.scrollTrigger) t.scrollTrigger.revert(); } catch (_) {}
+      });
+      overlayTriggersRef.current = [];
+    };
+  }, []);
 
   // Reduced motion fallback — show poster or paused video at midpoint
   if (prefersReducedMotion) {

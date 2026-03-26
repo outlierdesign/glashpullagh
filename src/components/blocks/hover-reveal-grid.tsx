@@ -1,6 +1,5 @@
 "use client"
 
-import Link from "next/link"
 import {
   CardHoverReveal,
   CardHoverRevealMain,
@@ -37,7 +36,7 @@ export function HoverRevealGrid({
     <section className="py-20 px-4 md:px-8 lg:px-16">
       <div className="max-w-7xl mx-auto">
         <div className="mb-12 text-center">
-          <Link href="/blog">
+          <a href="/blog">
             <h2
               className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4 transition-colors duration-300 hover:opacity-80"
               style={{
@@ -47,7 +46,7 @@ export function HoverRevealGrid({
             >
               {sectionTitle}
             </h2>
-          </Link>
+          </a>
           <p
             className="max-w-2xl mx-auto text-base md:text-lg"
             style={{
@@ -61,7 +60,7 @@ export function HoverRevealGrid({
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {posts.map((post) => (
-            <Link
+            <a
               key={post.slug}
               href={`/blog/${post.slug}`}
               className="block"
@@ -145,7 +144,7 @@ export function HoverRevealGrid({
                   </div>
                 </CardHoverRevealContent>
               </CardHoverReveal>
-            </Link>
+            </a>
           ))}
         </div>
       </div>
