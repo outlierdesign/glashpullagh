@@ -372,27 +372,33 @@ export default function ClientSite({ content }: ClientSiteProps) {
   };
 
   // Lenis smooth scroll initialization
-  const initLenis = async () => {
+  const lenisRafId = useRef<number | null>(null);
+
+  const initLenis = () => {
     if (!window.Lenis) return;
 
     const Lenis = window.Lenis;
-    const lenis = new Lenis();
+    const lenisInstance = new Lenis();
+    lenis.current = lenisInstance;
 
     const raf = (time: number) => {
-      lenis.raf(time);
-      requestAnimationFrame(raf);
+      lenisInstance.raf(time);
+      lenisRafId.current = requestAnimationFrame(raf);
     };
 
-    requestAnimationFrame(raf);
-    lenis.ref = lenis;
+    lenisRafId.current = requestAnimationFrame(raf);
   };
 
   useEffect(() => {
+    let cancelled = false;
+
     const init = async () => {
       try {
         await loadScript('https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js');
         await loadScript('https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js');
         await loadScript('https://unpkg.com/lenis@1.1.13/dist/lenis.min.js');
+
+        if (cancelled) return; // component unmounted while scripts were loading
 
         initWaterRipple();
         initAnimations();
@@ -403,6 +409,26 @@ export default function ClientSite({ content }: ClientSiteProps) {
     };
 
     init();
+
+    // Cleanup: kill GSAP ScrollTriggers, stop Lenis, cancel rAF loop
+    return () => {
+      cancelled = true;
+
+      // Kill all GSAP ScrollTrigger instances created by this component
+      if (window.ScrollTrigger) {
+        window.ScrollTrigger.getAll().forEach((st: any) => st.kill());
+      }
+
+      // Destroy Lenis and cancel its rAF loop
+      if (lenisRafId.current) {
+        cancelAnimationFrame(lenisRafId.current);
+        lenisRafId.current = null;
+      }
+      if (lenis.current) {
+        lenis.current.destroy();
+        lenis.current = null;
+      }
+    };
   }, []);
 
   const openLightbox = (src: string) => {
