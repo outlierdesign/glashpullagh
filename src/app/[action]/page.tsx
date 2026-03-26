@@ -18,23 +18,8 @@ export async function generateStaticParams() {
 }
 
 export async function generateMetadata({ params }: { params: { action: string } }) {
-  // Try Storyblok
-  const story = await fetchStory(`restoration-actions/${params.action}`);
-  if (story?.content) {
-    const action = transformRestorationAction(story);
-    if (action) {
-      return {
-        title: action.title + ' — Peatland Restoration',
-        description: action.description.slice(0, 160),
-        openGraph: {
-          title: action.title + ' — Glashapullagh Peatland Restoration',
-          description: action.description.slice(0, 160),
-        },
-        alternates: { canonical: `https://glashapullagh.ie/${params.action}/` },
-      };
-    }
-  }
-  // Fallback to local JSON
+  // Use local JSON as the source of truth
+  // Storyblok CMS is out of sync — bypass until it is updated
   const action = localActions.find((a: any) => a.slug === params.action);
   if (!action) return {};
   return {
@@ -49,18 +34,9 @@ export async function generateMetadata({ params }: { params: { action: string } 
 }
 
 export default async function RestorationActionPage({ params }: { params: { action: string } }) {
-  let action: any = null;
-
-  // Try Storyblok first
-  const story = await fetchStory(`restoration-actions/${params.action}`);
-  if (story?.content) {
-    action = transformRestorationAction(story);
-  }
-
-  // Fallback to local JSON
-  if (!action) {
-    action = localActions.find((a: any) => a.slug === params.action);
-  }
+  // Use local JSON as the source of truth
+  // Storyblok CMS is out of sync — bypass until it is updated
+  const action = localActions.find((a: any) => a.slug === params.action) || null;
 
   if (!action) notFound();
 
