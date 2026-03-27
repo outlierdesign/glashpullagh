@@ -9,6 +9,7 @@ export interface BlogPost {
   excerpt: string;
   body: string[];
   image: string;
+  thumbnail?: string;
   tags: string[];
   video?: {
     src: string;

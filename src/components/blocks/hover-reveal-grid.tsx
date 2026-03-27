@@ -14,6 +14,7 @@ interface BlogPost {
   season: string
   excerpt: string
   image: string
+  thumbnail?: string
   tags: string[]
 }
 
@@ -73,7 +74,7 @@ export function HoverRevealGrid({
                     width={1280}
                     height={720}
                     alt={post.title}
-                    src={post.image}
+                    src={post.thumbnail || post.image}
                     className="inline-block size-full max-h-full max-w-full object-cover align-middle"
                   />
                 </CardHoverRevealMain>

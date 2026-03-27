@@ -97,7 +97,7 @@ export default function BlogPage() {
                 <div style={{
                   position: 'absolute',
                   inset: 0,
-                  backgroundImage: `url(${post.image})`,
+                  backgroundImage: `url(${post.thumbnail || post.image})`,
                   backgroundSize: 'cover',
                   backgroundPosition: 'center',
                   transition: 'transform 0.5s ease',
