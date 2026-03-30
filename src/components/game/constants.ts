@@ -50,11 +50,12 @@ export const DEFAULT_SIM_PARAMS: SimulationParams = {
 
 // Colors from site's CSS design tokens
 export const COLORS = {
-  terrainDeep: '#0E0B09',
-  terrainLow: '#1A1511',
-  terrainMid: '#252019',
-  terrainHigh: '#3B4E34',
-  channel: '#0A0806',
+  terrainDeep: '#12100C',
+  terrainLow: '#2A2218',
+  terrainMid: '#3D3528',
+  terrainHigh: '#4A5E3A',
+  terrainPeak: '#5A7A42',
+  channel: '#080604',
   barePeat: '#1E1914',
 
   waterShallow: [74, 138, 138, 0.25] as [number, number, number, number],
@@ -67,7 +68,7 @@ export const COLORS = {
   peatDam: '#6B6040',
   sphagnumPlug: '#4A6340',
 
-  contour: 'rgba(200,169,100,0.06)',
+  contour: 'rgba(200,169,100,0.1)',
 
   hoverValid: 'rgba(90,122,82,0.4)',
   hoverInvalid: 'rgba(180,60,60,0.4)',

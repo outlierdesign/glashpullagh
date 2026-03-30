@@ -170,6 +170,15 @@ export function PeatlandGame() {
   const [hoverCell, setHoverCell] = useState<{ row: number; col: number } | null>(null);
   const [canvasScale, setCanvasScale] = useState(1);
 
+  // Hide site nav on mount, restore on unmount
+  useEffect(() => {
+    const nav = document.querySelector('nav');
+    if (nav) {
+      nav.style.display = 'none';
+      return () => { nav.style.display = ''; };
+    }
+  }, []);
+
   // Generate terrain cache when grid terrain changes (round transitions grow vegetation)
   useEffect(() => {
     terrainCacheRef.current = renderTerrainCache(state.grid);

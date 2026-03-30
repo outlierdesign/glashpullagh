@@ -37,12 +37,19 @@ export function renderTerrainCache(grid: Cell[][]): HTMLCanvasElement {
       let color: string;
       if (cell.isChannel) {
         color = COLORS.channel;
-      } else if (cell.elevation < 0.35) {
-        color = lerpColor(COLORS.terrainDeep, COLORS.terrainLow, cell.elevation / 0.35);
-      } else if (cell.elevation < 0.6) {
-        color = lerpColor(COLORS.terrainLow, COLORS.terrainMid, (cell.elevation - 0.35) / 0.25);
+      } else if (cell.elevation < 0.25) {
+        color = lerpColor(COLORS.terrainDeep, COLORS.terrainLow, cell.elevation / 0.25);
+      } else if (cell.elevation < 0.45) {
+        color = lerpColor(COLORS.terrainLow, COLORS.terrainMid, (cell.elevation - 0.25) / 0.2);
+      } else if (cell.elevation < 0.65) {
+        color = lerpColor(COLORS.terrainMid, COLORS.terrainHigh, (cell.elevation - 0.45) / 0.2);
       } else {
-        color = lerpColor(COLORS.terrainMid, COLORS.terrainHigh, (cell.elevation - 0.6) / 0.4);
+        color = lerpColor(COLORS.terrainHigh, COLORS.terrainPeak, (cell.elevation - 0.65) / 0.35);
+      }
+
+      // Bare peat tint near channels
+      if (cell.soilType === SoilType.BarePeat && !cell.isChannel) {
+        color = lerpColor(color, COLORS.barePeat, 0.5);
       }
 
       ctx.fillStyle = color;
