@@ -18,5 +18,10 @@
     "drone",
     "survey",
     "spring"
-  ]
+  ],
+  "video": {
+    "src": "https://henharrierprogram.euvideocdn.com/player/index.html?id=69c2accff66e54ec11ecf0d2",
+    "title": "Glashapullagh Thermal Bird Survey",
+    "type": "iframe"
+  }
 }
