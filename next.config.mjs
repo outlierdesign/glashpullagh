@@ -39,7 +39,7 @@ const nextConfig = {
               "img-src 'self' data: blob: https: http:",
               "font-src 'self' https://fonts.gstatic.com",
               "connect-src 'self' https://*.supabase.co https://api.storyblok.com https://app.storyblok.com https://player.vimeo.com https://point-and-place-ar.vercel.app https://henharrierprogram.euvideocdn.com",
-              "frame-src 'self' https://player.vimeo.com https://point-and-place-ar.vercel.app",
+              "frame-src 'self' https://player.vimeo.com https://point-and-place-ar.vercel.app https://henharrierprogram.euvideocdn.com",
               "media-src 'self' https: blob:",
               "worker-src 'self' blob:",
               "object-src 'none'",
