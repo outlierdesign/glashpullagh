@@ -2,6 +2,7 @@ import { Metadata } from 'next';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { loadPosts, loadPost, formatDate } from '@/lib/blog';
+import { GalleryLightbox } from '@/components/ui/gallery-lightbox';
 
 export async function generateStaticParams() {
   const posts = loadPosts();
@@ -247,48 +248,9 @@ export default function BlogPostPage({ params }: { params: { slug: string } }) {
                 color: 'var(--gold)',
               }}>Gallery</span>
             </div>
-            <div style={{
-              display: 'grid',
-              gridTemplateColumns: 'repeat(auto-fill, minmax(200px, 1fr))',
-              gap: '0.75rem',
-            }}>
-              {post.gallery.map((img, idx) => (
-                <div key={idx} style={{
-                  position: 'relative',
-                  borderRadius: '8px',
-                  overflow: 'hidden',
-                  aspectRatio: '4/3',
-                  border: '1px solid rgba(184,134,74,0.12)',
-                }}>
-                  <img
-                    src={img.src}
-                    alt={img.alt || ''}
-                    loading="lazy"
-                    style={{
-                      width: '100%',
-                      height: '100%',
-                      objectFit: 'cover',
-                    }}
-                  />
-                  {img.caption && (
-                    <div style={{
-                      position: 'absolute',
-                      bottom: 0,
-                      left: 0,
-                      right: 0,
-                      padding: '0.5rem 0.75rem',
-                      background: 'linear-gradient(transparent, rgba(0,0,0,0.7))',
-                      fontFamily: 'var(--font-ui)',
-                      fontSize: '0.7rem',
-                      color: 'var(--cream-dim)',
-                    }}>{img.caption}</div>
-                  )}
-                </div>
-              ))}
-            </div>
+            <GalleryLightbox images={post.gallery} />
           </div>
         )}
-
         {/* Additional Videos */}
         {post.videos && post.videos.length > 0 && (
           <div style={{
