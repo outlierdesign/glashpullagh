@@ -17,6 +17,27 @@ export interface BlogPost {
     poster?: string;
     type?: 'native' | 'iframe';
   };
+  gallery?: {
+    src: string;
+    alt?: string;
+    caption?: string;
+  }[];
+  videos?: {
+    src: string;
+    title: string;
+    type?: 'native' | 'iframe';
+    poster?: string;
+  }[];
+  links?: {
+    text: string;
+    url: string;
+    description?: string;
+  }[];
+  audio?: {
+    src: string;
+    title: string;
+    description?: string;
+  }[];
 }
 
 const BLOG_DIR = path.join(process.cwd(), 'src', 'data', 'blog');
