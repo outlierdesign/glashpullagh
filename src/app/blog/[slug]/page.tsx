@@ -220,6 +220,272 @@ export default function BlogPostPage({ params }: { params: { slug: string } }) {
           );
         })}
 
+        {/* Gallery */}
+        {post.gallery && post.gallery.length > 0 && (
+          <div style={{
+            marginTop: '2.5rem',
+            paddingTop: '2rem',
+            borderTop: '1px solid rgba(184,134,74,0.15)',
+          }}>
+            <div style={{
+              display: 'flex',
+              alignItems: 'center',
+              gap: '0.6rem',
+              marginBottom: '1.25rem',
+            }}>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <rect x="3" y="3" width="18" height="18" rx="2" ry="2" />
+                <circle cx="8.5" cy="8.5" r="1.5" />
+                <polyline points="21 15 16 10 5 21" />
+              </svg>
+              <span style={{
+                fontFamily: 'var(--font-ui)',
+                fontSize: '0.7rem',
+                fontWeight: 600,
+                letterSpacing: '0.12em',
+                textTransform: 'uppercase',
+                color: 'var(--gold)',
+              }}>Gallery</span>
+            </div>
+            <div style={{
+              display: 'grid',
+              gridTemplateColumns: 'repeat(auto-fill, minmax(200px, 1fr))',
+              gap: '0.75rem',
+            }}>
+              {post.gallery.map((img, idx) => (
+                <div key={idx} style={{
+                  position: 'relative',
+                  borderRadius: '8px',
+                  overflow: 'hidden',
+                  aspectRatio: '4/3',
+                  border: '1px solid rgba(184,134,74,0.12)',
+                }}>
+                  <img
+                    src={img.src}
+                    alt={img.alt || ''}
+                    loading="lazy"
+                    style={{
+                      width: '100%',
+                      height: '100%',
+                      objectFit: 'cover',
+                    }}
+                  />
+                  {img.caption && (
+                    <div style={{
+                      position: 'absolute',
+                      bottom: 0,
+                      left: 0,
+                      right: 0,
+                      padding: '0.5rem 0.75rem',
+                      background: 'linear-gradient(transparent, rgba(0,0,0,0.7))',
+                      fontFamily: 'var(--font-ui)',
+                      fontSize: '0.7rem',
+                      color: 'var(--cream-dim)',
+                    }}>{img.caption}</div>
+                  )}
+                </div>
+              ))}
+            </div>
+          </div>
+        )}
+
+        {/* Additional Videos */}
+        {post.videos && post.videos.length > 0 && (
+          <div style={{
+            marginTop: '2.5rem',
+            paddingTop: '2rem',
+            borderTop: '1px solid rgba(184,134,74,0.15)',
+          }}>
+            <div style={{
+              display: 'flex',
+              alignItems: 'center',
+              gap: '0.6rem',
+              marginBottom: '1.25rem',
+            }}>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <polygon points="23 7 16 12 23 17 23 7" />
+                <rect x="1" y="5" width="15" height="14" rx="2" ry="2" />
+              </svg>
+              <span style={{
+                fontFamily: 'var(--font-ui)',
+                fontSize: '0.7rem',
+                fontWeight: 600,
+                letterSpacing: '0.12em',
+                textTransform: 'uppercase',
+                color: 'var(--gold)',
+              }}>Videos</span>
+            </div>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
+              {post.videos.map((vid, idx) => (
+                <div key={idx} style={{
+                  borderRadius: '12px',
+                  overflow: 'hidden',
+                  border: '1px solid rgba(184,134,74,0.2)',
+                  background: '#0a0908',
+                }}>
+                  <div style={{
+                    display: 'flex',
+                    alignItems: 'center',
+                    gap: '0.6rem',
+                    padding: '0.75rem 1rem',
+                    background: 'rgba(184,134,74,0.06)',
+                    borderBottom: '1px solid rgba(184,134,74,0.12)',
+                  }}>
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                      <polygon points="5 3 19 12 5 21 5 3" />
+                    </svg>
+                    <span style={{
+                      fontFamily: 'var(--font-ui)',
+                      fontSize: '0.7rem',
+                      fontWeight: 600,
+                      letterSpacing: '0.12em',
+                      textTransform: 'uppercase',
+                      color: 'var(--gold)',
+                    }}>{vid.title}</span>
+                  </div>
+                  {vid.type === 'native' ? (
+                    <video controls preload="metadata" poster={vid.poster} style={{ width: '100%', display: 'block', background: '#0a0908' }}>
+                      <source src={vid.src} type="video/mp4" />
+                    </video>
+                  ) : (
+                    <div style={{ position: 'relative', paddingBottom: '56.25%', height: 0, overflow: 'hidden' }}>
+                      <iframe
+                        title={vid.title}
+                        src={vid.src}
+                        frameBorder="0"
+                        allowFullScreen
+                        allow="autoplay; fullscreen; picture-in-picture; clipboard-write"
+                        style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', border: 'none' }}
+                      />
+                    </div>
+                  )}
+                </div>
+              ))}
+            </div>
+          </div>
+        )}
+
+        {/* Audio */}
+        {post.audio && post.audio.length > 0 && (
+          <div style={{
+            marginTop: '2.5rem',
+            paddingTop: '2rem',
+            borderTop: '1px solid rgba(184,134,74,0.15)',
+          }}>
+            <div style={{
+              display: 'flex',
+              alignItems: 'center',
+              gap: '0.6rem',
+              marginBottom: '1.25rem',
+            }}>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M9 18V5l12-2v13" />
+                <circle cx="6" cy="18" r="3" />
+                <circle cx="18" cy="16" r="3" />
+              </svg>
+              <span style={{
+                fontFamily: 'var(--font-ui)',
+                fontSize: '0.7rem',
+                fontWeight: 600,
+                letterSpacing: '0.12em',
+                textTransform: 'uppercase',
+                color: 'var(--gold)',
+              }}>Audio</span>
+            </div>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
+              {post.audio.map((clip, idx) => (
+                <div key={idx} style={{
+                  padding: '1rem 1.25rem',
+                  borderRadius: '12px',
+                  border: '1px solid rgba(184,134,74,0.15)',
+                  background: 'rgba(184,134,74,0.04)',
+                }}>
+                  <p style={{
+                    fontFamily: 'var(--font-ui)',
+                    fontSize: '0.8rem',
+                    fontWeight: 600,
+                    color: 'var(--cream)',
+                    marginBottom: '0.25rem',
+                  }}>{clip.title}</p>
+                  {clip.description && (
+                    <p style={{
+                      fontFamily: 'var(--font-body)',
+                      fontSize: '0.85rem',
+                      color: 'var(--cream-dim)',
+                      marginBottom: '0.75rem',
+                    }}>{clip.description}</p>
+                  )}
+                  <audio controls preload="metadata" style={{ width: '100%' }}>
+                    <source src={clip.src} />
+                  </audio>
+                </div>
+              ))}
+            </div>
+          </div>
+        )}
+
+        {/* External Links */}
+        {post.links && post.links.length > 0 && (
+          <div style={{
+            marginTop: '2.5rem',
+            paddingTop: '2rem',
+            borderTop: '1px solid rgba(184,134,74,0.15)',
+          }}>
+            <div style={{
+              display: 'flex',
+              alignItems: 'center',
+              gap: '0.6rem',
+              marginBottom: '1.25rem',
+            }}>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" />
+                <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" />
+              </svg>
+              <span style={{
+                fontFamily: 'var(--font-ui)',
+                fontSize: '0.7rem',
+                fontWeight: 600,
+                letterSpacing: '0.12em',
+                textTransform: 'uppercase',
+                color: 'var(--gold)',
+              }}>Related Links</span>
+            </div>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '0.75rem' }}>
+              {post.links.map((link, idx) => (
+                <a
+                  key={idx}
+                  href={link.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  style={{
+                    display: 'block',
+                    padding: '1rem 1.25rem',
+                    borderRadius: '12px',
+                    border: '1px solid rgba(184,134,74,0.12)',
+                    textDecoration: 'none',
+                    transition: 'border-color 0.3s ease',
+                  }}
+                >
+                  <p style={{
+                    fontFamily: 'var(--font-ui)',
+                    fontSize: '0.85rem',
+                    fontWeight: 500,
+                    color: 'var(--gold)',
+                    marginBottom: link.description ? '0.25rem' : 0,
+                  }}>{link.text} ↗</p>
+                  {link.description && (
+                    <p style={{
+                      fontFamily: 'var(--font-body)',
+                      fontSize: '0.8rem',
+                      color: 'var(--cream-dim)',
+                    }}>{link.description}</p>
+                  )}
+                </a>
+              ))}
+            </div>
+          </div>
+        )}
+
         {/* Tags */}
         {post.tags && post.tags.length > 0 && (
           <div style={{
