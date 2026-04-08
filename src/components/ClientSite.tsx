@@ -17,9 +17,11 @@ import HoverRevealCards from '@/components/ui/cards';
 import TechBentoCards from '@/components/ui/tech-bento-cards';
 import CardModal from '@/components/ui/card-modal';
 import TopographicBackground from '@/components/ui/topographic-bg';
+import LatestBogDiaries from '@/components/blocks/latest-bog-diaries';
 
 interface ClientSiteProps {
   content: Record<string, any>;
+  latestPosts?: { slug: string; title: string; date: string; season: string; excerpt: string; image: string; thumbnail?: string }[];
 }
 
 interface LenisType {
@@ -49,7 +51,7 @@ const loadScript = (src: string): Promise<void> => {
   });
 };
 
-export default function ClientSite({ content }: ClientSiteProps) {
+export default function ClientSite({ content, latestPosts }: ClientSiteProps) {
   const heroCanvasRef = useRef<HTMLCanvasElement>(null);
 
   const [lightboxOpen, setLightboxOpen] = useState(false);
@@ -923,6 +925,11 @@ export default function ClientSite({ content }: ClientSiteProps) {
       />
 
       {/* BENTO GALLERY — removed, replaced by geotextile scroll sequence above */}
+
+      {/* LATEST BOG DIARIES */}
+      {latestPosts && latestPosts.length > 0 && (
+        <LatestBogDiaries posts={latestPosts} />
+      )}
 
       {/* PARTNERS & FUNDERS */}
       <PartnersSection />
