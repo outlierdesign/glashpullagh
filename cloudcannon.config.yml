@@ -100,6 +100,30 @@ collections_config:
         comment: Embedded video player shown in the blog post
         options:
           allow_empty: true
+      gallery:
+        type: array
+        label: Image Gallery (optional)
+        comment: Grid of images displayed after the post body
+        options:
+          structures: _structures.blog_gallery_items
+      videos:
+        type: array
+        label: Additional Videos (optional)
+        comment: Extra video embeds shown below the post body
+        options:
+          structures: _structures.blog_video_items
+      links:
+        type: array
+        label: Related Links (optional)
+        comment: External links to reports, PDFs, or partner sites
+        options:
+          structures: _structures.blog_link_items
+      audio:
+        type: array
+        label: Audio Clips (optional)
+        comment: Audio players for field recordings, interviews, etc.
+        options:
+          structures: _structures.blog_audio_items
     _structures:
       video:
         values:
@@ -471,6 +495,53 @@ _structures:
           subtitle: ''
           description: ''
           vimeoUrl: ''
+
+  # Blog gallery images
+  blog_gallery_items:
+    values:
+      - label: Gallery Image
+        icon: image
+        value:
+          src: ''
+          alt: ''
+          caption: ''
+
+  # Blog additional videos
+  blog_video_items:
+    values:
+      - label: Native MP4 Video
+        icon: videocam
+        value:
+          src: ''
+          title: ''
+          poster: ''
+          type: native
+      - label: Iframe Embed (Vimeo etc)
+        icon: videocam
+        value:
+          src: ''
+          title: ''
+          type: iframe
+
+  # Blog related links
+  blog_link_items:
+    values:
+      - label: Link
+        icon: link
+        value:
+          text: ''
+          url: ''
+          description: ''
+
+  # Blog audio clips
+  blog_audio_items:
+    values:
+      - label: Audio Clip
+        icon: music_note
+        value:
+          src: ''
+          title: ''
+          description: ''
 
 # ---------------------------------------------------------------------------
 # Editor configuration
