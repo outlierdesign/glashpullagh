@@ -4,7 +4,6 @@ import { useEffect, useLayoutEffect, useRef, useState } from 'react';
 import { Gallery4 } from '@/components/blocks/gallery4';
 // PhotoBentoGallery removed — replaced by scroll sequence
 import ElegantCarousel from '@/components/ui/elegant-carousel';
-import { HoverRevealGrid } from '@/components/blocks/hover-reveal-grid';
 import ScrollExpandMedia from '@/components/blocks/scroll-expansion-hero';
 import { PartnersSection } from '@/components/blocks/partners-section';
 // BentoGallery removed — replaced by scroll sequence
@@ -898,10 +897,10 @@ export default function ClientSite({ content, latestPosts }: ClientSiteProps) {
 
       {/* ZOOM PARALLAX — removed, replaced by geotextile scroll sequence */}
 
-      {/* SECTION: HOVER REVEAL GRID */}
-      <div style={{ background: 'var(--bg-dark)' }}>
-        <HoverRevealGrid />
-      </div>
+      {/* BOG DIARIES — Latest Posts */}
+      {latestPosts && latestPosts.length > 0 && (
+        <LatestBogDiaries posts={latestPosts} />
+      )}
 
       {/* SECTION: SCROLL-DRIVEN IMAGE SEQUENCE — Geotextile Animation */}
       <ImageSequenceScroll
@@ -926,10 +925,6 @@ export default function ClientSite({ content, latestPosts }: ClientSiteProps) {
 
       {/* BENTO GALLERY — removed, replaced by geotextile scroll sequence above */}
 
-      {/* LATEST BOG DIARIES */}
-      {latestPosts && latestPosts.length > 0 && (
-        <LatestBogDiaries posts={latestPosts} />
-      )}
 
       {/* PARTNERS & FUNDERS */}
       <PartnersSection />
