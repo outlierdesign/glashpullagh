@@ -208,7 +208,7 @@ export default function LatestBogDiaries({ posts }: LatestBogDiariesProps) {
                     letterSpacing: '0.08em',
                   }}
                 >
-                  Read more â
+                  Read more →
                 </span>
               </div>
             </Link>
@@ -233,7 +233,7 @@ export default function LatestBogDiaries({ posts }: LatestBogDiariesProps) {
               transition: 'border-color 0.3s ease, background 0.3s ease',
             }}
           >
-            All Bog Diaries â
+            All Bog Diaries →
           </Link>
         </div>
       </div>
