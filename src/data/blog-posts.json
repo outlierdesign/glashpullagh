@@ -1,5 +1,22 @@
 [
   {
+    "slug": "wildfire-and-restoration",
+    "title": "Wildfire and Restoration",
+    "date": "2026-04-17",
+    "season": "Spring",
+    "excerpt": "When the bog was drained, the plant communities shifted — and with them, the fire risk. Restoration won't stop Spring wildfires overnight, but it stops them burning deep into the peat, protecting the seed bank that recovery depends on.",
+    "body": [
+      "When the bog was drained, the plant communities changed completely. Plants like Heather and Purple Moor Grass (Molinia) that enjoyed slightly drier conditions became more prominent. Species adapted to consistently high water tables like Bog Cottons and Sphagnum became less so. Unfortunately, this shift in vegetation increases the fire risk considerably.",
+      "Molinia is a deciduous grass — its leaves die off every Autumn, and given a few good days in spring the leaves dry out like tinder. It is no accident that Molinia litter is the most important fuel on fires on blanket bog: the stuff is like paper, easy to light and fast burning. What's more, Molinia is fire adapted — the Spring wildfires do Molinia little harm as the living parts of the plant are safely below ground at this time of year. If Heather cover is significant, it can add considerably to the fuel load, increasing the heat produced by a fire and prolonging the time that a given point is exposed to the flame.",
+      "Spring wildfires do serious damage to wildlife. Ground nesting birds, amphibians and reptiles have no real chance of escape. But the fires also kill off mosses and other vegetation, and they can burn into the peat causing permanent chemical and physical changes to its structure, destroying the bank of dormant seeds in the surface layer. This is a big loss — these seeds are the building blocks for recovery, and even one serious fire can make future restoration slower and more difficult.",
+      "Restoration makes an instant difference. In the short term it does not reduce the risk of fires starting, but it does reduce the risk of hot fires that burn deep into the peat. Higher water tables mean the surface should remain wet throughout the spring fire season; this dampness stops Molinia fires from burning down into the peat. The fires may be fast moving, but they do not persist for long at a given point, and the damp mosses, peat and litter shield the surface from the heat. Most importantly, a fire is less likely to burn into the surface peat, so the vital seed bank is more likely to survive.",
+      "Over time the high water tables will weaken the Molinia and Heather — their dominance will reduce, and other less flammable species will become more significant. Shifting the vegetation back towards that of a normal healthy bog means less fuel and less connectivity of fuel. This will greatly reduce the chances of a fire spreading at all.",
+      "Reducing the risk and impact of wildfires is one of the big wins from peatland restoration."
+    ],
+    "image": "/images/blog/wildfire-and-restoration/hero-fire.webp",
+    "tags": ["wildfire", "fire", "molinia", "restoration", "spring"]
+  },
+  {
     "slug": "thermal-survey-a-birds-eye-view",
     "title": "Thermal Survey: A Bird\u2019s Eye View",
     "date": "2026-03-24",
