@@ -3,6 +3,7 @@ import './globals.css';
 import StoryblokBridgeProvider from '@/components/storyblok/StoryblokProvider';
 import { initStoryblok } from '@/lib/storyblok';
 import { SiteNav } from '@/components/blocks/site-nav';
+import { Analytics } from '@vercel/analytics/next';
 
 // Initialise Storyblok SDK (server-side, runs once)
 initStoryblok();
@@ -109,6 +110,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <StoryblokBridgeProvider>
           {children}
         </StoryblokBridgeProvider>
+        <Analytics />
       </body>
     </html>
   );
